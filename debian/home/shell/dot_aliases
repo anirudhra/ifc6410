@@ -77,7 +77,7 @@ alias more='less'
 alias cat='less'
 
 alias gowww='cd /var/www/html'
-
+alias livelog='journalctl -ef'
 alias fixwifi='sudo modprobe -r ath6kl_sdio && sudo modprobe ath6kl_sdio'
 
 ########### ENV Variables ###########################
@@ -87,7 +87,7 @@ export PATH=".:$PATH"
 
 ############################### nothing below this line! ###################################
 ########## source .aliases (this file) at the very end of .profile or .bashrc/.zshrc etc.###
-fixwifi
+##fixwifi
 #cowsay $(fortune -s)
 echo
 ##############
