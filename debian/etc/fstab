@@ -1,6 +1,4 @@
 # UNCONFIGURED FSTAB FOR BASE SYSTEM
 
 LABEL=qcom-firmware /lib/firmware ext4 defaults 0 0
-
-# patriot SSD 300GB data partition (sda2)
 UUID=959e5da6-f967-4f96-a722-8ad74a7e6d09 /mnt/ssd-data ext4 defaults 0 2
