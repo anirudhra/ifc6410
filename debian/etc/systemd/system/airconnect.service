@@ -3,8 +3,9 @@ Description=AirConnect Chromecast  bridge
 After=network-online.target  
 Wants=network-online.target  
 
-[Service]  
-ExecStart=/usr/local/bin/aircast-arm -l 1000:2000 -c mp3:320 -r -Z -v 0.5 
+[Service]
+user=root
+ExecStart=/var/lib/airconnect/aircast-arm -I -Z -x /var/lib/airconnect/config.xml 
 Restart=on-failure  
 RestartSec=30  
 
