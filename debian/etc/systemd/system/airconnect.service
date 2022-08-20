@@ -1,0 +1,12 @@
+[Unit]  
+Description=AirConnect Chromecast  bridge  
+After=network-online.target  
+Wants=network-online.target  
+
+[Service]  
+ExecStart=/usr/local/bin/aircast-arm -l 1000:2000 -c mp3:320 -r -Z -v 0.5 
+Restart=on-failure  
+RestartSec=30  
+
+[Install]  
+WantedBy=multi-user.target  
