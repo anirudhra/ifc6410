@@ -88,23 +88,25 @@ alias please='sudo $( history -p !! )'
 alias gh='history | grep'
 alias count='find . -type f | wc -l'
 alias listps='ps aux | grep -v "ps aux" | grep -Ev "\[.+\]" | grep -v grep'
-alias diskuse="echo 'Device          Size  Used  Free  Mount Point' && df -h --output=source,size,used,avail,target | grep dev/root | sort
+#alias diskuse="echo 'Device          Size  Used  Free  Mount Point' && df -h --output=source,size,used,avail,target | grep dev/root | sort
 
 alias sshrouter='ssh admin@10.100.100.1'
 alias pingrouter='ping 10.100.100.1'
-######### functions ######################
+
+############# Functions #######################
 mkcd()
 {
     case $# in
-        1)
-           mkdir -p $1
-           cd $1
-           ;;
-        *)
-           echo "USAGE : mkcd rep"
-           ;;
+    1)
+        mkdir -p $1
+        cd $1
+        ;;
+    *)
+        echo "USAGE : mkcd rep"
+        ;;
     esac
 }
+###############################################
 
 ########### ENV Variables ###########################
 export PIHOLE_SKIP_OS_CHECK=true
