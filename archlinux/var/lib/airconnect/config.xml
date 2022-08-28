@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<aircast>
+<common>
+<enabled>1</enabled>
+<stop_receiver>0</stop_receiver>
+<media_volume>0.5</media_volume>
+<latency>1000:2000</latency>
+<drift>1</drift>
+<codec>mp3:320</codec>
+<metadata>1</metadata>
+<flush>1</flush>
+<artwork></artwork>
+</common>
+<main_log>info</main_log>
+<cast_log>info</cast_log>
+<util_log>warn</util_log>
+<log_limit>-1</log_limit>
+<max_players>32</max_players>
+<ports>0:0</ports>
+<binding>?</binding>
+<device>
+<udn>53abe5a48e3b1e9aaa5eeca37f638a98</udn>
+<name>Vizio Soundbar+</name>
+<mac>cc:cc:d6:3c:c1:15</mac>
+<enabled>1</enabled>
+</device>
+<device>
+<udn>318c7b821884f2d07e99c8cbbcb75937</udn>
+<name>Mini+</name>
+<mac>cc:cc:38:04:c5:45</mac>
+<enabled>1</enabled>
+</device>
+</aircast>
