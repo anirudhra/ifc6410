@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target  
 
 [Service]
-user=root
+User=root
 ExecStart=/var/lib/airconnect/aircast-arm -I -Z -x /var/lib/airconnect/config.xml 
 Restart=on-failure  
 RestartSec=30  
