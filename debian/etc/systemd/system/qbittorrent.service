@@ -6,7 +6,7 @@ After=network-online.target nss-lookup.target
 
 [Service]
 Type=simple
-# change user as needed
+# change user as needed, default webui login is admin:adminadmin
 User=linaro
 # The -d flag should not be used in this setup
 ExecStart=/usr/bin/qbittorrent-nox --webui-port=9090
