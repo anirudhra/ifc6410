@@ -39,6 +39,8 @@ alias a='alias'
 alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast #
 alias fastping='ping -c 100 -s.2'
+alias pingwatch='watch -n 1 ping -c 1 archlinux.org'
+alias noipv6="sudo sh -c 'echo 1 > /proc/sys/net/ipv6/conf/enp1s0/disable_ipv6'"
 
 alias ports='netstat -tulanp'
 
@@ -64,7 +66,7 @@ alias df='df -P -h'
 alias du='du -ch'
 
 alias vi='vim'
-alias apt-get='sudo pacman -Sy'
+alias supacman='sudo pacman -S --needed'
 alias sudovi='sudo vim'
 alias vis='vim "+set si"'
 alias edit="vim"
@@ -78,9 +80,9 @@ alias dir='ls'
 #export LESS=" -R "
 #alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
-alias cat='less'
+#alias cat='less'
 
-alias gowww='cd /var/www/html'
+alias gowww='cd /srv/http'
 alias livelog='journalctl -ef'
 alias fixwifi='sudo modprobe -r ath6kl_sdio && sudo modprobe ath6kl_sdio'
 
@@ -96,6 +98,13 @@ alias sshrouter='ssh admin@10.100.100.1'
 alias pingrouter='ping 10.100.100.1'
 
 alias clearjournalctl='sudo journalctl --vacuum-time=1seconds'
+alias cleancore='sudo rm -rf /var/lib/systemd/coredump/*'
+
+alias fullupgrade='sudo pacman -Syyu && yay -Syu'
+alias clean='sudo pacman -Sc && yay -Sc'
+
+alias dockerup='docker compose up -d'
+alias dockerdown='docker compose down'
 
 ############# Functions #######################
 mkcd()
@@ -104,6 +113,18 @@ mkcd()
     1)
         mkdir -p $1
         cd $1
+        ;;
+    *)
+        echo "USAGE : mkcd rep"
+        ;;
+    esac
+}
+
+dockershell()
+{
+    case $# in
+    1)
+        docker exec -it $1 bash
         ;;
     *)
         echo "USAGE : mkcd rep"
