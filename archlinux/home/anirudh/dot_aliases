@@ -107,6 +107,7 @@ alias dockerup='docker compose up -d'
 alias dockerdown='docker compose down'
 
 ############# Functions #######################
+
 mkcd()
 {
     case $# in
@@ -115,7 +116,7 @@ mkcd()
         cd $1
         ;;
     *)
-        echo "USAGE : mkcd rep"
+        echo "USAGE: mkcd rep"
         ;;
     esac
 }
@@ -127,10 +128,28 @@ dockershell()
         docker exec -it $1 bash
         ;;
     *)
-        echo "USAGE : mkcd rep"
+        echo "Opens docker shell"
+        echo "USAGE: dockershell <docker_container>"
         ;;
     esac
 }
+
+dockerrestart()
+{
+    case $# in
+    1)
+        cd /home/anirudh/dockerapps/$1
+        docker compose down
+        docker compose up -d
+        cd -
+        ;;
+    *)
+        echo "Restarts docker container"
+        echo "USAGE: dockerstart <docker_container>"
+        ;;
+    esac
+}
+
 ###############################################
 
 ########### ENV Variables ###########################
