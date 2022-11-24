@@ -105,6 +105,7 @@ alias clean='sudo pacman -Sc && yay -Sc'
 
 alias dockerup='docker compose up -d'
 alias dockerdown='docker compose down'
+alias dockerupdate='docker compose down && docker compose pull && docker compose up -d --remove-orphans && docker image prune'
 
 ############# Functions #######################
 
