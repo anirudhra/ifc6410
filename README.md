@@ -4,7 +4,7 @@ Repo for ifc6410 single-board-computer -
 <p>archlinux: Current rolling release 20220828
 <br>debian: jessie 8.11
 <p>
-Yocto kernel commands:
+Yocto kernel commands (kirkstone branch):
 <br>$ cd poky
 <br>$ git pull
 <br>$ source oe-init-build-env
