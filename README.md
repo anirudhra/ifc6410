@@ -11,4 +11,5 @@ Yocto kernel commands (kirkstone branch):
 <br>$ cd /build
 <br>$ bitbake-layers add-layer ../../meta-qcom
 <br>$ bitbake -c menuconfig virtual/kernel
-<br>$ bitbake core-image-tiny-initramfs
+<br>$ bitbake core-image-tiny-initramfs ##rebuilt distro
+<br>$ bitbake -c compile -f virtual/kernel ##rebuild only kernel
