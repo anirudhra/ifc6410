@@ -94,21 +94,28 @@ alias count='find . -type f | wc -l'
 alias listps='ps aux | grep -v "ps aux" | grep -Ev "\[.+\]" | grep -v grep'
 #alias diskuse="echo 'Device          Size  Used  Free  Mount Point' && df -h --output=source,size,used,avail,target | grep dev/root | sort
 
+alias gomedia='cd /mnt/ssd-data/media'
+
 alias sshrouter='ssh admin@10.100.100.1'
 alias pingrouter='ping 10.100.100.1'
+
+alias cursize='du -h -s .'
+
+alias dsdelete="sudo find . -name ".DS_Store" -print -type f -delete && sudo find . -name "._.DS_Store" -print -type f -delete && sudo find . -name "Thumbs.db" -print -type f -delete && sudo find . -name "._*" -print -type f -delete"
 
 alias clearjournalctl='sudo journalctl --vacuum-time=1seconds'
 alias cleancore='sudo rm -rf /var/lib/systemd/coredump/*'
 
 alias fullupgrade='sudo pacman -Syyu && yay -Syu'
 alias clean='sudo pacman -Sc && yay -Sc'
+alias fullclean='sudo pacman -Scc && yay -Scc'
 
 alias dockerup='docker compose up -d'
 alias dockerdown='docker compose down'
 alias dockerupdate='docker compose down && docker compose pull && docker compose up -d --remove-orphans && docker image prune'
+alias dockerbackup='tar -zcvf dockerapps.tar.gz ~/dockerapps'
 
 ############# Functions #######################
-
 mkcd()
 {
     case $# in
@@ -147,6 +154,19 @@ dockerrestart()
     *)
         echo "Restarts docker container"
         echo "USAGE: dockerstart <docker_container>"
+        ;;
+    esac
+}
+
+dirsize()
+{
+    case $# in
+    1)
+        du -sh $1
+        ;;
+    *)
+        echo "Shows Direcotry size"
+        echo "USAGE: dirsize <directory>"
         ;;
     esac
 }
