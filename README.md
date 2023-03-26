@@ -24,3 +24,4 @@ Yocto kernel commands (kirkstone branch):
 <br>$ bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 <br>
 <br>Kernel/userspace compiled versions in build/tmp/deploy/images/ifc6410. Modify boot-qcom-apq8064-ifc6410-....img to add following to commandline/boot config: "cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive" and repackage img with abootimg utility
+<br> Blacklist msm module if necessary
