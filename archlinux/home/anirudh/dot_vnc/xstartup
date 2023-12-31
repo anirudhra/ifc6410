@@ -1,8 +1,0 @@
-#!/bin/sh
-
-xrdb $HOME/.Xresources
-xsetroot -solid grey
-# Fix to make GNOME work
-export XKL_XMODMAP_DISABLE=1
-icewm-session
-
