@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>admin subscriptions in CommaFeed</title>
+  </head>
+  <body>
+    <outline text="xkcd" type="rss" title="xkcd" xmlUrl="https://xkcd.com/rss.xml" htmlUrl="https://xkcd.com/" />
+    <outline text="BBC News" type="rss" title="BBC News" xmlUrl="https://feeds.bbci.co.uk/news/world/rss.xml" htmlUrl="https://www.bbc.co.uk/news/world" />
+    <outline text="Ars Technica" type="rss" title="Ars Technica" xmlUrl="https://feeds.arstechnica.com/arstechnica/index" htmlUrl="https://arstechnica.com" />
+    <outline text="APOD" type="rss" title="APOD" xmlUrl="https://apod.nasa.gov/apod.rss" htmlUrl="https://apod.nasa.gov/" />
+    <outline text="AnandTech" type="rss" title="AnandTech" xmlUrl="https://www.anandtech.com/rss/" htmlUrl="https://www.anandtech.com" />
+    <outline text="Wccftech" type="rss" title="Wccftech" xmlUrl="https://wccftech.com/feed/" htmlUrl="https://wccftech.com/" />
+    <outline text=" Tomshardware" type="rss" title=" Tomshardware" xmlUrl="https://www.tomshardware.com/feeds/all" htmlUrl="https://www.tomshardware.com" />
+    <outline text="VideoCardz" type="rss" title="VideoCardz" xmlUrl="https://feeds.feedburner.com/VideoCardzcom" htmlUrl="http://videocardz.com" />
+    <outline text="ChipAnnotation" type="rss" title="ChipAnnotation" xmlUrl="https://misdake.github.io/ChipAnnotationTool/log/rssday.xml" htmlUrl="https://misdake.github.io/ChipAnnotationViewer/" />
+  </body>
+</opml>
