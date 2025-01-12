@@ -18,8 +18,8 @@ git checkout -t origin/kirkstone -b my-kirkstone-qcom ##langdale also works
 source oe-init-build-env
 ```
 
-<br>Modify MACHINE ??="ifc6410" in build/conf/local.conf    ##change other settings like package_deb etc.
-<br>Modify "/dev/mmcblk0p12" to "/dev/mmcblk0p13" in meta-qcom/conf/machine/ifc6410.conf
+* Modify MACHINE ??="ifc6410" in build/conf/local.conf    ##change other settings like package_deb etc.
+* Modify "/dev/mmcblk0p12" to "/dev/mmcblk0p13" in meta-qcom/conf/machine/ifc6410.conf
 
 ```
 cd /build
