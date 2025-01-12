@@ -19,9 +19,15 @@ cd .. #go back to poky directory
 source oe-init-build-env
 ```
 
-* Modify MACHINE ??="ifc6410" in build/conf/local.conf    ##change other settings like package_deb etc.
-* Modify "/dev/mmcblk0p12" to "/dev/mmcblk0p13" in meta-qcom/conf/machine/ifc6410.conf
-
+* Modify MACHINE ??="qemu" in build/conf/local.conf to:
+```
+MACHINE ??="ifc6410" ##change other settings like package_deb etc.
+```
+* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to:
+```
+/dev/mmcblk0p13
+```
+* Compile kernel:
 ```
 cd /build
 bitbake-layers add-layer ../../meta-qcom              ##ensure /build/conf/bblayers.conf has meta-qcom entry
