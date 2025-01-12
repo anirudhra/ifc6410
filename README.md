@@ -10,11 +10,11 @@ Yocto kernel commands (kirkstone branch):
 ```
 git clone git://git.yoctoproject.org/poky
 cd poky
-git checkout -t origin/kirkstone -b my-kirkstone      ##langdale also works
+git checkout -t origin/kirkstone -b my-branch      ##langdale also works
 git pull
 git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
-git checkout -t origin/kirkstone -b my-kirkstone-qcom ##langdale also works
+git checkout -t origin/kirkstone -b my-branch-qcom ##langdale also works
 cd .. #go back to poky directory
 source oe-init-build-env
 ```
