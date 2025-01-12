@@ -28,7 +28,7 @@ bitbake -c menuconfig virtual/kernel                  ##kernel config
 bitbake core-image-minimal                            ##rebuild distro, no initramfs
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 ```
-<br>
+
 * Kernel/userspace compiled versions in build/tmp/deploy/images/ifc6410
 * Modify boot-qcom-apq8064-ifc6410-....img to add following to commandline/boot config: 
 
