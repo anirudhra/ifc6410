@@ -15,6 +15,7 @@ git pull
 git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
 git checkout -t origin/kirkstone -b my-kirkstone-qcom ##langdale also works
+cd .. #go back to poky directory
 source oe-init-build-env
 ```
 
