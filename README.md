@@ -19,17 +19,17 @@ cd .. #go back to poky directory
 source oe-init-build-env
 ```
 
-* Modify MACHINE ??="qemu" in build/conf/local.conf to:
+* Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
 ```
 MACHINE ??="ifc6410" ##change other settings like package_deb etc.
 ```
-* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to:
+* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to: (does not seem to exist in newer repos)
 ```
 /dev/mmcblk0p13
 ```
 * Compile kernel:
 ```
-cd /build
+cd build
 bitbake-layers add-layer ../../meta-qcom              ##ensure /build/conf/bblayers.conf has meta-qcom entry
 bitbake -c menuconfig virtual/kernel                  ##kernel config
 bitbake core-image-minimal                            ##rebuild distro, no initramfs
