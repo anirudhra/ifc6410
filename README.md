@@ -6,6 +6,7 @@ Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/Ope
 <br>debian: jessie 8.11
 <p>
 Yocto kernel commands (kirkstone branch):
+  
 ```
 git clone git://git.yoctoproject.org/poky
 cd poky
@@ -19,7 +20,7 @@ source oe-init-build-env
 
 <br>Modify MACHINE ??="ifc6410" in build/conf/local.conf    ##change other settings like package_deb etc.
 <br>Modify "/dev/mmcblk0p12" to "/dev/mmcblk0p13" in meta-qcom/conf/machine/ifc6410.conf
-<br>
+
 ```
 cd /build
 bitbake-layers add-layer ../../meta-qcom              ##ensure /build/conf/bblayers.conf has meta-qcom entry
@@ -30,8 +31,10 @@ bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 <br>
 * Kernel/userspace compiled versions in build/tmp/deploy/images/ifc6410
 * Modify boot-qcom-apq8064-ifc6410-....img to add following to commandline/boot config: 
+
 ```
 "cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
 ```
+
 ...and repackage img with abootimg utility
 * Blacklist msm module if necessary (GPU hangs, but disables display)
