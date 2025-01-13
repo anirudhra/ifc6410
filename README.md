@@ -33,13 +33,9 @@ MACHINE ??="qcom-armv7a" ##change other settings like package_deb, state cache/m
 ```
 /dev/mmcblk0p13 #for new emmc userdata partition
 ```
-...alternatively you can also change it to:
-```
-/dev/disk/by-partlabel/userdata
-```
 ...or for SDCard:
 ```
-/dev/mmcblk1p1 #or mmcblk1p2/p3... etc.
+/dev/mmcblk1p1 #or mmcblk1p2/p3... depending on paritition number etc.
 ```
 ...or for USB/SATA:
 ```
