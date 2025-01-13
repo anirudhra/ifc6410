@@ -5,7 +5,7 @@ Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/Ope
 <p>archlinux: Current rolling release 20220828
 <br>debian: jessie 8.11
 <p>
-Yocto kernel commands (kirkstone branch):
+Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x):
   
 ```
 git clone git://git.yoctoproject.org/poky
@@ -21,9 +21,9 @@ source oe-init-build-env
 
 * Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
 ```
-MACHINE ??="ifc6410" ##change other settings like package_deb etc., scarthgap and newer release only support qcom-armv7a not ifc6410
+MACHINE ??="ifc6410" ##change other settings like package_deb etc., scarthgap and newer release only support "qcom-armv7a" for machine not ifc6410 as all boards are included in it
 ```
-* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to: (does not seem to exist in newer repos)
+* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to: (does not seem to exist in newer repos scarthgap, seems to be using "userdata" partlabel - to be verified)
 ```
 /dev/mmcblk0p13
 ```
