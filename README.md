@@ -26,10 +26,10 @@ MACHINE ??="ifc6410" ##change other settings like package_deb later etc., kirkst
 ```
 scarthgap branch (kernel 6.6.x):
 ```
-MACHINE ??="qcom-armv7a" ##change other settings like package_deb later etc., scarthgap branch only, kernel 6.6+
+MACHINE ??="qcom-armv7a" ##change other settings like package_deb, state cache/mirror later etc., scarthgap branch only, kernel 6.6+
 ```
 
-* Modify "/dev/mmcblk0p12" (old emmc userdata partition) to in meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition:
+* Modify "/dev/mmcblk0p12" (old emmc userdata partition) to in meta-qcom/conf/machine/ifc6410.conf (or qcom-armv7a.conf) to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
 /dev/mmcblk0p13 #for new emmc userdata partition
 ```
