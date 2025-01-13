@@ -1,8 +1,8 @@
-# ifc6410
+# QCOM IFC6410 SBC with APQ8064 SoC
 
 Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/OpenEmbedded. See .../docs/* pins *.png files for pins to be used for fastboot and UART/Serial connection on the board.
 
-## Kernel Compile:
+## Kernel Compile
 
 Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x):
   
