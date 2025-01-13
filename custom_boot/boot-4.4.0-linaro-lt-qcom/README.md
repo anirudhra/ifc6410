@@ -1,4 +1,4 @@
-# Kernel 4.4.x
+# Kernel 4.4.x for IFC6410 (APQ8064)
 
 All IPs onboard should work but this is a very old kernel and may not work with newer userspace/rootfs linux distributions.
 
