@@ -19,11 +19,11 @@ source oe-init-build-env
 ```
 
 * Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
-** kirkstone branch (kernel 5.15.x)
+<br>kirkstone branch (kernel 5.15.x)
 ```
 MACHINE ??="ifc6410" ##change other settings like package_deb later etc., kirkstone branch only, kernel 5.15
 ```
-** scarthgap branch (kernel 6.6.x)
+<br>scarthgap branch (kernel 6.6.x)
 ```
 MACHINE ??="qcom-armv7a" ##change other settings like package_deb later etc., scarthgap branch only, kernel 6.6+
 ```
