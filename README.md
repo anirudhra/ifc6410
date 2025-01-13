@@ -2,6 +2,8 @@
 
 Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/OpenEmbedded. See .../docs/* pins *.png files for pins to be used for fastboot and UART/Serial connection on the board.
 
+## Kernel Compile:
+
 Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x):
   
 ```
@@ -52,7 +54,9 @@ bitbake core-image-minimal                            ##rebuild distro, no initr
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 ```
 
-* Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 directory
+## Kernel Settings
+
+* Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 or qcom-armv7a directory
 * The ROOTFS change in .conf above sometimes does not work. Modify bootimg.cfg in boot-qcom-apq8064-ifc6410-....img to add following to commandline/boot config to override root: 
 
 ```
@@ -86,6 +90,12 @@ fastboot boot <kernelimg>
 ```
 fastboot flash boot <kernelimg>
 ```
+
+## Kernel Modules and Firmware
+
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 or qcom-armv7a directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition). Both modules and firmware are necessary to be loaded (firmware either copied to rootfs /lib/firmware directory or /dev/mmcblk0p15 mounted as /lib/fimrware in fstab at boot) to work correctly.
+
+See .../docs/part-table.png for original mappings and mounts
 
 ## Wifi CLI connect
 
