@@ -92,11 +92,13 @@ fastboot boot <kernelimg>
 fastboot flash boot <kernelimg>
 ```
 
-## Kernel Modules and Firmware
+## Kernel Modules, Firmware and EMMC Partitions
 
-Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 or qcom-armv7a directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition). Both modules and firmware are necessary to be loaded (firmware either copied to rootfs /lib/firmware directory or /dev/mmcblk0p15 mounted as /lib/fimrware in fstab at boot) to work correctly.
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 or qcom-armv7a directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition). An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once).
 
-See .../docs/part-table.png for original mappings and mounts
+Both modules and firmware are necessary to be loaded (firmware either copied to rootfs /lib/firmware directory or /dev/mmcblk0p15 mounted as /lib/fimrware in fstab at boot) to work correctly.
+
+See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
 ## Wifi CLI connect
 
