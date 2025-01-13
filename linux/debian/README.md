@@ -16,4 +16,4 @@ chroot /mnt/rootfs
 ```
 * Add kernel modules directory and firmware directories/files
 * Add required modules to /etc/modules and blacklist to /etc/modprobe.d/blacklist.conf
-* See https://www.debian.org/releases/bullseye//i386/apds03.en.html for more details and other necessary steps
+* See https://www.debian.org/releases/bullseye//i386/apds03.en.html and https://austinjadams.com/blog/install-debian-with-debootstrap/ for more details and other necessary steps
