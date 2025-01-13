@@ -56,3 +56,11 @@ bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 
 ...and repackage img with abootimg utility
 * Blacklist msm module if necessary (GPU hangs, but disables display)
+
+## Wifi CLI connect
+
+To connect to wifi from commandline:
+
+```
+nmcli dev wifi connect <mySSID> password <myPassword>
+```
