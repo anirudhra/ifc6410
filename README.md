@@ -9,11 +9,11 @@ Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch l
 ```
 git clone git://git.yoctoproject.org/poky
 cd poky
-git checkout -t origin/kirkstone -b my-branch      ##langdale also works
+git checkout -t origin/kirkstone -b my-branch      ##scarthgap also works for 6.6.x
 git pull
 git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
-git checkout -t origin/kirkstone -b my-branch-qcom ##langdale also works
+git checkout -t origin/kirkstone -b my-branch-qcom ##scarthgap also works for 6.6.x
 cd .. #go back to poky directory
 source oe-init-build-env
 ```
