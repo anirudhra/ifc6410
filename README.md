@@ -21,7 +21,7 @@ source oe-init-build-env
 
 * Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
 ```
-MACHINE ??="ifc6410" ##change other settings like package_deb etc.
+MACHINE ??="ifc6410" ##change other settings like package_deb etc., scarthgap and newer release only support qcom-armv7a not ifc6410
 ```
 * Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to: (does not seem to exist in newer repos)
 ```
