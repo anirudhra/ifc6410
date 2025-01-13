@@ -1,6 +1,6 @@
-# Kernel 5.15.x: Custom compiled kernel
+# Kernel 5.15.x: Custom compiled LTS kernel for IFC6410
 
-LTS custom compiled kernel on Yocto. GPU does NOT work, audio is not detected either. Needs to be blacklisted before you boot.
+LTS custom compiled LTS kernel on Yocto for IFC6410 (APQ8064). GPU does NOT work, audio is not detected either. Needs to be blacklisted before you boot.
 
 * Use appropriate kernel image for corresponding ROOTFS (emmc, usb/sata:sda1, sdcard etc.)
 * Extract kernel modules to /lib/modules/<kernel> on rootfs: modules--5.15-r0-ifc6410-20220928021518.tgz
