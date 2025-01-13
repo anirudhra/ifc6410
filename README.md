@@ -78,6 +78,14 @@ msm
 ath6lk-sdio
 atl1
 ```
+* Use fastboot to test kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel>:
+```
+fastboot boot <kernelimg>
+```
+* Use fastboot to finally flash working kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel> as before:
+```
+fastboot flash boot <kernelimg>
+```
 
 ## Wifi CLI connect
 
