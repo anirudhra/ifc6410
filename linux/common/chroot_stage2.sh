@@ -15,6 +15,12 @@ cp -a /etc/ssh/sshd_config ${ROOTFS}/etc/ssh/sshd_config
 cp -a /etc/ssh/ssh_config ${ROOTFS}/etc/ssh/ssh_config
 cp -a /etc/NetworkManager ${ROOTFS}/etc/NetworkManager
 
+# modules and firmware
+mkdir -p ${ROOTFS}/lib/modules
+mkdir -p ${ROOTFS}/lib/firmware
+cp -a /lib/modules/* ${ROOTFS}/lib/modules/
+cp -a /lib/firmware/* ${ROOTFS}/lib/firmware/
+
 # copy included files in this repo's /etc to rootfs
 cp -a ./etc/* ${ROOTFS}/etc/
 
