@@ -23,10 +23,21 @@ source oe-init-build-env
 ```
 MACHINE ??="ifc6410" ##change other settings like package_deb etc., scarthgap and newer release only support "qcom-armv7a" for machine not ifc6410 as all boards are included in it
 ```
-* Modify "/dev/mmcblk0p12" to in meta-qcom/conf/machine/ifc6410.conf to: (does not seem to exist in newer repos scarthgap, seems to be using "userdata" partlabel - to be verified)
+* Modify "/dev/mmcblk0p12" (old emmc userdata partition) to in meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition: (does not seem to exist in newer repos scarthgap, and instead it's shown as ROOT_FS)
 ```
 /dev/mmcblk0p13
 ```
+...alternatively you can also change it to:
+```
+/dev/disk/by-partlabel/userdata
+```
+
+To boot from USB/SDcard instead change it to:
+
+```
+/dev/sda1
+```
+
 * Compile kernel:
 ```
 cd build
