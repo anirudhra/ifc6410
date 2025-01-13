@@ -30,7 +30,7 @@ MACHINE ??="ifc6410" ##change other settings like package_deb etc., scarthgap an
 * Compile kernel:
 ```
 cd build
-bitbake-layers add-layer ../../meta-qcom              ##ensure /build/conf/bblayers.conf has meta-qcom entry
+bitbake-layers add-layer ../meta-qcom              ##ensure /build/conf/bblayers.conf has meta-qcom entry
 bitbake -c menuconfig virtual/kernel                  ##kernel config
 bitbake core-image-minimal                            ##rebuild distro, no initramfs
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
