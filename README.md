@@ -1,6 +1,6 @@
 # ifc6410
 
-Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/OpenEmbedded
+Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/OpenEmbedded. See .../docs/*pins*.png files for pins to be used for fastboot and UART/Serial connection on the board.
 
 <p>archlinux: Current rolling release 20220828
 <br>debian: jessie 8.11
