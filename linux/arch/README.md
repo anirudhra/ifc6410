@@ -4,7 +4,7 @@
 ```
 bsdtar -xpf ArchLinuxARM-<version>.tar.gz -C <mount_point_root_target>
 ```
-* Stage 2 bootstrap may need to be done after chrooting in to the mountpoint (for /proc and other directories), check documentation
+* Stage 2 bootstrap may need to be done after chrooting in to the mountpoint (for /proc and other directories), check documentation (check debian directory for creating sysfs like proc etc. on new rootfs)
 
 * After install:
 ```ssh (alarm:alarm), su (root:root)
