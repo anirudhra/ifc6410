@@ -17,3 +17,11 @@ chroot /mnt/rootfs
 * Add kernel modules directory and firmware directories/files
 * Add required modules to /etc/modules and blacklist to /etc/modprobe.d/blacklist.conf
 * See https://www.debian.org/releases/bullseye//i386/apds03.en.html and https://austinjadams.com/blog/install-debian-with-debootstrap/ for more details and other necessary steps
+
+## Docker
+
+Debian does not use iptables by default. Docker will fail. Run the following command and then restart docker service:
+```
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
