@@ -126,7 +126,7 @@ An archive of qcom-firmware image is available in custom_boot directory (for ref
 
 ## Wifi CLI connect
 
-To connect to wifi from commandline, install nmcli:
+To connect to wifi from commandline, install NetworkManager package and run:
 
 ```
 nmcli dev wifi connect <mySSID> password <myPassword>
