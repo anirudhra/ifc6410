@@ -28,5 +28,5 @@ cp -a ./etc/* ${ROOTFS}/etc/
 chroot ${ROOTFS}
 
 # install following packages at the very least
-# btop ssh ca-certificates tmux duf nano sudo console-setup console-setup-linux network-manager wget curl lsb-release locales iw net-tools ntp systemd-resolvd
+# btop ssh ca-certificates tmux duf nano sudo console-setup console-setup-linux network-manager wget curl lsb-release locales iw net-tools systemd-timesyncd
 # configure: dpkg-reconfigure tzdata, dpkg-reconfigure locales
