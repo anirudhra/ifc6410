@@ -4,7 +4,7 @@ Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/Ope
 
 ## Kernel Compile
 
-Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x). Note that only kernel 4.4.0 has all devices working. Beyond that version audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly). All other devices work, so the SBC can be used as a headless computer.
+Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x). Note that only kernel 4.4.0 has all devices working. Beyond that kernel, audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly). All other devices work, so the SBC can be used as a headless computer.
 
 ### kirkstone branch (Kernel 5.15)
 
@@ -118,11 +118,11 @@ fastboot flash boot <kernelimg>
 
 ## Kernel Modules, Firmware and EMMC Partitions
 
-Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 or qcom-armv7a directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition). An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once).
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
 
-Both modules and firmware are necessary to be loaded (firmware either copied to rootfs /lib/firmware directory or /dev/mmcblk0p15 mounted as /lib/fimrware in fstab at boot) to work correctly.
+Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. 
 
-See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
+An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
 ## Wifi CLI connect
 
