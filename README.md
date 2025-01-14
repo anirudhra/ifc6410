@@ -4,7 +4,7 @@ Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/Ope
 
 ## Kernel Compile
 
-Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x):
+Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x). Note that only kernel 4.4.0 has all devices working. Beyond that version audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly). All other devices work, so the SBC can be used as a headless computer.
 
 ### kirkstone branch (Kernel 5.15)
 
