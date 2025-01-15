@@ -10,9 +10,9 @@ The change in emmc, sdcard devices will affect kernel command line for rootfs.
 
 Backup of QCOM's firmware blob that either flashed to "cache" partition (emmc's mmcblk0p15) or copied to rootfs' /lib/firmware directory.
 
-# Initrd: multi-boot
+# Initrd: Custom (experimental)
 
-Custom initrd image that allow multi-booting. Source: https://www.linuxquestions.org/questions/slackware-arm-108/munti-booting-ifc6410-4175528906/ and https://www.linuxquestions.org/questions/slackware-arm-108/inforce6410-ifc6410-single-board-computer-4175519873/
+Custom initrd image that allows multi-booting. Source: https://www.linuxquestions.org/questions/slackware-arm-108/munti-booting-ifc6410-4175528906/ and https://www.linuxquestions.org/questions/slackware-arm-108/inforce6410-ifc6410-single-board-computer-4175519873/
 
 Unpacking it, will have 2 existing files in /conf that can be used as examples for adding more options. Repackage it after making changes and create a new kernel image and run/flash it via fastboot.
 
