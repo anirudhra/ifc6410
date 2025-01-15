@@ -132,3 +132,18 @@ To connect to wifi from commandline, install NetworkManager package and run:
 nmcli dev wifi connect <mySSID> password <myPassword>
 ```
 
+## Onboard Ethernet
+
+If ethernet/LAN is unstable, dropping down speed to 100mbps instead of 1000mbps may sometimes help. Install NetworkManager package for nmcli/nmtui utilties. Use following commands to reduce ethernet speed:
+
+```
+nmcli c show
+nmcli c edit "Wired connection 1"      # replace with the correct connection
+goto ethernet
+set auto-negotiate no
+set speed 100
+set duplex full
+back
+save persistent
+quit
+```
