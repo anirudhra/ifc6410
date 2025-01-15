@@ -134,7 +134,7 @@ nmcli dev wifi connect <mySSID> password <myPassword>
 
 ## Onboard Ethernet
 
-If ethernet/LAN is unstable, dropping down speed to 100mbps instead of 1000mbps may sometimes help. Install NetworkManager package for nmcli/nmtui utilties. Use following commands to reduce ethernet speed:
+If ethernet/LAN is unstable, dropping down speed to 100mbps instead of 1000mbps may sometimes help. Install NetworkManager package for nmcli/nmtui utilties. Use following commands to reduce ethernet speed. If you have multiple ethernet adapters, make sure you are picking the correct connection.
 
 ```
 nmcli c show
