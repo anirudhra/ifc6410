@@ -1,2 +1,5 @@
-atl1
+# modules to load
+# wifi
 ath6kl-sdio
+# ethernet
+atl1c
