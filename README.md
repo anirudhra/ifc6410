@@ -124,6 +124,14 @@ Both modules and firmware are necessary to be loaded for the kernel and devices 
 
 An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
+## Rootfs Bootstrapping with rsync
+
+To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the following command:
+
+```
+rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' root@<hostname>:/ /mnt/rootfs/
+```
+
 ## Wifi CLI connect
 
 To connect to wifi from commandline, install NetworkManager package and run:
