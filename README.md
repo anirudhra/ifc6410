@@ -155,3 +155,7 @@ back
 save persistent
 quit
 ```
+
+## Power and GPIO Pin Layout
+
+Some images from following website is inside <repo>/doc directory (Power/GPIO). Other references available here: https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
