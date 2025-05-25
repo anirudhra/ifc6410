@@ -1,10 +1,12 @@
 # QCOM IFC6410 SBC with APQ8064 SoC
 
-Repo for ifc6410 single-board-computer and custom kernel compile using Yocto/OpenEmbedded. See .../docs/img-* pins *.png files for pins to be used for fastboot and UART/Serial connection on the board. Most, if not all, kernel versions in the repo are LTS versions.
+Repo for IFC6410 single-board-computer (SBC) and custom kernel compile using Yocto/OpenEmbedded. See .../docs/img-* pins *.png files for pins to be used for fastboot and UART/Serial connection on the board. Most, if not all, kernel versions in the repo are LTS versions.
 
 ## Kernel Compile
 
-Yocto kernel commands (kirkstone branch builds kernel 5.15, use a newer branch like scarthgap for 6.6.x). Note that only kernel 4.4.0 has all devices working. Beyond that kernel, audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly). All other devices work, so the SBC can be used as a headless computer.
+Yocto kernel MUST be compiled as nonroot user, else the bitbake build will fail. Note that only kernel 4.4.0 has all devices working. Beyond that kernel, audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly, so ensure "msm" GPU driver is built as module and not integrated in to the kernel). All other devices work, so the SBC can be used as a headless computer.
+
+For future updates, skip the "checkout" commands below and just "git pull".
 
 ### kirkstone branch (Kernel 5.15)
 
@@ -19,18 +21,18 @@ git checkout -t origin/kirkstone -b myqcombranch
 cd ..
 source oe-init-build-env
 ```
-* Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
+* Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
 
 ```
-MACHINE ??="ifc6410"      ##change other settings like package_deb, state cache/mirror later etc.
+MACHINE ??="ifc6410"      ##change other settings like package_deb, mirros etc. as necessary
 ```
-* Modify "/dev/mmcblk0p12" (old emmc userdata partition) to in meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
+* Modify rootfs partition: "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
 /dev/mmcblk0p13 #for new emmc userdata partition
 ```
 ...or for SDCard:
 ```
-/dev/mmcblk1p1 #or mmcblk1p2/p3... depending on paritition number etc.
+/dev/mmcblk1p1 #or mmcblk1p2/p3 etc. depending on paritition number
 ```
 ...or for USB/SATA:
 ```
@@ -50,18 +52,17 @@ git checkout -t origin/scarthgap -b myqcombranch
 cd ..
 source oe-init-build-env
 ```
-
-* Modify MACHINE ??="qemux86_64" in build/conf/local.conf to:
+* Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
 ```
-MACHINE ??="qcom-armv7a" ##change other settings like package_deb, state cache/mirror later etc.
+MACHINE ??="qcom-armv7a" ##change other settings like package_deb, mirror etc. as necessary
 ```
-* Modify "/dev/mmcblk0p12" (old emmc userdata partition) to in meta-qcom/conf/machine/qcom-armv7a.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
+* Modify rootfs paritition "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/qcom-armv7a.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
 /dev/mmcblk2p13 #for new emmc userdata partition, also emmc is now /dev/mmcblk2 in kernel 6.6
 ```
 ...or for SDCard:
 ```
-/dev/mmcblk0p1 #or mmcblk0p2/p3... depending on paritition number etc., also sdcard is now /dev/mmcblk0 in kernel 6.6
+/dev/mmcblk0p1 #or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
 ```
 ...or for USB/SATA:
 ```
@@ -70,26 +71,54 @@ MACHINE ??="qcom-armv7a" ##change other settings like package_deb, state cache/m
 
 ### Compile kernel (common to both branches)
 
+Add QCOM changes and configure kernel build options:
 ```
 cd build
 bitbake-layers add-layer ../meta-qcom                 ##ensure /build/conf/bblayers.conf has meta-qcom entry
 bitbake -c menuconfig virtual/kernel                  ##kernel config
+```
+To build kernel and distribution:
+```
 bitbake core-image-minimal                            ##rebuild distro, no initramfs
+```
+To build only kernel:
+```
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 ```
 
-## Kernel Settings
+## Kernel Modules, Firmware and EMMC Partitions
+
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
+
+Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. 
+
+An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
+
+The following device drivers need to be compiled as part of kernel or as modules:
+* atl1: Atheros L1 onboard gigabit LAN
+* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
+* overlayfs, iptables, netfilter, bridge, stp, llc, veth: For Docker
+* r8152 usb: USB Realtek gigabit LAN
+* ath3k bt: Atheros 3000 Bluetooth
+* autofs, cifs, nfsv4: for network sharing
+* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
+* all other QCOM drivers for APQ8060/8064/8660/8960
+* msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
+ 
+## Kernel Boot Settings
 
 * Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch)
-* The ROOTFS change in .conf above sometimes does not work. Modify bootimg.cfg in boot-qcom-apq8064-ifc6410-....img to add following to commandline/boot config to override root to boot from USB/SATA:
+* The ROOTFS change in .conf above sometimes does not work. Modify bootimg.cfg in boot-qcom-apq8064-ifc6410-....img to add following to command line/boot config to override root to boot from USB/SATA (or corresponding rootfs for internal emmc/sdcard):
 
 ```
 "cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
 ```
-...or root=/dev/mmcblk0p13 or /dev/mmcblk1p1 for pre-kernel 6.6 
-...or root=/dev/mmcblk2p13 or /dev/mmcblk0p1 for kernel 6.6+
+* Replace with root=/dev/mmcblk0p13 or /dev/mmcblk1p1 for pre-kernel 6.6 
+* Replace root=/dev/mmcblk2p13 or /dev/mmcblk0p1 for kernel 6.6+
 
-...and repackage img with abootimg utility. To extract and make modifications above:
+...and repackage img with "abootimg" utility. 
+
+To extract and make modifications as explaine above to packaged kernel image:
 ```
 abootimg -x <kernelimg>
 ```
@@ -115,24 +144,6 @@ fastboot boot <kernelimg>
 ```
 fastboot flash boot <kernelimg>
 ```
-
-## Kernel Modules, Firmware and EMMC Partitions
-
-Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
-
-Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. 
-
-An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
-
-The following device drivers need to be compiled as part of kernel or as modules:
-* atl1: Atheros L1 onboard gigabit LAN
-* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
-* overlayfs, iptables, netfilter, bridge, stp, llc, veth: For Docker
-* r8152 usb: USB Realtek gigabit LAN
-* ath3k bt: Atheros 3000 Bluetooth
-* autofs, cifs, nfsv4: for network sharing
-* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
-* all other QCOM drivers for APQ8060/8064/8660/8960
 
 ## Rootfs Bootstrapping with rsync
 
