@@ -47,7 +47,7 @@ git pull
 git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
 git checkout -t origin/scarthgap -b myqcombranch
-cd
+cd ..
 source oe-init-build-env
 ```
 
