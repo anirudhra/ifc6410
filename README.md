@@ -68,7 +68,7 @@ MACHINE ??="qcom-armv7a" ##change other settings like package_deb, state cache/m
 /dev/sda1
 ```
 
-### Compile kernel
+### Compile kernel (common to both branches)
 
 ```
 cd build
