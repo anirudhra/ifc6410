@@ -124,6 +124,16 @@ Both modules and firmware are necessary to be loaded for the kernel and devices 
 
 An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
+The following device drivers need to be compiled as part of kernel or as modules:
+* atl1: Atheros L1 onboard gigabit LAN
+* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
+* overlayfs, iptables, netfilter, bridge: For Docker
+* r8152 usb: USB Realtek gigabit LAN
+* ath3k bt: Atheros 3000 Bluetooth
+* autofs
+* QCOM RPM, Krait CPU/thermal management
+* all other QCOM drivers for APQ8060/8064/8660/8960
+
 ## Rootfs Bootstrapping with rsync
 
 To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the following command:
@@ -156,6 +166,6 @@ save persistent
 quit
 ```
 
-## Power and GPIO Pin Layout, SATA power
+## Power and GPIO Pin Layout, SATA 5V power
 
 Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA). Other references available here: https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
