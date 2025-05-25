@@ -127,7 +127,7 @@ An archive of qcom-firmware image is available in custom_boot directory (for ref
 The following device drivers need to be compiled as part of kernel or as modules:
 * atl1: Atheros L1 onboard gigabit LAN
 * ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
-* overlayfs, iptables, netfilter, bridge: For Docker
+* overlayfs, iptables, netfilter, bridge, stp: For Docker
 * r8152 usb: USB Realtek gigabit LAN
 * ath3k bt: Atheros 3000 Bluetooth
 * autofs
