@@ -156,6 +156,6 @@ save persistent
 quit
 ```
 
-## Power and GPIO Pin Layout
+## Power and GPIO Pin Layout, SATA power
 
-Some images from following website is inside <repo>/doc directory (Power/GPIO). Other references available here: https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
+Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA). Other references available here: https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
