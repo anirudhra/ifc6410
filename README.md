@@ -153,10 +153,35 @@ fastboot flash boot <kernelimg>
 
 ## Rootfs Bootstrapping with rsync
 
-To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the following command:
+To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the rep
 
+## Prioritizing LAN over WLAN/WiFi
+
+Use nmcli to set connection priorities
 ```
-rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' root@<hostname>:/ /mnt/rootfs/
+# List of connections
+# You need to get the connection name (first column)
+nmcli c
+
+# Set the `ipv4.route-metric` of each required network
+# Change the `$con_name_x` and integer as required
+nmcli c mod "$con_name_1" ipv4.route-metric 20  # More preferred connection
+nmcli c mod "$con_name_1" ipv6.route-metric 20  # More preferred connection
+nmcli c mod "$con_name_2" ipv4.route-metric 40  # Less preferred connection
+nmcli c mod "$con_name_2" ipv6.route-metric 40  # Less preferred connection
+
+# Disconnect and reconnect the networks to make the changes effective
+nmcli c down "$con_name_1"
+nmcli c down "$con_name_2"
+nmcli c up "$con_name_1"
+nmcli c up "$con_name_2"
+
+# Show connection priorities: example
+nmcli -f ipv4.route-metric c show "$con_name_1"
+
+# Check priorities in use: higher is listed on top for each direction
+ip r
+route -n #alternate command
 ```
 
 ## Wifi CLI connect
