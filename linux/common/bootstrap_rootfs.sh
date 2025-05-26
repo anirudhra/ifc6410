@@ -3,6 +3,7 @@
 
 # directory where the new bootstrap rootfs is mounted
 ROOTFS="/mnt/rootfs"
+SOURCE="root@ifc6410:/"
 
 ###################
 echo "###################"
@@ -11,7 +12,7 @@ echo "###################"
 ###################
 
 #bootstrap stage 1 command:
-rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' root@ifc6410:/ ${ROOTFS}/
+rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' ${SOURCE} ${ROOTFS}/
 
 ###################
 echo "###################"
