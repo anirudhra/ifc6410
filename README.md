@@ -8,15 +8,11 @@ Yocto kernel MUST be compiled as nonroot user, else the bitbake build will fail.
 
 For future updates, skip the "checkout" commands below and just "git pull".
 
-After any changes to kernel or kernel modules, do not forget to run:
+After any changes to kernel or kernel modules, do not forget to run the following command to refresh the available kernel modules:
 
 ```
-```depmod -a`
-```
-```
+depmod -a
 
-```
-```
 ```
 
 ### kirkstone branch (Kernel 5.15)
