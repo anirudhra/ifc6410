@@ -1,7 +1,23 @@
 #!/bin/bash
+# Script to bootstrap linux installation to a fresh storage device, mounted to /mnt/rootfs
 
 # directory where the new bootstrap rootfs is mounted
 ROOTFS="/mnt/rootfs"
+
+###################
+echo "###################"
+echo "Stage 1..."
+echo "###################"
+###################
+
+#bootstrap stage 1 command:
+rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' root@ifc6410:/ ${ROOTFS}/
+
+###################
+echo "###################"
+echo "Stage 2..."
+echo "###################"
+###################
 
 # create stage 2 sys directories
 mount --make-rslave --rbind /proc ${ROOTFS}/proc
@@ -25,7 +41,13 @@ cp -a /lib/firmware/* ${ROOTFS}/lib/firmware/
 cp -a ./etc/* ${ROOTFS}/etc/
 
 # chroot to new install
-chroot ${ROOTFS}
+#chroot ${ROOTFS}
 
 # Debian: install following packages at the very least and then run dpkg-reconfigure tzdata, dpkg-reconfigure locales
 # btop ssh ca-certificates tmux duf nano sudo console-setup console-setup-linux network-manager wget curl lsb-release locales iw net-tools systemd-timesyncd
+
+###################
+echo "###################"
+echo "Done! Manually chroot to ${ROOTFS} to verify and install standard packages like btop/ssh/ca-certificates etc." 
+echo "###################"
+###################
