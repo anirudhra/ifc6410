@@ -12,7 +12,6 @@ After any changes to kernel or kernel modules, do not forget to run the followin
 
 ```
 depmod -a
-
 ```
 
 ### kirkstone branch (Kernel 5.15)
