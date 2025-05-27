@@ -212,4 +212,16 @@ quit
 
 ## Power and GPIO Pin Layout, SATA 5V power
 
-Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA). Other references available here: https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
+Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA).
+
+## Links/References related to IFC6410/APQ8064
+
+* https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
+* https://www.hackster.io/inforce-ifc6410/projects
+* https://github.com/freedreno/freedreno/wiki/Inforce-6410-Plus
+* https://github-wiki-see.page/m/96boards/documentation/wiki/Dragonboard-Boot-Image
+* https://releases.linaro.org/debian/boards/snapdragon/16.02/
+* https://github.com/apq8064-mainline/linux
+* http://pragmatux.com/docs/quick-start-ifc6410.html
+* https://github.com/freedreno/freedreno/wiki/Inforce-6410-Plus
+* https://www.spinics.net/lists/devicetree/msg473167.html
