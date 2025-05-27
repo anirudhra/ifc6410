@@ -277,5 +277,5 @@ The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI po
 * https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-sd600-cpu-qualcomm-snapdragon600/#documentation
 * https://variwiki.com/index.php?title=VAR-SOM-SD600_gpio
 * https://github.com/compulab/eeprom-util
-* 
+* https://mediawiki.compulab.com/w/index.php?title=Android:_Boot_image
   
