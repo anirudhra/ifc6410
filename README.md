@@ -124,6 +124,7 @@ The following device drivers need to be compiled as part of kernel or as modules
 
 Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
 
+apq8064-tabla-snd-card seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
  
 ## Kernel Boot Settings
 
