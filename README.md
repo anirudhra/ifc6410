@@ -110,8 +110,10 @@ The following device drivers need to be compiled as part of kernel or as modules
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
+* PCie: Appears to be based on Designware IP with some QCOM customizations
 
 Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
+
  
 ## Kernel Boot Settings
 
@@ -214,6 +216,35 @@ quit
 
 Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA).
 
+## GPIO
+
+Features
+* 90 GPIO pins (GPIO_0 to GPIO_89)
+* Configurable pull-up/down
+* Configurable output drive current
+* Interruptable GPIOs
+* GPIO manipulation
+* GPIO manipulation is done through the standard gpiolib
+* The usage / API is well described in kernel/Documentation/gpio.txt.
+
+Additional useful links:
+* http://elinux.org/GPIO
+* https://developer.ridgerun.com/wiki/index.php/Gpio-int-test.c
+* https://developer.ridgerun.com/wiki/index.php/How_to_use_GPIO_signals
+* http://mondi.web.cs.unibo.it/gpio_control.html
+
+### PinMux configuration
+
+GPIO mux configuration is done in kernel\arch\arm\mach-msm\board-8064-gpiomux.c At apq8064_init_gpiomux(void) you can find several examples of pinmux configuration. or example struct apq8064_gsbi2_UART2_configs configures GPIO pins 22,23,24 and 25 to serial port.
+
+### Generic serial bus interface (GSBI)
+The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI ports :an be configured for:
+
+* UART_DM
+* I2C
+* SPI
+* General-purpose I/O (GPIO) bits
+
 ## Links/References related to IFC6410/APQ8064 or QS600 SBC (which is very similar to IFC6410)
 
 * https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
@@ -232,4 +263,7 @@ Some images from following website are inside <repo>/doc directory (Power/GPIO/S
 * https://github.com/compulab/cm-qs600-kernel
 * https://www.compulab.com/wp-content/uploads/2014/05/CM-QS600-Press-Release.pdf
 * https://github.com/compulab/cm-qs600-android-device
+* https://variwiki.com/index.php?title=VAR-SOM-SD600
+* https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-sd600-cpu-qualcomm-snapdragon600/#documentation
+* https://variwiki.com/index.php?title=VAR-SOM-SD600_gpio
   
