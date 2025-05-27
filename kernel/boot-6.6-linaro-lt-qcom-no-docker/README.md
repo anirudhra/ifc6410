@@ -1,0 +1,1 @@
+This directory contains a working kernel but no STP module that's needed by bridge module. Docker, hence, cannot create bridged networks and has to be run in host mode always. Otherwise, everything in this kernel is functional.
