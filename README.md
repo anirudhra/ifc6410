@@ -245,7 +245,7 @@ The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI po
 * SPI
 * General-purpose I/O (GPIO) bits
 
-## Links/References related to IFC6410/APQ8064 or QS600 SBC (which is very similar to IFC6410)
+## Links/References related to IFC6410/APQ8064/QS600 SBC
 
 * https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
 * https://www.hackster.io/inforce-ifc6410/projects
