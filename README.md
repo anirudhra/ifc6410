@@ -214,7 +214,7 @@ quit
 
 Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA).
 
-## Links/References related to IFC6410/APQ8064
+## Links/References related to IFC6410/APQ8064 or QS600 SBC (which is very similar to IFC6410)
 
 * https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
 * https://www.hackster.io/inforce-ifc6410/projects
@@ -225,3 +225,11 @@ Some images from following website are inside <repo>/doc directory (Power/GPIO/S
 * http://pragmatux.com/docs/quick-start-ifc6410.html
 * https://github.com/freedreno/freedreno/wiki/Inforce-6410-Plus
 * https://www.spinics.net/lists/devicetree/msg473167.html
+* https://www.compulab.com/products/computer-on-modules/cm-qs600/#devres
+* https://www.compulab.com/products/sbcs/sbc-qs600/#devres
+* https://www.compulab.com/cm-qs600-software-archive/
+* https://mediawiki.compulab.com/w/index.php?title=CM-QS600_Qualcomm_Snapdragon_600_APQ8064_SW_Resources
+* https://github.com/compulab/cm-qs600-kernel
+* https://www.compulab.com/wp-content/uploads/2014/05/CM-QS600-Press-Release.pdf
+* https://github.com/compulab/cm-qs600-android-device
+  
