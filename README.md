@@ -250,7 +250,7 @@ The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI po
 * https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
 * https://www.hackster.io/inforce-ifc6410/projects
 * https://github.com/freedreno/freedreno/wiki/Inforce-6410-Plus
-* https://github-wiki-see.page/m/96boards/documentation/wiki/Dragonboard-Boot-Image
+* https://github.com/96boards/documentation/wiki/Dragonboard-Boot-Image
 * https://releases.linaro.org/debian/boards/snapdragon/16.02/
 * https://github.com/apq8064-mainline/linux
 * http://pragmatux.com/docs/quick-start-ifc6410.html
