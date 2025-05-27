@@ -2,6 +2,16 @@
 
 Repo for IFC6410 single-board-computer (SBC) and custom kernel compile using Yocto/OpenEmbedded. See .../docs/img-* pins *.png files for pins to be used for fastboot and UART/Serial connection on the board. Most, if not all, kernel versions in the repo are LTS versions.
 
+## UART/Serial connection
+
+Set the following options:
+* Configure the serial line:
+* Speed (baud): 115200
+* Data bits: 8
+* Stop bits: 1
+* Parity: none
+* Flow control: none
+
 ## Kernel Compile
 
 Yocto kernel MUST be compiled as nonroot user, else the bitbake build will fail. Note that only kernel 4.4.0 has all devices working. Beyond that kernel, audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly, so ensure "msm" GPU driver is built as module and not integrated in to the kernel). All other devices work, so the SBC can be used as a headless computer.
@@ -266,4 +276,6 @@ The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI po
 * https://variwiki.com/index.php?title=VAR-SOM-SD600
 * https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-sd600-cpu-qualcomm-snapdragon600/#documentation
 * https://variwiki.com/index.php?title=VAR-SOM-SD600_gpio
+* https://github.com/compulab/eeprom-util
+* 
   
