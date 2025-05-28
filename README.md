@@ -166,6 +166,14 @@ fastboot boot <kernelimg>           ## to temporarily boot in to new kernel
 fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 ```
 
+## Hard drive fsck error checking
+
+Use the following command to automate check after every 5 mounts/reboots. Change /dev/sda1 to the correct partition and -c 5 to tweak the number of mounts/reboots accordingly.
+
+```
+partition=/dev/sda1; LC_ALL=C tune2fs -i 3600s -c 5 $partition 2>&1 | grep Setting
+```
+
 ## Rootfs Bootstrapping with rsync
 
 To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the current repo.
