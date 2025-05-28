@@ -1,0 +1,70 @@
+SectionVerb {
+	EnableSequence [
+		cdev "hw:apq8064tablasnd"
+
+		cset "name='HDMI Mixer MultiMedia1' 1"
+		# disable other paths.. probably should be disabled at
+		# boot by kernel, but that doesn't seem to be happening.
+		# which means there are probably other things we should
+		# disable too..
+		cset "name='SLIMBUS_0_RX Audio Mixer MultiMedia1' 0"
+		cset "name='MultiMedia1 Mixer SLIM_0_TX' 0"
+	]
+
+	DisableSequence [
+		cdev "hw:apq8064tablasnd"
+
+		cset "name='HDMI Mixer MultiMedia1' 0"
+	]
+
+	Value {
+		TQ "HiFi"
+		CapturePCM "hw:apq8064tablasnd,0"
+		PlaybackPCM "hw:apq8064tablasnd,0"
+	}
+}
+
+SectionDevice."HDMI-stereo" {
+	#Name "HDMI-stereo"
+	Comment "HDMI Digital Stereo Output"
+
+	EnableSequence [
+		cdev "hw:apq8064tablasnd"
+
+		# We need to disable this while setting up the route, else the
+		# driver will hang if the stream is open.
+		cset "name='HDMI Mixer MultiMedia1' 0"
+
+#		cset "name='SLIM_0_RX Channels' One"
+#		cset "name='RX1 MIX1 INP1' RX1"
+#		cset "name='RX1 MIX1 INP2' RX1"
+#		cset "name='RX1 Digital Volume' 68"
+#		cset "name='EAR PA Gain' POS_6_DB"
+#		cset "name='DAC1 Switch' 1"
+#		cset "name='SLIM TX3 MUX' RMIX1"
+
+		# Route has been set up, re-enable the mixer.
+		cset "name='HDMI Mixer MultiMedia1' 1"
+	]
+
+	DisableSequence [
+		cdev "hw:apq8064tablasnd"
+
+		# See comment in EnableSequence
+		cset "name='HDMI Mixer MultiMedia1' 0"
+
+#		cset "name='RX1 MIX1 INP1' ZERO"
+#		cset "name='RX1 MIX1 INP2' ZERO"
+#		cset "name='RX1 Digital Volume' 68"
+#		cset "name='DAC1 Switch' 0"
+#		cset "name='SLIM TX3 MUX' ZERO"
+
+		# See comment in EnableSequence
+		cset "name='HDMI Mixer MultiMedia1' 1"
+	]
+
+	Value {
+		PlaybackChannels "2"
+	}
+}
+
