@@ -223,20 +223,14 @@ save persistent
 quit
 ```
 
-## Power and GPIO Pin Layout, SATA 5V power
-
-Some images from following website are inside <repo>/doc directory (Power/GPIO/SATA).
-
 ## GPIO
 
-Features
 * 90 GPIO pins (GPIO_0 to GPIO_89)
 * Configurable pull-up/down
 * Configurable output drive current
 * Interruptable GPIOs
 * GPIO manipulation
 * GPIO manipulation is done through the standard gpiolib
-* The usage / API is well described in kernel/Documentation/gpio.txt.
 
 Additional useful links:
 * http://elinux.org/GPIO
@@ -246,15 +240,20 @@ Additional useful links:
 
 ### PinMux configuration
 
-GPIO mux configuration is done in kernel\arch\arm\mach-msm\board-8064-gpiomux.c At apq8064_init_gpiomux(void) you can find several examples of pinmux configuration. or example struct apq8064_gsbi2_UART2_configs configures GPIO pins 22,23,24 and 25 to serial port.
+In older kernels, GPIO mux configuration is done in kernel/arch/arm/mach-msm/board-8064-gpiomux.c At apq8064_init_gpiomux(void) there are several examples of pinmux configuration (example struct apq8064_gsbi2_UART2_configs configures GPIO pins 22,23,24 and 25 to serial port).
 
 ### Generic serial bus interface (GSBI)
-The APQ8064 implements twelve Generic Serial Bus Interface (GSBI) ports. GSBI ports :an be configured for:
+
+The APQ8064 implements 12 Generic Serial Bus Interface (GSBI) ports. GSBI ports can be configured for:
 
 * UART_DM
 * I2C
 * SPI
 * General-purpose I/O (GPIO) bits
+
+## Power and GPIO Pin Layout, SATA 5V power
+
+Some images from following websites are in <current_repo>/doc directory (Power/GPIO/SATA).
 
 ## Links/References related to IFC6410/APQ8064/QS600 SBC
 
