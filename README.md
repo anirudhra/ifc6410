@@ -168,7 +168,7 @@ fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 
 ## Rootfs Bootstrapping with rsync
 
-To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the rep
+To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the current repo.
 
 ## Prioritizing LAN over WLAN/WiFi
 
