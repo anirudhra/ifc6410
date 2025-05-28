@@ -40,19 +40,14 @@ source oe-init-build-env
 * Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
 
 ```
-MACHINE ??="ifc6410"      ##change other settings like package_deb, mirros etc. as necessary
+MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc. as necessary
 ```
+
 * Modify rootfs partition: "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
-/dev/mmcblk0p13 #for new emmc userdata partition
-```
-...or for SDCard:
-```
-/dev/mmcblk1p1 #or mmcblk1p2/p3 etc. depending on paritition number
-```
-...or for USB/SATA:
-```
-/dev/sda1
+/dev/mmcblk0p13           ## for emmc userdata partition
+/dev/mmcblk1p1            ## for sdcard partition 1 or mmcblk1p2/p3 etc. depending on paritition number
+/dev/sda1                 ## for USB or SATA
 ```
 
 ### scarthgap branch (Kernel 6.6)
@@ -68,21 +63,17 @@ git checkout -t origin/scarthgap -b myqcombranch
 cd ..
 source oe-init-build-env
 ```
+
 * Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
 ```
-MACHINE ??="qcom-armv7a" ##change other settings like package_deb, mirror etc. as necessary
+MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc. as necessary
 ```
+
 * Modify rootfs paritition "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/qcom-armv7a.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
-/dev/mmcblk2p13 #for new emmc userdata partition, also emmc is now /dev/mmcblk2 in kernel 6.6
-```
-...or for SDCard:
-```
-/dev/mmcblk0p1 #or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
-```
-...or for USB/SATA:
-```
-/dev/sda1
+/dev/mmcblk2p13          ## for emmc userdata partition which is now /dev/mmcblk2 in kernel 6.6
+/dev/mmcblk0p1           ## for sdcard paritition 1 or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
+/dev/sda1                ## for USB or SATA
 ```
 
 ### Compile kernel (common to both branches)
@@ -124,20 +115,11 @@ The following device drivers need to be compiled as part of kernel or as modules
 
 Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
 
-apq8064-tabla-snd-card seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
+Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
  
 ## Kernel Boot Settings
 
-* Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch)
-* The ROOTFS change in .conf above sometimes does not work. Modify bootimg.cfg in boot-qcom-apq8064-ifc6410-....img to add following to command line/boot config to override root to boot from USB/SATA (or corresponding rootfs for internal emmc/sdcard):
-
-```
-"cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
-```
-* Replace with root=/dev/mmcblk0p13 or /dev/mmcblk1p1 for pre-kernel 6.6 
-* Replace root=/dev/mmcblk2p13 or /dev/mmcblk0p1 for kernel 6.6+
-
-...and repackage img with "abootimg" utility. 
+Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch). Compiled kernel will not have additional parameters needed for booting. Exactract bootimg.cfg from compiled boot image and manually override the kernel command line
 
 To extract and make modifications as explaine above to packaged kernel image:
 ```
@@ -148,7 +130,28 @@ abootimg -x <kernelimg>
 abootimg -u <kernelimg> -f bootimg.cfg #bootimg.cfg should have updated kernel cmdline
 ```
 
-* Blacklist msm module if necessary (GPU hangs, but disables display) to /etc/modprobe.d/blacklist.conf:
+Make the following change to "cmdline" line in bootimg.cfg. Do not modify any other line:
+```
+"cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
+```
+The line root=/dev/sda1 will set rootfs as USB/SATA as explained elsewhere in this readme. Other possible values are:
+
+* Pre Kernel 6.6
+
+```
+/dev/mmcblk0p13           ## for emmc userdata partition
+/dev/mmcblk1p1            ## for sdcard partition 1 or mmcblk1p2/p3 etc. depending on paritition number
+```
+* Kernel 6.6+
+
+```
+/dev/mmcblk2p13          ## for emmc userdata partition which is now /dev/mmcblk2 in kernel 6.6
+/dev/mmcblk0p1           ## for sdcard paritition 1 or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
+```
+
+...and repackage img with "abootimg" utility. 
+
+* Blacklist msm module if necessary (GPU hangs, but disables display) in the file /etc/modprobe.d/blacklist.conf:
 ```
 blacklist msm
 ```
@@ -157,13 +160,10 @@ blacklist msm
 ath6lk-sdio
 atl1
 ```
-* Use fastboot to test kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel>:
+* Use fastboot to test kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel> and "depmod -a" command has been run:
 ```
-fastboot boot <kernelimg>
-```
-* Use fastboot to finally flash working kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel> as before:
-```
-fastboot flash boot <kernelimg>
+fastboot boot <kernelimg>           ## to temporarily boot in to new kernel
+fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 ```
 
 ## Rootfs Bootstrapping with rsync
