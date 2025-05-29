@@ -286,4 +286,5 @@ Some images from following websites are in <current_repo>/doc directory (Power/G
 * https://variwiki.com/index.php?title=VAR-SOM-SD600_gpio
 * https://github.com/compulab/eeprom-util
 * https://mediawiki.compulab.com/w/index.php?title=Android:_Boot_image
+* https://patchwork.ozlabs.org/project/openwrt/patch/1423622295-17130-1-git-send-email-mathieu@codeaurora.org/ (kpcc acc v1)
   
