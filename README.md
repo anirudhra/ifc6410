@@ -265,6 +265,8 @@ Some images from following websites are in <current_repo>/doc directory (Power/G
 
 ## Links/References related to IFC6410/APQ8064/QS600 SBC
 
+* https://wiki.archlinux.org/title/Solid_state_drive#Resolving_NCQ_Errors (SATA NCQ errors)
+* https://wiki.archlinux.org/title/Power_management#SATA_Active_Link_Power_Management
 * https://awilby.gitbooks.io/cse-190-robotics/content/8_1_gpio.html
 * https://www.hackster.io/inforce-ifc6410/projects
 * https://github.com/freedreno/freedreno/wiki/Inforce-6410-Plus
