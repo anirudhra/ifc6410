@@ -166,7 +166,13 @@ fastboot boot <kernelimg>           ## to temporarily boot in to new kernel
 fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 ```
 
-## Hard drive fsck error checking
+## SATA: Hard drive 
+
+### SATA NCQ Errors in dmesg
+
+Most likely due to power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
+
+### fsck error checking
 
 Use the following command to automate check after every 5 mounts/reboots. Change /dev/sda1 to the correct partition and -c 5 to tweak the number of mounts/reboots accordingly.
 
