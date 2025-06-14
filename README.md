@@ -93,30 +93,6 @@ To build only kernel:
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 ```
 
-## Kernel Modules, Firmware and EMMC Partitions
-
-Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
-
-Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. Due to size limits, some versions of kernel modules may be split into multiple parts. It's important to merge the contents of multiple archives in /lib/modules/<version>.
-
-An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
-
-The following device drivers need to be compiled as part of kernel or as modules:
-* atl1: Atheros L1 onboard gigabit LAN
-* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
-* overlayfs, iptables, netfilter, bridge, stp, llc, veth: For Docker
-* r8152 usb: USB Realtek gigabit LAN
-* ath3k bt: Atheros 3000 Bluetooth
-* autofs (kernel automount), cifs, nfsv4: for network sharing
-* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
-* all other QCOM drivers for APQ8060/8064/8660/8960
-* msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
-* PCie: Appears to be based on Designware IP with some QCOM customizations
-
-Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
-
-Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
- 
 ## Kernel Boot Settings
 
 Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch). Compiled kernel will not have additional parameters needed for booting. Exactract bootimg.cfg from compiled boot image and manually override the kernel command line
@@ -172,6 +148,30 @@ fastboot boot <kernelimg>           ## to temporarily boot in to new kernel
 fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 ```
 
+## Kernel Modules, Firmware and EMMC Partitions
+
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
+
+Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. Due to size limits, some versions of kernel modules may be split into multiple parts. It's important to merge the contents of multiple archives in /lib/modules/<version>.
+
+An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
+
+The following device drivers need to be compiled as part of kernel or as modules:
+* atl1: Atheros L1 onboard gigabit LAN
+* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
+* overlayfs, iptables, netfilter, bridge, stp, llc, veth: For Docker
+* r8152 usb: USB Realtek gigabit LAN
+* ath3k bt: Atheros 3000 Bluetooth
+* autofs (kernel automount), cifs, nfsv4: for network sharing
+* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
+* all other QCOM drivers for APQ8060/8064/8660/8960
+* msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
+* PCie: Appears to be based on Designware IP with some QCOM customizations
+
+Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
+
+Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
+ 
 ## SATA: Hard drive 
 
 ### SATA NCQ Errors in dmesg
