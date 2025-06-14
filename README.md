@@ -180,6 +180,15 @@ Use the following command to automate check after every 5 mounts/reboots. Change
 partition=/dev/sda1; LC_ALL=C tune2fs -i 3600s -c 5 $partition 2>&1 | grep Setting
 ```
 
+### USB-SATA speedcheck
+
+```
+$ hdparm -Tt /dev/sda
+/dev/sda: USB to SATA adapter
+ Timing cached reads:   674 MB in  2.00 seconds = 337.48 MB/sec
+ Timing buffered disk reads:  66 MB in  3.05 seconds =  21.63 MB/sec
+```
+
 ## Rootfs Bootstrapping with rsync
 
 To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the current repo.
