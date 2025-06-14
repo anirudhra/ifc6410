@@ -2,9 +2,13 @@
 
 Various kernels for IFC6410, some with all IPs working (4.4.0), others not (5.15 - no GPU/audio). Includes corresponding kernel modules to be put in rootfs' /lib/modules directory.
 
-Note that pre-kernel 6.6.x, ethernet was eth0, internal EMMC was /dev/mmcblk0 and sdcard was /dev/mmcblk1. In Kernel 6.6 and beyond, ethernet is enp1s0, internal EMMC is /dev/mmcblk2 and sdcard is /dev/mmcblk0. Wifi continues to be wlan0 in both.
+## Device naming
 
-The change in emmc and sdcard device names, kernel command line will need to change accordingly for rootfs.
+* Kernel 4.x/5.x - eth0: onboard ethernet, /dev/mmcblk0: emmc, /dev/mmcblk1: sdcard
+* Kernel 6.x - enp1s0: onboard ethernet, /dev/mmcblk2: emmc, /dev/mmcblk0: sdcard
+* USB - top port: /dev/sda1, bottom port: /dev/sda2
+
+For the kernel with rootfs "sda1", if connecting SSD via USB, it should be connected to top port. Else, kernel command line needs to be accordingly modifidied and reflashed.
 
 # Firmware
 
