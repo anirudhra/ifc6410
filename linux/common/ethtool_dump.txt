@@ -1,0 +1,62 @@
+Onboard Ethernet: AR8151 v2.0
+
+root@ifc6410:~# ethtool enp1s0
+Settings for enp1s0:
+        Supported ports: [ TP ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Supported pause frame use: No
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: No
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: Unknown!
+        Duplex: Unknown! (255)
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 0
+        Transceiver: internal
+        MDI-X: Unknown
+        Supports Wake-on: pg
+        Wake-on: d
+        Current message level: 0x0000003f (63)
+                               drv probe link timer ifdown ifup
+        Link detected: no
+
+USB Ethernet: RTL8152
+
+root@ifc6410:~# ethtool enx00e04c7284d6                                                                                       
+Settings for enx00e04c7284d6:                                                                                                        
+        Supported ports: [ TP    MII ]                                                                                               
+        Supported link modes:   10baseT/Half 10baseT/Full                                                                            
+                                100baseT/Half 100baseT/Full                                                                          
+                                1000baseT/Half 1000baseT/Full                                                                        
+        Supported pause frame use: No                                                                                                
+        Supports auto-negotiation: Yes                                                                                               
+        Supported FEC modes: Not reported                                                                                            
+        Advertised link modes:  10baseT/Half 10baseT/Full                                                                            
+                                100baseT/Half 100baseT/Full                                                                          
+                                1000baseT/Full                                                                                       
+        Advertised pause frame use: No                                                                                               
+        Advertised auto-negotiation: Yes                                                                                             
+        Advertised FEC modes: Not reported                                                                                           
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full                                                               
+                                             100baseT/Half 100baseT/Full                                                             
+                                             1000baseT/Half 1000baseT/Full                                                           
+        Link partner advertised pause frame use: Symmetric                                                                           
+        Link partner advertised auto-negotiation: Yes                                                                                
+        Link partner advertised FEC modes: Not reported                                                                              
+        Speed: 1000Mb/s                                                                                                              
+        Duplex: Full                                                                                                                 
+        Auto-negotiation: on                                                                                                         
+        Port: MII
+        PHYAD: 32
+        Transceiver: internal
+        Supports Wake-on: pumbg
+        Wake-on: g
+        Current message level: 0x00007fff (32767)
+                               drv probe link timer ifdown ifup rx_err tx_err tx_queued intr tx_done rx_status pktdata hw wol
+        Link detected: yes
