@@ -1,6 +1,6 @@
 # Kernels
 
-Various kernels for IFC6410, some with all IPs working (4.4.0), others not (5.15 - no GPU/audio). Includes corresponding kernel modules to be put in rootfs' /lib/modules directory.
+Includes corresponding kernel modules to be put in rootfs' /lib/modules directory (dont' forget to run "depmod -a" after module/kernel change). Audio and GPU does not work for non-4.4.x kernels (all new kernels).
 
 ## Device naming
 
