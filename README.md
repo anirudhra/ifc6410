@@ -172,6 +172,14 @@ fastboot flash boot <kernelimg>     ## to flash new kernel to boot partition
 
 Most likely due to power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
 
+```
+$ cat /etc/udev/rules.d/10-ssd-power-mode.rules
+ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="medium_power"
+
+$ cat /sys/class/scsi_host/host0/link_power_management_policy
+medium_power
+```
+
 NCQ can be disabled with kernel command line, a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab:
 
 ```
