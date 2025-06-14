@@ -3,21 +3,25 @@
 
 # directory where the new bootstrap rootfs is mounted
 ROOTFS="/mnt/rootfs"
-SOURCE="root@ifc6410:/"
+#SOURCE="root@ifc6410:/"
+SOURCE="/"
 
 ###################
-echo "###################"
-echo "Stage 1..."
-echo "###################"
+echo "####################################################"
+echo "Mount target to ${ROOTFS}"
+echo "Stage 1: Copying ${SOURCE} to ${ROOTFS}"
+read -p "Press any key to continue..."
+echo "####################################################"
 ###################
 
 #bootstrap stage 1 command:
 rsync -avP --numeric-ids --exclude='/dev' --exclude='/proc' --exclude='/sys' ${SOURCE} ${ROOTFS}/
 
 ###################
-echo "###################"
-echo "Stage 2..."
-echo "###################"
+echo "####################################################"
+echo "Stage 2: Copy config files, modules, firmware etc."
+read -p "Press any key to continue..."
+echo "####################################################"
 ###################
 
 # create stage 2 sys directories
@@ -48,7 +52,7 @@ cp -a ./etc/* ${ROOTFS}/etc/
 # btop ssh ca-certificates tmux duf nano sudo console-setup console-setup-linux network-manager wget curl lsb-release locales iw net-tools systemd-timesyncd
 
 ###################
-echo "###################"
+echo "#############################################################################################################################"
 echo "Done! Manually chroot to ${ROOTFS} to verify and install standard packages like btop/ssh/ca-certificates etc." 
-echo "###################"
+echo "#############################################################################################################################"
 ###################
