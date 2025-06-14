@@ -8,5 +8,6 @@ ath6kl-sdio
 
 # bluetooth
 ath3k
+btusb
 hci_uart
 hci_vhci
