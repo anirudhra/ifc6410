@@ -134,7 +134,13 @@ Make the following change to "cmdline" line in bootimg.cfg. Do not modify any ot
 ```
 "cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
 ```
-The line root=/dev/sda1 will set rootfs as USB/SATA as explained elsewhere in this readme. Other possible values are:
+
+To disable SATA NCQ, additionally add the following to the above:
+```
+libata.force=noncq
+```
+
+The line root=/dev/sda1 will set rootfs as USB port 1/SATA as explained elsewhere in this readme. Other possible values are:
 
 * Pre Kernel 6.6
 
