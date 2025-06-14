@@ -227,8 +227,8 @@ $ hdparm -Tt /dev/sda
 ```
 $ hdparm -Tt /dev/sda
 /dev/sda: SATA
- Timing cached reads:
- Timing buffered disk reads:
+ Timing cached reads:   720 MB in  2.00 seconds = 359.76 MB/sec
+ Timing buffered disk reads: 326 MB in  3.00 seconds = 108.60 MB/sec
 ```
 
 ## Rootfs Bootstrapping with rsync
