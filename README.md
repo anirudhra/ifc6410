@@ -180,13 +180,48 @@ Use the following command to automate check after every 5 mounts/reboots. Change
 partition=/dev/sda1; LC_ALL=C tune2fs -i 3600s -c 5 $partition 2>&1 | grep Setting
 ```
 
-### USB-SATA speedcheck
+### SATA Throughput
+
+USB ports don't appear to share bandwidth as USB LAN adapter gets the same speed regardless of SSD being connected through USB or now.
+
+```
+$ iperf3 -Rc pve.local
+Connecting to host 10.100.100.50, port 5201
+Reverse mode, remote host 10.100.100.50 is sending
+[  5] local 10.100.100.64 port 57984 connected to 10.100.100.50 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  24.2 MBytes   203 Mbits/sec                  
+[  5]   1.00-2.00   sec  24.4 MBytes   205 Mbits/sec                  
+[  5]   2.00-3.00   sec  24.2 MBytes   203 Mbits/sec                  
+[  5]   3.00-4.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   4.00-5.00   sec  24.0 MBytes   201 Mbits/sec                  
+[  5]   5.00-6.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   6.00-7.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   7.00-8.00   sec  24.3 MBytes   204 Mbits/sec                  
+[  5]   8.00-9.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   9.00-10.00  sec  24.2 MBytes   203 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.01  sec   243 MBytes   204 Mbits/sec    0             sender
+[  5]   0.00-10.00  sec   242 MBytes   203 Mbits/sec                  receiver
+```
+
+#### USB-SATA Adapter
 
 ```
 $ hdparm -Tt /dev/sda
 /dev/sda: USB to SATA adapter
  Timing cached reads:   674 MB in  2.00 seconds = 337.48 MB/sec
  Timing buffered disk reads:  66 MB in  3.05 seconds =  21.63 MB/sec
+```
+
+#### SATA Native
+
+```
+$ hdparm -Tt /dev/sda
+/dev/sda: SATA
+ Timing cached reads:
+ Timing buffered disk reads:
 ```
 
 ## Rootfs Bootstrapping with rsync
