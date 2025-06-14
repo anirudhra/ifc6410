@@ -180,11 +180,12 @@ $ cat /sys/class/scsi_host/host0/link_power_management_policy
 medium_power
 ```
 
-NCQ can be disabled with kernel command line, a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab:
+NCQ can be disabled with kernel command line, a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab and increase the timeout to 180sec (related to the problem but independent to NCQ):
 
 ```
 $ crontab -e
-@reboot, echo 1 > /sys/block/sda/device/queue_depth
+@reboot echo 1 > /sys/block/sda/device/queue_depth
+@reboot echo 180 > /sys/block/sda/device/timeout
 ```
 
 ### fsck error checking
