@@ -184,80 +184,6 @@ Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/A
 
 Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
  
-## SATA: Hard drive 
-
-### SATA NCQ Errors in dmesg
-
-Could be due to several causes including known offending SSDs like Samsung EVO or aggressive power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
-
-```
-$ cat /etc/udev/rules.d/10-ssd-power-mode.rules
-ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="medium_power"
-
-$ cat /sys/class/scsi_host/host0/link_power_management_policy
-medium_power
-```
-
-NCQ can be disabled with the kernel command line "libata.force=noncq", a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab and increase the timeout to 180sec (related to the problem but independent to NCQ):
-
-```
-$ crontab -e
-@reboot echo 1 > /sys/block/sda/device/queue_depth
-@reboot echo 180 > /sys/block/sda/device/timeout
-```
-
-### fsck error checking
-
-Use the following command to automate check after every 5 mounts/reboots. Change /dev/sda1 to the correct partition and -c 5 to tweak the number of mounts/reboots accordingly.
-
-```
-partition=/dev/sda1; LC_ALL=C tune2fs -i 3600s -c 5 $partition 2>&1 | grep Setting
-```
-
-### SATA Throughput
-
-USB ports don't appear to share bandwidth as USB LAN adapter gets the same speed regardless of SSD being connected through USB or now.
-
-```
-$ iperf3 -Rc pve.local
-Connecting to host 10.100.100.50, port 5201
-Reverse mode, remote host 10.100.100.50 is sending
-[  5] local 10.100.100.64 port 57984 connected to 10.100.100.50 port 5201
-[ ID] Interval           Transfer     Bitrate
-[  5]   0.00-1.00   sec  24.2 MBytes   203 Mbits/sec                  
-[  5]   1.00-2.00   sec  24.4 MBytes   205 Mbits/sec                  
-[  5]   2.00-3.00   sec  24.2 MBytes   203 Mbits/sec                  
-[  5]   3.00-4.00   sec  24.1 MBytes   202 Mbits/sec                  
-[  5]   4.00-5.00   sec  24.0 MBytes   201 Mbits/sec                  
-[  5]   5.00-6.00   sec  24.1 MBytes   202 Mbits/sec                  
-[  5]   6.00-7.00   sec  24.1 MBytes   202 Mbits/sec                  
-[  5]   7.00-8.00   sec  24.3 MBytes   204 Mbits/sec                  
-[  5]   8.00-9.00   sec  24.1 MBytes   202 Mbits/sec                  
-[  5]   9.00-10.00  sec  24.2 MBytes   203 Mbits/sec                  
-- - - - - - - - - - - - - - - - - - - - - - - - -
-[ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.01  sec   243 MBytes   204 Mbits/sec    0             sender
-[  5]   0.00-10.00  sec   242 MBytes   203 Mbits/sec                  receiver
-```
-
-#### USB-SATA Adapter
-
-```
-$ hdparm -Tt /dev/sda
-/dev/sda: USB to SATA adapter
- Timing cached reads:   674 MB in  2.00 seconds = 337.48 MB/sec
- Timing buffered disk reads:  66 MB in  3.05 seconds =  21.63 MB/sec
-```
-
-#### SATA Native
-
-```
-$ hdparm -Tt /dev/sda
-/dev/sda: SATA
- Timing cached reads:   720 MB in  2.00 seconds = 359.76 MB/sec
- Timing buffered disk reads: 326 MB in  3.00 seconds = 108.60 MB/sec
-```
-
 ## Rootfs Bootstrapping with rsync
 
 To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the current repo.
@@ -343,9 +269,95 @@ The APQ8064 implements 12 Generic Serial Bus Interface (GSBI) ports. GSBI ports 
 * SPI
 * General-purpose I/O (GPIO) bits
 
+## Docker bridge/iptables error
+
+If you see an error similar to this:
+```
+docker failed to register "bridge" driver: failed to add jump rules to ipv4 NAT tables
+```
+Run these these commands to switch from iptables-nft to iptables-legacy that docker wants and restart:
+```
+$ sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+$ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
+
 ## Power and GPIO Pin Layout, SATA 5V power
 
 Some images from following websites are in <current_repo>/doc directory (Power/GPIO/SATA).
+
+## SATA: Hard drive 
+
+### SATA NCQ Errors in dmesg
+
+Could be due to several causes including known offending SSDs like Samsung EVO or aggressive power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
+
+```
+$ cat /etc/udev/rules.d/10-ssd-power-mode.rules
+ACTION=="add", SUBSYSTEM=="scsi_host", KERNEL=="host*", ATTR{link_power_management_policy}="medium_power"
+
+$ cat /sys/class/scsi_host/host0/link_power_management_policy
+medium_power
+```
+
+NCQ can be disabled with the kernel command line "libata.force=noncq", a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab and increase the timeout to 180sec (related to the problem but independent to NCQ):
+
+```
+$ crontab -e
+@reboot echo 1 > /sys/block/sda/device/queue_depth
+@reboot echo 180 > /sys/block/sda/device/timeout
+```
+
+### fsck error checking
+
+Use the following command to automate check after every 5 mounts/reboots. Change /dev/sda1 to the correct partition and -c 5 to tweak the number of mounts/reboots accordingly.
+
+```
+partition=/dev/sda1; LC_ALL=C tune2fs -i 3600s -c 5 $partition 2>&1 | grep Setting
+```
+
+### SATA Throughput
+
+USB ports don't appear to share bandwidth as USB LAN adapter gets the same speed regardless of SSD being connected through USB or now.
+
+```
+$ iperf3 -Rc pve.local
+Connecting to host 10.100.100.50, port 5201
+Reverse mode, remote host 10.100.100.50 is sending
+[  5] local 10.100.100.64 port 57984 connected to 10.100.100.50 port 5201
+[ ID] Interval           Transfer     Bitrate
+[  5]   0.00-1.00   sec  24.2 MBytes   203 Mbits/sec                  
+[  5]   1.00-2.00   sec  24.4 MBytes   205 Mbits/sec                  
+[  5]   2.00-3.00   sec  24.2 MBytes   203 Mbits/sec                  
+[  5]   3.00-4.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   4.00-5.00   sec  24.0 MBytes   201 Mbits/sec                  
+[  5]   5.00-6.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   6.00-7.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   7.00-8.00   sec  24.3 MBytes   204 Mbits/sec                  
+[  5]   8.00-9.00   sec  24.1 MBytes   202 Mbits/sec                  
+[  5]   9.00-10.00  sec  24.2 MBytes   203 Mbits/sec                  
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.01  sec   243 MBytes   204 Mbits/sec    0             sender
+[  5]   0.00-10.00  sec   242 MBytes   203 Mbits/sec                  receiver
+```
+
+#### USB-SATA Adapter
+
+```
+$ hdparm -Tt /dev/sda
+/dev/sda: USB to SATA adapter
+ Timing cached reads:   674 MB in  2.00 seconds = 337.48 MB/sec
+ Timing buffered disk reads:  66 MB in  3.05 seconds =  21.63 MB/sec
+```
+
+#### SATA Native
+
+```
+$ hdparm -Tt /dev/sda
+/dev/sda: SATA
+ Timing cached reads:   720 MB in  2.00 seconds = 359.76 MB/sec
+ Timing buffered disk reads: 326 MB in  3.00 seconds = 108.60 MB/sec
+```
 
 ## Links/References related to IFC6410/APQ8064/QS600 SBC
 
