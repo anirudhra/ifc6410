@@ -1,1 +1,0 @@
-This directory contains kernel with STP and other working bridge modules. Docker can successfully create bridged networks. In additiona, this kernel tree also contains alsa, qcom dsp6 etc. modules for audio. However, audio is currently not working on ifc6410 with this kernel version.
