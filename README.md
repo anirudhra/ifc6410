@@ -26,6 +26,8 @@ depmod -a
 
 ### kirkstone branch (Kernel 5.15)
 
+This kernel does not have GPU/DPU/audio working. Loading msm GPU driver hangs the system. Make sure you blacklist "msm" modules at startup.
+
 ```
 git clone git://git.yoctoproject.org/poky
 cd poky
@@ -38,6 +40,7 @@ cd ..
 source oe-init-build-env build/qcom-armv7a
 bitbake-layers add-layer ../../meta-qcom  # from within build/qcom-armv7a directory
 ```
+
 * Change MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
 
 ```
@@ -52,6 +55,8 @@ MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc.
 ```
 
 ### scarthgap branch (Kernel 6.6)
+
+This kernel has working "GPU/DPU"" but the HDMI port shows no output. The GPU driver "msm" need not be blacklisted. It has broken audio though.
 
 ```
 git clone git://git.yoctoproject.org/poky
@@ -176,6 +181,7 @@ The following device drivers need to be compiled as part of kernel or as modules
 * autofs (kernel automount), cifs, nfsv4: for network sharing
 * USB Attached SCSI for external HDDs
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
+* libata.sata Kernel command line support
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
 * PCie: Appears to be based on Designware IP with some QCOM customizations
