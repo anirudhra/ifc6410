@@ -35,9 +35,10 @@ git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
 git checkout -t origin/kirkstone -b myqcombranch
 cd ..
-source oe-init-build-env
+source oe-init-build-env build/qcom-armv7a
+bitbake-layers add-layer ../../meta-qcom  # should be within the build/qcom-armv7a directory
 ```
-* Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
+* Modify MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
 
 ```
 MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc. as necessary
@@ -61,10 +62,11 @@ git clone git://git.yoctoproject.org/meta-qcom
 cd meta-qcom
 git checkout -t origin/scarthgap -b myqcombranch
 cd ..
-source oe-init-build-env
+source oe-init-build-env build/qcom-armv7a
+bitbake-layers add-layer ../../meta-qcom  # should be within the build/qcom-armv7a directory
 ```
 
-* Modify MACHINE ??="qemux86_64" in ../build/conf/local.conf to:
+* Modify MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
 ```
 MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc. as necessary
 ```
@@ -76,24 +78,33 @@ MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc.
 /dev/sda1                ## for USB or SATA
 ```
 
+* Add additional kernel parameters for kernel command line as a new entry. This avoids having to use abootimg later to append custom command line:
+```
+KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
+```
+
 ### Compile kernel (common to both branches)
 
-Add QCOM changes and configure kernel build options:
+* Add QCOM changes and configure kernel build options:
 ```
 cd build
 bitbake-layers add-layer ../meta-qcom                 ##ensure /build/conf/bblayers.conf has meta-qcom entry
 bitbake -c menuconfig virtual/kernel                  ##kernel config
 ```
-To build kernel and distribution:
+* To build kernel and distribution:
 ```
 bitbake core-image-minimal                            ##rebuild distro, no initramfs
 ```
-To build only kernel:
+* To build only kernel:
 ```
 bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 ```
+* To save kernel defconfig file:
+```
+bitbake virtual/kernel -c savedefconfig
+```
 
-## Kernel Boot Settings
+## Kernel Boot Settings (if KERNEL_CMDLINE_EXTRA was not added in earlier step)
 
 Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch). Compiled kernel will not have additional parameters needed for booting. Exactract bootimg.cfg from compiled boot image and manually override the kernel command line
 
