@@ -174,6 +174,7 @@ The following device drivers need to be compiled as part of kernel or as modules
 * r8152 usb: USB Realtek gigabit LAN
 * ath3k bt: Atheros 3000 Bluetooth
 * autofs (kernel automount), cifs, nfsv4: for network sharing
+* USB Attached SCSI for external HDDs
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
