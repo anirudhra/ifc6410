@@ -181,7 +181,7 @@ The following device drivers need to be compiled as part of kernel or as modules
 * autofs (kernel automount), cifs, nfsv4: for network sharing
 * USB Attached SCSI for external HDDs
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
-* libata.sata Kernel command line support
+* libata.force Kernel command line support
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
 * PCie: Appears to be based on Designware IP with some QCOM customizations
