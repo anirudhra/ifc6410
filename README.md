@@ -36,15 +36,15 @@ cd meta-qcom
 git checkout -t origin/kirkstone -b myqcombranch
 cd ..
 source oe-init-build-env build/qcom-armv7a
-bitbake-layers add-layer ../../meta-qcom  # should be within the build/qcom-armv7a directory
+bitbake-layers add-layer ../../meta-qcom  # from within build/qcom-armv7a directory
 ```
-* Modify MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
+* Change MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
 
 ```
 MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc. as necessary
 ```
 
-* Modify rootfs partition: "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
+* Change rootfs partition: "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
 /dev/mmcblk0p13           ## for emmc userdata partition
 /dev/mmcblk1p1            ## for sdcard partition 1 or mmcblk1p2/p3 etc. depending on paritition number
@@ -63,32 +63,32 @@ cd meta-qcom
 git checkout -t origin/scarthgap -b myqcombranch
 cd ..
 source oe-init-build-env build/qcom-armv7a
-bitbake-layers add-layer ../../meta-qcom  # should be within the build/qcom-armv7a directory
+bitbake-layers add-layer ../../meta-qcom  # from within build/qcom-armv7a directory
 ```
 
-* Modify MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
+* Change MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
 ```
 MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc. as necessary
 ```
 
-* Modify rootfs paritition "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/qcom-armv7a.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
+* Change rootfs paritition "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/qcom-armv7a.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
 ```
 /dev/mmcblk2p13          ## for emmc userdata partition which is now /dev/mmcblk2 in kernel 6.6
 /dev/mmcblk0p1           ## for sdcard paritition 1 or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
 /dev/sda1                ## for USB or SATA
 ```
 
-* Add additional kernel parameters for kernel command line as a new entry. This avoids having to use abootimg later to append custom command line:
+### Additional Kernel Command Line Parameters
+
+To the the same local.conf from above, depending on the kernel version, add the following new line to the end of the file. This avoids having to use abootimg later to append custom command line:
 ```
 KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
 ```
 
 ### Compile kernel (common to both branches)
 
-* Add QCOM changes and configure kernel build options:
+* Add QCOM changes and configure kernel build options from within the /build/qcom-armv7a directory:
 ```
-cd build
-bitbake-layers add-layer ../meta-qcom                 ##ensure /build/conf/bblayers.conf has meta-qcom entry
 bitbake -c menuconfig virtual/kernel                  ##kernel config
 ```
 * To build kernel and distribution:
