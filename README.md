@@ -188,7 +188,7 @@ Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from ker
 
 ### SATA NCQ Errors in dmesg
 
-Most likely due to power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
+Could be due to several causes including known offending SSDs like Samsung EVO or aggressive power management being enabled. Disable aggressive power management. Try "medium_power" for /sys/class/scsi_host/host0/link_power_management_policy to resolve the issue. If so, use the udev rule to set it on boot, available in <repo>/linux/common/etc/udev.
 
 ```
 $ cat /etc/udev/rules.d/10-ssd-power-mode.rules
@@ -198,7 +198,7 @@ $ cat /sys/class/scsi_host/host0/link_power_management_policy
 medium_power
 ```
 
-NCQ can be disabled with kernel command line, a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab and increase the timeout to 180sec (related to the problem but independent to NCQ):
+NCQ can be disabled with the kernel command line "libata.force=noncq", a version for 6.6.x kernel is available in the repo. Alternatively, use the follow command to limit NCQ queue size to 1 in crontab and increase the timeout to 180sec (related to the problem but independent to NCQ):
 
 ```
 $ crontab -e
