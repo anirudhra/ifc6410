@@ -48,7 +48,7 @@ MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc.
 ```
 /dev/mmcblk0p13           ## for emmc userdata partition
 /dev/mmcblk1p1            ## for sdcard partition 1 or mmcblk1p2/p3 etc. depending on paritition number
-/dev/sda1                 ## for USB or SATA
+/dev/sda1                 ## for USB port 1 (top) or SATA
 ```
 
 ### scarthgap branch (Kernel 6.6)
@@ -75,7 +75,7 @@ MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc.
 ```
 /dev/mmcblk2p13          ## for emmc userdata partition which is now /dev/mmcblk2 in kernel 6.6
 /dev/mmcblk0p1           ## for sdcard paritition 1 or mmcblk0p2/p3 depending on paritition number etc., also note sdcard is now /dev/mmcblk0 in kernel 6.6
-/dev/sda1                ## for USB or SATA
+/dev/sda1                ## for USB port 1 (top) or SATA
 ```
 
 ### Additional Kernel Command Line Parameters
@@ -87,7 +87,7 @@ KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_h
 
 ### Compile kernel (common to both branches)
 
-* Add QCOM changes and configure kernel build options from within the /build/qcom-armv7a directory:
+* Add QCOM changes as described above and configure the following kernel configure/build options from within the /build/qcom-armv7a directory. Make sure to run the source-oe script with qcom-armv7a before running any of below for all subsequent builds.
 ```
 bitbake -c menuconfig virtual/kernel                  ##kernel config
 ```
