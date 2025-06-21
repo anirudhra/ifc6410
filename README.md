@@ -196,6 +196,8 @@ To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted syste
 
 ## Prioritizing LAN over WLAN/WiFi
 
+The WiFi firmware in the repo (latest available) lacks RSN override capability. As a result 802.11n (HT mode) cannot be enabled. WiFi is limited to 54Mbps (802.11g). As a result, prioritizing LAN over WiFi is natural.
+
 Use nmcli to set connection priorities
 ```
 # List of connections
@@ -222,6 +224,14 @@ nmcli -f ipv4.route-metric c show "$con_name_1"
 ip r
 route -n #alternate command
 ```
+
+References for WiFi firmware limitation:
+* https://www.spinics.net/lists/ath6kl/msg00111.html
+* https://www.spinics.net/lists/ath6kl/msg00112.html
+* https://lists.infradead.org/pipermail/ath6kl/2015-July/000106.html
+* https://www.spinics.net/lists/ath6kl/msg00091.html
+* https://www.spinics.net/lists/linux-wireless/msg115085.html
+* https://www.spinics.net/lists/linux-wireless/msg87931.html
 
 ## Wifi CLI connect
 
