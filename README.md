@@ -155,8 +155,8 @@ blacklist msm
 ```
 * Add wifi and onboard LAN drivers if necessary to /etc/modules:
 ```
-ath6lk-sdio
-atl1
+ath6lk_sdio
+atl1c
 ```
 * Use fastboot to test kernel, but ensure rootfs has corresponding kernel modules in /lib/modules/<kernel> and "depmod -a" command has been run:
 ```
@@ -196,7 +196,7 @@ To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted syste
 
 ## Prioritizing LAN over WLAN/WiFi
 
-The WiFi firmware in the repo (latest available) lacks RSN override capability. As a result 802.11n (HT mode) cannot be enabled. WiFi is limited to 54Mbps (802.11g). As a result, prioritizing LAN over WiFi is natural.
+The WiFi firmware in the repo (latest available) lacks RSN override capability. As a result 802.11n (HT mode) cannot be enabled. WiFi is limited to 54Mbps (802.11g). Prioritizing LAN over WiFi still allows the WiFi to be connected all the time for a fallback (but slower) network.
 
 Use nmcli to set connection priorities
 ```
