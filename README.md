@@ -180,18 +180,18 @@ Both modules and firmware are necessary to be loaded for the kernel and devices 
 An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
 The following device drivers need to be compiled as part of kernel or as modules:
-* atl1: Atheros L1 onboard gigabit LAN
-* ath6k: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
-* overlayfs, iptables, netfilter, bridge, stp, llc, veth: For Docker
+* atl1c: Atheros L1 onboard gigabit LAN
+* ath6kl-sdio: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
+* overlayfs, squashfs, control/cgroups, iptables, netfilter, bridge, stp, llc, veth: For Docker
 * r8152 usb: USB Realtek gigabit LAN
-* ath3k bt: Atheros 3000 Bluetooth
+* ath3k bt, rfcomm/tty: Atheros 3000 Bluetooth
 * autofs (kernel automount), cifs, nfsv4: for network sharing
 * USB Attached SCSI for external HDDs
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
 * libata.force Kernel command line support
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
-* PCie: Appears to be based on Designware IP with some QCOM customizations
+* PCie: Designware IP with some QCOM customizations
 
 Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
 
