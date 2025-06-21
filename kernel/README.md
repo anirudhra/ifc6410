@@ -1,6 +1,6 @@
 # Kernels
 
-Includes corresponding kernel modules to be put in rootfs' /lib/modules directory (dont' forget to run "depmod -a" after module/kernel change). Audio, BT and GPU work for kernel 4.4.x. None work for kernel 5.15 and only GPU works for kernel 6.6.
+Includes corresponding kernel modules to be put in rootfs' /lib/modules directory (dont' forget to run "depmod -a" after module/kernel change). Audio, BT and GPU work for kernel 4.4.x. None work for kernel 5.15 and only GPU is detected for kernel 6.6, but no console.
 
 ## Device naming
 
