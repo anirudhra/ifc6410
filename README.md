@@ -121,7 +121,7 @@ The following device drivers need to be compiled as part of kernel or as modules
 * atl1c: Atheros L1 onboard gigabit LAN
 * ath6kl-sdio: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
 * overlayfs, squashfs, control/cgroups, iptables, netfilter, bridge, stp, llc, veth: For Docker
-* r8152 usb: USB Realtek gigabit LAN
+* r8152 usb: USB Realtek gigabit LAN, build as modules
 * msm-iommu: enabel this instead of qualcomm/qcom-iommu
 * ath3k bt, rfcomm/tty: Atheros 3000 Bluetooth
 * autofs (kernel automount), cifs, nfsv4: for network sharing
