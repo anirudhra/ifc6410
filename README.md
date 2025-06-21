@@ -26,7 +26,7 @@ depmod -a
 
 ### kirkstone branch (Kernel 5.15)
 
-This kernel does not have GPU/DPU/audio working. Loading msm GPU driver hangs the system. Make sure you blacklist "msm" modules at startup.
+This kernel does not have GPU/DPU/audio working. Loading "msm" GPU driver crashes the kernel/bootup. Make sure to blacklist "msm" modules at startup to prevent system bootup hangs.
 
 ```
 git clone git://git.yoctoproject.org/poky
@@ -56,7 +56,7 @@ MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc.
 
 ### scarthgap branch (Kernel 6.6)
 
-This kernel has working "GPU/DPU"" but the HDMI port shows no output. The GPU driver "msm" need not be blacklisted. It has broken audio though.
+This kernel detects GPU/DPU and "can" load msm drivers without kernel crash but the HDMI port shows no output. The GPU driver "msm" need not be blacklisted. It has broken audio though.
 
 ```
 git clone git://git.yoctoproject.org/poky
