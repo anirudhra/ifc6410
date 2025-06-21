@@ -83,6 +83,13 @@ MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc.
 /dev/sda1                ## for USB port 1 (top) or SATA
 ```
 
+* GPU/DPU dmesg log/error message (iommu succcessfully added, but hdmi-tx has deferred probe pending):
+```
+[   12.833514] adreno 4300000.adreno-3xx: Adding to iommu group 9
+[   12.839576] mdp4 5100000.display-controller: Adding to iommu group 10
+[   24.146907] platform 4a00000.hdmi-tx: deferred probe pending
+```
+
 ### Additional Kernel Command Line Parameters
 
 To the the same local.conf from above, depending on the kernel version, add the following new line to the end of the file. This avoids having to use abootimg later to append custom command line:
