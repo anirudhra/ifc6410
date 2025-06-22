@@ -111,28 +111,31 @@ bitbake virtual/kernel -c savedefconfig
 
 ## Kernel Modules, Firmware and EMMC Partitions
 
-Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
+Kernel modules will be compiled and available in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or .../images/qcom-armv7a (scarthgap branch) directory. These need to match the kernel that is booted/flashed (make sure to run "depmod -a" command from within the right /lib/modules directory for the modules to matched to the loaded kernel. Also, QCOM firmware is typically flashed to /dev/mmcblk0p15 parittion (a.k.a/labeled "cache" paritition) and sometimes mapped to /lib/firmware in fstab. An alternative/better way is to copy the firmware files directly to the rootfs partition's /lib/firmware locally (or /usr/lib/firmware depending on distribution).
 
-Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. Due to size limits, some versions of kernel modules may be split into multiple parts. It's important to merge the contents of multiple archives in /lib/modules/<version>.
+Both modules and firmware are necessary to be loaded for the kernel and devices to function properly. Due to size limits, some versions of kernel modules may be split into multiple parts in this repo due to git file size restrictions. It's important to merge the contents of multiple archives in /lib/modules/<version>.
 
 An archive of qcom-firmware image is available in custom_boot directory (for reference, as it only needs to be flashed once if mounting partition as /lib/firmware instead of copying files locally on rootfs' /lib/firmware directory - preferred way). See .../docs/part-table.png for original mappings, mounts and partition references for onboard EMMC.
 
-The following device drivers need to be compiled as part of kernel or as modules:
-* atl1c: Atheros L1 onboard gigabit LAN
-* ath6kl-sdio: Atheros 6000 onboard wifi (ath6lk-sdio, -core versions)
-* overlayfs, squashfs, control/cgroups, iptables, netfilter, bridge, stp, llc, veth: For Docker
-* r8152 usb: USB Realtek gigabit LAN, build as modules
-* msm-iommu: enabel this instead of qualcomm/qcom-iommu
-* ath3k bt, rfcomm/tty: Atheros 3000 Bluetooth
+The following device drivers need to be compiled as part of kernel (iommu, qcom soc-specific/iommu, usb, pcie, cgroups, fs, clock control etc.) or as modules:
+* atl1c (Device Drivers > Network device support > Ethernet driver support): Atheros L1c onboard gigabit LAN
+* r8152 USB LAN (Device Drivers > Network device support > USB Network Adapters): USB Realtek gigabit LAN for rtl8150/2/3
+* ath6kl-sdio (Device Drivers > Network device support > Wireless LAN): Atheros 6000 onboard wifi (ath6lk-sdio, -core versions, also enable "blueooth coexistence")
+* Bluetooth (Networking support > Bluetooth subsys support > Bluetooth device drivers): ath3k BT loader and protocols, also enable rfcomm/tty BT serial protocols 
+* FileSystems: overlayfs, squashfs, jffs, exfat, fat32, ntfs including write support, btrfs, i/dnotify, Kernel Automounter, fuse 
+* Control Group support (General setup): control/cgroups (for Docker)
+* Networking support > Networking options: Ethernet bridging, Network packet filtering (netfilter), iptables, TCP/IP, IPv6, stp, llc, veth (for Docker)
+* IOMMU (Device Drivers > IOMMU Hardware Support): msm-iommu (enable this instead of qualcomm/qcom-iommu preferably)
 * autofs (kernel automount), cifs, nfsv4: for network sharing
-* USB Attached SCSI for external HDDs
-* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller
-* libata.force Kernel command line support
+* USB Attached SCSI (UAS) and OTG and Mass Storage (Device drivers > USB Support): for external HDDs, build these into the kernel NOT as modules, else rootfs mount will deadlock
+* QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller (see Device Drivers > SoC specific drivers > QCOM SoC and Device Drivers > Common Clock Framework > QCOM clock controllers)
+* libata.force option (Device Drivers > Serial ATA and PATA): To set "noncq" kernel command line option for PCIe SATA SSDs 
 * all other QCOM drivers for APQ8060/8064/8660/8960
-* msm: Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
+* msm GPU (Device Drivers > Graphics Support): Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
 * PCie: Designware IP with some QCOM customizations
-* I2C and Slimbus support for Audio (currently not working in non-4.4 kernels)
-* Local Version custom string can be set for ID (for e.g., "-<data>")
+* I2C and Slimbus support (Device Drivers > SLIMBus and I2C): for Audio (currently not working in non-4.4 kernels)
+* Local Version custom kernel version string (General Setup > Local version) can be set for ID (for e.g., "-<data>" with a leading hypen)
+* Hostname (General Setup > Default hostname): can be set to "ifc6410"
 
 Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/AR6004/hw3.0
 
