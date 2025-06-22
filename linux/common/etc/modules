@@ -1,0 +1,13 @@
+# modules to load
+
+# onboard wifi
+ath6kl-sdio
+
+# onboard ethernet, currently disabled
+#atl1c
+
+# bluetooth
+ath3k
+btusb
+hci_uart
+hci_vhci

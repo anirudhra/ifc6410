@@ -1,0 +1,1782 @@
+[    0.000000] Booting Linux on physical CPU 0
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.4.0-g0f0fed7-00054-gbbec0a9-dirty (robclark@thunkpad) (gcc version 4.7.1 20120606 (Red Hat 4.7.1-0.1.20120606) (GCC) ) #200 SMP PREEMPT Tue Jul 2 17:36:26 EDT 2013
+[    0.000000] CPU: ARMv7 Processor [510f06f2] revision 2 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+[    0.000000] Machine: QCT APQ8064 CDP
+[    0.000000] Truncating memory at 0x90000000 to fit in 32-bit physical address space
+[    0.000000] INITRD: 0x81200000+0x00e4c69e overlaps in-use memory region - disabling initrd
+[    0.000000] memory pool 3 (start fe8ff000 size 1700000) initialized
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] socinfo_init: v7, id=109, ver=1.1, raw_id=1814, raw_ver=1814, hw_plat=1, hw_plat_ver=65536
+[    0.000000]  accessory_chip=0, hw_plat_subtype=0, pmic_model=18, pmic_die_revision=4
+[    0.000000] On node 0 totalpages: 490751
+[    0.000000]   Normal zone: 1552 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 169968 pages, LIFO batch:31
+[    0.000000]   HighMem zone: 2540 pages used for memmap
+[    0.000000]   HighMem zone: 316691 pages, LIFO batch:31
+[    0.000000] allocating 25100288 bytes at c2342000 (82542000 physical) for fb
+[    0.000000] PERCPU: Embedded 9 pages/cpu @c3b35000 s16000 r8192 d12672 u36864
+[    0.000000] pcpu-alloc: s16000 r8192 d12672 u36864 alloc=9*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 486659
+[    0.000000] Kernel command line: loglevel=10 _video=HDMI-A-1:640x480 drm.debug=15 console=ttyHSL0,115200,n8 console=/dev/console androidboot.hardware=mako lpj=67677 root=/dev/sda3 rootwait androidboot.emmc=true androidboot.serialno=3001923 androidboot.baseband=apq
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 140MB 60MB 7MB 254MB 1455MB = 1916MB total
+[    0.000000] Memory: 1901680k/1985648k available, 61324k reserved, 1276924K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xf0000000 - 0xff000000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xef800000   ( 760 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc0b5b108   (11597 kB)
+[    0.000000]       .init : 0xc0c00000 - 0xc0d03e80   (1040 kB)
+[    0.000000]       .data : 0xc0d04000 - 0xc0e85788   (1542 kB)
+[    0.000000]        .bss : 0xc0e857ac - 0xc132ede0   (4774 kB)
+[    0.000000] SLUB: Genslabs=11, HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:1177
+[    0.000000] sched_clock: 32 bits at 32kHz, resolution 30520ns, wraps every 131084001ms
+[    0.000000] Console: colour dummy device 80x30
+[    0.000274] Calibrating delay loop (skipped) preset value.. 13.53 BogoMIPS (lpj=67677)
+[    0.000305] pid_max: default: 32768 minimum: 301
+[    0.000763] Mount-cache hash table entries: 512
+[    0.002441] Initializing cgroup subsys debug
+[    0.002441] Initializing cgroup subsys cpuacct
+[    0.002472] Initializing cgroup subsys devices
+[    0.002502] Initializing cgroup subsys freezer
+[    0.002624] CPU: Testing write buffer coherency: ok
+[    0.003052] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.003082] hw perfevents: enabled with ARMv7 Krait PMU driver, 5 counters available
+[    0.003204] Setting up static identity map for 0x809f2298 - 0x809f2320
+[    0.007111] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.009980] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.013032] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.013428] Brought up 4 CPUs
+[    0.013428] SMP: Total of 4 processors activated (54.14 BogoMIPS).
+[    0.015199] devtmpfs: initialized
+[    0.032626] dummy: 
+[    0.033206] NET: Registered protocol family 16
+[    0.034182] AXI: msm_bus_fabric_init_driver(): msm_bus_fabric_init_driver
+[    0.035220] MSM_DCVS: msm_dcvs_early_init: Unable to initialize DCVS err=-22
+[    0.037875] meminfo_init: smem ram ptable found: ver: 0 len: 5
+[    0.037906] Found 1 memory banks grouped into 8 memory regions
+[    0.038242] gpiochip_add: registered GPIOs 0 to 151 on device: msmgpio
+[    0.039584] socinfo_init: v7, id=109, ver=1.1, raw_id=1814, raw_ver=1814, hw_plat=1, hw_plat_ver=65536
+[    0.039584]  accessory_chip=0, hw_plat_subtype=0, pmic_model=18, pmic_die_revision=4
+[    0.039615] msm_rpm_init: RPM firmware 3.0.16842914
+[    0.064794] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064794] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064825] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064825] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064825] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064855] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064855] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.064886] msm_rpm_get_status(): Status id 433 not defined for target
+[    0.067541] gpio_vreg_probe: id=202, name=ext_5v, gpio=202, gpio_label=ext_5v_en
+[    0.067968] gpio_vreg_probe: id=203, name=ext_mpp8, gpio=203, gpio_label=ext_mpp8_en
+[    0.068518] gpio_vreg_probe: id=77, name=ext_3p3v, gpio=77, gpio_label=ext_3p3v_en
+[    0.068823] pm8921_probe: PMIC revision 1: F4
+[    0.068823] pm8921_probe: PMIC revision 2: 06
+[    0.068853] pm8921_probe: PMIC version: PM8921 rev 3.0
+[    0.068853] pm8921_probe: PMIC Restart Reason: Triggered from CHG (usb charger insertion)
+[    0.070563] gpiochip_add: registered GPIOs 152 to 195 on device: pm-gpio
+[    0.071081] pm_gpio_probe: OK: base=152, ngpio=44
+[    0.071387] gpiochip_add: registered GPIOs 196 to 207 on device: pm8xxx-mpp
+[    0.071478] pm8xxx_mpp_probe: OK: base=196, ngpio=12
+[    0.075141] pm8821_probe: PMIC revision 1: PM8821 rev F3
+[    0.075141] pm8821_probe: PMIC revision 2: PM8821 rev 0B
+[    0.075171] pm8821_probe: PMIC version: PM8821 ver 2.1
+[    0.076026] gpiochip_add: registered GPIOs 208 to 211 on device: pm8xxx-mpp
+[    0.076056] pm8xxx_mpp_probe: OK: base=208, ngpio=4
+[    0.076911] gpio_vreg_probe: id=174, name=ext_ts_sw, gpio=174, gpio_label=ext_ts_sw_en
+[    0.078589] saw_probe: id=0, name=8921_s5
+[    0.079078] saw_probe: id=1, name=8921_s6
+[    0.079566] saw_probe: id=2, name=8821_s0
+[    0.080024] saw_probe: id=3, name=8821_s1
+[    0.097756] gpio_vreg_probe: id=199, name=ext_sata_pwr, gpio=198, gpio_label=ext_sata_pwr_en
+[    0.097909] apq8064_cdp_init: gpio_request(PM8921_GPIO_PM_TO_SYS(43),"WLAN_RST#") returned 0
+[    0.098061] apq8064_cdp_init: gpio_export(PM8921_GPIO_PM_TO_SYS(43), true) returned 0
+[    0.098122] apq8064_cdp_init: gpio_direction_output(PM8921_GPIO_PM_TO_SYS(43), 0) returned 0
+[    0.101571] ------------[ cut here ]------------
+[    0.101602] WARNING: at /home/robclark/src/nexus4/msm/arch/arm/mach-msm/subsystem_restart.c:799 subsys_restart_init+0xe0/0x150()
+[    0.101632] Modules linked in:
+[    0.101663] ---[ end trace da227214a82491b7 ]---
+[    0.107920] sps:BAM 0x12244000 enabled: ver:0x5, number of pipes:20
+[    0.107920] sps:BAM 0x12244000 is registered.
+[    0.108408] sps:sps is ready.
+[    0.160750] msm_pcie_setup: link initialized
+[    0.161178] PCI host bridge to bus 0000:00
+[    0.161208] pci_bus 0000:00: root bus resource [mem 0x10000000-0x17ffffff]
+[    0.161269] pci 0000:00:00.0: [17cb:0101] type 01 class 0xff0000
+[    0.161483] pci 0000:00:00.0: supports D1
+[    0.161483] pci 0000:00:00.0: PME# supported from D0 D1 D3hot
+[    0.161605] PCI: bus0: Fast back to back transfers disabled
+[    0.161788] pci 0000:01:00.0: [1969:1083] type 00 class 0x020000
+[    0.161849] pci 0000:01:00.0: reg 10: [mem 0x00000000-0x0003ffff 64bit]
+[    0.161910] pci 0000:01:00.0: reg 18: [io  0x0000-0x007f]
+[    0.162185] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.162246] PCI: bus1: Fast back to back transfers disabled
+[    0.162948] pci 0000:00:00.0: BAR 8: assigned [mem 0x10000000-0x100fffff]
+[    0.162948] pci 0000:00:00.0: BAR 7: can't assign io (size 0x1000)
+[    0.162978] pci 0000:01:00.0: BAR 0: assigned [mem 0x10000000-0x1003ffff 64bit]
+[    0.163009] pci 0000:01:00.0: BAR 2: can't assign io (size 0x80)
+[    0.163039] pci 0000:00:00.0: PCI bridge to [bus 01-01]
+[    0.163039] pci 0000:00:00.0:   bridge window [mem 0x10000000-0x100fffff]
+[    0.163100] PCI: enabling device 0000:00:00.0 (0140 -> 0143)
+[    0.211597] bio: create slab <bio-0> at 0
+[    0.212482] vgaarb: loaded
+[    0.212818] ION heap vmalloc created
+[    0.212879] ION heap mm created at a0000000 with size 3800000
+[    0.212910] ION heap mm_fw created at 9fe00000 with size 1e0000
+[    0.212971] ION heap mfc created at a3800000 with size 2000
+[    0.213001] ION heap iommu created
+[    0.213062] ION heap qsecom created at fe8ff000 with size 780000
+[    0.213123] ION heap audio created at ff07f000 with size 4cf000
+[    0.214527] pm8xxx_pwm_probe: OK
+[    0.215351] SCSI subsystem initialized
+[    0.215595] libata version 3.00 loaded.
+[    0.215809] platform msm_slim_ctrl.1: Driver msm_slim_ctrl requests probe deferral
+[    0.216297] usbcore: registered new interface driver usbfs
+[    0.216419] usbcore: registered new interface driver hub
+[    0.216603] usbcore: registered new device driver usb
+[    0.216786] Linux media interface: v0.10
+[    0.216877] Linux video capture interface: v2.00
+[    0.217640] Registered led device: led:red
+[    0.219319] msm_iommu_dev: device vpe mapped at f0600000, with 2 ctx banks
+[    0.219471] msm_iommu_dev: device mdp0 mapped at f0800000, with 2 ctx banks
+[    0.219655] msm_iommu_dev: device mdp1 mapped at f0a00000, with 2 ctx banks
+[    0.219807] msm_iommu_dev: device rot mapped at f0c00000, with 2 ctx banks
+[    0.219960] msm_iommu_dev: device ijpeg mapped at f0e00000, with 2 ctx banks
+[    0.220112] msm_iommu_dev: device vfe mapped at f1000000, with 2 ctx banks
+[    0.220265] msm_iommu_dev: device vcodec_a mapped at f1200000, with 2 ctx banks
+[    0.220418] msm_iommu_dev: device vcodec_b mapped at f1400000, with 2 ctx banks
+[    0.220601] msm_iommu_dev: device gfx3d mapped at f1600000, with 3 ctx banks
+[    0.220723] msm_iommu_dev: device jpegd mapped at f1800000, with 2 ctx banks
+[    0.220936] msm_iommu_dev: device gfx3d1 mapped at f1a00000, with 3 ctx banks
+[    0.221089] msm_iommu_dev: device vcap mapped at f1c00000, with 2 ctx banks
+[    0.221547] msm_iommu_ctx msm_iommu_ctx.2: context vpe_src using bank 0
+[    0.221730] msm_iommu_ctx msm_iommu_ctx.3: context vpe_dst using bank 1
+[    0.221913] msm_iommu_ctx msm_iommu_ctx.4: context mdp_port0_cb0 using bank 0
+[    0.222127] msm_iommu_ctx msm_iommu_ctx.5: context mdp_port0_cb1 using bank 1
+[    0.222310] msm_iommu_ctx msm_iommu_ctx.6: context mdp_port1_cb0 using bank 0
+[    0.222524] msm_iommu_ctx msm_iommu_ctx.7: context mdp_port1_cb1 using bank 1
+[    0.222737] msm_iommu_ctx msm_iommu_ctx.8: context rot_src using bank 0
+[    0.222890] msm_iommu_ctx msm_iommu_ctx.9: context rot_dst using bank 1
+[    0.223103] msm_iommu_ctx msm_iommu_ctx.10: context ijpeg_src using bank 0
+[    0.223256] msm_iommu_ctx msm_iommu_ctx.11: context ijpeg_dst using bank 1
+[    0.223470] msm_iommu_ctx msm_iommu_ctx.12: context vfe_imgwr using bank 0
+[    0.223653] msm_iommu_ctx msm_iommu_ctx.13: context vfe_misc using bank 1
+[    0.223836] msm_iommu_ctx msm_iommu_ctx.14: context vcodec_a_stream using bank 0
+[    0.224050] msm_iommu_ctx msm_iommu_ctx.15: context vcodec_a_mm1 using bank 1
+[    0.224294] msm_iommu_ctx msm_iommu_ctx.16: context vcodec_b_mm2 using bank 0
+[    0.224568] msm_iommu_ctx msm_iommu_ctx.17: context gfx3d_user using bank 0
+[    0.224782] msm_iommu_ctx msm_iommu_ctx.18: context gfx3d_priv using bank 1
+[    0.224965] msm_iommu_ctx msm_iommu_ctx.0: context jpegd_src using bank 0
+[    0.225118] msm_iommu_ctx msm_iommu_ctx.1: context jpegd_dst using bank 1
+[    0.225392] msm_iommu_ctx msm_iommu_ctx.19: context gfx3d1_user using bank 0
+[    0.225606] msm_iommu_ctx msm_iommu_ctx.20: context gfx3d1_priv using bank 1
+[    0.225789] msm_iommu_ctx msm_iommu_ctx.21: context vcap_vc using bank 0
+[    0.225972] msm_iommu_ctx msm_iommu_ctx.22: context vcap_vp using bank 1
+[    0.226216] Advanced Linux Sound Architecture Driver Version 1.0.25.
+[    0.227071] Bluetooth: Core ver 2.16
+[    0.227132] NET: Registered protocol family 31
+[    0.227163] Bluetooth: HCI device and connection manager initialized
+[    0.227193] Bluetooth: HCI socket layer initialized
+[    0.227193] Bluetooth: L2CAP socket layer initialized
+[    0.227468] Bluetooth: SCO socket layer initialized
+[    0.228506] Switching to clocksource gp_timer
+[    0.278650] NET: Registered protocol family 2
+[    0.279139] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.280146] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+[    0.282588] TCP bind hash table entries: 65536 (order: 8, 1310720 bytes)
+[    0.284327] TCP: Hash tables configured (established 131072 bind 65536)
+[    0.284358] TCP: reno registered
+[    0.284388] UDP hash table entries: 512 (order: 2, 24576 bytes)
+[    0.284480] UDP-Lite hash table entries: 512 (order: 2, 24576 bytes)
+[    0.285212] NET: Registered protocol family 1
+[    0.286036] RPC: Registered named UNIX socket transport module.
+[    0.286067] RPC: Registered udp transport module.
+[    0.286067] RPC: Registered tcp transport module.
+[    0.286097] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.286189] PCI: CLS 64 bytes, default 64
+[    0.288997] Detected 5 counters on the L2CC PMU.
+[    0.291683] pil_qdsp6v4 pil_qdsp6v4.0: using secure boot
+[    0.294124] pil_riva pil_riva: using secure boot
+[    0.298428] pil_dsps pil_dsps: using secure boot
+[    0.300534] pil_gss pil_gss: using secure boot
+[    0.303433] smd_channel_probe_worker: allocation table not initialized
+[    0.313261] msm_dsps driver version 4.03.
+[    0.315519] NET: Registered protocol family 27
+[    0.320830] lpass_fatal_init: lpass SSR driver init'ed.
+[    0.321257] wcnss_8960: module initialized
+[    0.322081] gss_8064_init: gss fatal driver init'ed.
+[    0.322722] acpuclk-8064 acpuclk-8064: SPEED BIN: 0
+[    0.322752] acpuclk-8064 acpuclk-8064: ACPU PVS: 1
+[    0.325560] acpuclk-8064 acpuclk-8064: CPU0: 12 frequencies supported
+[    0.325560] acpuclk-8064 acpuclk-8064: CPU1: 12 frequencies supported
+[    0.325591] acpuclk-8064 acpuclk-8064: CPU2: 12 frequencies supported
+[    0.325591] acpuclk-8064 acpuclk-8064: CPU3: 12 frequencies supported
+[    0.328246] msm_rpm_log_probe: OK
+[    0.332305] L2 Error detected!
+[    0.332336] 	L2ESR    = 0x00010002
+[    0.332336] 	L2ESYNR0 = 0x89000282
+[    0.332336] 	L2ESYNR1 = 0x08271219
+[    0.332366] 	L2EAR0   = 0xe2085080
+[    0.332366] 	L2EAR1   = 0x00000001
+[    0.332366] 	CPU bitmap = 0x1
+[    0.332397] L2 master port slave error
+[    0.332397] ------------[ cut here ]------------
+[    0.332427] WARNING: at /home/robclark/src/nexus4/msm/arch/arm/mach-msm/cache_erp.c:412 msm_l2_erp_irq+0x1d0/0x260()
+[    0.332458] L2 master port error detected
+[    0.332458] Modules linked in:
+[    0.332488] ---[ end trace da227214a82491b8 ]---
+[    0.333465] usbcore: registered new interface driver hsic_sysmon
+[    0.334045] audit: initializing netlink socket (disabled)
+[    0.334106] type=2000 audit(0.320:1): initialized
+[    0.505386] highmem bounce pool size: 64 pages
+[    0.530901] NFS: Registering the id_resolver key type
+[    0.533038] fuse init (API version 7.18)
+[    0.534381] msgmni has been set to 1220
+[    0.535144] cryptomgr_test used greatest stack depth: 7080 bytes left
+[    0.539691] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.539722] io scheduler noop registered
+[    0.539752] io scheduler deadline registered
+[    0.540271] io scheduler cfq registered (default)
+[    0.543628] IO:region MDP4 f0100000 000f0000
+[    0.544483] RG: regulator_enable(mdp.0-vdd) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2422)
+[    0.544636] CLK: clk_set_rate(mdp_clk, 266667000) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2467)
+[    0.544727] CLK: clk_set_rate(lut_mdp_clk, 266667000) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2469)
+[    0.544758] CLK: clk_prepare_enable(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1647)
+[    0.544788] CLK: clk_prepare_enable(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1650)
+[    0.544849] CLK: clk_prepare_enable(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1653)
+[    0.544910] IO:W f01000c0 0707ffff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:408)
+[    0.544941] IO:W f01000c4 03073f3f (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:409)
+[    0.544971] IO:R f01c0000 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:475)
+[    0.545002] IO:W f01c0004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:481)
+[    0.545032] IO:W f01c0008 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:482)
+[    0.545063] IO:W f01c000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:483)
+[    0.545093] IO:W f01c0010 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:484)
+[    0.545124] IO:W f01c0014 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:485)
+[    0.545185] IO:W f01c0018 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:486)
+[    0.545215] IO:W f01c001c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:487)
+[    0.545246] IO:W f01c0020 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:488)
+[    0.545276] IO:W f01c0024 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:489)
+[    0.545307] IO:W f01c0028 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:490)
+[    0.545338] IO:W f01c002c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:491)
+[    0.545368] IO:W f01c0030 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:492)
+[    0.545399] IO:W f01c0034 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:493)
+[    0.545429] IO:W f01c0038 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:494)
+[    0.545490] IO:W f0110104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1330)
+[    0.545521] IO:W f0110108 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1331)
+[    0.545551] IO:W f011010c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1332)
+[    0.545582] IO:W f0110124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1335)
+[    0.545612] IO:W f0110128 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1336)
+[    0.545643] IO:W f011012c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1337)
+[    0.545673] IO:W f0110144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1340)
+[    0.545704] IO:W f0110148 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1341)
+[    0.545734] IO:W f011014c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1342)
+[    0.545795] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1330)
+[    0.545826] IO:W f0118108 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1331)
+[    0.545856] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1332)
+[    0.545887] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1335)
+[    0.545917] IO:W f0118128 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1336)
+[    0.545948] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1337)
+[    0.545978] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1340)
+[    0.546009] IO:W f0118148 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1341)
+[    0.546039] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:1342)
+[    0.546101] IO:W f0124400 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546131] IO:W f0124404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546162] IO:W f0124408 00000331 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546192] IO:W f012440c 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546223] IO:W f0124410 0000ff37 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546253] IO:W f0124414 0000fe60 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546284] IO:W f0124418 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546314] IO:W f012441c 00000409 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546345] IO:W f0124420 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.546375] IO:W f0124500 0000fff0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.546436] IO:W f0124580 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.546467] IO:W f0124504 0000ff80 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.546497] IO:W f0124584 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.546528] IO:W f0124508 0000ff80 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.546558] IO:W f0124588 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.546589] IO:W f0124600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546619] IO:W f0124680 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.546650] IO:W f0124604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546680] IO:W f0124684 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.546741] IO:W f0124608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546772] IO:W f0124688 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.546802] IO:W f012460c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546833] IO:W f012468c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.546864] IO:W f0124610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546894] IO:W f0124690 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.546925] IO:W f0124614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.546955] IO:W f0124694 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547016] IO:R f0120058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.547047] IO:W f0120058 00000400 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.547077] IO:W f0134400 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547108] IO:W f0134404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547138] IO:W f0134408 00000331 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547169] IO:W f013440c 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547199] IO:W f0134410 0000ff37 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547230] IO:W f0134414 0000fe60 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547260] IO:W f0134418 00000254 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547321] IO:W f013441c 00000409 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547352] IO:W f0134420 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.547382] IO:W f0134500 0000fff0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.547413] IO:W f0134580 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.547443] IO:W f0134504 0000ff80 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.547474] IO:W f0134584 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.547504] IO:W f0134508 0000ff80 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.547535] IO:W f0134588 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.547565] IO:W f0134600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547596] IO:W f0134680 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547657] IO:W f0134604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547688] IO:W f0134684 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547718] IO:W f0134608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547749] IO:W f0134688 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547779] IO:W f013460c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547810] IO:W f013468c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547840] IO:W f0134610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547871] IO:W f0134690 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547901] IO:W f0134614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.547962] IO:W f0134694 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.547993] IO:R f0130058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.548023] IO:W f0130058 00000400 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.548054] IO:W f0193400 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548084] IO:W f0193404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548115] IO:W f0193408 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548145] IO:W f019340c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548176] IO:W f0193410 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548206] IO:W f0193414 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548237] IO:W f0193418 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548298] IO:W f019341c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548329] IO:W f0193420 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.548359] IO:W f0193500 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.548390] IO:W f0193580 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.548420] IO:W f0193504 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.548451] IO:W f0193584 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.548481] IO:W f0193508 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.548512] IO:W f0193588 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.548542] IO:W f0193600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.548573] IO:W f0193680 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.548634] IO:W f0193604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.548664] IO:W f0193684 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.548695] IO:W f0193608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.548725] IO:W f0193688 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.548756] IO:W f019360c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.548847] IO:W f019368c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.548908] IO:W f0193610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.548939] IO:W f0193690 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.548969] IO:W f0193614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549000] IO:W f0193694 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549030] IO:R f0190070 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.549061] IO:W f0190070 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.549092] IO:W f011a400 00000083 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549122] IO:W f011a404 00000102 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549153] IO:W f011a408 00000032 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549214] IO:W f011a40c 00001fb5 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549244] IO:W f011a410 00001f6c (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549275] IO:W f011a414 000000e1 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549305] IO:W f011a418 000000e1 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549336] IO:W f011a41c 00001f45 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549366] IO:W f011a420 00001fdc (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.549397] IO:W f011a500 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.549427] IO:W f011a580 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.549458] IO:W f011a504 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.549488] IO:W f011a584 00000080 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.549549] IO:W f011a508 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.549580] IO:W f011a588 00000080 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.549610] IO:W f011a600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549641] IO:W f011a680 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549671] IO:W f011a604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549702] IO:W f011a684 000000eb (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549732] IO:W f011a608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549763] IO:W f011a688 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549793] IO:W f011a60c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549855] IO:W f011a68c 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549885] IO:W f011a610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549916] IO:W f011a690 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.549946] IO:W f011a614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.549977] IO:W f011a694 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550007] IO:R f0118200 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.550038] IO:W f0118200 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.550068] IO:W f018a400 00000083 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550099] IO:W f018a404 00000102 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550129] IO:W f018a408 00000032 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550190] IO:W f018a40c 00001fb5 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550221] IO:W f018a410 00001f6c (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550251] IO:W f018a414 000000e1 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550282] IO:W f018a418 000000e1 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550312] IO:W f018a41c 00001f45 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550343] IO:W f018a420 00001fdc (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.550373] IO:W f018a500 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.550404] IO:W f018a580 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.550434] IO:W f018a504 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.550465] IO:W f018a584 00000080 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.550526] IO:W f018a508 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.550556] IO:W f018a588 00000080 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.550587] IO:W f018a600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550618] IO:W f018a680 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550648] IO:W f018a604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550679] IO:W f018a684 000000eb (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550709] IO:W f018a608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550740] IO:W f018a688 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550770] IO:W f018a60c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550831] IO:W f018a68c 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550862] IO:W f018a610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550892] IO:W f018a690 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550923] IO:W f018a614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.550953] IO:W f018a694 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.550984] IO:R f0188200 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.551014] IO:W f0188200 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.551045] IO:W f01a3400 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551075] IO:W f01a3404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551136] IO:W f01a3408 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551167] IO:W f01a340c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551197] IO:W f01a3410 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551228] IO:W f01a3414 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551258] IO:W f01a3418 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551289] IO:W f01a341c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551320] IO:W f01a3420 00000200 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2239)
+[    0.551350] IO:W f01a3500 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.551381] IO:W f01a3580 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.551411] IO:W f01a3504 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.551442] IO:W f01a3584 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.551503] IO:W f01a3508 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2245)
+[    0.551533] IO:W f01a3588 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2247)
+[    0.551564] IO:W f01a3600 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551594] IO:W f01a3680 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551625] IO:W f01a3604 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551655] IO:W f01a3684 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551686] IO:W f01a3608 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551716] IO:W f01a3688 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551747] IO:W f01a360c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551777] IO:W f01a368c 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551838] IO:W f01a3610 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551869] IO:W f01a3690 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551899] IO:W f01a3614 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2253)
+[    0.551930] IO:W f01a3694 000000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2255)
+[    0.551960] IO:R f01a0028 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2219)
+[    0.551991] IO:W f01a0028 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:2221)
+[    0.552021] IO:W f0100070 00000003 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:433)
+[    0.552052] IO:W f0100050 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:438)
+[    0.552113] IO:W f010004c 00002222 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:446)
+[    0.552144] IO:W f0191004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:371)
+[    0.552174] IO:W f01b1004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:373)
+[    0.552205] IO:W f0121004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:380)
+[    0.552235] IO:W f0131004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:380)
+[    0.552266] IO:W f0141004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:380)
+[    0.552296] IO:W f0151004 00000047 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:380)
+[    0.552357] IO:R f0100000 04040306 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:339)
+[    0.552388] IO:W f01100fc 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:345)
+[    0.552418] IO:W f010003c 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:462)
+[    0.552693] CLK: clk_disable_unprepare(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1632)
+[    0.552723] CLK: clk_disable_unprepare(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1635)
+[    0.552784] CLK: clk_disable_unprepare(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1638)
+[    0.554585] IO:region DSI f2000000 000f0000
+[    0.554616] mipi_dsi base phy_addr = 0x4700000 virt = 0xf2000000
+[    0.554677] IO:region SFPB f00b8000 00000100
+[    0.554707] mmss_sfpb  base phy_addr = 0x5700000,virt = 0xf00b8000
+[    0.554707] IO:region MMSS_CC fa014000 00001000
+[    0.555775] IO:region QFPROM f00c0000 00006100
+[    0.555806] IO:region HDMI fa800000 00001000
+[    0.556569] IO:R f00c0238 b4404481 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1262)
+[    0.556600] hdmi_msm hdmi_msm.1: WARNING: HDCP disabled
+[    0.556905] setting pdata->panel_info.fb_num to 2. type: 7
+[    0.557759] CLK: clk_prepare_enable(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1647)
+[    0.557820] CLK: clk_prepare_enable(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1650)
+[    0.557851] CLK: clk_prepare_enable(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1653)
+[    0.557881] mdp4_dtv_vsync_init: ndx=0
+[    0.557912] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:242)
+[    0.557942] IO:W f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:284)
+[    0.558003] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2933)
+[    0.558034] CLK: clk_disable_unprepare(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1632)
+[    0.558065] CLK: clk_disable_unprepare(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1635)
+[    0.558095] CLK: clk_disable_unprepare(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1638)
+[    0.570273] pm_runtime: fail to wake up
+[    0.598962] CLK: clk_prepare_enable(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1647)
+[    0.598992] CLK: clk_prepare_enable(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1650)
+[    0.599023] CLK: clk_prepare_enable(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1653)
+[    0.599084] IO:W f01b0004 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:453)
+[    0.599114] IO:W f01b0008 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:469)
+[    0.599145] IO:W f01b000c 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:470)
+[    0.599175] IO:W f01b0010 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:473)
+[    0.599206] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1436)
+[    0.599236] IO:W f0118008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1515)
+[    0.599267] IO:W f011800c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1516)
+[    0.599298] IO:W f0118010 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1517)
+[    0.599328] IO:W f0118004 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1518)
+[    0.599359] IO:R f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:700)
+[    0.599389] IO:W f0140000 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:705)
+[    0.599389] IO:W f0140004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:706)
+[    0.599420] IO:W f0140008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:707)
+[    0.599450] IO:W f014000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:708)
+[    0.599481] IO:W f0140010 00020000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:710)
+[    0.599511] IO:W f0140040 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:711)
+[    0.599542] IO:W f0140050 000267ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:713)
+[    0.599572] IO:W f0140054 03020001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:714)
+[    0.599603] IO:W f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:721)
+[    0.599633] IO:W f014005c 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:722)
+[    0.599664] IO:W f0140060 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:723)
+[    0.599694] IO:W f0118180 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2053)
+[    0.599725] IO:W f0118184 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2054)
+[    0.599755] IO:W f0118188 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2056)
+[    0.599786] IO:W f011818c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2057)
+[    0.599816] IO:W f0118108 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.599847] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.599877] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.599908] IO:W f0119004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.599908] IO:W f0118110 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.599938] IO:W f0118114 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.599969] IO:W f0118118 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.599999] IO:W f011811c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.600030] IO:W f0118128 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.600061] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.600091] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.600122] IO:W f0119404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.600152] IO:W f0118130 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.600183] IO:W f0118134 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.600183] IO:W f0118138 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.600213] IO:W f011813c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.600244] IO:W f0118148 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.600274] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.600305] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.600335] IO:W f0119804 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.600366] IO:W f0118150 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.600396] IO:W f0118154 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.600427] IO:W f0118158 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.600427] IO:W f011815c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.600457] IO:W f0118164 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.600488] IO:W f0118168 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.600518] IO:W f0118160 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.600549] IO:W f0119b84 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.600579] IO:W f011816c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.600610] IO:W f0118170 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.600640] IO:W f0118174 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.600671] IO:W f0118178 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.600701] IO:W f0110100 00000900 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1634)
+[    0.600732] IO:W f0118000 00000012 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1637)
+[    0.600763] IO:R f010003c 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:188)
+[    0.600793] IO:W f01b0000 0000213f (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:383)
+[    0.600824] IO:W f01b0070 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:93)
+[    0.600854] IO:W f01b0074 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:94)
+[    0.600885] IO:W f01b0078 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:95)
+[    0.600915] mdp4_dtv_start: <ID=60 1920x1080 (88,44,148), (4,5,36) 148MHz>
+[    0.600946] IO:W f01d0004 0898002c (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:507)
+[    0.600976] IO:W f01d0008 0025c3f8 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:508)
+[    0.601007] IO:W f01d000c 00002af8 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:509)
+[    0.601037] IO:W f01d0018 083f00c0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:510)
+[    0.601068] IO:W f01d001c 00016058 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:511)
+[    0.601098] IO:W f01d0020 0025a197 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:512)
+[    0.601129] IO:W f01d0040 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:513)
+[    0.601159] IO:W f01d0044 800000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:514)
+[    0.601159] IO:W f01d0048 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:515)
+[    0.601190] IO:W f01d0050 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:516)
+[    0.601220] IO:W f01d002c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:517)
+[    0.601251] IO:W f01d0030 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:518)
+[    0.601281] IO:W f01d0038 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:519)
+[    0.601312] IO:W f01d0000 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:525)
+[    0.606500] RG: regulator_enable(hdmi_msm.0-hdmi_mux_vdd) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:922)
+[    0.606500] RG: regulator_enable(hdmi_msm.0-hdmi_vdda) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:927)
+[    0.606561] RG: regulator_enable(hdmi_msm.0-hdmi_lvl_tsl) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:933)
+[    0.606592] CLK: clk_set_rate(tv_src_clk, 148500000) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:148)
+[    0.606622] dtv_on: tv_src_clk=148500kHz, pm_qos_rate=148500kHz, [0]
+[    0.606622] CLK: clk_prepare_enable(hdmi_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:159)
+[    0.607599] CLK: clk_prepare_enable(mdp_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:165)
+[    0.607630] hdmi_msm hdmi_msm.1: power: ON (1920x1080 148500000)
+[    0.607660] IO:W fa800044 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3448)
+[    0.607660] IO:R fa80002c 00000040 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3466)
+[    0.607691] IO:W fa8000e8 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3507)
+[    0.607691] IO:W fa8000e4 00000170 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3533)
+[    0.607721] IO:W fa80002c 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3546)
+[    0.607752] IO:R fa800000 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1290)
+[    0.607752] IO:R fa800000 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1303)
+[    0.607782] hdmi_msm hdmi_msm.1: power=OFF DVI= OFF
+[    0.607813] mdp4_dtv_on:
+[    0.628902] IO:W f01d0000 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:539)
+[    0.628902] mdp4_mixer_blend_setup: Error: no bg_pipe at mixer=1
+[    0.628933] IO:W f0110100 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1634)
+[    0.628963] hdmi_msm hdmi_msm.1: power: OFF (audio off, Reset Core)
+[    0.628963] IO:R fa800020 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3673)
+[    0.628963] IO:R fa8001d0 00000040 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3674)
+[    0.628994] IO:W fa800044 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3448)
+[    0.628994] IO:R fa80002c 00000070 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3466)
+[    0.629024] IO:W fa80002c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3546)
+[    0.629024] IO:R fa800024 00010000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3226)
+[    0.629055] IO:W fa800024 00010000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3337)
+[    0.629055] hdmi_msm hdmi_msm.1: HDMI Audio: Disabled
+[    0.629085] IO:R fa80011c 10000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:2245)
+[    0.629085] IO:W fa800408 0000007f (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:780)
+[    0.629116] dtv_off
+[    0.629116] CLK: clk_disable_unprepare(hdmi_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:94)
+[    0.629146] CLK: clk_disable_unprepare(mdp_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:96)
+[    0.629177] RG: regulator_disable(hdmi_msm.0-hdmi_mux_vdd) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:941)
+[    0.629207] RG: regulator_disable(hdmi_msm.0-hdmi_vdda) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:946)
+[    0.629238] RG: regulator_disable(hdmi_msm.0-hdmi_lvl_tsl) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:951)
+[    0.631893] CLK: clk_disable_unprepare(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1632)
+[    0.631924] CLK: clk_disable_unprepare(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1635)
+[    0.631924] CLK: clk_disable_unprepare(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1638)
+[    0.631954] mdp4_dtv_off:
+[    0.658873] CLK: clk_prepare_enable(mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1647)
+[    0.658904] CLK: clk_prepare_enable(mdp_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1650)
+[    0.658904] CLK: clk_prepare_enable(lut_mdp_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:1653)
+[    0.658934] IO:W f01b0004 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:453)
+[    0.658965] IO:W f01b0008 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:469)
+[    0.658965] IO:W f01b000c 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:470)
+[    0.658995] IO:W f01b0010 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:473)
+[    0.658995] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1436)
+[    0.659026] IO:W f0118008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1515)
+[    0.659026] IO:W f011800c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1516)
+[    0.659026] IO:W f0118010 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1517)
+[    0.659056] IO:W f0118004 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1518)
+[    0.659056] IO:R f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:700)
+[    0.659087] IO:W f0140000 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:705)
+[    0.659087] IO:W f0140004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:706)
+[    0.659117] IO:W f0140008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:707)
+[    0.659117] IO:W f014000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:708)
+[    0.659148] IO:W f0140010 00020000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:710)
+[    0.659148] IO:W f0140040 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:711)
+[    0.659148] IO:W f0140050 000267ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:713)
+[    0.659179] IO:W f0140054 03020001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:714)
+[    0.659179] IO:W f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:721)
+[    0.659209] IO:W f014005c 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:722)
+[    0.659209] IO:W f0140060 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:723)
+[    0.659240] IO:W f0118180 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2053)
+[    0.659240] IO:W f0118184 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2054)
+[    0.659270] IO:W f0118188 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2056)
+[    0.659270] IO:W f011818c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2057)
+[    0.659301] IO:W f0118108 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.659301] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.659331] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.659331] IO:W f0119004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.659331] IO:W f0118110 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.659362] IO:W f0118114 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.659362] IO:W f0118118 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.659392] IO:W f011811c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.659392] IO:W f0118128 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.659423] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.659423] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.659453] IO:W f0119404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.659453] IO:W f0118130 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.659453] IO:W f0118134 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.659484] IO:W f0118138 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.659484] IO:W f011813c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.659514] IO:W f0118148 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.659514] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.659545] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.659545] IO:W f0119804 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.659545] IO:W f0118150 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.659575] IO:W f0118154 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.659575] IO:W f0118158 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.659606] IO:W f011815c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.659606] IO:W f0118164 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.659636] IO:W f0118168 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.659636] IO:W f0118160 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.659636] IO:W f0119b84 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.659667] IO:W f011816c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.659667] IO:W f0118170 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.659697] IO:W f0118174 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.659697] IO:W f0118178 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.659728] IO:W f0110100 00000900 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1634)
+[    0.659728] IO:W f0118000 00000012 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1637)
+[    0.659758] IO:R f010003c 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:188)
+[    0.659758] IO:W f01b0000 0000213f (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:383)
+[    0.659789] IO:W f01b0070 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:93)
+[    0.659789] IO:W f01b0074 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:94)
+[    0.659819] IO:W f01b0078 00ff0000 (/home/robclark/src/nexus4/msm/drivers/video/msm/external_common.c:95)
+[    0.659819] mdp4_dtv_start: <ID=60 1920x1080 (88,44,148), (4,5,36) 148MHz>
+[    0.659819] IO:W f01d0004 0898002c (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:507)
+[    0.659850] IO:W f01d0008 0025c3f8 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:508)
+[    0.659850] IO:W f01d000c 00002af8 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:509)
+[    0.659880] IO:W f01d0018 083f00c0 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:510)
+[    0.659880] IO:W f01d001c 00016058 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:511)
+[    0.659911] IO:W f01d0020 0025a197 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:512)
+[    0.659911] IO:W f01d0040 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:513)
+[    0.659942] IO:W f01d0044 800000ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:514)
+[    0.659942] IO:W f01d0048 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:515)
+[    0.659942] IO:W f01d0050 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:516)
+[    0.659972] IO:W f01d002c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:517)
+[    0.659972] IO:W f01d0030 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:518)
+[    0.660003] IO:W f01d0038 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:519)
+[    0.660003] IO:W f01d0000 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:525)
+[    0.662810] RG: regulator_enable(hdmi_msm.0-hdmi_mux_vdd) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:922)
+[    0.662810] RG: regulator_enable(hdmi_msm.0-hdmi_vdda) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:927)
+[    0.662871] RG: regulator_enable(hdmi_msm.0-hdmi_lvl_tsl) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:933)
+[    0.662871] CLK: clk_set_rate(tv_src_clk, 148500000) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:148)
+[    0.662902] dtv_on: tv_src_clk=148500kHz, pm_qos_rate=148500kHz, [0]
+[    0.662902] CLK: clk_prepare_enable(hdmi_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:159)
+[    0.663848] CLK: clk_prepare_enable(mdp_tv_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_dtv.c:165)
+[    0.663879] hdmi_msm hdmi_msm.1: power: ON (1920x1080 148500000)
+[    0.663879] IO:W fa800044 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3448)
+[    0.663909] IO:R fa80002c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3466)
+[    0.663909] IO:W fa8000e8 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3507)
+[    0.663940] IO:W fa8000e4 00000170 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3533)
+[    0.663940] IO:W fa80002c 000000f0 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:3546)
+[    0.663970] IO:R fa800000 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1290)
+[    0.663970] IO:R fa800000 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1303)
+[    0.664001] hdmi_msm hdmi_msm.1: power=OFF DVI= OFF
+[    0.664001] mdp4_dtv_on:
+[    0.664153] IO:R f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:700)
+[    0.664184] IO:W f0140000 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:705)
+[    0.664184] IO:W f0140004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:706)
+[    0.664184] IO:W f0140008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:707)
+[    0.664214] IO:W f014000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:708)
+[    0.664214] IO:W f0140010 00020000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:710)
+[    0.664245] IO:W f0140040 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:711)
+[    0.664245] IO:W f0140050 000267ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:713)
+[    0.664275] IO:W f0140054 03020001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:714)
+[    0.664275] IO:W f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:721)
+[    0.664275] IO:W f014005c 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:722)
+[    0.664306] IO:W f0140060 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:723)
+[    0.664336] IO:W f0118180 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2053)
+[    0.664336] IO:W f0118184 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2054)
+[    0.664367] IO:W f0118188 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2056)
+[    0.664367] IO:W f011818c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2057)
+[    0.664367] IO:W f0118108 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.664397] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.664397] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.664428] IO:W f0119004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.664428] IO:W f0118110 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.664459] IO:W f0118114 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.664459] IO:W f0118118 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.664489] IO:W f011811c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.664489] IO:W f0118128 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.664489] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.664520] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.664520] IO:W f0119404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.664550] IO:W f0118130 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.664550] IO:W f0118134 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.664581] IO:W f0118138 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.664581] IO:W f011813c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.664611] IO:W f0118148 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.664611] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.664611] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.664642] IO:W f0119804 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.664642] IO:W f0118150 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.664672] IO:W f0118154 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.664672] IO:W f0118158 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.664703] IO:W f011815c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.664703] IO:W f0118164 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.664703] IO:W f0118168 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.664733] IO:W f0118160 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.664733] IO:W f0119b84 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.664764] IO:W f011816c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.664764] IO:W f0118170 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.664794] IO:W f0118174 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.664794] IO:W f0118178 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.664825] IO:W f0118000 00000012 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1637)
+[    0.665069] IO:W f01d0000 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:123)
+[    0.665099] IO:W f0100058 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:96)
+[    0.665099] IO:W f0100050 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:98)
+[    0.692354] IO:R f0100054 8004069b (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:513)
+[    0.692385] IO:R f0100050 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:518)
+[    0.692385] IO:W f0100058 8004069b (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:519)
+[    0.692415] IO:W f0100058 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:109)
+[    0.692415] IO:W f0100050 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:111)
+[    0.696230] Console: switching to colour frame buffer device 240x67
+[    0.696322] IO:R f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:700)
+[    0.696352] IO:W f0140000 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:705)
+[    0.696352] IO:W f0140004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:706)
+[    0.696383] IO:W f0140008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:707)
+[    0.696383] IO:W f014000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:708)
+[    0.696413] IO:W f0140010 00020000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:710)
+[    0.696413] IO:W f0140040 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:711)
+[    0.696444] IO:W f0140050 000267ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:713)
+[    0.696444] IO:W f0140054 03020001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:714)
+[    0.696444] IO:W f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:721)
+[    0.696474] IO:W f014005c 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:722)
+[    0.696474] IO:W f0140060 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:723)
+[    0.696505] IO:W f0118180 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2053)
+[    0.696535] IO:W f0118184 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2054)
+[    0.696535] IO:W f0118188 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2056)
+[    0.696566] IO:W f011818c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2057)
+[    0.696566] IO:W f0118108 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.696596] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.696596] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.696627] IO:W f0119004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.696627] IO:W f0118110 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.696627] IO:W f0118114 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.696658] IO:W f0118118 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.696658] IO:W f011811c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.696688] IO:W f0118128 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.696688] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.696719] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.696719] IO:W f0119404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.696749] IO:W f0118130 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.696749] IO:W f0118134 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.696749] IO:W f0118138 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.696780] IO:W f011813c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.696780] IO:W f0118148 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.696810] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.696810] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.696841] IO:W f0119804 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.696841] IO:W f0118150 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.696841] IO:W f0118154 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.696871] IO:W f0118158 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.696871] IO:W f011815c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.696902] IO:W f0118164 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[    0.696902] IO:W f0118168 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[    0.696932] IO:W f0118160 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[    0.696932] IO:W f0119b84 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[    0.696963] IO:W f011816c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[    0.696963] IO:W f0118170 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[    0.696963] IO:W f0118174 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[    0.696993] IO:W f0118178 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[    0.696993] IO:W f0118000 00000012 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1637)
+[    0.697024] IO:W f0100058 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:96)
+[    0.697054] IO:W f0100050 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:98)
+[    0.709018] IO:R f0100054 8000020a (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:513)
+[    0.709049] IO:R f0100050 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:518)
+[    0.709049] IO:W f0100058 8000020a (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:519)
+[    0.709079] IO:W f0100058 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:109)
+[    0.709079] IO:W f0100050 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:111)
+[    0.728246] FrameBuffer[0] 1920x1080 size=16588800 bytes is registered successfully!
+[    0.728338] load_565rle_image: Can not open /initlogo.rle
+[    0.729040] Registered led device: lcd-backlight
+[    0.729284] hdmi_msm hdmi_msm.1: external_common_state_create: sysfs group e29c6808
+[    0.729345] CLK: clk_prepare_enable(hdmi_app_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4139)
+[    0.729375] CLK: clk_prepare_enable(hdmi_m_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4146)
+[    0.729406] CLK: clk_prepare_enable(hdmi_s_p_clk) (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4153)
+[    0.729589] RG: regulator_enable(hdmi_msm.0-hdmi_mvs) (/home/robclark/src/nexus4/msm/arch/arm/mach-msm/board-8064-display.c:844)
+[    0.729650] IO:W fa800000 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1333)
+[    0.729650] IO:R fa8002d4 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:721)
+[    0.729681] IO:W fa8002d4 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:727)
+[    0.729681] IO:W fa8002d4 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:732)
+[    0.839340] IO:W fa8002d4 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:739)
+[    0.839371] IO:W fa8002d4 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/msm_dss_io_8960.c:744)
+[    0.839401] IO:W fa800000 00000003 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1319)
+[    0.839401] IO:W fa800000 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1333)
+[    0.839432] IO:W fa800208 0001001b (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4351)
+[    0.839462] IO:W fa800254 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4363)
+[    0.839493] IO:R fa800258 10fa09c4 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4372)
+[    0.839493] IO:W fa800258 00fa1fff (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4375)
+[    0.839523] IO:W fa800258 10fa1fff (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:4376)
+[    0.839523] IO:R f00c0238 b4404481 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1284)
+[    0.839554] hdmi_msm hdmi_msm.1: hdmi_msm_config_hdcp_feature: HDCP Feature: Disabled
+[    0.840683] setting pdata->panel_info.fb_num to 2. type: 10
+[    0.840958] Inside writeback_driver_init
+[    0.841263] Inside writeback_probe
+[    0.841538] IO:R f0100000 04040306 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2906)
+[    0.841568] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:242)
+[    0.841568] IO:W f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_util.c:284)
+[    0.841599] IO:R f0100038 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp.c:2933)
+[    0.842270] FrameBuffer[1] 1280x720 size=0 bytes is registered successfully!
+[    0.842301] load_565rle_image: Can not open /initlogo.rle
+[    0.845048] 
+[    0.845048]  msm_vidc_enc: Inside vid_enc_init()
+[    0.845536] 
+[    0.845536]  msm_vidc_enc: Inside vid_enc_vcd_init()
+[    0.848069] IO:R fa800250 00000003 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1050)
+[    0.848100] IO:R fa800254 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1052)
+[    0.848161] IO:W fa800254 00000007 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1059)
+[    0.848191] IO:W fa800254 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1099)
+[    0.848618] msm_serial_hs module loaded
+[    0.849137] msm_serial_hsl: detected port #1
+[    0.849504] msm_serial_hsl.1: ttyHSL1 at MMIO 0x12450000 (irq = 225) is a MSM
+[    0.850175] msm_serial_hsl: detected port #0
+[    0.850480] msm_serial_hsl.0: ttyHSL0 at MMIO 0x16640000 (irq = 190) is a MSM
+[    0.850633] msm_serial_hsl: console setup on port #0
+[    8.055180] IO:R fa800250 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:827)
+[    8.055211] hdmi_msm hdmi_msm.1: hdmi: HDMI HPD: QDSP OFF
+[    8.055302] IO:W fa800220 000a0002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1354)
+[    8.055333] IO:W fa800224 ff000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1361)
+[    8.055363] IO:W fa80027c 0001001b (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1371)
+[    8.055394] IO:R fa800000 00000001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1290)
+[    8.055424] IO:W fa800214 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1391)
+[    8.055455] IO:R fa800214 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1393)
+[    8.055486] IO:W fa800238 8000a000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1641)
+[    8.055516] IO:W fa800238 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1649)
+[    8.055547] IO:W fa800238 0000a100 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1657)
+[    8.055577] IO:W fa800228 00011000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1690)
+[    8.055608] IO:W fa80022c 00803001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1721)
+[    8.055638] IO:W fa80020c 00100001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1749)
+[    8.178788] IO:R fa800250 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1050)
+[    8.178788] IO:R fa800254 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1052)
+[    8.178818] IO:R fa800214 00000005 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1108)
+[    8.178849] IO:W fa800214 00000007 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1111)
+[    8.178940] IO:W fa800214 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1753)
+[    8.178971] IO:R fa800218 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1768)
+[    8.179001] IO:W fa800238 80030001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1812)
+[    8.179032] IO:R fa800238 0000ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1815)
+[    8.179032] IO:R fa800238 00030001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179063] IO:R fa800238 0004ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179093] IO:R fa800238 0005ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179124] IO:R fa800238 0006ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179154] IO:R fa800238 0007ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179185] IO:R fa800238 0008ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179215] IO:R fa800238 0009ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179307] IO:R fa800238 000a0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179337] IO:R fa800238 000b2201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179368] IO:R fa800238 000cf001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179368] IO:R fa800238 000d5201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179398] IO:R fa800238 000e2901 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179429] IO:R fa800238 000f0101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179459] IO:R fa800238 00100101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179490] IO:R fa800238 00110101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179520] IO:R fa800238 00120101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179551] IO:R fa800238 00130c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179581] IO:R fa800238 00141601 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179612] IO:R fa800238 00150101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179642] IO:R fa800238 00160301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179673] IO:R fa800238 00178001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179673] IO:R fa800238 00183001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179703] IO:R fa800238 00191b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179734] IO:R fa800238 001a7801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179764] IO:R fa800238 001b2e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179795] IO:R fa800238 001cee01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179826] IO:R fa800238 001d9501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179856] IO:R fa800238 001ea301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179887] IO:R fa800238 001f5401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179917] IO:R fa800238 00204c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179948] IO:R fa800238 00219901 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179978] IO:R fa800238 00222601 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.179978] IO:R fa800238 00230f01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180009] IO:R fa800238 00245001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180039] IO:R fa800238 00255401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180070] IO:R fa800238 0026a101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180100] IO:R fa800238 00270801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180131] IO:R fa800238 00280001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180161] IO:R fa800238 0029d101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180192] IO:R fa800238 002ac001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180222] IO:R fa800238 002b8101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180253] IO:R fa800238 002cc001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180283] IO:R fa800238 002da901 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180283] IO:R fa800238 002ec001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180314] IO:R fa800238 002fb301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180344] IO:R fa800238 00300001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180375] IO:R fa800238 00319501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180405] IO:R fa800238 00320001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180436] IO:R fa800238 00338101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180466] IO:R fa800238 00344001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180497] IO:R fa800238 00358101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180528] IO:R fa800238 00368001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180558] IO:R fa800238 00370101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180589] IO:R fa800238 00380101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180589] IO:R fa800238 00390201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180619] IO:R fa800238 003a3a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180650] IO:R fa800238 003b8001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180680] IO:R fa800238 003c1801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180711] IO:R fa800238 003d7101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180741] IO:R fa800238 003e3801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180772] IO:R fa800238 003f2d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180802] IO:R fa800238 00404001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180833] IO:R fa800238 00415801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180863] IO:R fa800238 00422c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180894] IO:R fa800238 00434501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180894] IO:R fa800238 00440001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180924] IO:R fa800238 0045db01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180955] IO:R fa800238 00460b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.180985] IO:R fa800238 00471101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181016] IO:R fa800238 00480001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181046] IO:R fa800238 00490001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181077] IO:R fa800238 004a1e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181107] IO:R fa800238 004b0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181138] IO:R fa800238 004c0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181168] IO:R fa800238 004d0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181199] IO:R fa800238 004efd01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181199] IO:R fa800238 004f0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181229] IO:R fa800238 00503201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181260] IO:R fa800238 00514c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181291] IO:R fa800238 00521801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181321] IO:R fa800238 00535e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181352] IO:R fa800238 00541101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181382] IO:R fa800238 00550001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181413] IO:R fa800238 00560a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181443] IO:R fa800238 00572001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181474] IO:R fa800238 00582001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181474] IO:R fa800238 00592001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181504] IO:R fa800238 005a2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181535] IO:R fa800238 005b2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181565] IO:R fa800238 005c2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181596] IO:R fa800238 005d0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181626] IO:R fa800238 005e0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181657] IO:R fa800238 005f0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181687] IO:R fa800238 0060fc01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181718] IO:R fa800238 00610001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181748] IO:R fa800238 00624801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181779] IO:R fa800238 00635001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181779] IO:R fa800238 00642001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181809] IO:R fa800238 00655a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181840] IO:R fa800238 00665201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181870] IO:R fa800238 00673201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181901] IO:R fa800238 00683201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181931] IO:R fa800238 00693401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181962] IO:R fa800238 006a3001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.181992] IO:R fa800238 006b7701 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182023] IO:R fa800238 006c0a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182054] IO:R fa800238 006d2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182084] IO:R fa800238 006e2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182084] IO:R fa800238 006f0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182115] IO:R fa800238 00700001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182145] IO:R fa800238 00710001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182176] IO:R fa800238 0072ff01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182206] IO:R fa800238 00730001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182237] IO:R fa800238 00744301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182267] IO:R fa800238 00754e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182298] IO:R fa800238 00763401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182328] IO:R fa800238 00773201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182359] IO:R fa800238 00783101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182389] IO:R fa800238 00793201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182389] IO:R fa800238 007a3001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182420] IO:R fa800238 007b4601 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182450] IO:R fa800238 007c5a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182481] IO:R fa800238 007d4801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182511] IO:R fa800238 007e0a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182542] IO:R fa800238 007f2001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182572] IO:R fa800238 00802001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182603] IO:R fa800238 00810101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182633] IO:R fa800238 00827d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    8.182664] IO:W fa800214 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1391)
+[    8.182694] IO:R fa800214 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1393)
+[    8.182725] IO:W fa800238 8000a000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1641)
+[    8.182755] IO:W fa800238 00008000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1649)
+[    8.182755] IO:W fa800238 0000a100 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1657)
+[    8.182786] IO:W fa800228 00011000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1690)
+[    8.182817] IO:W fa80022c 00803001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1721)
+[    8.182847] IO:W fa80020c 00100001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1749)
+[    8.187852] console [ttyHSL0] enabled
+[    8.669372] IO:W fa800214 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1753)
+[    8.669403] hdmi_msm hdmi_msm.1: hdmi_msm_ddc_read_retry: failed timout, retry=0
+[    8.669433] IO:W fa800214 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1391)
+[    8.669464] IO:R fa800214 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1393)
+[    8.669494] IO:W fa800238 8000a000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1641)
+[    8.669525] IO:W fa800238 00008000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1649)
+[    8.669555] IO:W fa800238 0000a100 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1657)
+[    8.669586] IO:W fa800228 00011000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1690)
+[    8.669616] IO:W fa80022c 00803001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1721)
+[    8.669616] IO:W fa80020c 00100001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1749)
+[    9.169418] IO:W fa800214 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1753)
+[    9.169449] IO:R fa800218 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1763)
+[    9.169479] IO:R fa80021c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1763)
+[    9.169510] IO:R fa800214 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1763)
+[    9.169540] hdmi_msm hdmi_msm.1: hdmi_msm_ddc_read_retry: timedout(7), DDC SW Status=00000000, HW Status=00000000, Int Ctrl=00000000
+[    9.169571] IO:W fa800214 00000006 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1391)
+[    9.169601] IO:R fa800214 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1393)
+[    9.169632] IO:W fa800238 8000a000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1641)
+[    9.169662] IO:W fa800238 00008000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1649)
+[    9.169693] IO:W fa800238 0000a100 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1657)
+[    9.169723] IO:W fa800228 00011000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1690)
+[    9.169723] IO:W fa80022c 00803001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1721)
+[    9.169754] IO:W fa80020c 00100001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1749)
+[    9.495040] IO:R fa800250 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1050)
+[    9.495070] IO:R fa800254 00000004 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1052)
+[    9.495101] IO:R fa800214 00000005 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1108)
+[    9.495131] IO:W fa800214 00000007 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1111)
+[    9.495223] IO:W fa800214 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1753)
+[    9.495254] IO:R fa800218 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1768)
+[    9.495284] IO:W fa800238 80030001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1812)
+[    9.495284] IO:R fa800238 00835d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1815)
+[    9.495315] IO:R fa800238 00030201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495345] msm_serial_hsl: driver initialized
+[    9.495376] IO:R fa800238 00040301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495376] IO:R fa800238 00051701 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495406] IO:R fa800238 0006b101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495437] IO:R fa800238 00074c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495467] IO:R fa800238 00089001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495498] IO:R fa800238 00091f01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495528] IO:R fa800238 000a0501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495559] IO:R fa800238 000b1401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495589] IO:R fa800238 000c0401 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495620] IO:R fa800238 000d1301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495650] IO:R fa800238 000e0301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495681] IO:R fa800238 000f0201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495711] IO:R fa800238 00100701 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495742] IO:R fa800238 00110601 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495864] IO:R fa800238 00121201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495895] IO:R fa800238 00130101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495925] IO:R fa800238 00146501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495956] IO:R fa800238 00150301 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.495986] IO:R fa800238 00160c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496017] IO:R fa800238 00170001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496047] IO:R fa800238 00181001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496078] IO:R fa800238 00190001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496108] IO:R fa800238 001a0201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496139] IO:R fa800238 001b3a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496139] IO:R fa800238 001c8001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496169] IO:R fa800238 001d1801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496200] IO:R fa800238 001e7101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496230] IO:R fa800238 001f3801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496261] IO:R fa800238 00202d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496291] IO:R fa800238 00214001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496322] IO:R fa800238 00225801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496352] IO:R fa800238 00232c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496383] IO:R fa800238 00244501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496413] IO:R fa800238 00250001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496444] IO:R fa800238 0026db01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496444] IO:R fa800238 00270b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496474] IO:R fa800238 00281101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496505] IO:R fa800238 00290001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496535] IO:R fa800238 002a0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496566] IO:R fa800238 002b1e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496596] IO:R fa800238 002c0201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496627] IO:R fa800238 002d3a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496658] IO:R fa800238 002e8001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496688] IO:R fa800238 002fd001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496719] IO:R fa800238 00307201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496749] IO:R fa800238 00313801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496749] IO:R fa800238 00322d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496780] IO:R fa800238 00334001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496810] IO:R fa800238 00341001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496841] IO:R fa800238 00352c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496871] IO:R fa800238 00364501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496902] IO:R fa800238 00378001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496932] IO:R fa800238 0038db01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496963] IO:R fa800238 00390b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.496993] IO:R fa800238 003a1101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497024] IO:R fa800238 003b0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497024] IO:R fa800238 003c0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497054] IO:R fa800238 003d1e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497085] IO:R fa800238 003e0101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497115] IO:R fa800238 003f1d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497146] IO:R fa800238 00400001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497176] IO:R fa800238 00417201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497207] IO:R fa800238 00425101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497237] IO:R fa800238 0043d001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497268] IO:R fa800238 00441e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497298] IO:R fa800238 00452001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497329] IO:R fa800238 00466e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497329] IO:R fa800238 00472801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497359] IO:R fa800238 00485501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497390] IO:R fa800238 00490001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497421] IO:R fa800238 004adb01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497451] IO:R fa800238 004b0b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497482] IO:R fa800238 004c1101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497512] IO:R fa800238 004d0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497543] IO:R fa800238 004e0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497573] IO:R fa800238 004f1e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497604] IO:R fa800238 00500101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497604] IO:R fa800238 00511d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497634] IO:R fa800238 00520001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497665] IO:R fa800238 0053bc01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497695] IO:R fa800238 00545201 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497726] IO:R fa800238 0055d001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497756] IO:R fa800238 00561e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497787] IO:R fa800238 00572001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497817] IO:R fa800238 0058b801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497848] IO:R fa800238 00592801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497878] IO:R fa800238 005a5501 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497909] IO:R fa800238 005b4001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497909] IO:R fa800238 005cdb01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497939] IO:R fa800238 005d0b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.497970] IO:R fa800238 005e1101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498000] IO:R fa800238 005f0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498031] IO:R fa800238 00600001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498061] IO:R fa800238 00611e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498092] IO:R fa800238 00628c01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498122] IO:R fa800238 00630a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498153] IO:R fa800238 0064d001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498184] IO:R fa800238 00658a01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498184] IO:R fa800238 00662001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498214] IO:R fa800238 0067e001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498245] IO:R fa800238 00682d01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498275] IO:R fa800238 00691001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498306] IO:R fa800238 006a1001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498336] IO:R fa800238 006b3e01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498367] IO:R fa800238 006c9601 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498397] IO:R fa800238 006d0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498428] IO:R fa800238 006edb01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498458] IO:R fa800238 006f0b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498489] IO:R fa800238 00701101 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498489] IO:R fa800238 00710001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498519] IO:R fa800238 00720001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498550] IO:R fa800238 00731801 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498580] IO:R fa800238 00740001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498611] IO:R fa800238 00750001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498641] IO:R fa800238 00760001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498672] IO:R fa800238 00770001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498702] IO:R fa800238 00780001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498733] IO:R fa800238 00790001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498763] IO:R fa800238 007a0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498794] IO:R fa800238 007b0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498794] IO:R fa800238 007c0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498824] IO:R fa800238 007d0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498855] IO:R fa800238 007e0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498886] IO:R fa800238 007f0001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498916] IO:R fa800238 00800001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498947] IO:R fa800238 00810001 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.498977] IO:R fa800238 00820b01 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:1817)
+[    9.499008] hdmi_msm hdmi_msm.1: EDID: type=4 block not found in EDID block
+[    9.499038] hdmi_msm hdmi_msm.1: EDID: type=1 block not found in EDID block
+[    9.499038] hdmi_msm hdmi_msm.1: EDID: type=7 block not found in EDID block
+[    9.499099] hdmi_msm hdmi_msm.1: EDID (V=1.3, #CEABlocks=1[V3], ID=HWP, IEEE=0c03, EDID-Ext=0x02)
+[    9.499191] hdmi_msm hdmi_msm.1: Hdmi state switched to 1: hdmi_msm_send_event
+[    9.499221] hdmi_msm hdmi_msm.1: HDMI HPD: CONNECTED: send ONLINE
+[    9.499343] hdmi_msm hdmi_msm.1: HDMI HPD: sense : send HDCP_PASS
+[    9.499526] IO:R fa800250 00000002 (/home/robclark/src/nexus4/msm/drivers/video/msm/hdmi_msm.c:846)
+[   11.008087] msm_rotator_probe: rotator_hw_revision=2
+[   11.017976] diagchar initialized now
+[   11.020662] [drm] Initialized drm 1.1.0 20060810
+[   11.027468] [drm:drm_platform_init], 
+[   11.030123] [drm:drm_get_platform_dev], 
+[   11.034213] [drm:drm_get_minor], 
+[   11.038211] [drm:drm_get_minor], new minor assigned 0
+[   11.042392] [drm] Initialized kgsl 2.1.1 20100127 on minor 0
+[   11.048741] kgsl kgsl-3d0: |kgsl_iommu_init| MMU type set for device is IOMMU
+[   11.080268] brd: module loaded
+[   11.094216] loop: module loaded
+[   11.097146] i2c-core: driver [isa1200] using legacy suspend method
+[   11.102578] i2c-core: driver [isa1200] using legacy resume method
+[   11.112589] i2c-core: driver [tabla-i2c-core] using legacy suspend method
+[   11.118358] i2c-core: driver [tabla-i2c-core] using legacy resume method
+[   11.128094] SCSI Media Changer driver v0.25 
+[   11.138226] ahci ahci.0: forcing PORTS_IMPL to 0x1
+[   11.142133] ahci ahci.0: AHCI 0001.0300 32 slots 1 ports 1.5 Gbps 0x1 impl platform mode
+[   11.150129] ahci ahci.0: flags: ncq sntf pm led clo only pmp pio slum part ccc apst 
+[   11.159011] scsi0 : ahci_platform
+[   11.161819] ata1: SATA max UDMA/133 mmio [mem 0x29000000-0x2900017f] port 0x100 irq 241
+[   11.170090] spi_qsd spi_qsd.0: master is unqueued, this is deprecated
+[   11.177659] tun: Universal TUN/TAP device driver, 1.6
+[   11.181718] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[   11.188310] PCI: enabling device 0000:01:00.0 (0140 -> 0142)
+[   11.350099] atl1c 0000:01:00.0: version 1.0.1.0-NAPI
+[   11.354372] spi spi0.2: Driver ks8851 requests probe deferral
+[   11.359865] rmnet_init: BAM devices[8]
+[   11.373203] SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256) (6 bit encapsulation enabled).
+[   11.381901] CSLIP: code copyright 1989 Regents of the University of California.
+[   11.389317] wcnss_wlan probed in built-in mode
+[   11.394872] usbcore: registered new interface driver asix
+[   11.399450] usbcore: registered new interface driver cdc_ether
+[   11.405127] usbcore: registered new interface driver net1080
+[   11.410834] usbcore: registered new interface driver cdc_subset
+[   11.416694] usbcore: registered new interface driver zaurus
+[   11.422585] usbcore: registered new interface driver cdc_ncm
+[   11.428017] usbcore: registered new interface driver rmnet_usb
+[   11.435220] rmnet usb ctrl Initialized.
+[   11.438242] msm_otg msm_otg: msm_otg probe
+[   11.442301] msm_otg msm_otg: failed to get phy_clk
+[   11.447031] msm_otg msm_otg: OTG regs = f00e6000
+[   11.455394] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[   11.464214] msm_ehci_host msm_ehci_host.0: phy_reset: success
+[   11.519395] ata1: SATA link down (SStatus 0 SControl 300)
+[   11.569357] msm_ehci_host msm_ehci_host.0: Qualcomm EHCI Host Controller
+[   11.575431] msm_ehci_host msm_ehci_host.0: new USB bus registered, assigned bus number 1
+[   11.609369] msm_ehci_host msm_ehci_host.0: irq 220, io mem 0x12520000
+[   11.629360] msm_ehci_host msm_ehci_host.0: USB 2.0 started, EHCI 1.00
+[   11.634945] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[   11.641568] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   11.648741] usb usb1: Product: Qualcomm EHCI Host Controller
+[   11.654417] usb usb1: Manufacturer: Linux 3.4.0-g0f0fed7-00054-gbbec0a9-dirty ehci_hcd
+[   11.662322] usb usb1: SerialNumber: msm_ehci_host.0
+[   11.668090] hub 1-0:1.0: USB hub found
+[   11.670929] hub 1-0:1.0: 1 port detected
+[   11.677887] msm_ehci_host msm_ehci_host.1: phy_reset: success
+[   11.789348] msm_ehci_host msm_ehci_host.1: Qualcomm EHCI Host Controller
+[   11.795391] msm_ehci_host msm_ehci_host.1: new USB bus registered, assigned bus number 2
+[   11.829360] msm_ehci_host msm_ehci_host.1: irq 247, io mem 0x12530000
+[   11.849320] msm_ehci_host msm_ehci_host.1: USB 2.0 started, EHCI 1.00
+[   11.854845] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+[   11.861559] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   11.868701] usb usb2: Product: Qualcomm EHCI Host Controller
+[   11.874439] usb usb2: Manufacturer: Linux 3.4.0-g0f0fed7-00054-gbbec0a9-dirty ehci_hcd
+[   11.882282] usb usb2: SerialNumber: msm_ehci_host.1
+[   11.887959] hub 2-0:1.0: USB hub found
+[   11.890920] hub 2-0:1.0: 1 port detected
+[   11.896047] usbcore: registered new interface driver cdc_acm
+[   11.900717] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[   11.908652] Initializing USB Mass Storage driver...
+[   11.913718] usbcore: registered new interface driver usb-storage
+[   11.919548] USB Mass Storage support registered.
+[   11.924217] usbcore: registered new interface driver ums-alauda
+[   11.930169] usbcore: registered new interface driver ums-cypress
+[   11.936090] usbcore: registered new interface driver ums-datafab
+[   11.942133] usbcore: registered new interface driver ums-freecom
+[   11.948084] usbcore: registered new interface driver ums-isd200
+[   11.954036] usbcore: registered new interface driver ums-jumpshot
+[   11.960109] usbcore: registered new interface driver ums-karma
+[   11.965878] usbcore: registered new interface driver ums-onetouch
+[   11.972012] usbcore: registered new interface driver ums-sddr09
+[   11.977872] usbcore: registered new interface driver ums-sddr55
+[   11.983793] usbcore: registered new interface driver ums-usbat
+[   11.989409] usb 1-1: new high-speed USB device number 2 using msm_ehci_host
+[   11.996825] usbcore: registered new interface driver usbserial
+[   12.002350] usbserial: USB Serial Driver core
+[   12.006714] usbcore: registered new interface driver qcserial
+[   12.012513] USB Serial support registered for Qualcomm USB modem
+[   12.018434] usbcore: registered new interface driver qc_csvt
+[   12.024050] USB Serial support registered for qc_csvt
+[   12.029116] usbcore: registered new interface driver usb_ehset_test
+[   12.035403] usbcore: registered new interface driver diag_bridge
+[   12.041477] usbcore: registered new interface driver mdm_bridge
+[   12.048313] usbcore: registered new interface driver ks_bridge
+[   12.053319] ksb_init: init done
+[   12.056859] msm_otg msm_otg: phy_reset: success
+[   12.062475] msm_hsusb msm_hsusb: [ci13xxx_start] hw_ep_max = 32
+[   12.067846] mbim_init: initialize 1 instances
+[   12.072211] mbim_init: Initialized 1 ports
+[   12.081428] rndis_qc_init: initialize rndis QC instance
+[   12.086586] android_usb gadget: Mass Storage Function, version: 2009/09/11
+[   12.092537] android_usb gadget: Number of LUNs=1
+[   12.097085]  lun0: LUN: removable file: (no medium)
+[   12.103067] android_usb gadget: android_usb ready
+[   12.108622] mousedev: PS/2 mouse device common for all mice
+[   12.115336] usbcore: registered new interface driver xpad
+[   12.141095] usb 1-1: New USB device found, idVendor=13fd, idProduct=1e40
+[   12.146772] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[   12.153944] usb 1-1: Product: SDSSDP064G      
+[   12.158309] usb 1-1: Manufacturer: SanDisk 
+[   12.162551] usb 1-1: SerialNumber: 0010101E40000000
+[   12.168808] scsi1 : usb-storage 1-1:1.0
+[   12.289394] usb 2-1: new low-speed USB device number 2 using msm_ehci_host
+[   12.452403] usb 2-1: New USB device found, idVendor=04d9, idProduct=2ba0
+[   12.458080] usb 2-1: New USB device strings: Mfr=0, Product=2, SerialNumber=0
+[   12.465222] usb 2-1: Product: USB Keyboard
+[   12.519395] qup_i2c qup_i2c.3: QUP: I2C status flags :0x1300c8, irq:183
+[   12.525041] qup_i2c qup_i2c.3: I2C slave addr:0x5b not connected
+[   12.569388] qup_i2c qup_i2c.3: QUP: I2C status flags :0x1300c8, irq:183
+[   12.575034] qup_i2c qup_i2c.3: I2C slave addr:0x5b not connected
+[   12.619380] qup_i2c qup_i2c.3: QUP: I2C status flags :0x1300c8, irq:183
+[   12.625026] qup_i2c qup_i2c.3: I2C slave addr:0x5b not connected
+[   12.669311] atmel_mxt_ts 3-005b: __mxt_read_reg: i2c transfer failed
+[   12.674652] atmel_mxt_ts 3-005b: Changing to bootloader address: 5b -> 35
+[   12.681336] qup_i2c qup_i2c.3: QUP: I2C status flags :0x11100c8, irq:183
+[   12.688112] qup_i2c qup_i2c.3: I2C slave addr:0x35 not connected
+[   12.694124] atmel_mxt_ts 3-005b: mxt_check_bootloader: i2c recv failed
+[   12.759591] atmel_mxt_ts: probe of 3-005b failed with error -5
+[   12.764474] cyttsp_init:Cypress TrueTouch(R) Standard Product
+[   12.770181] cyttsp_init:I2C Touchscreen Driver (Built Jul  2 2013 @ 17:34:08)
+[   12.777872] input: pmic8xxx_pwrkey as /devices/platform/msm_ssbi.0/pm8921-core/pm8xxx-pwrkey/input/input0
+[   12.788097] lis3dh_acc accelerometer driver: init
+[   12.791881] i2c-core: driver [lis3dh_acc] using legacy suspend method
+[   12.798199] i2c-core: driver [lis3dh_acc] using legacy resume method
+[   12.806256] using rtc device, pm8xxx_rtc, for alarms
+[   12.810132] rtc-pm8xxx rtc-pm8xxx: rtc core: registered pm8xxx_rtc as rtc0
+[   12.817518] i2c /dev entries driver
+[   12.821699] lirc_dev: IR Remote Control driver registered, major 236 
+[   12.827102] IR NEC protocol handler initialized
+[   12.831649] IR RC5(x) protocol handler initialized
+[   12.836380] IR RC6 protocol handler initialized
+[   12.840927] IR JVC protocol handler initialized
+[   12.845414] IR Sony protocol handler initialized
+[   12.850053] IR RC5 (streamzap) protocol handler initialized
+[   12.855577] IR SANYO protocol handler initialized
+[   12.860308] IR MCE Keyboard/mouse protocol handler initialized
+[   12.866076] IR LIRC bridge handler initialized
+[   12.871692] usbcore: registered new interface driver uvcvideo
+[   12.876423] USB Video Class driver (1.1.1)
+[   12.910697] qup_i2c qup_i2c.4: QUP: I2C status flags :0x1363c8, irq:185
+[   12.916313] qup_i2c qup_i2c.4: I2C slave addr:0x1a not connected
+[   12.922325] msm_sensor_bayer_match_id: imx091: read id failed
+[   12.928002] msm_sensor_bayer_i2c_probe imx091_i2c_probe failed
+[   12.936548] imx091: probe of 4-0034 failed with error -107
+[   12.968472] qup_i2c qup_i2c.4: QUP: I2C status flags :0x1363c8, irq:185
+[   12.974118] qup_i2c qup_i2c.4: I2C slave addr:0x1a not connected
+[   12.980131] msm_sensor_match_id: imx074: read id failed
+[   12.985258] msm_sensor_i2c_probe imx074_i2c_probe failed
+[   12.993224] imx074: probe of 4-001a failed with error -107
+[   13.025484] qup_i2c qup_i2c.4: QUP: I2C status flags :0x1363c8, irq:185
+[   13.031130] qup_i2c qup_i2c.4: I2C slave addr:0x37 not connected
+[   13.037082] msm_sensor_match_id: s5k3l1yx: read id failed
+[   13.042514] msm_sensor_i2c_probe s5k3l1yx_i2c_probe failed
+[   13.050297] s5k3l1yx: probe of 4-0020 failed with error -107
+[   13.081519] qup_i2c qup_i2c.4: QUP: I2C status flags :0x1363c8, irq:185
+[   13.087135] qup_i2c qup_i2c.4: I2C slave addr:0x36 not connected
+[   13.093148] msm_sensor_match_id: ov2720: read id failed
+[   13.098306] msm_sensor_i2c_probe ov2720_i2c_probe failed
+[   13.105661] ov2720: probe of 4-006c failed with error -107
+[   13.171249] scsi 1:0:0:0: Direct-Access     SanDisk  SDSSDP064G       3.00 PQ: 0 ANSI: 4
+[   13.187303] sd 1:0:0:0: Attached scsi generic sg0 type 0
+[   13.187395] sd 1:0:0:0: [sda] 125045424 512-byte logical blocks: (64.0 GB/59.6 GiB)
+[   13.188005] sd 1:0:0:0: [sda] Write Protect is off
+[   13.188005] sd 1:0:0:0: [sda] Mode Sense: 23 00 00 00
+[   13.188615] sd 1:0:0:0: [sda] No Caching mode page present
+[   13.188646] sd 1:0:0:0: [sda] Assuming drive cache: write through
+[   13.199542] qup_i2c qup_i2c.4: QUP: I2C status flags :0x1343c8, irq:185
+[   13.199877] qup_i2c qup_i2c.4: I2C slave addr:0x48 not connected
+[   13.199908] msm_sensor_match_id: mt9m114: read id failed
+[   13.199908] msm_sensor_i2c_probe mt9m114_i2c_probe failed
+[   13.201983] sd 1:0:0:0: [sda] No Caching mode page present
+[   13.202014] sd 1:0:0:0: [sda] Assuming drive cache: write through
+[   13.202441] mt9m114: probe of 4-0048 failed with error -107
+[   13.204181] msm_cam_server_request_irq IRQ Router hw is not present. 
+[   13.204517] msm_cam_server_request_irq IRQ Router hw is not present. 
+[   13.206409] msm_cam_server_request_irq IRQ Router hw is not present. 
+[   13.207446]  sda: sda1 sda2 sda3
+[   13.211384] sd 1:0:0:0: [sda] No Caching mode page present
+[   13.211414] sd 1:0:0:0: [sda] Assuming drive cache: write through
+[   13.211414] sd 1:0:0:0: [sda] Attached SCSI disk
+[   13.215199] pm8xxx_adc_probe: failed to request pa_therm vreg with error -517
+[   13.307523] scsi_scan_1 used greatest stack depth: 5968 bytes left
+[   13.308316] pm8xxx_tm_probe: OK
+[   13.309018] pm8xxx_tm_probe: OK
+[   13.310514] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+[   13.310758] Bluetooth: HCI UART driver ver 2.2
+[   13.310788] Bluetooth: HCI H4 protocol initialized
+[   13.310788] Bluetooth: HCIATH3K protocol initialized
+[   13.311185] Bluetooth: HCI_IBS protocol initialized
+[   13.346711] cpuidle: using governor ladder
+[   13.350679] cpuidle: using governor menu
+[   13.355135] mmc0: SDCC Version: 0x0000001a
+[   13.360262] mmc0: bam physical base=0x12402000
+[   13.363680] mmc0: bam virtual base=0xf00f4000
+[   13.368045] sps:BAM 0x12402000 is registered.
+[   13.372226] mmc0: BAM device registered. bam_handle=0xef1c8400
+[   13.378238] sps:BAM 0x12402000 enabled: ver:0x5, number of pipes:6
+[   13.384678] mmc0: Qualcomm MSM SDCC-BAM at 0x0000000012402000 irq 130
+[   13.390965] mmc0: Qualcomm MSM SDCC-DML at 0x0000000012400800
+[   13.396551] mmc0: No card detect facilities available
+[   13.403815] mmc0: Qualcomm MSM SDCC-core at 0x0000000012400000 irq 136,0 dma -1 dmacrcri -1
+[   13.411292] mmc0: Controller capabilities: 0x0000039e
+[   13.416694] mmc0: 8 bit data mode enabled
+[   13.420418] mmc0: 4 bit data mode disabled
+[   13.424355] mmc0: polling status mode disabled
+[   13.428780] mmc0: MMC clock 400000 -> 96000000 Hz, PCLK 0 Hz
+[   13.434365] mmc0: Slot eject status = 0
+[   13.438150] mmc0: Power save feature enable = 1
+[   13.442820] mmc0: SPS-BAM data transfer mode available
+[   13.448039] mmc1: SDCC Version: 0x0000001a
+[   13.459423] mmc1: bam physical base=0x12182000
+[   13.469006] mmc1: bam virtual base=0xf01f4000
+[   13.474530] sps:BAM 0x12182000 is registered.
+[   13.482862] mmc1: BAM device registered. bam_handle=0xef1c8a00
+[   13.492934] sps:BAM 0x12182000 enabled: ver:0x5, number of pipes:6
+[   13.508652] mmc1: Qualcomm MSM SDCC-BAM at 0x0000000012182000 irq 128
+[   13.519517] mmc1: Qualcomm MSM SDCC-DML at 0x0000000012180800
+[   13.547352] mmc1: Qualcomm MSM SDCC-core at 0x0000000012180000 irq 134,314 dma -1 dmacrcri -1
+[   13.557149] mmc1: Controller capabilities: 0x0000039e
+[   13.561269] mmc1: 8 bit data mode disabled
+[   13.565267] mmc1: 4 bit data mode enabled
+[   13.569235] mmc1: polling status mode disabled
+[   13.573752] mmc1: MMC clock 400000 -> 192000000 Hz, PCLK 0 Hz
+[   13.579551] mmc1: Slot eject status = 1
+[   13.583213] mmc1: Power save feature enable = 1
+[   13.587730] mmc1: SPS-BAM data transfer mode available
+[   13.593346] mmc2: SDCC Version: 0x0000001a
+[   13.598107] mmc2: bam physical base=0x121c2000
+[   13.601709] mmc2: bam virtual base=0xf01fc000
+[   13.605890] sps:BAM 0x121c2000 is registered.
+[   13.610132] mmc2: BAM device registered. bam_handle=0xef1c9400
+[   13.616175] sps:BAM 0x121c2000 enabled: ver:0x5, number of pipes:6
+[   13.622615] mmc2: Qualcomm MSM SDCC-BAM at 0x00000000121c2000 irq 127
+[   13.628750] mmc2: Qualcomm MSM SDCC-DML at 0x00000000121c0800
+[   13.634823] mmc2: No card detect facilities available
+[   13.639981] msmsdcc_vreg_get_voltage: regulator_get_voltage(sdc_vdd_io) failed. rc=-22
+[   13.648496] mmc2: Qualcomm MSM SDCC-core at 0x00000000121c0000 irq 133,0 dma -1 dmacrcri -1
+[   13.656126] mmc2: Controller capabilities: 0x0000039e
+[   13.661040] mmc0: new high speed DDR MMC card at address 0001
+[   13.667450] mmc2: 8 bit data mode disabled
+[   13.667572] mmcblk0: mmc0:0001 H4G1d 3.60 GiB 
+[   13.675324] mmc2: 4 bit data mode enabled
+[   13.679200] mmc2: polling status mode disabled
+[   13.683656] mmc2: MMC clock 400000 -> 48000000 Hz, PCLK 0 Hz
+[   13.689302] mmc2: Slot eject status = 0
+[   13.693087] mmc2: Power save feature enable = 1
+[   13.697604] mmc2: SPS-BAM data transfer mode available
+[   13.705356]  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21
+[   13.719761] input: USB Keyboard as /devices/platform/msm_ehci_host.1/usb2/2-1/2-1:1.0/input/input1
+[   13.728307] generic-usb 0003:04D9:2BA0.0001: input: USB HID v1.10 Keyboard [USB Keyboard] on usb-msm_ehci_host.1-1/input0
+[   13.766824] input: USB Keyboard as /devices/platform/msm_ehci_host.1/usb2/2-1/2-1:1.1/input/input2
+[   13.779032] generic-usb 0003:04D9:2BA0.0002: input: USB HID v1.10 Mouse [USB Keyboard] on usb-msm_ehci_host.1-1/input1
+[   13.788982] usbcore: registered new interface driver usbhid
+[   13.795788] usbhid: USB HID core driver
+[   13.800244] ashmem: initialized
+[   13.802502] msmsdcc_vreg_get_voltage: regulator_get_voltage(sdc_vdd_io) failed. rc=-22
+[   13.802624] logger: created 256K log 'log_main'
+[   13.802838] logger: created 256K log 'log_events'
+[   13.803052] logger: created 256K log 'log_radio'
+[   13.803265] logger: created 256K log 'log_system'
+[   13.805737] coresight-tpiu coresight-tpiu.0: TPIU initialized
+[   13.806531] coresight-etb coresight-etb.0: ETB initialized
+[   13.807050] coresight-funnel coresight-funnel.0: FUNNEL initialized
+[   13.847062] coresight-etm coresight-etm.0: ETM initialized
+[   13.853502] coresight-etb coresight-etb.0: ETB enabled
+[   13.857652] coresight-funnel coresight-funnel.0: FUNNEL inport 0 enabled
+[   13.864397] coresight-etm coresight-etm.0: ETM tracing enabled
+[   13.868701] msmsdcc_vreg_get_voltage: regulator_get_voltage(sdc_vdd_io) failed. rc=-22
+[   13.888661] coresight-etm coresight-etm.1: ETM initialized
+[   13.893209] coresight-funnel coresight-funnel.0: FUNNEL inport 1 enabled
+[   13.905051] coresight-etm coresight-etm.1: ETM tracing enabled
+[   13.910056] msmsdcc_vreg_get_voltage: regulator_get_voltage(sdc_vdd_io) failed. rc=-22
+[   13.910392] coresight-etm coresight-etm.2: ETM initialized
+[   13.910422] coresight-funnel coresight-funnel.0: FUNNEL inport 4 enabled
+[   13.910483] coresight-etm coresight-etm.2: ETM tracing enabled
+[   13.910849] coresight-etm coresight-etm.3: ETM initialized
+[   13.910880] coresight-funnel coresight-funnel.0: FUNNEL inport 5 enabled
+[   13.910941] coresight-etm coresight-etm.3: ETM tracing enabled
+[   13.911826] usbcore: registered new interface driver snd-usb-audio
+[   13.915672] msm_pcm_probe: dev name msm-voip-dsp
+[   13.917533] msm_pcm_probe: dev name msm-pcm-dsp
+[   13.917961] msm_pcm_probe: dev name msm-multi-ch-pcm-dsp
+[   13.918327] msm_pcm_probe: dev name msm-lowlatency-pcm-dsp
+[   13.919609] msm_compr_probe: dev name msm-compr-dsp
+[   13.920372] msm-pcm-lpa msm-pcm-lpa: msm_pcm_probe: dev name msm-pcm-lpa
+[   13.921623] msm8930_audio_init: Not the right machine type
+[   13.921623] msm_audio_init: Not the right machine type
+[   13.921654] msm_audio_init: Not APQ8064 in I2S mode
+[   13.922783] oprofile: using arm/armv7-krait
+[   13.922966] u32 classifier
+[   13.922997]     Actions configured
+[   13.922997] Netfilter messages via NETLINK v0.30.
+[   13.923149] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+[   13.924156] ctnetlink v0.93: registering with nfnetlink.
+[   13.924278] NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+[   13.924278] NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+[   13.924858] xt_time: kernel timezone is -0000
+[   13.925469] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   13.925927] arp_tables: (C) 2002 David S. Miller
+[   13.926049] TCP: cubic registered
+[   13.927086] NET: Registered protocol family 10
+[   13.930138] Mobile IPv6
+[   13.930230] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   13.930505] IPv6 over IPv4 tunneling driver
+[   13.931420] NET: Registered protocol family 17
+[   14.084510] Bluetooth: RFCOMM TTY layer initialized
+[   14.089119] Bluetooth: RFCOMM socket layer initialized
+[   14.094307] Bluetooth: RFCOMM ver 1.11
+[   14.097909] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[   14.103250] Bluetooth: BNEP filters: protocol 
+[   14.107675] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[   14.113840] Registering the dns_resolver key type
+[   14.119426] VFP support v0.3: implementor 51 architecture 64 part 6f variant 0 rev 2
+[   14.126201] Registering SWP/SWPB emulation handler
+[   14.132824] mmc2: queuing unknown CIS tuple 0x01 (3 bytes)
+[   14.145734] mmc2: queuing unknown CIS tuple 0x1a (5 bytes)
+[   14.153914] mmc2: queuing unknown CIS tuple 0x1b (8 bytes)
+[   14.156142] clock_late_init: Removing enables held for handed-off clocks
+[   14.166122] MSM Watchdog Initialized
+[   14.168808] mmc2: queuing unknown CIS tuple 0x14 (0 bytes)
+[   14.184007] mmc2: queuing unknown CIS tuple 0x80 (1 bytes)
+[   14.187425] registered taskstats version 1
+[   14.192766] mmc2: queuing unknown CIS tuple 0x81 (1 bytes)
+[   14.192980] spi spi0.2: Driver ks8851 requests probe deferral
+[   14.193010] gpio_set_debounce: gpio-178 status -22
+[   14.193041] gpio-keys gpio-keys: Unable to claim irq 658; error -16
+[   14.193071] gpio-keys: probe of gpio-keys failed with error -16
+[   14.193621] sps:BAM 0x28084000 enabled: ver:0x12, number of pipes:31
+[   14.193651] sps:BAM 0x28084000 is registered.
+[   14.231435] rtc-pm8xxx rtc-pm8xxx: setting system clock to 1970-01-01 05:37:47 UTC (20267)
+[   14.239707] mmc2: queuing unknown CIS tuple 0x82 (1 bytes)
+[   14.240042] tabla-slim tabla-slim: Platform data from board file
+[   14.240927] set_battery_data: invalid battid, palladium 1500 assumed batt_id 6338
+[   14.241233] slimbus laddr:0x0, EAPC:0x1:0x60
+[   14.241416] slimbus laddr:0x1, EAPC:0x0:0x50
+[   14.241538] slimbus laddr:0x2, EAPC:0x5:0x50
+[   14.241629] slimbus laddr:0x3, EAPC:0x1:0x50
+[   14.241782] slimbus laddr:0x4, EAPC:0x0:0x60
+[   14.241996] read_ocv_trim: program rev reg is 0x52
+[   14.241996] read_ocv_trim: trim reg is 0x42
+[   14.241996] read_ocv_trim: trim delta is 7
+[   14.242026] pm8921_is_usb_chg_plugged_in: called before init
+[   14.244315] pm8921_is_usb_chg_plugged_in: called before init
+[   14.245566] pm8921_is_usb_chg_plugged_in: called before init
+[   14.245688] pm8921_is_batfet_closed: called before init
+[   14.269800] pm8921_is_usb_chg_plugged_in: called before init
+[   14.270715] slimbus laddr:0x0, EAPC:0x1:0x60
+[   14.270746] slimbus laddr:0x4, EAPC:0x0:0x60
+[   14.272546] pm8921_bms_probe: OK battery_capacity_at_boot=0 volt = 24294 ocv = 981
+[   14.273554] power_supply usb: driver failed to report `present' property: 4294967274
+[   14.273615] power_supply usb: driver failed to report `present' property: 4294967274
+[   14.273706] power_supply pm8921-dc: driver failed to report `present' property: 4294967274
+[   14.273737] power_supply pm8921-dc: driver failed to report `present' property: 4294967274
+[   14.276117] get_prop_batt_capacity: low battery charge = 0%
+[   14.277308] pm8921_is_usb_chg_plugged_in: called before init
+[   14.277338] pm8921_is_batfet_closed: called before init
+[   14.299465] pm8921_is_usb_chg_plugged_in: called before init
+[   14.302975] get_prop_batt_capacity: low battery charge = 0%
+[   14.305600] ALSA device list:
+[   14.305600]   No soundcards found.
+[   14.400396] wcd9xxx_slim_probe: failed to get slimbus tabla-slim logical address: -6
+[   14.402929] tabla2x-slim tabla2x-slim: Platform data from board file
+[   14.416816] mmc2: new high speed SDIO card at address 0001
+[   14.430764] slimbus laddr:0x0, EAPC:0x1:0x60
+[   14.433969] slimbus laddr:0x4, EAPC:0x0:0x60
+[   14.465862] wcd9xxx_check_codec_type: codec is tabla_codec
+[   14.470349] wcd9xxx_check_codec_type: Read codec idbytes & version
+[   14.470349] byte_0[00000002] byte_1[00000000] byte_2[00000000]
+[   14.470379]  byte_3[00000001] version = 2
+[   14.487013] tabla_probe
+[   14.523241] asoc: snd-soc-dummy-dai <-> MultiMedia1 mapping ok
+[   14.528673] asoc: snd-soc-dummy-dai <-> MultiMedia2 mapping ok
+[   14.534716] asoc: snd-soc-dummy-dai <-> CS-VOICE mapping ok
+[   14.540057] asoc: snd-soc-dummy-dai <-> VoIP mapping ok
+[   14.545215] asoc: snd-soc-dummy-dai <-> MultiMedia3 mapping ok
+[   14.551106] asoc: snd-soc-dummy-dai <-> SLIMBUS0_HOSTLESS mapping ok
+[   14.557424] asoc: snd-soc-dummy-dai <-> INT_FM_HOSTLESS mapping ok
+[   14.563528] asoc: msm-stub-rx <-> msm-dai-q6.241 mapping ok
+[   14.569082] asoc: msm-stub-tx <-> msm-dai-q6.240 mapping ok
+[   14.574698] asoc: snd-soc-dummy-dai <-> MultiMedia4 mapping ok
+[   14.580528] asoc: snd-soc-dummy-dai <-> AUXPCM_HOSTLESS mapping ok
+[   14.586632] asoc: snd-soc-dummy-dai <-> HDMI_HOSTLESS mapping ok
+[   14.592675] asoc: snd-soc-dummy-dai <-> VOICE_STUB mapping ok
+[   14.598382] asoc: snd-soc-dummy-dai <-> VoLTE mapping ok
+[   14.603723] asoc: snd-soc-dummy-dai <-> MultiMedia5 mapping ok
+[   14.646329] asoc: tabla_rx1 <-> msm-dai-q6.16384 mapping ok
+[   14.654936] asoc: tabla_tx1 <-> msm-dai-q6.16385 mapping ok
+[   14.660399] asoc: msm-stub-rx <-> msm-dai-q6.12288 mapping ok
+[   14.665862] asoc: msm-stub-tx <-> msm-dai-q6.12289 mapping ok
+[   14.671631] asoc: msm-stub-rx <-> msm-dai-q6.12292 mapping ok
+[   14.677338] asoc: msm-stub-tx <-> msm-dai-q6.12293 mapping ok
+[   14.683229] asoc: msm-stub-rx <-> msm-dai-q6-hdmi.8 mapping ok
+[   14.688753] asoc: msm-stub-rx <-> msm-dai-q6.224 mapping ok
+[   14.694307] asoc: msm-stub-tx <-> msm-dai-q6.225 mapping ok
+[   14.699893] asoc: msm-stub-rx <-> msm-dai-q6.2 mapping ok
+[   14.705234] asoc: msm-stub-tx <-> msm-dai-q6.3 mapping ok
+[   14.710666] asoc: tabla_rx2 <-> msm-dai-stub mapping ok
+[   14.715824] asoc: tabla_tx1 <-> msm-dai-stub mapping ok
+[   14.721043] asoc: msm-stub-rx <-> msm-dai-q6.16386 mapping ok
+[   14.726781] asoc: msm-stub-tx <-> msm-dai-q6.16387 mapping ok
+[   14.732580] asoc: tabla_tx2 <-> msm-dai-q6.16389 mapping ok
+[   14.738104] asoc: tabla_rx3 <-> msm-dai-q6.16388 mapping ok
+[   14.743628] asoc: msm-stub-rx <-> msm-dai-q6.16392 mapping ok
+[   14.749336] asoc: msm-stub-tx <-> msm-dai-q6.16393 mapping ok
+[   14.755074] asoc: tabla_tx3 <-> msm-dai-stub mapping ok
+[   14.760292] asoc: msm-stub-rx <-> msm-dai-q6.16390 mapping ok
+[   14.766000] asoc: msm-stub-tx <-> msm-dai-q6.16391 mapping ok
+[   14.773264] input: apq8064-tabla-snd-card Button Jack as /devices/platform/soc-audio.0/sound/card0/input3
+[   14.782206] input: apq8064-tabla-snd-card Headset Jack as /devices/platform/soc-audio.0/sound/card0/input4
+[   14.798351] spi spi0.2: Driver ks8851 requests probe deferral
+[   14.803540] EXT3-fs (sda3): error: couldn't mount because of unsupported optional features (240)
+[   14.890370] EXT2-fs (sda3): error: couldn't mount because of unsupported optional features (240)
+[   14.981992] EXT4-fs (sda3): mounted filesystem with ordered data mode. Opts: (null)
+[   14.988676] VFS: Mounted root (ext4 filesystem) readonly on device 8:3.
+[   14.998809] devtmpfs: mounted
+[   15.001495] Freeing init memory: 1036K
+[   15.078620] pm8921_battery_gauge_alarm_notify: status: 1
+[   15.095162] msm_hsusb msm_hsusb: CI13XXX_CONTROLLER_RESET_EVENT received
+[   15.740637] systemd[1]: systemd 204 running in system mode. (+PAM +LIBWRAP +AUDIT +SELINUX +IMA +SYSVINIT +LIBCRYPTSETUP +GCRYPT +ACL +XZ)
+[   15.782389] systemd[1]: Set hostname to <reptile>.
+[   15.821791] systemd-cryptse used greatest stack depth: 5640 bytes left
+[   16.049534] LVM: Logical Volume autoactivation enabled.
+[   16.053837] LVM: Activation generator successfully completed.
+[   16.259056] anaconda-genera used greatest stack depth: 5288 bytes left
+[   16.562978] systemd[1]: Expecting device dev-ttyHSL0.device...
+[   16.580466] systemd[1]: Starting Forward Password Requests to Wall Directory Watch.
+[   16.587425] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   16.594750] systemd[1]: Starting Remote File Systems.
+[   16.620448] systemd[1]: Reached target Remote File Systems.
+[   16.625026] systemd[1]: Starting Syslog Socket.
+[   16.650694] systemd[1]: Listening on Syslog Socket.
+[   16.662871] systemd[1]: Starting Replay Read-Ahead Data...
+[   16.693422] systemd[1]: Starting Collect Read-Ahead Data...
+[   16.712284] systemd-readahead[155]: Bumped block_nr parameter of 8:0 to 20480. This is a temporary hack and should be removed one day.
+[   16.742865] systemd[1]: Starting Delayed Shutdown Socket.
+[   16.760506] systemd[1]: Listening on Delayed Shutdown Socket.
+[   16.765389] systemd[1]: Starting /dev/initctl Compatibility Named Pipe.
+[   16.790569] systemd[1]: Listening on /dev/initctl Compatibility Named Pipe.
+[   16.797161] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[   16.806287] systemd[1]: Starting Journal Socket.
+[   16.830489] systemd[1]: Listening on Journal Socket.
+[   16.835037] systemd[1]: Starting Create static device nodes in /dev...
+[   16.863329] systemd[1]: Mounted POSIX Message Queue File System.
+[   16.868670] systemd[1]: Mounting Debug File System...
+[   16.893056] systemd[1]: Mounted Huge Pages File System.
+[   16.897665] systemd[1]: Starting Journal Service...
+[   16.940759] systemd[1]: Started Journal Service.
+[   16.945673] systemd[1]: Starting udev Kernel Socket.
+[   16.970547] systemd[1]: Listening on udev Kernel Socket.
+[   16.975278] systemd[1]: Starting udev Control Socket.
+[   17.000701] systemd[1]: Listening on udev Control Socket.
+[   17.005310] systemd[1]: Starting udev Coldplug all Devices...
+[   17.033450] systemd[1]: Started Device-Mapper Multipath Device Controller.
+[   17.039615] systemd[1]: Starting LVM2 metadata daemon socket.
+[   17.060643] systemd[1]: Listening on LVM2 metadata daemon socket.
+[   17.065801] systemd[1]: Starting Device-mapper event daemon FIFOs.
+[   17.090614] systemd[1]: Listening on Device-mapper event daemon FIFOs.
+[   17.096383] systemd[1]: Starting Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling...
+[   17.133618] systemd[1]: Expecting device dev-disk-by\x2duuid-52795996\x2d24ae\x2d4901\x2db177\x2d767a5f09d7be.device...
+[   17.160598] systemd[1]: Expecting device dev-disk-by\x2duuid-b7bd6a79\x2d84f4\x2d4473\x2d9a6e\x2d36142d95765d.device...
+[   17.210621] systemd[1]: Started Replay Read-Ahead Data.
+[   17.230550] systemd[1]: Started Collect Read-Ahead Data.
+[   17.250541] systemd[1]: Mounted Debug File System.
+[   17.266656] systemd[1]: Starting Load legacy module configuration...
+[   17.303372] systemd[1]: Starting File System Check on Root Device...
+[   17.333618] systemd[1]: Starting Setup Virtual Console...
+[   17.375339] get_prop_batt_capacity: low battery charge = 0%
+[   17.386387] systemd[1]: Starting Apply Kernel Variables...
+[   17.422951] systemd[1]: Started Load Kernel Modules.
+[   17.430703] systemd[1]: Mounting FUSE Control File System...
+[   17.453105] systemd[1]: Mounted Configuration File System.
+[   17.464855] systemd[1]: Starting Set Up Additional Binary Formats...
+[   17.503219] systemd-binfmt[174]: Failed to add binary format: No such file or directory
+[   18.572714] systemd-udevd[193]: starting version 204
+[   19.081062] systemd-udevd[199]: renamed network interface eth0 to enp1s0
+[   19.102853] msm_csid_subdev_ioctl: command not found
+[   19.103433] msm_csiphy_subdev_ioctl: command not found
+[   19.105112] msm_csid_subdev_ioctl: command not found
+[   19.120524] msm_csiphy_subdev_ioctl: command not found
+[   19.120677] msm_vfe_subdev_ioctl: base address unmapped
+[   19.130901] msm_axi_subdev_ioctl: command 0 not found
+[   19.132733] msm_enqueue: queue eventdata new max is 1
+[   19.366458] get_prop_batt_capacity: low battery charge = 0%
+[   19.378238] get_prop_batt_capacity: low battery charge = 0%
+[   19.398596] get_prop_batt_capacity: low battery charge = 0%
+[   20.002807] 
+[   20.002807] res_trk_download_firmware(): Request firmware download
+[   20.101968] EXT4-fs (sda3): re-mounted. Opts: (null)
+[   20.150923] fw_version 10:12:2012
+[   20.153151] <3>wfd: NOTE: client_ctx = c121ebd0
+[   20.157729] <3>wfd: venc_get_empty_client_index():ERROR No space for new client
+[   20.165023] <3>wfd: OPENING SECURE SESSION
+[   20.167129] mdp4_writeback_terminate called without stopping
+[   20.174759] 
+[   20.174759]  err: Invalid Session: is_decoder: 0, secure: 1
+[   20.181779] <3>wfd: vcd_open failed, rc = -13
+[   20.186113] <3>wfd: Failed to open encoder subdevice: -19
+[   20.191515] mdp4_writeback_terminate called without stopping
+[   20.205524] <3>wfd: Latencies: avg enc. latency 0
+[   20.209705] v4l_id used greatest stack depth: 5276 bytes left
+[   20.562520] Adding 499996k swap on /dev/sda2.  Priority:-1 extents:1 across:499996k 
+[   20.774820] kjournald starting.  Commit interval 5 seconds
+[   20.780131] EXT3-fs (sda1): using internal journal
+[   20.784098] EXT3-fs (sda1): mounted filesystem with writeback data mode
+[   20.827468] type=1305 audit(20274.105:2): audit_pid=271 old=0 auid=4294967295 ses=4294967295 res=1
+[   26.922478] atl1c 0000:01:00.0: atl1c: enp1s0 NIC Link is Up<1000 Mbps Full Duplex>
+[   27.293453] IO:R f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:700)
+[   27.293483] IO:W f0140000 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:705)
+[   27.293514] IO:W f0140004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:706)
+[   27.293544] IO:W f0140008 04380780 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:707)
+[   27.293544] IO:W f014000c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:708)
+[   27.293575] IO:W f0140010 00020000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:710)
+[   27.293605] IO:W f0140040 00001e00 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:711)
+[   27.293636] IO:W f0140050 000267ff (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:713)
+[   27.293667] IO:W f0140054 03020001 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:714)
+[   27.293697] IO:W f0140058 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:721)
+[   27.293728] IO:W f014005c 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:722)
+[   27.293728] IO:W f0140060 20000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:723)
+[   27.293789] IO:W f0118180 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2053)
+[   27.293819] IO:W f0118184 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2054)
+[   27.293850] IO:W f0118188 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2056)
+[   27.293880] IO:W f011818c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2057)
+[   27.293911] IO:W f0118108 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[   27.293941] IO:W f011810c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[   27.293972] IO:W f0118104 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[   27.294002] IO:W f0119004 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[   27.294033] IO:W f0118110 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[   27.294063] IO:W f0118114 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[   27.294094] IO:W f0118118 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[   27.294124] IO:W f011811c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[   27.294124] IO:W f0118128 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[   27.294155] IO:W f011812c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[   27.294185] IO:W f0118124 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[   27.294216] IO:W f0119404 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[   27.294246] IO:W f0118130 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[   27.294277] IO:W f0118134 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[   27.294307] IO:W f0118138 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[   27.294338] IO:W f011813c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[   27.294368] IO:W f0118148 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[   27.294399] IO:W f011814c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[   27.294430] IO:W f0118144 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[   27.294430] IO:W f0119804 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[   27.294460] IO:W f0118150 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[   27.294491] IO:W f0118154 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[   27.294521] IO:W f0118158 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[   27.294552] IO:W f011815c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[   27.294582] IO:W f0118164 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2068)
+[   27.294613] IO:W f0118168 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2069)
+[   27.294643] IO:W f0118160 00000010 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2072)
+[   27.294643] IO:W f0119b84 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2074)
+[   27.294674] IO:W f011816c 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2075)
+[   27.294704] IO:W f0118170 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2076)
+[   27.294735] IO:W f0118174 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2078)
+[   27.294765] IO:W f0118178 00000000 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:2079)
+[   27.294796] IO:W f0118000 00000012 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay.c:1637)
+[   27.294826] IO:W f0100058 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:96)
+[   27.294857] IO:W f0100050 00000008 (/home/robclark/src/nexus4/msm/drivers/video/msm/mdp4_overlay_dtv.c:98)
+[   29.131909] msm_server_send_ctrl: wait_event error -110
+[   29.136120] msm_gesture_open gesture ctrl failed -110
+[   30.643583] get_prop_batt_capacity: low battery charge = 0%

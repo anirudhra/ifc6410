@@ -1,0 +1,31 @@
+[   17.395227] ath6kl: ar6004 hw 3.0 sdio fw 3.5.0.349-1 api 5                                                                       
+[   17.395301] ath6kl: firmware supports: 64bit-rates,map-lp-endpoint,ratetable-mcs15,no-ip-checksum                                 
+[   17.400582] ath6kl: Firmware lacks RSN-CAP-OVERRIDE, so HT (802.11n) is disabled.              
+
+
+filename:       /lib/modules/6.6.9-00205-g3565a579b978/kernel/drivers/net/wireless/ath/ath6kl/ath6kl_sdio.ko
+firmware:       ath6k/AR6004/hw1.3/bdata.bin
+firmware:       ath6k/AR6004/hw1.3/bdata.bin
+firmware:       ath6k/AR6004/hw1.3/fw.ram.bin
+firmware:       ath6k/AR6004/hw1.2/bdata.bin
+firmware:       ath6k/AR6004/hw1.2/bdata.bin
+firmware:       ath6k/AR6004/hw1.2/fw.ram.bin
+firmware:       ath6k/AR6004/hw1.1/bdata.DB132.bin
+firmware:       ath6k/AR6004/hw1.1/bdata.bin
+firmware:       ath6k/AR6004/hw1.1/fw.ram.bin
+firmware:       ath6k/AR6004/hw1.0/bdata.DB132.bin
+firmware:       ath6k/AR6004/hw1.0/bdata.bin
+firmware:       ath6k/AR6004/hw1.0/fw.ram.bin
+firmware:       ath6k/AR6003/hw2.1.1/bdata.SD31.bin
+firmware:       ath6k/AR6003/hw2.1.1/bdata.bin
+firmware:       ath6k/AR6003/hw2.1.1/data.patch.bin
+firmware:       ath6k/AR6003/hw2.1.1/athwlan.bin
+firmware:       ath6k/AR6003/hw2.1.1/otp.bin
+firmware:       ath6k/AR6003/hw2.0/bdata.SD31.bin
+firmware:       ath6k/AR6003/hw2.0/bdata.bin
+firmware:       ath6k/AR6003/hw2.0/data.patch.bin
+firmware:       ath6k/AR6003/hw2.0/athwlan.bin.z77
+firmware:       ath6k/AR6003/hw2.0/otp.bin.z77
+license:        Dual BSD/GPL
+description:    Driver support for Atheros AR600x SDIO devices
+author:         Atheros Communications, Inc.

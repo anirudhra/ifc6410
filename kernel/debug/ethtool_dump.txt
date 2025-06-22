@@ -1,0 +1,97 @@
+Onboard Ethernet: AR8151 v2.0
+
+root@ifc6410:~# ethtool enp1s0
+Settings for enp1s0:
+        Supported ports: [ TP ]
+        Supported link modes:   10baseT/Half 10baseT/Full
+                                100baseT/Half 100baseT/Full
+                                1000baseT/Full
+        Supported pause frame use: No
+        Supports auto-negotiation: Yes
+        Supported FEC modes: Not reported
+        Advertised link modes:  Not reported
+        Advertised pause frame use: No
+        Advertised auto-negotiation: Yes
+        Advertised FEC modes: Not reported
+        Speed: Unknown!
+        Duplex: Unknown! (255)
+        Auto-negotiation: on
+        Port: Twisted Pair
+        PHYAD: 0
+        Transceiver: internal
+        MDI-X: Unknown
+        Supports Wake-on: pg
+        Wake-on: d
+        Current message level: 0x0000003f (63)
+                               drv probe link timer ifdown ifup
+        Link detected: no
+
+USB Ethernet: RTL8152
+
+root@ifc6410:~# ethtool enx00e04c7284d6                                                                                       
+Settings for enx00e04c7284d6:                                                                                                        
+        Supported ports: [ TP    MII ]                                                                                               
+        Supported link modes:   10baseT/Half 10baseT/Full                                                                            
+                                100baseT/Half 100baseT/Full                                                                          
+                                1000baseT/Half 1000baseT/Full                                                                        
+        Supported pause frame use: No                                                                                                
+        Supports auto-negotiation: Yes                                                                                               
+        Supported FEC modes: Not reported                                                                                            
+        Advertised link modes:  10baseT/Half 10baseT/Full                                                                            
+                                100baseT/Half 100baseT/Full                                                                          
+                                1000baseT/Full                                                                                       
+        Advertised pause frame use: No                                                                                               
+        Advertised auto-negotiation: Yes                                                                                             
+        Advertised FEC modes: Not reported                                                                                           
+        Link partner advertised link modes:  10baseT/Half 10baseT/Full                                                               
+                                             100baseT/Half 100baseT/Full                                                             
+                                             1000baseT/Half 1000baseT/Full                                                           
+        Link partner advertised pause frame use: Symmetric                                                                           
+        Link partner advertised auto-negotiation: Yes                                                                                
+        Link partner advertised FEC modes: Not reported                                                                              
+        Speed: 1000Mb/s                                                                                                              
+        Duplex: Full                                                                                                                 
+        Auto-negotiation: on                                                                                                         
+        Port: MII
+        PHYAD: 32
+        Transceiver: internal
+        Supports Wake-on: pumbg
+        Wake-on: g
+        Current message level: 0x00007fff (32767)
+                               drv probe link timer ifdown ifup rx_err tx_err tx_queued intr tx_done rx_status pktdata hw wol
+        Link detected: yes
+root@ifc6410:~# lshw -C network                                                                                                                                                          [0/0]
+  *-network                                                                                                                          
+       description: Ethernet interface                                                                                               
+       product: AR8151 v2.0 Gigabit Ethernet                                                                                         
+       vendor: Qualcomm Atheros                                                                                                      
+       physical id: 8
+       bus info: pci@0000:01:00.0 
+       logical name: enp1s0
+       version: c0
+       serial: 06:17:ca:94:16:e7
+       capacity: 1Gbit/s
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm msi pciexpress vpd bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=atl1c driverversion=6.6.920250613-00205-g3565a579b9 latency=0 link=no multicast=yes port=twisted pair
+       resources: irq:64 memory:8000000-803ffff ioport:1000(size=128)                                                                
+  *-network:0                 
+       description: Wireless interface                                                                                               
+       physical id: 7
+       bus info: mmc@1:0001:1                                     
+       logical name: wlan0
+       serial: 00:03:7f:20:a2:74
+       capabilities: ethernet physical wireless                                                
+       configuration: broadcast=yes driver=ath6kl_sdio driverversion=6.6.920250613-00205-g3565a579b9 firmware=3.5.0.349-1 ip=10.100.100.66 link=yes multicast=yes wireless=IEEE 802.11
+  *-network:1                                                     
+       description: Ethernet interface                                                                                               
+       physical id: 8                                             
+       bus info: usb@1:1
+       logical name: enx00e04c7284d6  
+       serial: 00:e0:4c:72:84:d6
+       size: 1Gbit/s    
+       capacity: 1Gbit/s                                          
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation                                                                                    
+       configuration: autonegotiation=on broadcast=yes driver=r8152 driverversion=v1.12.13 duplex=full firmware=rtl8153a-4 v2 02/07/20 ip=10.100.100.64 link=yes multicast=yes port=MII speed=
+1Gbit/s                          
