@@ -2,6 +2,8 @@
 
 Includes corresponding kernel modules to be put in rootfs' /lib/modules directory (dont' forget to run "depmod -a" after module/kernel change). Audio, BT and GPU work for kernel 4.4.x. None work for kernel 5.15 and only GPU is detected for kernel 6.6, but no console.
 
+Kernel 6.6: Includes Atheros ethernet (atl1c), ATH3K bluetooth (both onboard) and USB RTL815x ethernet drivers and firmware built into the kernel.
+
 ## Device naming
 
 * Kernel 4.x/5.x - eth0: onboard ethernet, /dev/mmcblk0: emmc, /dev/mmcblk1: sdcard
