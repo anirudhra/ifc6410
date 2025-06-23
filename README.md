@@ -126,8 +126,8 @@ The following device drivers need to be compiled as part of kernel (iommu, qcom 
 * Control Group support (General setup): control/cgroups (for Docker)
 * Networking support > Networking options: Ethernet bridging, Network packet filtering (netfilter), iptables, TCP/IP, IPv6, stp, llc, veth (for Docker)
 * IOMMU (Device Drivers > IOMMU Hardware Support): msm-iommu (enable this instead of qualcomm/qcom-iommu preferably)
-* autofs (kernel automount), cifs, nfsv4: for network sharing
-* USB Attached SCSI (UAS) and OTG and Mass Storage (Device drivers > USB Support): for external HDDs, build these into the kernel NOT as modules, else rootfs mount will deadlock
+* Network FS (File Systems > Network file systems): cifs/smb/samba, nfsv4 for network sharing (client and server versions)
+* USB Attached SCSI (UAS), OTG and Mass Storage (Device drivers > USB Support): for external HDDs, build these into the kernel NOT as modules, else rootfs mount will deadlock
 * QCOM RPM, Krait CPU/thermal management, qcom kpss clock controller (see Device Drivers > SoC specific drivers > QCOM SoC and Device Drivers > Common Clock Framework > QCOM clock controllers)
 * libata.force option (Device Drivers > Serial ATA and PATA): To set "noncq" kernel command line option for PCIe SATA SSDs 
 * all other QCOM drivers for APQ8060/8064/8660/8960
@@ -141,7 +141,24 @@ Wifi firmare OG repo: https://github.com/qca/ath6kl-firmware/tree/master/ath6k/A
 
 Driver apq8064-tabla-snd-card/snd-apq8964 seems to be have been removed from kernel/sound in mainline, hence no audio support in the later kernels (5.x+).
 
-## Kernel Boot Settings (if KERNEL_CMDLINE_EXTRA was not added in earlier step)
+### Built-in drivers and firmware
+
+In some cases, it might be beneficial to integrate both drivers and firmware into the linux boot image. To integrate firmware:
+
+* Create a pre-determined root directory, for e.g., /ifc6410/firmware
+* Recreate directory structure of /lib/firmware with files in the correct place, for e.g., place rtl8152a-4.fw inside the root's .../rtl_nic subdirectory, and bdata/fw-5.bin for ath6k within .../ath6k/AR6004/hw3.0 subdirectory
+* In kernel compile menuconfig, goto Device Drivers > Generic Driver Options > Firmware loader entry
+* Under "Build named firmware blobs...", enter the exact relative path of firmware files, comma separated for multiple files, for e.g.:
+```
+ath3k-1.fw rtl_nic/rtl8153a-4.fw ath6k/AR6004/hw3.0/bdata.bin ath6k/AR6004/hw3.0/fw-5.bin
+```
+* Under "Firmware blobs root directory", enter the absolute path of the root directory created in first step above:
+```
+/ifc6410/firmware
+```
+* Ensure firmware files are readable by the user compiling the kernel. Absolute path of the firmware files on disk should be the concatenation of root directory and file mentioned above (for e.g., /ifc6410/firmware/rtl_nic/rtl8153a-4.fw)
+
+## Custom Kernel Command Line (post compile)
 
 Kernel/userspace compiled versions will be in .../build/tmp/deploy/images/ifc6410 (kirkstone branch) or qcom-armv7a directory (scarthgap branch). Compiled kernel will not have additional parameters needed for booting. Exactract bootimg.cfg from compiled boot image and manually override the kernel command line
 
