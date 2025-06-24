@@ -1,0 +1,77 @@
+[  258.628672] bus: 'platform': add driver msm_mdp
+[  258.629312] bus: 'platform': add driver msm_dpu
+[  258.629980] bus: 'platform': add driver msm_dsi_phy
+[  258.628672] bus: 'platform': add driver msm_mdp
+[  258.631289] bus: 'platform': __driver_probe_device: matched device 4a00400.phy with driver msm_hdmi_phy
+[  258.629312] bus: 'platform': add driver msm_dpu
+[  258.629980] bus: 'platform': add driver msm_dsi_phy
+[  258.630773] bus: 'platform': add driver msm_dsi
+[  258.631076] bus: 'platform': add driver msm_hdmi_phy
+[  258.631289] bus: 'platform': __driver_probe_device: matched device 4a00400.phy with driver msm_hdmi_phy
+[  258.631317] bus: 'platform': really_probe: probing driver msm_hdmi_phy with device 4a00400.phy
+[  258.631357] msm_hdmi_phy 4a00400.phy: no pinctrl handle
+[  258.631707] device: 'regulator:regulator.42--platform:4a00400.phy': device_add
+[  258.631879] devices_kset: Moving 4a00400.phy to end of list
+[  258.631895] PM: Moving platform:4a00400.phy to end of list
+[  258.631911] msm_hdmi_phy 4a00400.phy: Linked as a consumer to regulator.42
+[  258.633559] driver: 'msm_hdmi_phy': driver_bound: bound to device '4a00400.phy'
+[  258.633604] msm_hdmi_phy 4a00400.phy: Dropping the link to 4000000.clock-controller
+[  258.633619] device: 'platform:4000000.clock-controller--platform:4a00400.phy': device_unregister
+[  258.633878] bus: 'platform': really_probe: bound device 4a00400.phy to driver msm_hdmi_phy
+[  258.634207] bus: 'platform': add driver hdmi_msm
+[  258.634463] bus: 'platform': __driver_probe_device: matched device 4a00000.hdmi-tx with driver hdmi_msm
+[  258.634488] bus: 'platform': really_probe: probing driver hdmi_msm with device 4a00000.hdmi-tx
+[  258.634667] hdmi_msm 4a00000.hdmi-tx: no init pinctrl state
+[  258.634715] hdmi_msm 4a00000.hdmi-tx: no sleep pinctrl state
+[  258.634729] hdmi_msm 4a00000.hdmi-tx: no idle pinctrl state
+[  258.634819] hdmi_msm 4a00000.hdmi-tx: Driver hdmi_msm requests probe deferral
+[  258.634872] platform 4a00000.hdmi-tx: Added to deferred list
+[  258.635118] bus: 'platform': add driver msm-dp-display
+[  258.635742] bus: 'platform': add driver adreno
+[  258.635976] bus: 'platform': __driver_probe_device: matched device 4300000.adreno-3xx with driver adreno
+[  258.636007] bus: 'platform': really_probe: probing driver adreno with device 4300000.adreno-3xx
+[  258.636055] adreno 4300000.adreno-3xx: no pinctrl handle
+[  258.638547] adreno 4300000.adreno-3xx: Adding to iommu group 10
+[  258.639213] adreno 4300000.adreno-3xx: adding component (ops a3xx_ops [msm])
+[  258.640557] driver: 'adreno': driver_bound: bound to device '4300000.adreno-3xx'
+[  258.640781] bus: 'platform': really_probe: bound device 4300000.adreno-3xx to driver adreno
+[  258.641146] bus: 'platform': add driver mdp4
+[  258.641376] bus: 'platform': __driver_probe_device: matched device 5100000.display-controller with driver mdp4
+[  258.641407] bus: 'platform': really_probe: probing driver mdp4 with device 5100000.display-controller
+[  258.641446] mdp4 5100000.display-controller: no pinctrl handle
+[  258.641711] mdp4 5100000.display-controller: Adding to iommu group 11
+[  258.644089] devices_kset: Moving 4a00000.hdmi-tx to end of list
+[  258.644114] PM: Moving platform:4a00000.hdmi-tx to end of list
+[  258.644151] platform 4a00000.hdmi-tx: Retrying from deferred list
+[  258.645416] bus: 'platform': __driver_probe_device: matched device 4a00000.hdmi-tx with driver hdmi_msm
+[  258.645443] bus: 'platform': really_probe: probing driver hdmi_msm with device 4a00000.hdmi-tx
+[  258.645667] hdmi_msm 4a00000.hdmi-tx: no init pinctrl state
+[  258.645712] hdmi_msm 4a00000.hdmi-tx: no sleep pinctrl state
+[  258.645727] hdmi_msm 4a00000.hdmi-tx: no idle pinctrl state
+[  258.645826] hdmi_msm 4a00000.hdmi-tx: Driver hdmi_msm requests probe deferral
+[  258.645886] platform 4a00000.hdmi-tx: Added to deferred list
+[  258.645988] mdp4 5100000.display-controller: trying to bring up adev
+[  258.646006] mdp4 5100000.display-controller: Looking for component 0
+[  258.646024] mdp4 5100000.display-controller: master has incomplete components
+[  258.646041] driver: 'mdp4': driver_bound: bound to device '5100000.display-controller'
+[  258.646059] /soc/display-controller@5100000 Dropping the fwnode link to /soc/hdmi-tx@4a00000/ports/port@0/endpoint
+[  258.646138] /soc/hdmi-tx@4a00000 Linked as a fwnode consumer to /soc/display-controller@5100000
+[  258.646173] /soc/hdmi-tx@4a00000 Dropping the fwnode link to /soc/display-controller@5100000/ports/port@3/endpoint
+[  258.646237] device: 'platform:5100000.display-controller--platform:4a00000.hdmi-tx': device_add
+[  258.646439] platform 4a00000.hdmi-tx: Linked as a sync state only consumer to 5100000.display-controller
+[  258.646459] /soc/hdmi-tx@4a00000 Dropping the fwnode link to /soc/display-controller@5100000
+[  258.646557] devices_kset: Moving 4a00000.hdmi-tx to end of list
+[  258.646575] PM: Moving platform:4a00000.hdmi-tx to end of list
+[  258.646590] platform 4a00000.hdmi-tx: Retrying from deferred list
+[  258.647523] bus: 'platform': __driver_probe_device: matched device 4a00000.hdmi-tx with driver hdmi_msm
+[  258.647549] bus: 'platform': really_probe: probing driver hdmi_msm with device 4a00000.hdmi-tx
+[  258.647712] hdmi_msm 4a00000.hdmi-tx: no init pinctrl state
+[  258.647751] hdmi_msm 4a00000.hdmi-tx: no sleep pinctrl state
+[  258.647765] hdmi_msm 4a00000.hdmi-tx: no idle pinctrl state
+[  258.647848] hdmi_msm 4a00000.hdmi-tx: Driver hdmi_msm requests probe deferral
+[  258.647984] bus: 'platform': really_probe: bound device 5100000.display-controller to driver mdp4
+[  258.648465] platform 4a00000.hdmi-tx: Added to deferred list
+[  258.651782] bus: 'platform': add driver msm-mdss
+[  258.653057] bus: 'platform': add driver msm
+root@ifc6410:~# cat /sys/kernel/debug/devices_deferred
+4a00000.hdmi-tx
