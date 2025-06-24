@@ -1,0 +1,2118 @@
+[    0.189153] /soc/usb@12520000/ulpi/phy Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.189205] /soc/usb@12520000/ulpi/phy Dropping the fwnode link to /soc/rpm@108000/regulators/l3
+[    0.189263] /soc/usb@12500000/ulpi/phy Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.189316] /soc/usb@12500000/ulpi/phy Dropping the fwnode link to /soc/rpm@108000/regulators/l3
+[    0.189376] /soc/usb@12500000/ulpi/phy Dropping the fwnode link to /soc/rpm@108000/regulators/l4
+[    0.189438] /soc/mmc@12400000 Dropping the fwnode link to /soc/rpm@108000/regulators/l5
+[    0.189489] /soc/mmc@12180000 Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.189528] /soc/mmc@12180000 Dropping the fwnode link to /soc/rpm@108000/regulators/l6
+[    0.189602] /soc/usb@12530000/ulpi/phy Dropping the fwnode link to /soc/rpm@108000/regulators/l23
+[    0.189660] /soc/usb@12520000/ulpi/phy Dropping the fwnode link to /soc/rpm@108000/regulators/l23
+[    0.189735] /soc/mmc@121c0000 Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.189775] /soc/mmc@121c0000 Dropping the fwnode link to /soc/rpm@108000/regulators/lvs1
+[    0.189832] /soc/pci@1b500000 Dropping the fwnode link to /soc/rpm@108000/regulators/lvs6
+[    0.189887] /soc/phy@4a00400 Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.189926] /soc/phy@4a00400 Dropping the fwnode link to /soc/rpm@108000/regulators/hdmi-switch
+[    0.189974] /soc/hdmi-tx@4a00000 Linked as a fwnode consumer to /soc/rpm@108000/regulators
+[    0.190013] /soc/hdmi-tx@4a00000 Dropping the fwnode link to /soc/rpm@108000/regulators/hdmi-switch
+[    0.190078] device: 'platform:108000.rpm:regulators--platform:4a00000.hdmi-tx': device_add
+[    0.190249] platform 4a00000.hdmi-tx: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.190267] /soc/hdmi-tx@4a00000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.190324] device: 'platform:108000.rpm:regulators--platform:4a00400.phy': device_add
+[    0.190483] platform 4a00400.phy: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.190501] /soc/phy@4a00400 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.190558] device: 'platform:108000.rpm:regulators--amba:121c0000.mmc': device_add
+[    0.190711] amba 121c0000.mmc: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.190727] /soc/mmc@121c0000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.190785] device: 'platform:108000.rpm:regulators--amba:12180000.mmc': device_add
+[    0.190935] amba 12180000.mmc: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.190952] /soc/mmc@12180000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.191015] device: 'platform:108000.rpm:regulators--platform:12500000.usb': device_add
+[    0.191166] platform 12500000.usb: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.191211] device: 'platform:108000.rpm:regulators--platform:12520000.usb': device_add
+[    0.191370] platform 12520000.usb: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.191406] device: 'platform:108000.rpm:regulators--platform:12530000.usb': device_add
+[    0.191547] platform 12530000.usb: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.191579] device: 'platform:108000.rpm:regulators--platform:29000000.sata': device_add
+[    0.191725] platform 29000000.sata: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.191741] /soc/sata@29000000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.191796] device: 'platform:108000.rpm:regulators--amba:12400000.mmc': device_add
+[    0.191944] amba 12400000.mmc: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.191960] /soc/mmc@12400000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.192014] device: 'platform:108000.rpm:regulators--platform:1b500000.pci': device_add
+[    0.192178] platform 1b500000.pci: Linked as a sync state only consumer to 108000.rpm:regulators
+[    0.192194] /soc/pci@1b500000 Dropping the fwnode link to /soc/rpm@108000/regulators
+[    0.192307] bus: 'platform': really_probe: bound device 108000.rpm:regulators to driver qcom_rpm_reg
+[    0.192340] qcom_rpm_reg 108000.rpm:regulators: driver qcom_rpm_reg async attach completed: 0
+[    0.192603] device: 'tty30': device_add
+[    0.192701] PM: Adding info for No Bus:tty30
+[    0.193027] device: 'tty31': device_add
+[    0.193119] PM: Adding info for No Bus:tty31
+[    0.193431] device: 'tty32': device_add
+[    0.193523] PM: Adding info for No Bus:tty32
+[    0.193820] device: 'tty33': device_add
+[    0.193931] PM: Adding info for No Bus:tty33
+[    0.194250] device: 'tty34': device_add
+[    0.194341] PM: Adding info for No Bus:tty34
+[    0.194675] device: 'tty35': device_add
+[    0.194769] PM: Adding info for No Bus:tty35
+[    0.195074] device: 'tty36': device_add
+[    0.195167] PM: Adding info for No Bus:tty36
+[    0.195468] device: 'tty37': device_add
+[    0.195568] PM: Adding info for No Bus:tty37
+[    0.195867] device: 'tty38': device_add
+[    0.195959] PM: Adding info for No Bus:tty38
+[    0.196269] device: 'tty39': device_add
+[    0.196362] PM: Adding info for No Bus:tty39
+[    0.196658] device: 'tty40': device_add
+[    0.196751] PM: Adding info for No Bus:tty40
+[    0.197056] device: 'tty41': device_add
+[    0.197152] PM: Adding info for No Bus:tty41
+[    0.197452] device: 'tty42': device_add
+[    0.197543] PM: Adding info for No Bus:tty42
+[    0.197849] device: 'tty43': device_add
+[    0.197942] PM: Adding info for No Bus:tty43
+[    0.198245] device: 'tty44': device_add
+[    0.198346] PM: Adding info for No Bus:tty44
+[    0.198675] device: 'tty45': device_add
+[    0.198776] PM: Adding info for No Bus:tty45
+[    0.199103] device: 'tty46': device_add
+[    0.199196] PM: Adding info for No Bus:tty46
+[    0.199498] device: 'tty47': device_add
+[    0.199591] PM: Adding info for No Bus:tty47
+[    0.199903] device: 'tty48': device_add
+[    0.200004] PM: Adding info for No Bus:tty48
+[    0.200321] device: 'tty49': device_add
+[    0.200413] PM: Adding info for No Bus:tty49
+[    0.200717] device: 'tty50': device_add
+[    0.200809] PM: Adding info for No Bus:tty50
+[    0.201114] device: 'tty51': device_add
+[    0.201206] PM: Adding info for No Bus:tty51
+[    0.201511] device: 'tty52': device_add
+[    0.201614] PM: Adding info for No Bus:tty52
+[    0.201939] device: 'tty53': device_add
+[    0.202032] PM: Adding info for No Bus:tty53
+[    0.202335] device: 'tty54': device_add
+[    0.202428] PM: Adding info for No Bus:tty54
+[    0.202732] device: 'tty55': device_add
+[    0.202824] PM: Adding info for No Bus:tty55
+[    0.203136] device: 'tty56': device_add
+[    0.203235] PM: Adding info for No Bus:tty56
+[    0.203556] device: 'tty57': device_add
+[    0.203653] PM: Adding info for No Bus:tty57
+[    0.203952] device: 'tty58': device_add
+[    0.204044] PM: Adding info for No Bus:tty58
+[    0.204349] device: 'tty59': device_add
+[    0.204441] PM: Adding info for No Bus:tty59
+[    0.204746] device: 'tty60': device_add
+[    0.204847] PM: Adding info for No Bus:tty60
+[    0.205144] device: 'tty61': device_add
+[    0.205235] PM: Adding info for No Bus:tty61
+[    0.205539] device: 'tty62': device_add
+[    0.205633] PM: Adding info for No Bus:tty62
+[    0.205936] device: 'tty63': device_add
+[    0.206028] PM: Adding info for No Bus:tty63
+[    0.206551] device: 'hw_random': device_add
+[    0.206678] PM: Adding info for No Bus:hw_random
+[    0.207015] device class 'firmware': registering
+[    0.207282] NET: Registered PF_INET protocol family
+[    0.207722] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.210379] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.210419] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.210947] TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+[    0.211043] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+[    0.211265] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.211460] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.211540] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.211852] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.213134] RPC: Registered named UNIX socket transport module.
+[    0.213153] RPC: Registered udp transport module.
+[    0.213163] RPC: Registered tcp transport module.
+[    0.213172] RPC: Registered tcp-with-tls transport module.
+[    0.213182] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.213208] PCI: CLS 0 bytes, default 64
+[    0.213661] bus: 'platform': add driver armv7-pmu
+[    0.213752] bus: 'platform': __driver_probe_device: matched device cpu-pmu with driver armv7-pmu
+[    0.213783] bus: 'platform': really_probe: probing driver armv7-pmu with device cpu-pmu
+[    0.213827] armv7-pmu cpu-pmu: no pinctrl handle
+[    0.223584] hw perfevents: enabled with armv7_krait PMU driver, 5 counters available
+[    0.223610] driver: 'armv7-pmu': driver_bound: bound to device 'cpu-pmu'
+[    0.223718] bus: 'platform': really_probe: bound device cpu-pmu to driver armv7-pmu
+[    0.224882] bus: 'clocksource': registered
+[    0.224913] device: 'clocksource': device_add
+[    0.224997] PM: Adding info for No Bus:clocksource
+[    0.225031] device: 'clocksource0': device_add
+[    0.225092] bus: 'clocksource': add device clocksource0
+[    0.225168] PM: Adding info for clocksource:clocksource0
+[    0.225259] bus: 'platform': add driver alarmtimer
+[    0.225549] bus: 'clockevents': registered
+[    0.225573] device: 'clockevents': device_add
+[    0.225644] PM: Adding info for No Bus:clockevents
+[    0.225674] device: 'clockevent0': device_add
+[    0.225714] bus: 'clockevents': add device clockevent0
+[    0.225786] PM: Adding info for clockevents:clockevent0
+[    0.225861] device: 'clockevent1': device_add
+[    0.225905] bus: 'clockevents': add device clockevent1
+[    0.225976] PM: Adding info for clockevents:clockevent1
+[    0.226052] device: 'clockevent2': device_add
+[    0.226092] bus: 'clockevents': add device clockevent2
+[    0.226170] PM: Adding info for clockevents:clockevent2
+[    0.226239] device: 'clockevent3': device_add
+[    0.226278] bus: 'clockevents': add device clockevent3
+[    0.226349] PM: Adding info for clockevents:clockevent3
+[    0.226415] device: 'broadcast': device_add
+[    0.226454] bus: 'clockevents': add device broadcast
+[    0.226524] PM: Adding info for clockevents:broadcast
+[    0.226768] bus: 'event_source': registered
+[    0.226790] device: 'armv7_krait': device_add
+[    0.226841] bus: 'event_source': add device armv7_krait
+[    0.226940] PM: Adding info for event_source:armv7_krait
+[    0.226990] device: 'breakpoint': device_add
+[    0.227030] bus: 'event_source': add device breakpoint
+[    0.227111] PM: Adding info for event_source:breakpoint
+[    0.227162] device: 'uprobe': device_add
+[    0.227221] bus: 'event_source': add device uprobe
+[    0.227303] PM: Adding info for event_source:uprobe
+[    0.227351] device: 'kprobe': device_add
+[    0.227402] bus: 'event_source': add device kprobe
+[    0.227484] PM: Adding info for event_source:kprobe
+[    0.227542] device: 'tracepoint': device_add
+[    0.227582] bus: 'event_source': add device tracepoint
+[    0.227672] PM: Adding info for event_source:tracepoint
+[    0.227724] device: 'software': device_add
+[    0.227762] bus: 'event_source': add device software
+[    0.227846] PM: Adding info for event_source:software
+[    0.227894] Initialise system trusted keyrings
+[    0.228429] workingset: timestamp_bits=14 max_order=19 bucket_order=5
+[    0.229779] NFS: Registering the id_resolver key type
+[    0.229850] Key type id_resolver registered
+[    0.229865] Key type id_legacy registered
+[    0.229897] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.229917] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.231986] Key type cifs.idmap registered
+[    0.232018] jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.232257] device: 'autofs': device_add
+[    0.232374] PM: Adding info for No Bus:autofs
+[    0.232695] fuse: init (API version 7.39)
+[    0.232771] device: 'fuse': device_add
+[    0.232877] PM: Adding info for No Bus:fuse
+[    0.376445] Key type asymmetric registered
+[    0.376466] Asymmetric key parser 'x509' registered
+[    0.376643] bounce: pool size: 64 pages
+[    0.376705] device class 'bsg': registering
+[    0.376774] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.377313] io scheduler mq-deadline registered
+[    0.377331] io scheduler kyber registered
+[    0.377426] io scheduler bfq registered
+[    0.377962] bus: 'platform': add driver qcom-ebi2
+[    0.378336] bus: 'platform': add driver qcom-ssc-block-bus
+[    0.378597] bus: 'platform': add driver simple-pm-bus
+[    0.378671] bus: 'platform': __driver_probe_device: matched device soc with driver simple-pm-bus
+[    0.378701] bus: 'platform': really_probe: probing driver simple-pm-bus with device soc
+[    0.378737] simple-pm-bus soc: no pinctrl handle
+[    0.378822] driver: 'simple-pm-bus': driver_bound: bound to device 'soc'
+[    0.378862] /soc/gsbi@16600000/serial@16640000 Linked as a fwnode consumer to /soc
+[    0.378910] /soc/gsbi@16600000/serial@16640000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.378956] /soc/gsbi@16500000/serial@16540000 Linked as a fwnode consumer to /soc
+[    0.378991] /soc/gsbi@16500000/serial@16540000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379032] /soc/gsbi@1a200000/spi@1a280000 Linked as a fwnode consumer to /soc
+[    0.379069] /soc/gsbi@1a200000/spi@1a280000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379110] /soc/gsbi@16300000/i2c@16380000 Linked as a fwnode consumer to /soc
+[    0.379146] /soc/gsbi@16300000/i2c@16380000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379188] /soc/gsbi@16200000/i2c@16280000 Linked as a fwnode consumer to /soc
+[    0.379223] /soc/gsbi@16200000/i2c@16280000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379265] /soc/gsbi@12440000/i2c@12460000 Linked as a fwnode consumer to /soc
+[    0.379300] /soc/gsbi@12440000/i2c@12460000 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379340] /smsm/dsps@4 Linked as a fwnode consumer to /soc
+[    0.379370] /smsm/dsps@4 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379405] /smsm/wcnss@3 Linked as a fwnode consumer to /soc
+[    0.379434] /smsm/wcnss@3 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379471] /smsm/q6@2 Linked as a fwnode consumer to /soc
+[    0.379500] /smsm/q6@2 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379536] /smsm/modem@1 Linked as a fwnode consumer to /soc
+[    0.379566] /smsm/modem@1 Dropping the fwnode link to /soc/interrupt-controller@2000000
+[    0.379843] device: 'platform:soc--platform:smsm': device_add
+[    0.380027] platform smsm: Linked as a sync state only consumer to soc
+[    0.380073] device: 'platform:soc--platform:12440000.gsbi': device_add
+[    0.380260] platform 12440000.gsbi: Linked as a sync state only consumer to soc
+[    0.380293] device: 'platform:soc--platform:16200000.gsbi': device_add
+[    0.380442] platform 16200000.gsbi: Linked as a sync state only consumer to soc
+[    0.380475] device: 'platform:soc--platform:16300000.gsbi': device_add
+[    0.380638] platform 16300000.gsbi: Linked as a sync state only consumer to soc
+[    0.380683] device: 'platform:soc--platform:1a200000.gsbi': device_add
+[    0.380833] platform 1a200000.gsbi: Linked as a sync state only consumer to soc
+[    0.380874] device: 'platform:soc--platform:16500000.gsbi': device_add
+[    0.381033] platform 16500000.gsbi: Linked as a sync state only consumer to soc
+[    0.381064] device: 'platform:soc--platform:16600000.gsbi': device_add
+[    0.381214] platform 16600000.gsbi: Linked as a sync state only consumer to soc
+[    0.381294] bus: 'platform': really_probe: bound device soc to driver simple-pm-bus
+[    0.381623] device class 'phy': registering
+[    0.381721] bus: 'platform': add driver qcom-apq8064-sata-phy
+[    0.381879] bus: 'platform': __driver_probe_device: matched device 1b400000.phy with driver qcom-apq8064-sata-phy
+[    0.381905] bus: 'platform': really_probe: probing driver qcom-apq8064-sata-phy with device 1b400000.phy
+[    0.381939] qcom-apq8064-sata-phy 1b400000.phy: no pinctrl handle
+[    0.382197] device: 'phy-1b400000.phy.0': device_add
+[    0.382340] PM: Adding info for No Bus:phy-1b400000.phy.0
+[    0.382477] driver: 'qcom-apq8064-sata-phy': driver_bound: bound to device '1b400000.phy'
+[    0.382509] qcom-apq8064-sata-phy 1b400000.phy: Dropping the link to 900000.clock-controller
+[    0.382523] device: 'platform:900000.clock-controller--platform:1b400000.phy': device_unregister
+[    0.382971] bus: 'platform': really_probe: bound device 1b400000.phy to driver qcom-apq8064-sata-phy
+[    0.383204] bus: 'platform': add driver qcom-ipq806x-sata-phy
+[    0.383480] bus: 'ulpi': add driver qcom_usb_hs_phy
+[    0.383565] bus: 'ulpi': add driver qcom_usb_hsic_phy
+[    0.383656] bus: 'platform': add driver qcom-snps-hs-femto-v2-phy
+[    0.384052] bus: 'platform': add driver qcom-spmi-gpio
+[    0.386385] bus: 'platform': add driver qcom-spmi-mpp
+[    0.387021] bus: 'platform': add driver qcom-ssbi-gpio
+[    0.387450] bus: 'platform': add driver qcom-ssbi-mpp
+[    0.387944] bus: 'platform': add driver qcom-pcie
+[    0.388961] platform 1b500000.pci: probing driver qcom-pcie asynchronously
+[    0.389180] bus: 'i2c': add driver lm3630a_bl
+[    0.389262] bus: 'i2c': add driver lp855x
+[    0.389346] bus: 'platform': add driver of_fixed_factor_clk
+[    0.389590] bus: 'platform': add driver of_fixed_clk
+[    0.389836] bus: 'platform': add driver gpio-clk
+[    0.390113] bus: 'platform': add driver mmcc-apq8084
+[    0.390369] bus: 'platform': add driver lcc-ipq806x
+[    0.390624] bus: 'platform': add driver lcc-msm8960
+[    0.390796] bus: 'platform': __driver_probe_device: matched device 28000000.clock-controller with driver lcc-msm8960
+[    0.390822] bus: 'platform': really_probe: probing driver lcc-msm8960 with device 28000000.clock-controller
+[    0.390855] lcc-msm8960 28000000.clock-controller: no pinctrl handle
+[    0.393168] bus: 'platform': __driver_probe_device: matched device 1b500000.pci with driver qcom-pcie
+[    0.393202] bus: 'platform': really_probe: probing driver qcom-pcie with device 1b500000.pci
+[    0.393398] qcom-pcie 1b500000.pci: no init pinctrl state
+[    0.393438] qcom-pcie 1b500000.pci: no sleep pinctrl state
+[    0.393455] qcom-pcie 1b500000.pci: no idle pinctrl state
+[    0.393930] device: 'regulator:regulator.4--platform:1b500000.pci': device_add
+[    0.394106] devices_kset: Moving 1b500000.pci to end of list
+[    0.394122] PM: Moving platform:1b500000.pci to end of list
+[    0.394140] qcom-pcie 1b500000.pci: Linked as a consumer to regulator.4
+[    0.394169] driver: 'lcc-msm8960': driver_bound: bound to device '28000000.clock-controller'
+[    0.394201] lcc-msm8960 28000000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.394217] device: 'platform:900000.clock-controller--platform:28000000.clock-controller': device_unregister
+[    0.394433] device: 'regulator:regulator.39--platform:1b500000.pci': device_add
+[    0.394588] devices_kset: Moving 1b500000.pci to end of list
+[    0.394603] PM: Moving platform:1b500000.pci to end of list
+[    0.394617] bus: 'platform': really_probe: bound device 28000000.clock-controller to driver lcc-msm8960
+[    0.394619] qcom-pcie 1b500000.pci: Linked as a consumer to regulator.39
+[    0.394793] device: 'regulator:regulator.1--platform:1b500000.pci': device_add
+[    0.394837] bus: 'platform': add driver mmcc-msm8960
+[    0.394964] devices_kset: Moving 1b500000.pci to end of list
+[    0.394982] PM: Moving platform:1b500000.pci to end of list
+[    0.394998] qcom-pcie 1b500000.pci: Linked as a consumer to regulator.1
+[    0.395007] bus: 'platform': __driver_probe_device: matched device 4000000.clock-controller with driver mmcc-msm8960
+[    0.395035] bus: 'platform': really_probe: probing driver mmcc-msm8960 with device 4000000.clock-controller
+[    0.395065] mmcc-msm8960 4000000.clock-controller: no pinctrl handle
+[    0.395239] qcom-pcie 1b500000.pci: host bridge /soc/pci@1b500000 ranges:
+[    0.395340] qcom-pcie 1b500000.pci:       IO 0x000fe00000..0x000fefffff -> 0x0000000000
+[    0.395401] qcom-pcie 1b500000.pci:      MEM 0x0008000000..0x000fdfffff -> 0x0008000000
+[    0.412151] driver: 'mmcc-msm8960': driver_bound: bound to device '4000000.clock-controller'
+[    0.412192] mmcc-msm8960 4000000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.412207] device: 'platform:900000.clock-controller--platform:4000000.clock-controller': device_unregister
+[    0.412412] mmcc-msm8960 4000000.clock-controller: Dropping the link to 4a00400.phy
+[    0.412520] device: 'platform:4a00400.phy--platform:4000000.clock-controller': device_unregister
+[    0.412956] bus: 'platform': really_probe: bound device 4000000.clock-controller to driver mmcc-msm8960
+[    0.413256] bus: 'platform': add driver mmcc-msm8974
+[    0.413598] bus: 'platform': add driver qcom-a7pll
+[    0.413859] bus: 'platform': add driver qcom-sdx55-acps-clk
+[    0.414019] bus: 'platform': add driver qcom,spmi-pmic-clkdiv
+[    0.414277] bus: 'platform': add driver kpss-xcc
+[    0.414353] bus: 'platform': __driver_probe_device: matched device 2088000.clock-controller with driver kpss-xcc
+[    0.414378] bus: 'platform': really_probe: probing driver kpss-xcc with device 2088000.clock-controller
+[    0.414414] kpss-xcc 2088000.clock-controller: no pinctrl handle
+[    0.414855] driver: 'kpss-xcc': driver_bound: bound to device '2088000.clock-controller'
+[    0.414885] kpss-xcc 2088000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.414900] device: 'platform:900000.clock-controller--platform:2088000.clock-controller': device_unregister
+[    0.415280] bus: 'platform': really_probe: bound device 2088000.clock-controller to driver kpss-xcc
+[    0.415310] bus: 'platform': __driver_probe_device: matched device 2098000.clock-controller with driver kpss-xcc
+[    0.415333] bus: 'platform': really_probe: probing driver kpss-xcc with device 2098000.clock-controller
+[    0.415363] kpss-xcc 2098000.clock-controller: no pinctrl handle
+[    0.415785] driver: 'kpss-xcc': driver_bound: bound to device '2098000.clock-controller'
+[    0.415816] kpss-xcc 2098000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.415829] device: 'platform:900000.clock-controller--platform:2098000.clock-controller': device_unregister
+[    0.416190] bus: 'platform': really_probe: bound device 2098000.clock-controller to driver kpss-xcc
+[    0.416218] bus: 'platform': __driver_probe_device: matched device 20a8000.clock-controller with driver kpss-xcc
+[    0.416242] bus: 'platform': really_probe: probing driver kpss-xcc with device 20a8000.clock-controller
+[    0.416271] kpss-xcc 20a8000.clock-controller: no pinctrl handle
+[    0.416701] driver: 'kpss-xcc': driver_bound: bound to device '20a8000.clock-controller'
+[    0.416730] kpss-xcc 20a8000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.416744] device: 'platform:900000.clock-controller--platform:20a8000.clock-controller': device_unregister
+[    0.417098] bus: 'platform': really_probe: bound device 20a8000.clock-controller to driver kpss-xcc
+[    0.417130] bus: 'platform': __driver_probe_device: matched device 20b8000.clock-controller with driver kpss-xcc
+[    0.417154] bus: 'platform': really_probe: probing driver kpss-xcc with device 20b8000.clock-controller
+[    0.417183] kpss-xcc 20b8000.clock-controller: no pinctrl handle
+[    0.417602] driver: 'kpss-xcc': driver_bound: bound to device '20b8000.clock-controller'
+[    0.417630] kpss-xcc 20b8000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.417643] device: 'platform:900000.clock-controller--platform:20b8000.clock-controller': device_unregister
+[    0.417992] bus: 'platform': really_probe: bound device 20b8000.clock-controller to driver kpss-xcc
+[    0.418097] bus: 'platform': __driver_probe_device: matched device 2011000.clock-controller with driver kpss-xcc
+[    0.418123] bus: 'platform': really_probe: probing driver kpss-xcc with device 2011000.clock-controller
+[    0.418154] kpss-xcc 2011000.clock-controller: no pinctrl handle
+[    0.418578] driver: 'kpss-xcc': driver_bound: bound to device '2011000.clock-controller'
+[    0.418607] kpss-xcc 2011000.clock-controller: Dropping the link to 900000.clock-controller
+[    0.418620] device: 'platform:900000.clock-controller--platform:2011000.clock-controller': device_unregister
+[    0.418982] bus: 'platform': really_probe: bound device 2011000.clock-controller to driver kpss-xcc
+[    0.419172] bus: 'platform': add driver qcom-hfpll
+[    0.419440] bus: 'platform': add driver krait-cc
+[    0.419753] bus: 'platform': add driver bam-dma-engine
+[    0.419972] bus: 'platform': __driver_probe_device: matched device 12182000.dma-controller with driver bam-dma-engine
+[    0.419998] bus: 'platform': really_probe: probing driver bam-dma-engine with device 12182000.dma-controller
+[    0.420031] bam-dma-engine 12182000.dma-controller: no pinctrl handle
+[    0.420475] device: 'dma0chan0': device_add
+[    0.420626] PM: Adding info for No Bus:dma0chan0
+[    0.420690] device: 'dma0chan1': device_add
+[    0.420811] PM: Adding info for No Bus:dma0chan1
+[    0.420872] device: 'dma0chan2': device_add
+[    0.420990] PM: Adding info for No Bus:dma0chan2
+[    0.421050] device: 'dma0chan3': device_add
+[    0.421170] PM: Adding info for No Bus:dma0chan3
+[    0.421237] device: 'dma0chan4': device_add
+[    0.421358] PM: Adding info for No Bus:dma0chan4
+[    0.421418] device: 'dma0chan5': device_add
+[    0.421543] PM: Adding info for No Bus:dma0chan5
+[    0.421645] driver: 'bam-dma-engine': driver_bound: bound to device '12182000.dma-controller'
+[    0.421673] bam-dma-engine 12182000.dma-controller: Dropping the link to 900000.clock-controller
+[    0.421688] device: 'platform:900000.clock-controller--platform:12182000.dma-controller': device_unregister
+[    0.422086] bus: 'platform': really_probe: bound device 12182000.dma-controller to driver bam-dma-engine
+[    0.422125] bus: 'platform': __driver_probe_device: matched device 121c2000.dma-controller with driver bam-dma-engine
+[    0.422149] bus: 'platform': really_probe: probing driver bam-dma-engine with device 121c2000.dma-controller
+[    0.422182] bam-dma-engine 121c2000.dma-controller: no pinctrl handle
+[    0.422595] device: 'dma1chan0': device_add
+[    0.422730] PM: Adding info for No Bus:dma1chan0
+[    0.422791] device: 'dma1chan1': device_add
+[    0.422908] PM: Adding info for No Bus:dma1chan1
+[    0.422967] device: 'dma1chan2': device_add
+[    0.423258] PM: Adding info for No Bus:dma1chan2
+[    0.423320] device: 'dma1chan3': device_add
+[    0.423445] PM: Adding info for No Bus:dma1chan3
+[    0.423503] device: 'dma1chan4': device_add
+[    0.423621] PM: Adding info for No Bus:dma1chan4
+[    0.423679] device: 'dma1chan5': device_add
+[    0.423794] PM: Adding info for No Bus:dma1chan5
+[    0.423877] driver: 'bam-dma-engine': driver_bound: bound to device '121c2000.dma-controller'
+[    0.423905] bam-dma-engine 121c2000.dma-controller: Dropping the link to 900000.clock-controller
+[    0.423920] device: 'platform:900000.clock-controller--platform:121c2000.dma-controller': device_unregister
+[    0.424289] bus: 'platform': really_probe: bound device 121c2000.dma-controller to driver bam-dma-engine
+[    0.424324] bus: 'platform': __driver_probe_device: matched device 12402000.dma-controller with driver bam-dma-engine
+[    0.424350] bus: 'platform': really_probe: probing driver bam-dma-engine with device 12402000.dma-controller
+[    0.424380] bam-dma-engine 12402000.dma-controller: no pinctrl handle
+[    0.424761] device: 'dma2chan0': device_add
+[    0.424903] PM: Adding info for No Bus:dma2chan0
+[    0.424964] device: 'dma2chan1': device_add
+[    0.425081] PM: Adding info for No Bus:dma2chan1
+[    0.425139] device: 'dma2chan2': device_add
+[    0.425255] PM: Adding info for No Bus:dma2chan2
+[    0.425314] device: 'dma2chan3': device_add
+[    0.425438] PM: Adding info for No Bus:dma2chan3
+[    0.425498] device: 'dma2chan4': device_add
+[    0.425617] PM: Adding info for No Bus:dma2chan4
+[    0.425674] device: 'dma2chan5': device_add
+[    0.425790] PM: Adding info for No Bus:dma2chan5
+[    0.425871] driver: 'bam-dma-engine': driver_bound: bound to device '12402000.dma-controller'
+[    0.425901] bam-dma-engine 12402000.dma-controller: Dropping the link to 900000.clock-controller
+[    0.425917] device: 'platform:900000.clock-controller--platform:12402000.dma-controller': device_unregister
+[    0.426289] bus: 'platform': really_probe: bound device 12402000.dma-controller to driver bam-dma-engine
+[    0.426464] bus: 'platform': add driver gsbi
+[    0.426566] bus: 'platform': __driver_probe_device: matched device 12440000.gsbi with driver gsbi
+[    0.426593] bus: 'platform': really_probe: probing driver gsbi with device 12440000.gsbi
+[    0.426625] gsbi 12440000.gsbi: no pinctrl handle
+[    0.426961] gsbi 12440000.gsbi: GSBI port protocol: 2 crci: 0
+[    0.427190] device: '12460000.i2c': device_add
+[    0.427242] bus: 'platform': add device 12460000.i2c
+[    0.427344] PM: Adding info for platform:12460000.i2c
+[    0.427440] device: 'platform:soc--platform:12460000.i2c': device_add
+[    0.427612] platform 12460000.i2c: Linked as a sync state only consumer to soc
+[    0.427631] /soc/gsbi@12440000/i2c@12460000 Dropping the fwnode link to /soc
+[    0.427691] device: 'platform:800000.pinctrl--platform:12460000.i2c': device_add
+[    0.427840] platform 12460000.i2c: Linked as a sync state only consumer to 800000.pinctrl
+[    0.427856] /soc/gsbi@12440000/i2c@12460000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.427919] device: 'platform:900000.clock-controller--platform:12460000.i2c': device_add
+[    0.428067] platform 12460000.i2c: Linked as a sync state only consumer to 900000.clock-controller
+[    0.428082] /soc/gsbi@12440000/i2c@12460000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.428682] driver: 'gsbi': driver_bound: bound to device '12440000.gsbi'
+[    0.428716] gsbi 12440000.gsbi: Dropping the link to 800000.pinctrl
+[    0.428729] device: 'platform:800000.pinctrl--platform:12440000.gsbi': device_unregister
+[    0.428917] gsbi 12440000.gsbi: Dropping the link to 900000.clock-controller
+[    0.429036] device: 'platform:900000.clock-controller--platform:12440000.gsbi': device_unregister
+[    0.429275] gsbi 12440000.gsbi: Dropping the link to soc
+[    0.429418] device: 'platform:soc--platform:12440000.gsbi': device_unregister
+[    0.429767] bus: 'platform': really_probe: bound device 12440000.gsbi to driver gsbi
+[    0.429798] bus: 'platform': __driver_probe_device: matched device 16200000.gsbi with driver gsbi
+[    0.429825] bus: 'platform': really_probe: probing driver gsbi with device 16200000.gsbi
+[    0.429857] gsbi 16200000.gsbi: no pinctrl handle
+[    0.429967] gsbi 16200000.gsbi: GSBI port protocol: 2 crci: 0
+[    0.430167] device: '16280000.i2c': device_add
+[    0.430219] bus: 'platform': add device 16280000.i2c
+[    0.430313] PM: Adding info for platform:16280000.i2c
+[    0.430396] device: 'platform:soc--platform:16280000.i2c': device_add
+[    0.430547] platform 16280000.i2c: Linked as a sync state only consumer to soc
+[    0.430563] /soc/gsbi@16200000/i2c@16280000 Dropping the fwnode link to /soc
+[    0.430615] device: 'platform:800000.pinctrl--platform:16280000.i2c': device_add
+[    0.430766] platform 16280000.i2c: Linked as a sync state only consumer to 800000.pinctrl
+[    0.430784] /soc/gsbi@16200000/i2c@16280000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.430842] device: 'platform:900000.clock-controller--platform:16280000.i2c': device_add
+[    0.430988] platform 16280000.i2c: Linked as a sync state only consumer to 900000.clock-controller
+[    0.431005] /soc/gsbi@16200000/i2c@16280000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.431442] driver: 'gsbi': driver_bound: bound to device '16200000.gsbi'
+[    0.431471] gsbi 16200000.gsbi: Dropping the link to 800000.pinctrl
+[    0.431485] device: 'platform:800000.pinctrl--platform:16200000.gsbi': device_unregister
+[    0.431668] gsbi 16200000.gsbi: Dropping the link to 900000.clock-controller
+[    0.431771] device: 'platform:900000.clock-controller--platform:16200000.gsbi': device_unregister
+[    0.431951] gsbi 16200000.gsbi: Dropping the link to soc
+[    0.432065] device: 'platform:soc--platform:16200000.gsbi': device_unregister
+[    0.432265] bus: 'platform': really_probe: bound device 16200000.gsbi to driver gsbi
+[    0.432294] bus: 'platform': __driver_probe_device: matched device 16300000.gsbi with driver gsbi
+[    0.432317] bus: 'platform': really_probe: probing driver gsbi with device 16300000.gsbi
+[    0.432347] gsbi 16300000.gsbi: no pinctrl handle
+[    0.432607] gsbi 16300000.gsbi: GSBI port protocol: 2 crci: 0
+[    0.432813] device: '16380000.i2c': device_add
+[    0.432967] bus: 'platform': add device 16380000.i2c
+[    0.433148] PM: Adding info for platform:16380000.i2c
+[    0.433242] device: 'platform:soc--platform:16380000.i2c': device_add
+[    0.433393] platform 16380000.i2c: Linked as a sync state only consumer to soc
+[    0.433410] /soc/gsbi@16300000/i2c@16380000 Dropping the fwnode link to /soc
+[    0.433462] device: 'platform:800000.pinctrl--platform:16380000.i2c': device_add
+[    0.433621] platform 16380000.i2c: Linked as a sync state only consumer to 800000.pinctrl
+[    0.433639] /soc/gsbi@16300000/i2c@16380000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.433696] device: 'platform:900000.clock-controller--platform:16380000.i2c': device_add
+[    0.433853] platform 16380000.i2c: Linked as a sync state only consumer to 900000.clock-controller
+[    0.433870] /soc/gsbi@16300000/i2c@16380000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.434323] driver: 'gsbi': driver_bound: bound to device '16300000.gsbi'
+[    0.434357] gsbi 16300000.gsbi: Dropping the link to 800000.pinctrl
+[    0.434371] device: 'platform:800000.pinctrl--platform:16300000.gsbi': device_unregister
+[    0.434558] gsbi 16300000.gsbi: Dropping the link to 900000.clock-controller
+[    0.434672] device: 'platform:900000.clock-controller--platform:16300000.gsbi': device_unregister
+[    0.434834] gsbi 16300000.gsbi: Dropping the link to soc
+[    0.434849] device: 'platform:soc--platform:16300000.gsbi': device_unregister
+[    0.435178] bus: 'platform': really_probe: bound device 16300000.gsbi to driver gsbi
+[    0.435209] bus: 'platform': __driver_probe_device: matched device 1a200000.gsbi with driver gsbi
+[    0.435232] bus: 'platform': really_probe: probing driver gsbi with device 1a200000.gsbi
+[    0.435268] gsbi 1a200000.gsbi: no pinctrl handle
+[    0.435509] gsbi 1a200000.gsbi: GSBI port protocol: 3 crci: 0
+[    0.435814] device: '1a280000.spi': device_add
+[    0.435869] bus: 'platform': add device 1a280000.spi
+[    0.435970] PM: Adding info for platform:1a280000.spi
+[    0.436058] device: 'platform:soc--platform:1a280000.spi': device_add
+[    0.436204] platform 1a280000.spi: Linked as a sync state only consumer to soc
+[    0.436220] /soc/gsbi@1a200000/spi@1a280000 Dropping the fwnode link to /soc
+[    0.436275] device: 'platform:800000.pinctrl--platform:1a280000.spi': device_add
+[    0.436424] platform 1a280000.spi: Linked as a sync state only consumer to 800000.pinctrl
+[    0.436440] /soc/gsbi@1a200000/spi@1a280000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.436500] device: 'platform:900000.clock-controller--platform:1a280000.spi': device_add
+[    0.436653] platform 1a280000.spi: Linked as a sync state only consumer to 900000.clock-controller
+[    0.436669] /soc/gsbi@1a200000/spi@1a280000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.437137] driver: 'gsbi': driver_bound: bound to device '1a200000.gsbi'
+[    0.437167] gsbi 1a200000.gsbi: Dropping the link to 800000.pinctrl
+[    0.437180] device: 'platform:800000.pinctrl--platform:1a200000.gsbi': device_unregister
+[    0.437363] gsbi 1a200000.gsbi: Dropping the link to 900000.clock-controller
+[    0.437476] device: 'platform:900000.clock-controller--platform:1a200000.gsbi': device_unregister
+[    0.437633] gsbi 1a200000.gsbi: Dropping the link to soc
+[    0.437648] device: 'platform:soc--platform:1a200000.gsbi': device_unregister
+[    0.437981] bus: 'platform': really_probe: bound device 1a200000.gsbi to driver gsbi
+[    0.438013] bus: 'platform': __driver_probe_device: matched device 16500000.gsbi with driver gsbi
+[    0.438036] bus: 'platform': really_probe: probing driver gsbi with device 16500000.gsbi
+[    0.438068] gsbi 16500000.gsbi: no pinctrl handle
+[    0.438309] gsbi 16500000.gsbi: GSBI port protocol: 4 crci: 0
+[    0.438593] device: '16540000.serial': device_add
+[    0.438645] bus: 'platform': add device 16540000.serial
+[    0.438744] PM: Adding info for platform:16540000.serial
+[    0.438834] device: 'platform:soc--platform:16540000.serial': device_add
+[    0.438993] platform 16540000.serial: Linked as a sync state only consumer to soc
+[    0.439009] /soc/gsbi@16500000/serial@16540000 Dropping the fwnode link to /soc
+[    0.439069] device: 'platform:800000.pinctrl--platform:16540000.serial': device_add
+[    0.439217] platform 16540000.serial: Linked as a sync state only consumer to 800000.pinctrl
+[    0.439233] /soc/gsbi@16500000/serial@16540000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.439292] device: 'platform:900000.clock-controller--platform:16540000.serial': device_add
+[    0.439441] platform 16540000.serial: Linked as a sync state only consumer to 900000.clock-controller
+[    0.439456] /soc/gsbi@16500000/serial@16540000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.440075] driver: 'gsbi': driver_bound: bound to device '16500000.gsbi'
+[    0.440105] gsbi 16500000.gsbi: Dropping the link to 800000.pinctrl
+[    0.440118] device: 'platform:800000.pinctrl--platform:16500000.gsbi': device_unregister
+[    0.440279] gsbi 16500000.gsbi: Dropping the link to 900000.clock-controller
+[    0.440293] device: 'platform:900000.clock-controller--platform:16500000.gsbi': device_unregister
+[    0.440447] gsbi 16500000.gsbi: Dropping the link to soc
+[    0.440462] device: 'platform:soc--platform:16500000.gsbi': device_unregister
+[    0.440653] bus: 'platform': really_probe: bound device 16500000.gsbi to driver gsbi
+[    0.440680] bus: 'platform': __driver_probe_device: matched device 16600000.gsbi with driver gsbi
+[    0.440706] bus: 'platform': really_probe: probing driver gsbi with device 16600000.gsbi
+[    0.440736] gsbi 16600000.gsbi: no pinctrl handle
+[    0.440854] gsbi 16600000.gsbi: GSBI port protocol: 6 crci: 0
+[    0.441123] device: '16640000.serial': device_add
+[    0.441173] bus: 'platform': add device 16640000.serial
+[    0.441268] PM: Adding info for platform:16640000.serial
+[    0.441351] device: 'platform:soc--platform:16640000.serial': device_add
+[    0.441508] platform 16640000.serial: Linked as a sync state only consumer to soc
+[    0.441524] /soc/gsbi@16600000/serial@16640000 Dropping the fwnode link to /soc
+[    0.441578] device: 'platform:800000.pinctrl--platform:16640000.serial': device_add
+[    0.441728] platform 16640000.serial: Linked as a sync state only consumer to 800000.pinctrl
+[    0.441745] /soc/gsbi@16600000/serial@16640000 Dropping the fwnode link to /soc/pinctrl@800000
+[    0.441803] device: 'platform:900000.clock-controller--platform:16640000.serial': device_add
+[    0.441964] platform 16640000.serial: Linked as a sync state only consumer to 900000.clock-controller
+[    0.441980] /soc/gsbi@16600000/serial@16640000 Dropping the fwnode link to /soc/clock-controller@900000
+[    0.442536] driver: 'gsbi': driver_bound: bound to device '16600000.gsbi'
+[    0.442566] gsbi 16600000.gsbi: Dropping the link to 800000.pinctrl
+[    0.442578] device: 'platform:800000.pinctrl--platform:16600000.gsbi': device_unregister
+[    0.442738] gsbi 16600000.gsbi: Dropping the link to 900000.clock-controller
+[    0.442752] device: 'platform:900000.clock-controller--platform:16600000.gsbi': device_unregister
+[    0.442911] gsbi 16600000.gsbi: Dropping the link to soc
+[    0.442927] device: 'platform:soc--platform:16600000.gsbi': device_unregister
+[    0.443989] bus: 'platform': really_probe: bound device 16600000.gsbi to driver gsbi
+[    0.444270] bus: 'platform': add driver ocmem
+[    0.444623] device class 'rmtfs': registering
+[    0.444701] bus: 'platform': add driver qcom_rmtfs_mem
+[    0.444985] bus: 'platform': add driver qcom_smp2p
+[    0.445268] bus: 'platform': add driver qcom-smsm
+[    0.445319] bus: 'platform': __driver_probe_device: matched device smsm with driver qcom-smsm
+[    0.445344] bus: 'platform': really_probe: probing driver qcom-smsm with device smsm
+[    0.445378] qcom-smsm smsm: no pinctrl handle
+[    0.445458] qcom-smsm smsm: error -EPROBE_DEFER: unable to retrieve smsm size info
+[    0.445484] qcom-smsm smsm: Driver qcom-smsm requests probe deferral
+[    0.445531] platform smsm: Added to deferred list
+[    0.445792] bus: 'platform': add driver qcom-socinfo
+[    0.445953] bus: 'rpmsg': add driver qcom_wcnss_ctrl
+[    0.446047] bus: 'platform': add driver qcom-rpmh-regulator
+[    0.447572] bus: 'platform': add driver qcom-spmi-regulator
+[    0.448485] device: 'ptmx': device_add
+[    0.448594] PM: Adding info for No Bus:ptmx
+[    0.448995] bus: 'platform': add driver msm_serial
+[    0.449281] bus: 'platform': __driver_probe_device: matched device 16540000.serial with driver msm_serial
+[    0.449305] bus: 'platform': really_probe: probing driver msm_serial with device 16540000.serial
+[    0.449437] msm_serial 16540000.serial: no init pinctrl state
+[    0.449489] msm_serial 16540000.serial: no sleep pinctrl state
+[    0.449503] msm_serial 16540000.serial: no idle pinctrl state
+[    0.449585] msm_serial 16540000.serial: msm_serial: detected port #1
+[    0.449658] msm_serial 16540000.serial: uartclk = 27000000
+[    0.449853] device: '16540000.serial:0': device_add
+[    0.449900] bus: 'serial-base': add device 16540000.serial:0
+[    0.449980] PM: Adding info for serial-base:16540000.serial:0
+[    0.450029] bus: 'serial-base': __driver_probe_device: matched device 16540000.serial:0 with driver ctrl
+[    0.450053] bus: 'serial-base': really_probe: probing driver ctrl with device 16540000.serial:0
+[    0.450080] ctrl 16540000.serial:0: no default pinctrl state
+[    0.450128] driver: 'ctrl': driver_bound: bound to device '16540000.serial:0'
+[    0.450174] bus: 'serial-base': really_probe: bound device 16540000.serial:0 to driver ctrl
+[    0.450221] device: '16540000.serial:0.0': device_add
+[    0.450266] bus: 'serial-base': add device 16540000.serial:0.0
+[    0.450341] PM: Adding info for serial-base:16540000.serial:0.0
+[    0.450396] bus: 'serial-base': __driver_probe_device: matched device 16540000.serial:0.0 with driver port
+[    0.450420] bus: 'serial-base': really_probe: probing driver port with device 16540000.serial:0.0
+[    0.450448] port 16540000.serial:0.0: no default pinctrl state
+[    0.450497] driver: 'port': driver_bound: bound to device '16540000.serial:0.0'
+[    0.450540] bus: 'serial-base': really_probe: bound device 16540000.serial:0.0 to driver port
+[    0.450678] 16540000.serial: ttyMSM1 at MMIO 0x16540000 (irq = 33, base_baud = 1687500) is a MSM
+[    0.450766] device: 'serial0': device_add
+[    0.450812] bus: 'serial': add device serial0
+[    0.450856] PM: Adding info for serial:serial0
+[    0.451015] bus: 'serial': remove device serial0
+[    0.451034] PM: Removing info for serial:serial0
+[    0.451134] device: 'ttyMSM1': device_add
+[    0.451338] PM: Adding info for No Bus:ttyMSM1
+[    0.451714] driver: 'msm_serial': driver_bound: bound to device '16540000.serial'
+[    0.451742] msm_serial 16540000.serial: Dropping the link to soc
+[    0.451756] device: 'platform:soc--platform:16540000.serial': device_unregister
+[    0.451932] msm_serial 16540000.serial: Dropping the link to 800000.pinctrl
+[    0.452049] device: 'platform:800000.pinctrl--platform:16540000.serial': device_unregister
+[    0.452265] msm_serial 16540000.serial: Dropping the link to 900000.clock-controller
+[    0.452408] device: 'platform:900000.clock-controller--platform:16540000.serial': device_unregister
+[    0.452760] bus: 'platform': really_probe: bound device 16540000.serial to driver msm_serial
+[    0.452790] bus: 'platform': __driver_probe_device: matched device 16640000.serial with driver msm_serial
+[    0.452812] bus: 'platform': really_probe: probing driver msm_serial with device 16640000.serial
+[    0.452943] msm_serial 16640000.serial: no init pinctrl state
+[    0.452974] msm_serial 16640000.serial: no sleep pinctrl state
+[    0.452990] msm_serial 16640000.serial: no idle pinctrl state
+[    0.453179] msm_serial 16640000.serial: msm_serial: detected port #0
+[    0.453237] msm_serial 16640000.serial: uartclk = 1843200
+[    0.453410] device: '16640000.serial:0': device_add
+[    0.453450] bus: 'serial-base': add device 16640000.serial:0
+[    0.453522] PM: Adding info for serial-base:16640000.serial:0
+[    0.453567] bus: 'serial-base': __driver_probe_device: matched device 16640000.serial:0 with driver ctrl
+[    0.453588] bus: 'serial-base': really_probe: probing driver ctrl with device 16640000.serial:0
+[    0.453617] ctrl 16640000.serial:0: no default pinctrl state
+[    0.453659] driver: 'ctrl': driver_bound: bound to device '16640000.serial:0'
+[    0.453702] bus: 'serial-base': really_probe: bound device 16640000.serial:0 to driver ctrl
+[    0.453744] device: '16640000.serial:0.0': device_add
+[    0.453780] bus: 'serial-base': add device 16640000.serial:0.0
+[    0.453853] PM: Adding info for serial-base:16640000.serial:0.0
+[    0.453907] bus: 'serial-base': __driver_probe_device: matched device 16640000.serial:0.0 with driver port
+[    0.453929] bus: 'serial-base': really_probe: probing driver port with device 16640000.serial:0.0
+[    0.453956] port 16640000.serial:0.0: no default pinctrl state
+[    0.453998] driver: 'port': driver_bound: bound to device '16640000.serial:0.0'
+[    0.454041] bus: 'serial-base': really_probe: bound device 16640000.serial:0.0 to driver port
+[    0.454152] 16640000.serial: ttyMSM0 at MMIO 0x16640000 (irq = 34, base_baud = 115200) is a MSM
+[    0.454205] msm_serial: console setup on port #0
+[    0.454313] printk: console [ttyMSM0] enabled
+[    1.452185] device: 'serial0': device_add
+[    1.452268] bus: 'serial': add device serial0
+[    1.452324] PM: Adding info for serial:serial0
+[    1.452350] qcom-pcie 1b500000.pci: iATU: unroll F, 8 ob, 8 ib, align 4K, limit 4G
+[    1.452536] bus: 'serial': remove device serial0
+[    1.456407] PM: Removing info for serial:serial0
+[    1.456519] device: 'ttyMSM0': device_add
+[    1.456758] PM: Adding info for No Bus:ttyMSM0
+[    1.457180] driver: 'msm_serial': driver_bound: bound to device '16640000.serial'
+[    1.457220] msm_serial 16640000.serial: Dropping the link to soc
+[    1.457241] device: 'platform:soc--platform:16640000.serial': device_unregister
+[    1.457570] msm_serial 16640000.serial: Dropping the link to 800000.pinctrl
+[    1.457592] device: 'platform:800000.pinctrl--platform:16640000.serial': device_unregister
+[    1.457815] msm_serial 16640000.serial: Dropping the link to 900000.clock-controller
+[    1.457833] device: 'platform:900000.clock-controller--platform:16640000.serial': device_unregister
+[    1.458021] bus: 'platform': really_probe: bound device 16640000.serial to driver msm_serial
+[    1.458093] msm_serial: driver initialized
+[    1.463980] bus: 'platform': add driver smccc_trng
+[    1.464294] bus: 'platform': add driver qcom-iommu-ctx
+[    1.464888] bus: 'platform': add driver qcom-iommu
+[    1.465128] bus: 'platform': add driver arm-smmu
+[    1.465472] bus: 'platform': add driver msm_iommu
+[    1.465606] bus: 'platform': __driver_probe_device: matched device 7500000.iommu with driver msm_iommu
+[    1.465635] bus: 'platform': really_probe: probing driver msm_iommu with device 7500000.iommu
+[    1.465671] msm_iommu 7500000.iommu: no pinctrl handle
+[    1.466372] device: 'msm-smmu.0x07500000': device_add
+[    1.466504] PM: Adding info for No Bus:msm-smmu.0x07500000
+[    1.466635] reg-dummy reg-dummy: Adding to iommu group 0
+[    1.468012] msm_iommu: device mapped at (ptrval), irq 36 with 2 ctx banks
+[    1.473372] driver: 'msm_iommu': driver_bound: bound to device '7500000.iommu'
+[    1.473398] msm_iommu 7500000.iommu: Dropping the link to 4000000.clock-controller
+[    1.473411] device: 'platform:4000000.clock-controller--platform:7500000.iommu': device_unregister
+[    1.473698] bus: 'platform': really_probe: bound device 7500000.iommu to driver msm_iommu
+[    1.473722] bus: 'platform': __driver_probe_device: matched device 7600000.iommu with driver msm_iommu
+[    1.473743] bus: 'platform': really_probe: probing driver msm_iommu with device 7600000.iommu
+[    1.473769] msm_iommu 7600000.iommu: no pinctrl handle
+[    1.474360] device: 'msm-smmu.0x07600000': device_add
+[    1.474456] PM: Adding info for No Bus:msm-smmu.0x07600000
+[    1.474658] msm_iommu: device mapped at (ptrval), irq 37 with 2 ctx banks
+[    1.479979] driver: 'msm_iommu': driver_bound: bound to device '7600000.iommu'
+[    1.480000] msm_iommu 7600000.iommu: Dropping the link to 4000000.clock-controller
+[    1.480012] device: 'platform:4000000.clock-controller--platform:7600000.iommu': device_unregister
+[    1.480255] bus: 'platform': really_probe: bound device 7600000.iommu to driver msm_iommu
+[    1.480277] bus: 'platform': __driver_probe_device: matched device 7c00000.iommu with driver msm_iommu
+[    1.480297] bus: 'platform': really_probe: probing driver msm_iommu with device 7c00000.iommu
+[    1.480321] msm_iommu 7c00000.iommu: no pinctrl handle
+[    1.480912] device: 'msm-smmu.0x07c00000': device_add
+[    1.481003] PM: Adding info for No Bus:msm-smmu.0x07c00000
+[    1.481207] msm_iommu: device mapped at (ptrval), irq 38 with 3 ctx banks
+[    1.486817] driver: 'msm_iommu': driver_bound: bound to device '7c00000.iommu'
+[    1.486841] msm_iommu 7c00000.iommu: Dropping the link to 4000000.clock-controller
+[    1.486853] device: 'platform:4000000.clock-controller--platform:7c00000.iommu': device_unregister
+[    1.487098] bus: 'platform': really_probe: bound device 7c00000.iommu to driver msm_iommu
+[    1.487122] bus: 'platform': __driver_probe_device: matched device 7d00000.iommu with driver msm_iommu
+[    1.487144] bus: 'platform': really_probe: probing driver msm_iommu with device 7d00000.iommu
+[    1.487171] msm_iommu 7d00000.iommu: no pinctrl handle
+[    1.487898] device: 'msm-smmu.0x07d00000': device_add
+[    1.487988] PM: Adding info for No Bus:msm-smmu.0x07d00000
+[    1.488196] msm_iommu: device mapped at (ptrval), irq 39 with 3 ctx banks
+[    1.493638] driver: 'msm_iommu': driver_bound: bound to device '7d00000.iommu'
+[    1.493663] msm_iommu 7d00000.iommu: Dropping the link to 4000000.clock-controller
+[    1.493676] device: 'platform:4000000.clock-controller--platform:7d00000.iommu': device_unregister
+[    1.493914] bus: 'platform': really_probe: bound device 7d00000.iommu to driver msm_iommu
+[    1.494003] device class 'drm': registering
+[    1.494115] bus: 'platform': add driver panel-simple
+[    1.497613] bus: 'mipi-dsi': add driver panel-simple-dsi
+[    1.497686] bus: 'platform': add driver panel-edp
+[    1.498450] bus: 'dp-aux': add driver panel-simple-dp-aux
+[    1.498834] device class 'devcoredump': registering
+[    1.499062] device: 'ram0': device_add
+[    1.499222] PM: Adding info for No Bus:ram0
+[    1.499698] device: '1:0': device_add
+[    1.499825] PM: Adding info for No Bus:1:0
+[    1.500274] device: 'ram1': device_add
+[    1.500415] PM: Adding info for No Bus:ram1
+[    1.500863] device: '1:1': device_add
+[    1.500976] PM: Adding info for No Bus:1:1
+[    1.501320] device: 'ram2': device_add
+[    1.501454] PM: Adding info for No Bus:ram2
+[    1.501887] device: '1:2': device_add
+[    1.501992] PM: Adding info for No Bus:1:2
+[    1.502352] device: 'ram3': device_add
+[    1.502499] PM: Adding info for No Bus:ram3
+[    1.502916] device: '1:3': device_add
+[    1.503114] PM: Adding info for No Bus:1:3
+[    1.503458] device: 'ram4': device_add
+[    1.503601] PM: Adding info for No Bus:ram4
+[    1.504018] device: '1:4': device_add
+[    1.504123] PM: Adding info for No Bus:1:4
+[    1.504454] device: 'ram5': device_add
+[    1.504593] PM: Adding info for No Bus:ram5
+[    1.504992] device: '1:5': device_add
+[    1.505100] PM: Adding info for No Bus:1:5
+[    1.505433] device: 'ram6': device_add
+[    1.505573] PM: Adding info for No Bus:ram6
+[    1.505986] device: '1:6': device_add
+[    1.506103] PM: Adding info for No Bus:1:6
+[    1.506444] device: 'ram7': device_add
+[    1.506577] PM: Adding info for No Bus:ram7
+[    1.506998] device: '1:7': device_add
+[    1.507111] PM: Adding info for No Bus:1:7
+[    1.507447] device: 'ram8': device_add
+[    1.507581] PM: Adding info for No Bus:ram8
+[    1.507983] device: '1:8': device_add
+[    1.508096] PM: Adding info for No Bus:1:8
+[    1.508422] device: 'ram9': device_add
+[    1.508559] PM: Adding info for No Bus:ram9
+[    1.508955] device: '1:9': device_add
+[    1.509062] PM: Adding info for No Bus:1:9
+[    1.509395] device: 'ram10': device_add
+[    1.509534] PM: Adding info for No Bus:ram10
+[    1.509930] device: '1:10': device_add
+[    1.510037] PM: Adding info for No Bus:1:10
+[    1.510586] device: 'ram11': device_add
+[    1.510732] PM: Adding info for No Bus:ram11
+[    1.511163] device: '1:11': device_add
+[    1.511269] PM: Adding info for No Bus:1:11
+[    1.511646] device: 'ram12': device_add
+[    1.511785] PM: Adding info for No Bus:ram12
+[    1.512197] device: '1:12': device_add
+[    1.512314] PM: Adding info for No Bus:1:12
+[    1.512648] device: 'ram13': device_add
+[    1.512790] PM: Adding info for No Bus:ram13
+[    1.513359] device: '1:13': device_add
+[    1.513466] PM: Adding info for No Bus:1:13
+[    1.513802] device: 'ram14': device_add
+[    1.513944] PM: Adding info for No Bus:ram14
+[    1.514372] device: '1:14': device_add
+[    1.514488] PM: Adding info for No Bus:1:14
+[    1.514832] device: 'ram15': device_add
+[    1.514966] PM: Adding info for No Bus:ram15
+[    1.515358] device: '1:15': device_add
+[    1.515474] PM: Adding info for No Bus:1:15
+[    1.515699] brd: module loaded
+[    1.515749] device: 'loop-control': device_add
+[    1.515828] PM: Adding info for No Bus:loop-control
+[    1.516341] device: 'loop0': device_add
+[    1.516482] PM: Adding info for No Bus:loop0
+[    1.517419] device: '7:0': device_add
+[    1.517531] PM: Adding info for No Bus:7:0
+[    1.517842] device: 'loop1': device_add
+[    1.517989] PM: Adding info for No Bus:loop1
+[    1.518888] device: '7:1': device_add
+[    1.518998] PM: Adding info for No Bus:7:1
+[    1.519319] device: 'loop2': device_add
+[    1.519473] PM: Adding info for No Bus:loop2
+[    1.520375] device: '7:2': device_add
+[    1.520490] PM: Adding info for No Bus:7:2
+[    1.520792] device: 'loop3': device_add
+[    1.520945] PM: Adding info for No Bus:loop3
+[    1.521851] device: '7:3': device_add
+[    1.521966] PM: Adding info for No Bus:7:3
+[    1.522272] device: 'loop4': device_add
+[    1.522418] PM: Adding info for No Bus:loop4
+[    1.523397] device: '7:4': device_add
+[    1.523516] PM: Adding info for No Bus:7:4
+[    1.523840] device: 'loop5': device_add
+[    1.523981] PM: Adding info for No Bus:loop5
+[    1.524980] device: '7:5': device_add
+[    1.525102] PM: Adding info for No Bus:7:5
+[    1.525403] device: 'loop6': device_add
+[    1.525548] PM: Adding info for No Bus:loop6
+[    1.526570] device: '7:6': device_add
+[    1.526693] PM: Adding info for No Bus:7:6
+[    1.527006] device: 'loop7': device_add
+[    1.527154] PM: Adding info for No Bus:loop7
+[    1.528171] device: '7:7': device_add
+[    1.528283] PM: Adding info for No Bus:7:7
+[    1.528366] loop: module loaded
+[    1.528442] bus: 'platform': add driver qcom-spmi-coincell
+[    1.528838] bus: 'platform': add driver qcom,fastrpc-cb
+[    1.529041] bus: 'rpmsg': add driver qcom,fastrpc
+[    1.529116] bus: 'platform': add driver ssbi
+[    1.529205] bus: 'platform': __driver_probe_device: matched device c00000.ssbi with driver ssbi
+[    1.529235] bus: 'platform': really_probe: probing driver ssbi with device c00000.ssbi
+[    1.529272] ssbi c00000.ssbi: no pinctrl handle
+[    1.529371] ssbi c00000.ssbi: SSBI controller type: 'pmic-arbiter'
+[    1.530399] device: 'c00000.ssbi:pmic': device_add
+[    1.530441] bus: 'platform': add device c00000.ssbi:pmic
+[    1.530530] PM: Adding info for platform:c00000.ssbi:pmic
+[    1.530617] device: 'platform:800000.pinctrl--platform:c00000.ssbi:pmic': device_add
+[    1.530743] platform c00000.ssbi:pmic: Linked as a sync state only consumer to 800000.pinctrl
+[    1.530761] /soc/ssbi@c00000/pmic Dropping the fwnode link to /soc/pinctrl@800000
+[    1.531063] bus: 'platform': __driver_probe_device: matched device c00000.ssbi:pmic with driver pm8xxx-core
+[    1.531087] bus: 'platform': really_probe: probing driver pm8xxx-core with device c00000.ssbi:pmic
+[    1.531115] pm8xxx-core c00000.ssbi:pmic: no pinctrl handle
+[    1.531422] pm8xxx_probe: PMIC revision 1: F3
+[    1.536718] pm8xxx_probe: PMIC revision 2: 0B
+[    1.541172] device: 'c00000.ssbi:pmic:mpps@50': device_add
+[    1.541217] bus: 'platform': add device c00000.ssbi:pmic:mpps@50
+[    1.541289] PM: Adding info for platform:c00000.ssbi:pmic:mpps@50
+[    1.541692] bus: 'platform': __driver_probe_device: matched device c00000.ssbi:pmic:mpps@50 with driver qcom-ssbi-mpp
+[    1.541718] bus: 'platform': really_probe: probing driver qcom-ssbi-mpp with device c00000.ssbi:pmic:mpps@50
+[    1.541744] qcom-ssbi-mpp c00000.ssbi:pmic:mpps@50: no pinctrl handle
+[    1.542057] device: 'gpiochip1': device_add
+[    1.542099] bus: 'gpio': add device gpiochip1
+[    1.542168] PM: Adding info for gpio:gpiochip1
+[    1.542473] device: 'gpiochip602': device_add
+[    1.542581] PM: Adding info for No Bus:gpiochip602
+[    1.542620] driver: 'qcom-ssbi-mpp': driver_bound: bound to device 'c00000.ssbi:pmic:mpps@50'
+[    1.542686] bus: 'platform': really_probe: bound device c00000.ssbi:pmic:mpps@50 to driver qcom-ssbi-mpp
+[    1.542715] driver: 'pm8xxx-core': driver_bound: bound to device 'c00000.ssbi:pmic'
+[    1.542742] pm8xxx-core c00000.ssbi:pmic: Dropping the link to 800000.pinctrl
+[    1.542755] device: 'platform:800000.pinctrl--platform:c00000.ssbi:pmic': device_unregister
+[    1.543122] bus: 'platform': really_probe: bound device c00000.ssbi:pmic to driver pm8xxx-core
+[    1.543153] driver: 'ssbi': driver_bound: bound to device 'c00000.ssbi'
+[    1.543177] ssbi c00000.ssbi: Dropping the link to 800000.pinctrl
+[    1.543189] device: 'platform:800000.pinctrl--platform:c00000.ssbi': device_unregister
+[    1.543438] bus: 'platform': really_probe: bound device c00000.ssbi to driver ssbi
+[    1.543464] bus: 'platform': __driver_probe_device: matched device 500000.ssbi with driver ssbi
+[    1.543485] bus: 'platform': really_probe: probing driver ssbi with device 500000.ssbi
+[    1.543511] ssbi 500000.ssbi: no pinctrl handle
+[    1.543588] ssbi 500000.ssbi: SSBI controller type: 'pmic-arbiter'
+[    1.545389] device: '500000.ssbi:pmic': device_add
+[    1.545426] bus: 'platform': add device 500000.ssbi:pmic
+[    1.545494] PM: Adding info for platform:500000.ssbi:pmic
+[    1.545619] device: 'platform:800000.pinctrl--platform:500000.ssbi:pmic': device_add
+[    1.545735] platform 500000.ssbi:pmic: Linked as a sync state only consumer to 800000.pinctrl
+[    1.545753] /soc/ssbi@500000/pmic Dropping the fwnode link to /soc/pinctrl@800000
+[    1.545966] bus: 'platform': __driver_probe_device: matched device 500000.ssbi:pmic with driver pm8xxx-core
+[    1.545986] bus: 'platform': really_probe: probing driver pm8xxx-core with device 500000.ssbi:pmic
+[    1.546012] pm8xxx-core 500000.ssbi:pmic: no pinctrl handle
+[    1.546257] pm8xxx_probe: PMIC revision 1: F4
+[    1.551415] pm8xxx_probe: PMIC revision 2: 06
+[    1.556121] device: '500000.ssbi:pmic:gpio@150': device_add
+[    1.556161] bus: 'platform': add device 500000.ssbi:pmic:gpio@150
+[    1.556238] PM: Adding info for platform:500000.ssbi:pmic:gpio@150
+[    1.556313] device: 'platform:500000.ssbi:pmic:gpio@150--platform:pwrseq-sdcc4': device_add
+[    1.556429] platform pwrseq-sdcc4: Linked as a sync state only consumer to 500000.ssbi:pmic:gpio@150
+[    1.556444] /pwrseq-sdcc4 Dropping the fwnode link to /soc/ssbi@500000/pmic/gpio@150
+[    1.556494] device: 'platform:500000.ssbi:pmic:gpio@150--platform:leds': device_add
+[    1.556606] platform leds: Linked as a sync state only consumer to 500000.ssbi:pmic:gpio@150
+[    1.556689] qcom-pcie 1b500000.pci: PCIe Gen.1 x1 link up
+[    1.556906] bus: 'platform': __driver_probe_device: matched device 500000.ssbi:pmic:gpio@150 with driver qcom-ssbi-gpio
+[    1.560186] bus: 'platform': really_probe: probing driver qcom-ssbi-gpio with device 500000.ssbi:pmic:gpio@150
+[    1.560500] qcom-ssbi-gpio 500000.ssbi:pmic:gpio@150: no pinctrl handle
+[    1.560596] device: 'pci0000:00': device_add
+[    1.560696] PM: Adding info for No Bus:pci0000:00
+[    1.560750] device: '0000:00': device_add
+[    1.560909] PM: Adding info for No Bus:0000:00
+[    1.560985] qcom-pcie 1b500000.pci: PCI host bridge to bus 0000:00
+[    1.564218] device: 'gpiochip2': device_add
+[    1.565592] bus: 'gpio': add device gpiochip2
+[    1.565649] PM: Adding info for gpio:gpiochip2
+[    1.565670] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    1.565925] device: 'gpiochip606': device_add
+[    1.571641] pci_bus 0000:00: root bus resource [io  0x0000-0xfffff]
+[    1.571729] PM: Adding info for No Bus:gpiochip606
+[    1.577175] pci_bus 0000:00: root bus resource [mem 0x08000000-0x0fdfffff]
+[    1.577247] driver: 'qcom-ssbi-gpio': driver_bound: bound to device '500000.ssbi:pmic:gpio@150'
+[    1.583344] /pwrseq-sdcc4 Linked as a fwnode consumer to /soc/ssbi@500000/pmic/gpio@150
+[    1.583381] /pwrseq-sdcc4 Dropping the fwnode link to /soc/ssbi@500000/pmic/gpio@150/wlan-gpios-state
+[    1.583399] pci 0000:00:00.0: [17cb:0101] type 01 class 0x060400
+[    1.583423] /leds Linked as a fwnode consumer to /soc/ssbi@500000/pmic/gpio@150
+[    1.590215] /leds Dropping the fwnode link to /soc/ssbi@500000/pmic/gpio@150/nled-state
+[    1.590259] /leds Dropping the fwnode link to /soc/ssbi@500000/pmic/gpio@150
+[    1.590294] /pwrseq-sdcc4 Dropping the fwnode link to /soc/ssbi@500000/pmic/gpio@150
+[    1.590380] bus: 'platform': really_probe: bound device 500000.ssbi:pmic:gpio@150 to driver qcom-ssbi-gpio
+[    1.590391] pci 0000:00:00.0: supports D1
+[    1.590470] device: '500000.ssbi:pmic:mpps@50': device_add
+[    1.596464] pci 0000:00:00.0: PME# supported from D0 D1 D3hot
+[    1.596535] bus: 'platform': add device 500000.ssbi:pmic:mpps@50
+[    1.600340] PM: Adding info for platform:500000.ssbi:pmic:mpps@50
+[    1.600339] device: '0000:00:00.0': device_add
+[    1.600470] bus: 'pci': add device 0000:00:00.0
+[    1.600696] bus: 'platform': __driver_probe_device: matched device 500000.ssbi:pmic:mpps@50 with driver qcom-ssbi-mpp
+[    1.600721] bus: 'platform': really_probe: probing driver qcom-ssbi-mpp with device 500000.ssbi:pmic:mpps@50
+[    1.600746] qcom-ssbi-mpp 500000.ssbi:pmic:mpps@50: no pinctrl handle
+[    1.600810] PM: Adding info for pci:0000:00:00.0
+[    1.600941] pci 0000:00:00.0: Adding to iommu group 1
+[    1.601090] device: 'gpiochip3': device_add
+[    1.606097] bus: 'gpio': add device gpiochip3
+[    1.606153] PM: Adding info for gpio:gpiochip3
+[    1.607123] device: 'gpiochip650': device_add
+[    1.607227] PM: Adding info for No Bus:gpiochip650
+[    1.607272] driver: 'qcom-ssbi-mpp': driver_bound: bound to device '500000.ssbi:pmic:mpps@50'
+[    1.608748] bus: 'platform': really_probe: bound device 500000.ssbi:pmic:mpps@50 to driver qcom-ssbi-mpp
+[    1.611867] device: '500000.ssbi:pmic:rtc@11d': device_add
+[    1.611865] PCI: bus0: Fast back to back transfers disabled
+[    1.611905] bus: 'platform': add device 500000.ssbi:pmic:rtc@11d
+[    1.611966] device: '0000:01': device_add
+[    1.611971] PM: Adding info for platform:500000.ssbi:pmic:rtc@11d
+[    1.612032] device: 'platform:500000.ssbi:pmic--platform:500000.ssbi:pmic:rtc@11d': device_add
+[    1.612343] PM: Adding info for No Bus:0000:01
+[    1.612382] platform 500000.ssbi:pmic:rtc@11d: Linked as a sync state only consumer to 500000.ssbi:pmic
+[    1.612399] /soc/ssbi@500000/pmic/rtc@11d Dropping the fwnode link to /soc/ssbi@500000/pmic
+[    1.612699] pci 0000:01:00.0: [1969:1083] type 00 class 0x020000
+[    1.613162] device: '500000.ssbi:pmic:pwrkey@1c': device_add
+[    1.616458] bus: 'platform': add device 500000.ssbi:pmic:pwrkey@1c
+[    1.616525] PM: Adding info for platform:500000.ssbi:pmic:pwrkey@1c
+[    1.616591] device: 'platform:500000.ssbi:pmic--platform:500000.ssbi:pmic:pwrkey@1c': device_add
+[    1.616713] platform 500000.ssbi:pmic:pwrkey@1c: Linked as a sync state only consumer to 500000.ssbi:pmic
+[    1.616730] /soc/ssbi@500000/pmic/pwrkey@1c Dropping the fwnode link to /soc/ssbi@500000/pmic
+[    1.616789] pci 0000:01:00.0: reg 0x10: [mem 0x08000000-0x0803ffff 64bit]
+[    1.617225] device: '500000.ssbi:pmic:xoadc@197': device_add
+[    1.622708] bus: 'platform': add device 500000.ssbi:pmic:xoadc@197
+[    1.622770] pci 0000:01:00.0: reg 0x18: [io  0x1000-0x107f]
+[    1.622775] PM: Adding info for platform:500000.ssbi:pmic:xoadc@197
+[    1.623360] pci 0000:01:00.0: [Firmware Bug]: disabling VPD access (can't determine size of non-standard VPD format)
+[    1.629533] device: 'platform:500000.ssbi:pmic--platform:500000.ssbi:pmic:xoadc@197': device_add
+[    1.634841] pci 0000:01:00.0: quirk_blacklist_vpd+0x0/0x1c took 11214 usecs
+[    1.634931] platform 500000.ssbi:pmic:xoadc@197: Linked as a sync state only consumer to 500000.ssbi:pmic
+[    1.645597] /soc/ssbi@500000/pmic/xoadc@197 Dropping the fwnode link to /soc/ssbi@500000/pmic
+[    1.646049] driver: 'pm8xxx-core': driver_bound: bound to device '500000.ssbi:pmic'
+[    1.646081] pm8xxx-core 500000.ssbi:pmic: Dropping the link to 800000.pinctrl
+[    1.646094] device: 'platform:800000.pinctrl--platform:500000.ssbi:pmic': device_unregister
+[    1.646300] pci 0000:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    1.646354] bus: 'platform': really_probe: bound device 500000.ssbi:pmic to driver pm8xxx-core
+[    1.652212] driver: 'ssbi': driver_bound: bound to device '500000.ssbi'
+[    1.652235] ssbi 500000.ssbi: Dropping the link to 800000.pinctrl
+[    1.652247] device: 'platform:800000.pinctrl--platform:500000.ssbi': device_unregister
+[    1.652483] device: '0000:01:00.0': device_add
+[    1.652492] bus: 'platform': really_probe: bound device 500000.ssbi to driver ssbi
+[    1.652582] bus: 'pci': add device 0000:01:00.0
+[    1.652685] bus: 'spmi': add driver pmic-spmi
+[    1.652780] device class 'scsi_disk': registering
+[    1.652840] bus: 'scsi': add driver sd
+[    1.652899] device class 'scsi_generic': registering
+[    1.652971] SCSI Media Changer driver v0.25 
+[    1.653193] PM: Adding info for pci:0000:01:00.0
+[    1.658868] device class 'scsi_changer': registering
+[    1.658895] pci 0000:01:00.0: Adding to iommu group 2
+[    1.658918] bus: 'scsi': add driver ch
+[    1.663435] bus: 'pci': add driver ahci
+[    1.663517] bus: 'platform': add driver ahci
+[    1.663699] bus: 'platform': __driver_probe_device: matched device 29000000.sata with driver ahci
+[    1.663723] bus: 'platform': really_probe: probing driver ahci with device 29000000.sata
+[    1.663754] ahci 29000000.sata: no pinctrl handle
+[    1.664057] ahci 29000000.sata: supply ahci not found, using dummy regulator
+[    1.668370] device: 'regulator:regulator.0--platform:29000000.sata': device_add
+[    1.668496] devices_kset: Moving 29000000.sata to end of list
+[    1.668511] PM: Moving platform:29000000.sata to end of list
+[    1.668528] ahci 29000000.sata: Linked as a consumer to regulator.0
+[    1.668591] ahci 29000000.sata: supply phy not found, using dummy regulator
+[    1.675561] device: 'phy:phy-1b400000.phy.0--platform:29000000.sata': device_add
+[    1.675672] devices_kset: Moving 29000000.sata to end of list
+[    1.675687] PM: Moving platform:29000000.sata to end of list
+[    1.675702] ahci 29000000.sata: Linked as a consumer to phy-1b400000.phy.0
+[    1.675816] device: 'regulator:regulator.5--platform:29000000.sata': device_add
+[    1.675924] devices_kset: Moving 29000000.sata to end of list
+[    1.675939] PM: Moving platform:29000000.sata to end of list
+[    1.675953] ahci 29000000.sata: Linked as a consumer to regulator.5
+[    1.677119] ahci 29000000.sata: forcing port_map 0x0 -> 0x1
+[    1.682098] ahci 29000000.sata: AHCI 0001.0300 32 slots 1 ports 1.5 Gbps 0x1 impl platform mode
+[    1.687701] ahci 29000000.sata: flags: ncq sntf pm led clo only pmp pio slum part ccc apst 
+[    1.693348] PCI: bus1: Fast back to back transfers disabled
+[    1.704791] pci 0000:00:00.0: BAR 8: assigned [mem 0x08000000-0x080fffff]
+[    1.705097] device: 'ata1': device_add
+[    1.710190] pci 0000:00:00.0: BAR 7: assigned [io  0x1000-0x1fff]
+[    1.710257] PM: Adding info for No Bus:ata1
+[    1.717226] device: 'ata1': device_add
+[    1.717237] pci 0000:01:00.0: BAR 0: assigned [mem 0x08000000-0x0803ffff 64bit]
+[    1.717313] PM: Adding info for No Bus:ata1
+[    1.723322] device: 'link1': device_add
+[    1.723377] PM: Adding info for No Bus:link1
+[    1.723403] device: 'link1': device_add
+[    1.723426] pci 0000:01:00.0: BAR 2: assigned [io  0x1000-0x107f]
+[    1.723490] PM: Adding info for No Bus:link1
+[    1.730360] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
+[    1.730373] device: 'dev1.0': device_add
+[    1.730429] PM: Adding info for No Bus:dev1.0
+[    1.736640] device: 'dev1.0': device_add
+[    1.736667] pci 0000:00:00.0:   bridge window [io  0x1000-0x1fff]
+[    1.736746] PM: Adding info for No Bus:dev1.0
+[    1.741611] pci 0000:00:00.0:   bridge window [mem 0x08000000-0x080fffff]
+[    1.748105] driver: 'qcom-pcie': driver_bound: bound to device '1b500000.pci'
+[    1.748139] qcom-pcie 1b500000.pci: Dropping the link to 800000.pinctrl
+[    1.748157] device: 'platform:800000.pinctrl--platform:1b500000.pci': device_unregister
+[    1.748360] qcom-pcie 1b500000.pci: Dropping the link to 900000.clock-controller
+[    1.748383] device: 'platform:900000.clock-controller--platform:1b500000.pci': device_unregister
+[    1.748551] qcom-pcie 1b500000.pci: Dropping the link to regulator-ext-3p3v
+[    1.748572] device: 'platform:regulator-ext-3p3v--platform:1b500000.pci': device_unregister
+[    1.748740] qcom-pcie 1b500000.pci: Dropping the link to 108000.rpm:regulators
+[    1.748761] device: 'platform:108000.rpm:regulators--platform:1b500000.pci': device_unregister
+[    1.748825] device: 'scsi_tmf_0': device_add
+[    1.748876] bus: 'workqueue': add device scsi_tmf_0
+[    1.748951] PM: Adding info for workqueue:scsi_tmf_0
+[    1.748996] bus: 'platform': really_probe: bound device 1b500000.pci to driver qcom-pcie
+[    1.749011] scsi host0: ahci
+[    1.749031] qcom-pcie 1b500000.pci: driver qcom-pcie async attach completed: 0
+[    1.754768] device: 'host0': device_add
+[    1.754807] bus: 'scsi': add device host0
+[    1.754871] PM: Adding info for scsi:host0
+[    1.754919] device: 'host0': device_add
+[    1.755120] PM: Adding info for No Bus:host0
+[    1.755170] ata1: SATA max UDMA/133 mmio [mem 0x29000000-0x2900017f] port 0x100 irq 42
+[    1.757617] driver: 'ahci': driver_bound: bound to device '29000000.sata'
+[    1.757645] ahci 29000000.sata: Dropping the link to 1b400000.phy
+[    1.757657] device: 'platform:1b400000.phy--platform:29000000.sata': device_unregister
+[    1.757792] ahci 29000000.sata: Dropping the link to 900000.clock-controller
+[    1.757806] device: 'platform:900000.clock-controller--platform:29000000.sata': device_unregister
+[    1.757928] ahci 29000000.sata: Dropping the link to 108000.rpm:regulators
+[    1.757943] device: 'platform:108000.rpm:regulators--platform:29000000.sata': device_unregister
+[    1.758106] bus: 'platform': really_probe: bound device 29000000.sata to driver ahci
+[    1.758315] device class 'mtd': registering
+[    1.758389] device: 'mtd-0': device_add
+[    1.758510] PM: Adding info for No Bus:mtd-0
+[    1.758686] bus: 'platform': add driver qcom-nandc
+[    1.759142] bus: 'spi': add driver spi-nor
+[    1.759226] bus: 'platform': add driver spi_qup
+[    1.759441] bus: 'platform': __driver_probe_device: matched device 1a280000.spi with driver spi_qup
+[    1.759469] bus: 'platform': really_probe: probing driver spi_qup with device 1a280000.spi
+[    1.759775] spi_qup 1a280000.spi: no init pinctrl state
+[    1.759832] spi_qup 1a280000.spi: no idle pinctrl state
+[    1.760114] spi_qup 1a280000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+[    1.765723] device: 'spi0': device_add
+[    1.766141] PM: Adding info for No Bus:spi0
+[    1.766501] driver: 'spi_qup': driver_bound: bound to device '1a280000.spi'
+[    1.766527] spi_qup 1a280000.spi: Dropping the link to soc
+[    1.766539] device: 'platform:soc--platform:1a280000.spi': device_unregister
+[    1.766683] spi_qup 1a280000.spi: Dropping the link to 800000.pinctrl
+[    1.766777] device: 'platform:800000.pinctrl--platform:1a280000.spi': device_unregister
+[    1.766909] spi_qup 1a280000.spi: Dropping the link to 900000.clock-controller
+[    1.766999] device: 'platform:900000.clock-controller--platform:1a280000.spi': device_unregister
+[    1.767251] bus: 'platform': really_probe: bound device 1a280000.spi to driver spi_qup
+[    1.767437] bus: 'platform': add driver spmi_pmic_arb
+[    1.767734] bus: 'mdio_bus': add driver Asix Electronics AX88772A
+[    1.767799] bus: 'mdio_bus': add driver Asix Electronics AX88772C
+[    1.767858] bus: 'mdio_bus': add driver Asix Electronics AX88796B
+[    1.767929] Registering platform device 'Fixed MDIO bus.0'. Parent at platform
+[    1.767952] device: 'Fixed MDIO bus.0': device_add
+[    1.767985] bus: 'platform': add device Fixed MDIO bus.0
+[    1.768058] PM: Adding info for platform:Fixed MDIO bus.0
+[    1.768155] platform Fixed MDIO bus.0: Adding to iommu group 3
+[    1.772662] device: 'fixed-0': device_add
+[    1.773463] PM: Adding info for No Bus:fixed-0
+[    1.773521] bus: 'mdio_bus': add driver Micrel KS8737
+[    1.773582] bus: 'mdio_bus': add driver Micrel KSZ8021 or KSZ8031
+[    1.773640] bus: 'mdio_bus': add driver Micrel KSZ8031
+[    1.773703] bus: 'mdio_bus': add driver Micrel KSZ8041
+[    1.773759] bus: 'mdio_bus': add driver Micrel KSZ8041RNLI
+[    1.773814] bus: 'mdio_bus': add driver Micrel KSZ8051
+[    1.773869] bus: 'mdio_bus': add driver Micrel KSZ8001 or KS8721
+[    1.773927] bus: 'mdio_bus': add driver Micrel KSZ8081 or KSZ8091
+[    1.773982] bus: 'mdio_bus': add driver Micrel KSZ8061
+[    1.774039] bus: 'mdio_bus': add driver Micrel KSZ9021 Gigabit PHY
+[    1.774095] bus: 'mdio_bus': add driver Micrel KSZ9031 Gigabit PHY
+[    1.774152] bus: 'mdio_bus': add driver Microchip INDY Gigabit Quad PHY
+[    1.774209] bus: 'mdio_bus': add driver Microchip LAN966X Gigabit PHY
+[    1.774267] bus: 'mdio_bus': add driver Microchip LAN8841 Gigabit PHY
+[    1.774331] bus: 'mdio_bus': add driver Microchip KSZ9131 Gigabit PHY
+[    1.774390] bus: 'mdio_bus': add driver Micrel KSZ8873MLL Switch
+[    1.774448] bus: 'mdio_bus': add driver Micrel KSZ8851 Ethernet MAC or KSZ886X Switch
+[    1.774507] bus: 'mdio_bus': add driver Micrel KSZ87XX Switch
+[    1.774565] bus: 'mdio_bus': add driver Microchip KSZ9477
+[    1.774638] bus: 'platform': add driver mdio-gpio
+[    1.774897] bus: 'pci': add driver atl1c
+[    1.774931] bus: 'pci': __driver_probe_device: matched device 0000:01:00.0 with driver atl1c
+[    1.774952] bus: 'pci': really_probe: probing driver atl1c with device 0000:01:00.0
+[    1.774982] atl1c 0000:01:00.0: no default pinctrl state
+[    1.775289] atl1c 0000:01:00.0: enabling device (0140 -> 0142)
+[    1.834140] device: 'eth0': device_add
+[    1.834521] PM: Adding info for No Bus:eth0
+[    1.835028] driver: 'atl1c': driver_bound: bound to device '0000:01:00.0'
+[    1.835083] bus: 'pci': really_probe: bound device 0000:01:00.0 to driver atl1c
+[    1.835153] SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256) (6 bit encapsulation enabled).
+[    1.835193] CSLIP: code copyright 1989 Regents of the University of California.
+[    1.843810] bus: 'usb': add driver rtl8150
+[    1.843881] usbcore: registered new interface driver rtl8150
+[    1.850917] bus: 'usb': add driver r8152-cfgselector
+[    1.850966] usbcore: registered new device driver r8152-cfgselector
+[    1.856880] bus: 'usb': add driver r8152
+[    1.856949] usbcore: registered new interface driver r8152
+[    1.862829] bus: 'platform': add driver dwc3
+[    1.863173] bus: 'pci': add driver dwc3-haps
+[    1.863253] bus: 'platform': add driver dwc3-of-simple
+[    1.863575] bus: 'platform': add driver dwc3-qcom
+[    1.863810] device class 'usbmon': registering
+[    1.863902] device: 'usbmon0': device_add
+[    1.863991] PM: Adding info for No Bus:usbmon0
+[    1.864420] bus: 'pci': add driver ehci-pci
+[    1.865040] bus: 'usb': add driver uas
+[    1.865111] usbcore: registered new interface driver uas
+[    1.868365] bus: 'usb': add driver usb-storage
+[    1.868426] usbcore: registered new interface driver usb-storage
+[    1.873981] bus: 'usb-serial': registered
+[    1.874019] bus: 'usb': add driver usbserial_generic
+[    1.874071] usbcore: registered new interface driver usbserial_generic
+[    1.879823] bus: 'usb-serial': add driver generic
+[    1.879872] usbserial: USB Serial support registered for generic
+[    1.886246] bus: 'i2c': add driver usb4604
+[    1.886335] bus: 'platform': add driver ci_hdrc
+[    1.886491] bus: 'platform': add driver chipidea-usb2
+[    1.886780] bus: 'platform': add driver msm_hsusb
+[    1.886886] bus: 'platform': __driver_probe_device: matched device 12500000.usb with driver msm_hsusb
+[    1.886909] bus: 'platform': really_probe: probing driver msm_hsusb with device 12500000.usb
+[    1.886945] msm_hsusb 12500000.usb: no pinctrl handle
+[    1.899649] Registering platform device 'ci_hdrc.0'. Parent at 12500000.usb
+[    1.899667] device: 'ci_hdrc.0': device_add
+[    1.899708] bus: 'platform': add device ci_hdrc.0
+[    1.899792] PM: Adding info for platform:ci_hdrc.0
+[    1.899974] bus: 'platform': __driver_probe_device: matched device ci_hdrc.0 with driver ci_hdrc
+[    1.899995] bus: 'platform': really_probe: probing driver ci_hdrc with device ci_hdrc.0
+[    1.901747] device: 'ci_hdrc.0.ulpi': device_add
+[    1.901812] bus: 'ulpi': add device ci_hdrc.0.ulpi
+[    1.901873] PM: Adding info for ulpi:ci_hdrc.0.ulpi
+[    1.901957] bus: 'ulpi': __driver_probe_device: matched device ci_hdrc.0.ulpi with driver qcom_usb_hs_phy
+[    1.901978] bus: 'ulpi': really_probe: probing driver qcom_usb_hs_phy with device ci_hdrc.0.ulpi
+[    1.902006] qcom_usb_hs_phy ci_hdrc.0.ulpi: no pinctrl handle
+[    1.902229] device: 'regulator:regulator.11--ulpi:ci_hdrc.0.ulpi': device_add
+[    1.902357] devices_kset: Moving ci_hdrc.0.ulpi to end of list
+[    1.902372] PM: Moving ulpi:ci_hdrc.0.ulpi to end of list
+[    1.902388] qcom_usb_hs_phy ci_hdrc.0.ulpi: Linked as a consumer to regulator.11
+[    1.902517] device: 'regulator:regulator.10--ulpi:ci_hdrc.0.ulpi': device_add
+[    1.902629] devices_kset: Moving ci_hdrc.0.ulpi to end of list
+[    1.902643] PM: Moving ulpi:ci_hdrc.0.ulpi to end of list
+[    1.902659] qcom_usb_hs_phy ci_hdrc.0.ulpi: Linked as a consumer to regulator.10
+[    1.902766] device: 'phy-ci_hdrc.0.ulpi.1': device_add
+[    1.902874] PM: Adding info for No Bus:phy-ci_hdrc.0.ulpi.1
+[    1.902960] driver: 'qcom_usb_hs_phy': driver_bound: bound to device 'ci_hdrc.0.ulpi'
+[    1.903023] bus: 'ulpi': really_probe: bound device ci_hdrc.0.ulpi to driver qcom_usb_hs_phy
+[    1.903631] device: 'ci_hdrc.0': device_add
+[    1.903785] PM: Adding info for No Bus:ci_hdrc.0
+[    1.903881] device: 'gadget.0': device_add
+[    1.903925] bus: 'gadget': add device gadget.0
+[    1.903990] PM: Adding info for gadget:gadget.0
+[    1.904621] driver: 'ci_hdrc': driver_bound: bound to device 'ci_hdrc.0'
+[    1.904676] bus: 'platform': really_probe: bound device ci_hdrc.0 to driver ci_hdrc
+[    1.904747] driver: 'msm_hsusb': driver_bound: bound to device '12500000.usb'
+[    1.904767] /soc/usb@12500000 Dropping the fwnode link to /soc/usb@12500000/ulpi/phy
+[    1.904823] msm_hsusb 12500000.usb: Dropping the link to 900000.clock-controller
+[    1.904837] device: 'platform:900000.clock-controller--platform:12500000.usb': device_unregister
+[    1.904987] msm_hsusb 12500000.usb: Dropping the link to 108000.rpm:regulators
+[    1.905093] device: 'platform:108000.rpm:regulators--platform:12500000.usb': device_unregister
+[    1.905349] bus: 'platform': really_probe: bound device 12500000.usb to driver msm_hsusb
+[    1.905382] bus: 'platform': __driver_probe_device: matched device 12520000.usb with driver msm_hsusb
+[    1.905403] bus: 'platform': really_probe: probing driver msm_hsusb with device 12520000.usb
+[    1.905432] msm_hsusb 12520000.usb: no pinctrl handle
+[    1.917906] Registering platform device 'ci_hdrc.1'. Parent at 12520000.usb
+[    1.917921] device: 'ci_hdrc.1': device_add
+[    1.917960] bus: 'platform': add device ci_hdrc.1
+[    1.918032] PM: Adding info for platform:ci_hdrc.1
+[    1.918233] bus: 'platform': __driver_probe_device: matched device ci_hdrc.1 with driver ci_hdrc
+[    1.918255] bus: 'platform': really_probe: probing driver ci_hdrc with device ci_hdrc.1
+[    1.934874] device: 'ci_hdrc.1.ulpi': device_add
+[    1.934932] bus: 'ulpi': add device ci_hdrc.1.ulpi
+[    1.934992] PM: Adding info for ulpi:ci_hdrc.1.ulpi
+[    1.935059] bus: 'ulpi': __driver_probe_device: matched device ci_hdrc.1.ulpi with driver qcom_usb_hs_phy
+[    1.935079] bus: 'ulpi': really_probe: probing driver qcom_usb_hs_phy with device ci_hdrc.1.ulpi
+[    1.935107] qcom_usb_hs_phy ci_hdrc.1.ulpi: no pinctrl handle
+[    1.935296] device: 'regulator:regulator.27--ulpi:ci_hdrc.1.ulpi': device_add
+[    1.935420] devices_kset: Moving ci_hdrc.1.ulpi to end of list
+[    1.935438] PM: Moving ulpi:ci_hdrc.1.ulpi to end of list
+[    1.935451] qcom_usb_hs_phy ci_hdrc.1.ulpi: Linked as a consumer to regulator.27
+[    1.935562] device: 'regulator:regulator.10--ulpi:ci_hdrc.1.ulpi': device_add
+[    1.935677] devices_kset: Moving ci_hdrc.1.ulpi to end of list
+[    1.935695] PM: Moving ulpi:ci_hdrc.1.ulpi to end of list
+[    1.935708] qcom_usb_hs_phy ci_hdrc.1.ulpi: Linked as a consumer to regulator.10
+[    1.935794] device: 'phy-ci_hdrc.1.ulpi.2': device_add
+[    1.935891] PM: Adding info for No Bus:phy-ci_hdrc.1.ulpi.2
+[    1.935969] driver: 'qcom_usb_hs_phy': driver_bound: bound to device 'ci_hdrc.1.ulpi'
+[    1.936029] bus: 'ulpi': really_probe: bound device ci_hdrc.1.ulpi to driver qcom_usb_hs_phy
+[    1.936247] ci_hdrc ci_hdrc.1: EHCI Host Controller
+[    1.936359] device: 'usbmon1': device_add
+[    1.936456] PM: Adding info for No Bus:usbmon1
+[    1.936680] ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 1
+[    1.963105] ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
+[    1.963624] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.06
+[    1.967495] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.975760] usb usb1: Product: EHCI Host Controller
+[    1.982853] usb usb1: Manufacturer: Linux 6.6.9-20250622-00205-g3565a579b978 ehci_hcd
+[    1.987719] usb usb1: SerialNumber: ci_hdrc.1
+[    1.995691] device: 'usb1': device_add
+[    1.995909] bus: 'usb': add device usb1
+[    1.996009] PM: Adding info for usb:usb1
+[    1.996557] bus: 'usb': __driver_probe_device: matched device usb1 with driver usb
+[    1.996580] bus: 'usb': really_probe: probing driver usb with device usb1
+[    1.996704] device: '1-0:1.0': device_add
+[    1.996787] bus: 'usb': add device 1-0:1.0
+[    1.996820] PM: Adding info for usb:1-0:1.0
+[    1.996891] bus: 'usb': __driver_probe_device: matched device 1-0:1.0 with driver hub
+[    1.996913] bus: 'usb': really_probe: probing driver hub with device 1-0:1.0
+[    1.996962] hub 1-0:1.0: USB hub found
+[    2.000005] hub 1-0:1.0: 1 port detected
+[    2.003791] device: 'usb1-port1': device_add
+[    2.003885] PM: Adding info for No Bus:usb1-port1
+[    2.003915] usb usb1-port1: adding component (ops connector_ops)
+[    2.004091] driver: 'hub': driver_bound: bound to device '1-0:1.0'
+[    2.004158] bus: 'usb': really_probe: bound device 1-0:1.0 to driver hub
+[    2.004190] device: 'ep_81': device_add
+[    2.004292] PM: Adding info for No Bus:ep_81
+[    2.004317] driver: 'usb': driver_bound: bound to device 'usb1'
+[    2.004378] bus: 'usb': really_probe: bound device usb1 to driver usb
+[    2.004412] device: 'ep_00': device_add
+[    2.004501] PM: Adding info for No Bus:ep_00
+[    2.004763] driver: 'ci_hdrc': driver_bound: bound to device 'ci_hdrc.1'
+[    2.004813] bus: 'platform': really_probe: bound device ci_hdrc.1 to driver ci_hdrc
+[    2.004877] driver: 'msm_hsusb': driver_bound: bound to device '12520000.usb'
+[    2.004895] /soc/usb@12520000 Dropping the fwnode link to /soc/usb@12520000/ulpi/phy
+[    2.004950] msm_hsusb 12520000.usb: Dropping the link to 900000.clock-controller
+[    2.004963] device: 'platform:900000.clock-controller--platform:12520000.usb': device_unregister
+[    2.005105] msm_hsusb 12520000.usb: Dropping the link to 108000.rpm:regulators
+[    2.005213] device: 'platform:108000.rpm:regulators--platform:12520000.usb': device_unregister
+[    2.005460] bus: 'platform': really_probe: bound device 12520000.usb to driver msm_hsusb
+[    2.005489] bus: 'platform': __driver_probe_device: matched device 12530000.usb with driver msm_hsusb
+[    2.005511] bus: 'platform': really_probe: probing driver msm_hsusb with device 12530000.usb
+[    2.005543] msm_hsusb 12530000.usb: no pinctrl handle
+[    2.018020] Registering platform device 'ci_hdrc.2'. Parent at 12530000.usb
+[    2.018037] device: 'ci_hdrc.2': device_add
+[    2.018077] bus: 'platform': add device ci_hdrc.2
+[    2.018154] PM: Adding info for platform:ci_hdrc.2
+[    2.018358] bus: 'platform': __driver_probe_device: matched device ci_hdrc.2 with driver ci_hdrc
+[    2.018381] bus: 'platform': really_probe: probing driver ci_hdrc with device ci_hdrc.2
+[    2.019346] device: 'ci_hdrc.2.ulpi': device_add
+[    2.019402] bus: 'ulpi': add device ci_hdrc.2.ulpi
+[    2.019465] PM: Adding info for ulpi:ci_hdrc.2.ulpi
+[    2.019538] bus: 'ulpi': __driver_probe_device: matched device ci_hdrc.2.ulpi with driver qcom_usb_hs_phy
+[    2.019559] bus: 'ulpi': really_probe: probing driver qcom_usb_hs_phy with device ci_hdrc.2.ulpi
+[    2.019585] qcom_usb_hs_phy ci_hdrc.2.ulpi: no pinctrl handle
+[    2.019769] device: 'regulator:regulator.27--ulpi:ci_hdrc.2.ulpi': device_add
+[    2.019899] devices_kset: Moving ci_hdrc.2.ulpi to end of list
+[    2.019916] PM: Moving ulpi:ci_hdrc.2.ulpi to end of list
+[    2.019930] qcom_usb_hs_phy ci_hdrc.2.ulpi: Linked as a consumer to regulator.27
+[    2.020041] device: 'regulator:regulator.10--ulpi:ci_hdrc.2.ulpi': device_add
+[    2.020152] devices_kset: Moving ci_hdrc.2.ulpi to end of list
+[    2.020167] PM: Moving ulpi:ci_hdrc.2.ulpi to end of list
+[    2.020181] qcom_usb_hs_phy ci_hdrc.2.ulpi: Linked as a consumer to regulator.10
+[    2.020275] device: 'phy-ci_hdrc.2.ulpi.3': device_add
+[    2.020374] PM: Adding info for No Bus:phy-ci_hdrc.2.ulpi.3
+[    2.020453] driver: 'qcom_usb_hs_phy': driver_bound: bound to device 'ci_hdrc.2.ulpi'
+[    2.020516] bus: 'ulpi': really_probe: bound device ci_hdrc.2.ulpi to driver qcom_usb_hs_phy
+[    2.020731] ci_hdrc ci_hdrc.2: EHCI Host Controller
+[    2.020859] device: 'usbmon2': device_add
+[    2.020951] PM: Adding info for No Bus:usbmon2
+[    2.021162] ci_hdrc ci_hdrc.2: new USB bus registered, assigned bus number 2
+[    2.053106] ci_hdrc ci_hdrc.2: USB 2.0 started, EHCI 1.00
+[    2.053577] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.06
+[    2.057495] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.065787] usb usb2: Product: EHCI Host Controller
+[    2.072854] usb usb2: Manufacturer: Linux 6.6.9-20250622-00205-g3565a579b978 ehci_hcd
+[    2.077745] usb usb2: SerialNumber: ci_hdrc.2
+[    2.085689] device: 'usb2': device_add
+[    2.085878] bus: 'usb': add device usb2
+[    2.085976] PM: Adding info for usb:usb2
+[    2.086403] bus: 'usb': __driver_probe_device: matched device usb2 with driver usb
+[    2.086425] bus: 'usb': really_probe: probing driver usb with device usb2
+[    2.086551] device: '2-0:1.0': device_add
+[    2.086630] bus: 'usb': add device 2-0:1.0
+[    2.086670] PM: Adding info for usb:2-0:1.0
+[    2.086732] bus: 'usb': __driver_probe_device: matched device 2-0:1.0 with driver hub
+[    2.086752] bus: 'usb': really_probe: probing driver hub with device 2-0:1.0
+[    2.086797] hub 2-0:1.0: USB hub found
+[    2.090008] hub 2-0:1.0: 1 port detected
+[    2.093790] device: 'usb2-port1': device_add
+[    2.093880] PM: Adding info for No Bus:usb2-port1
+[    2.093906] usb usb2-port1: adding component (ops connector_ops)
+[    2.094063] driver: 'hub': driver_bound: bound to device '2-0:1.0'
+[    2.094123] bus: 'usb': really_probe: bound device 2-0:1.0 to driver hub
+[    2.094155] device: 'ep_81': device_add
+[    2.094245] PM: Adding info for No Bus:ep_81
+[    2.094268] driver: 'usb': driver_bound: bound to device 'usb2'
+[    2.094326] bus: 'usb': really_probe: bound device usb2 to driver usb
+[    2.094360] device: 'ep_00': device_add
+[    2.094458] PM: Adding info for No Bus:ep_00
+[    2.094705] driver: 'ci_hdrc': driver_bound: bound to device 'ci_hdrc.2'
+[    2.094753] bus: 'platform': really_probe: bound device ci_hdrc.2 to driver ci_hdrc
+[    2.094819] driver: 'msm_hsusb': driver_bound: bound to device '12530000.usb'
+[    2.094839] /soc/usb@12530000 Dropping the fwnode link to /soc/usb@12530000/ulpi/phy
+[    2.094894] msm_hsusb 12530000.usb: Dropping the link to 900000.clock-controller
+[    2.094908] device: 'platform:900000.clock-controller--platform:12530000.usb': device_unregister
+[    2.095057] msm_hsusb 12530000.usb: Dropping the link to 108000.rpm:regulators
+[    2.095156] device: 'platform:108000.rpm:regulators--platform:12530000.usb': device_unregister
+[    2.095398] bus: 'platform': really_probe: bound device 12530000.usb to driver msm_hsusb
+[    2.095677] bus: 'platform': add driver usbmisc_imx
+[    2.096261] bus: 'platform': add driver imx_usb
+[    2.096693] bus: 'platform': add driver tegra-usb
+[    2.097043] bus: 'platform': add driver pm8xxx-keypad
+[    2.097305] bus: 'platform': add driver pm8941-pwrkey
+[    2.097633] bus: 'platform': add driver pm8xxx-vib
+[    2.097931] bus: 'platform': add driver pm8xxx-pwrkey
+[    2.098141] bus: 'platform': __driver_probe_device: matched device 500000.ssbi:pmic:pwrkey@1c with driver pm8xxx-pwrkey
+[    2.098167] bus: 'platform': really_probe: probing driver pm8xxx-pwrkey with device 500000.ssbi:pmic:pwrkey@1c
+[    2.098198] pm8xxx-pwrkey 500000.ssbi:pmic:pwrkey@1c: no pinctrl handle
+[    2.098646] device: 'input0': device_add
+[    2.098853] PM: Adding info for No Bus:input0
+[    2.098927] input: pmic8xxx_pwrkey as /devices/platform/soc/500000.ssbi/500000.ssbi:pmic/500000.ssbi:pmic:pwrkey@1c/input/input0
+[    2.099000] device: 'event0': device_add
+[    2.099077] PM: Adding info for No Bus:event0
+[    2.099491] device: 'wakeup0': device_add
+[    2.099609] driver: 'pm8xxx-pwrkey': driver_bound: bound to device '500000.ssbi:pmic:pwrkey@1c'
+[    2.099634] pm8xxx-pwrkey 500000.ssbi:pmic:pwrkey@1c: Dropping the link to 500000.ssbi:pmic
+[    2.099649] device: 'platform:500000.ssbi:pmic--platform:500000.ssbi:pmic:pwrkey@1c': device_unregister
+[    2.099921] bus: 'platform': really_probe: bound device 500000.ssbi:pmic:pwrkey@1c to driver pm8xxx-pwrkey
+[    2.099995] device: 'uinput': device_add
+[    2.100072] PM: Adding info for No Bus:uinput
+[    2.100301] bus: 'platform': add driver rtc-pm8xxx
+[    2.100582] bus: 'platform': __driver_probe_device: matched device 500000.ssbi:pmic:rtc@11d with driver rtc-pm8xxx
+[    2.100607] bus: 'platform': really_probe: probing driver rtc-pm8xxx with device 500000.ssbi:pmic:rtc@11d
+[    2.100635] rtc-pm8xxx 500000.ssbi:pmic:rtc@11d: no pinctrl handle
+[    2.100959] device: 'wakeup1': device_add
+[    2.101281] device: 'rtc0': device_add
+[    2.101411] PM: Adding info for No Bus:rtc0
+[    2.101609] Registering platform device 'alarmtimer.0.auto'. Parent at rtc0
+[    2.101625] device: 'alarmtimer.0.auto': device_add
+[    2.101656] bus: 'platform': add device alarmtimer.0.auto
+[    2.101735] PM: Adding info for platform:alarmtimer.0.auto
+[    2.101836] platform alarmtimer.0.auto: Adding to iommu group 4
+[    2.104517] ata1: SATA link down (SStatus 0 SControl 300)
+[    2.109719] bus: 'platform': __driver_probe_device: matched device alarmtimer.0.auto with driver alarmtimer
+[    2.115276] bus: 'platform': really_probe: probing driver alarmtimer with device alarmtimer.0.auto
+[    2.115307] alarmtimer alarmtimer.0.auto: no default pinctrl state
+[    2.115397] driver: 'alarmtimer': driver_bound: bound to device 'alarmtimer.0.auto'
+[    2.115439] bus: 'platform': really_probe: bound device alarmtimer.0.auto to driver alarmtimer
+[    2.115528] device: 'wakeup2': device_add
+[    2.115668] rtc-pm8xxx 500000.ssbi:pmic:rtc@11d: registered as rtc0
+[    2.120823] rtc-pm8xxx 500000.ssbi:pmic:rtc@11d: setting system clock to 2025-06-24T02:12:00 UTC (1750731120)
+[    2.127105] driver: 'rtc-pm8xxx': driver_bound: bound to device '500000.ssbi:pmic:rtc@11d'
+[    2.127133] rtc-pm8xxx 500000.ssbi:pmic:rtc@11d: Dropping the link to 500000.ssbi:pmic
+[    2.127146] device: 'platform:500000.ssbi:pmic--platform:500000.ssbi:pmic:rtc@11d': device_unregister
+[    2.127398] bus: 'platform': really_probe: bound device 500000.ssbi:pmic:rtc@11d to driver rtc-pm8xxx
+[    2.127470] i2c_dev: i2c /dev entries driver
+[    2.136982] device class 'i2c-dev': registering
+[    2.137060] bus: 'platform': add driver i2c_qup
+[    2.137300] bus: 'platform': __driver_probe_device: matched device 12460000.i2c with driver i2c_qup
+[    2.137326] bus: 'platform': really_probe: probing driver i2c_qup with device 12460000.i2c
+[    2.137507] i2c_qup 12460000.i2c: no init pinctrl state
+[    2.137552] i2c_qup 12460000.i2c: no idle pinctrl state
+[    2.137893] device: 'i2c-0': device_add
+[    2.137961] bus: 'i2c': add device i2c-0
+[    2.138025] PM: Adding info for i2c:i2c-0
+[    2.138056] device: 'i2c-0': device_add
+[    2.138148] PM: Adding info for No Bus:i2c-0
+[    2.138530] device: '0-0052': device_add
+[    2.138578] bus: 'i2c': add device 0-0052
+[    2.138632] PM: Adding info for i2c:0-0052
+[    2.138762] driver: 'i2c_qup': driver_bound: bound to device '12460000.i2c'
+[    2.138790] i2c_qup 12460000.i2c: Dropping the link to soc
+[    2.138803] device: 'platform:soc--platform:12460000.i2c': device_unregister
+[    2.138964] i2c_qup 12460000.i2c: Dropping the link to 800000.pinctrl
+[    2.139061] device: 'platform:800000.pinctrl--platform:12460000.i2c': device_unregister
+[    2.139199] i2c_qup 12460000.i2c: Dropping the link to 900000.clock-controller
+[    2.139293] device: 'platform:900000.clock-controller--platform:12460000.i2c': device_unregister
+[    2.139536] bus: 'platform': really_probe: bound device 12460000.i2c to driver i2c_qup
+[    2.139563] bus: 'platform': __driver_probe_device: matched device 16280000.i2c with driver i2c_qup
+[    2.139588] bus: 'platform': really_probe: probing driver i2c_qup with device 16280000.i2c
+[    2.139781] i2c_qup 16280000.i2c: no init pinctrl state
+[    2.139815] i2c_qup 16280000.i2c: no idle pinctrl state
+[    2.139883] i2c_qup 16280000.i2c: using default clock-frequency 100000
+[    2.141493] device: 'i2c-2': device_add
+[    2.141547] bus: 'i2c': add device i2c-2
+[    2.141603] PM: Adding info for i2c:i2c-2
+[    2.141630] device: 'i2c-2': device_add
+[    2.141726] PM: Adding info for No Bus:i2c-2
+[    2.142071] driver: 'i2c_qup': driver_bound: bound to device '16280000.i2c'
+[    2.142097] i2c_qup 16280000.i2c: Dropping the link to soc
+[    2.142108] device: 'platform:soc--platform:16280000.i2c': device_unregister
+[    2.142248] i2c_qup 16280000.i2c: Dropping the link to 800000.pinctrl
+[    2.142342] device: 'platform:800000.pinctrl--platform:16280000.i2c': device_unregister
+[    2.142477] i2c_qup 16280000.i2c: Dropping the link to 900000.clock-controller
+[    2.142563] device: 'platform:900000.clock-controller--platform:16280000.i2c': device_unregister
+[    2.142805] bus: 'platform': really_probe: bound device 16280000.i2c to driver i2c_qup
+[    2.142832] bus: 'platform': __driver_probe_device: matched device 16380000.i2c with driver i2c_qup
+[    2.142854] bus: 'platform': really_probe: probing driver i2c_qup with device 16380000.i2c
+[    2.143021] i2c_qup 16380000.i2c: no init pinctrl state
+[    2.143388] i2c_qup 16380000.i2c: no idle pinctrl state
+[    2.143456] i2c_qup 16380000.i2c: using default clock-frequency 100000
+[    2.147816] device: 'i2c-3': device_add
+[    2.147868] bus: 'i2c': add device i2c-3
+[    2.147924] PM: Adding info for i2c:i2c-3
+[    2.147954] device: 'i2c-3': device_add
+[    2.148050] PM: Adding info for No Bus:i2c-3
+[    2.148444] driver: 'i2c_qup': driver_bound: bound to device '16380000.i2c'
+[    2.148471] i2c_qup 16380000.i2c: Dropping the link to soc
+[    2.148482] device: 'platform:soc--platform:16380000.i2c': device_unregister
+[    2.148617] i2c_qup 16380000.i2c: Dropping the link to 800000.pinctrl
+[    2.148718] device: 'platform:800000.pinctrl--platform:16380000.i2c': device_unregister
+[    2.148848] i2c_qup 16380000.i2c: Dropping the link to 900000.clock-controller
+[    2.148933] device: 'platform:900000.clock-controller--platform:16380000.i2c': device_unregister
+[    2.149168] bus: 'platform': really_probe: bound device 16380000.i2c to driver i2c_qup
+[    2.149310] bus: 'platform': add driver msm-restart
+[    2.149575] bus: 'platform': add driver qcom-smbb
+[    2.149846] bus: 'platform': add driver qcom-tsens
+[    2.150118] bus: 'platform': __driver_probe_device: matched device 900000.clock-controller:thermal-sensor with driver qcom-tsens
+[    2.150143] bus: 'platform': really_probe: probing driver qcom-tsens with device 900000.clock-controller:thermal-sensor
+[    2.150172] qcom-tsens 900000.clock-controller:thermal-sensor: no pinctrl handle
+[    2.150706] qcom-tsens 900000.clock-controller:thermal-sensor: Driver qcom-tsens requests probe deferral
+[    2.150869] platform 900000.clock-controller:thermal-sensor: Added to deferred list
+[    2.151305] bus: 'platform': add driver qcom_wdt
+[    2.151371] bus: 'platform': __driver_probe_device: matched device 200a000.timer with driver qcom_wdt
+[    2.151394] bus: 'platform': really_probe: probing driver qcom_wdt with device 200a000.timer
+[    2.151424] qcom_wdt 200a000.timer: no pinctrl handle
+[    2.151519] qcom_wdt 200a000.timer: failed to get input clock
+[    2.154172] qcom_wdt: probe of 200a000.timer failed with error -2
+[    2.160192] device: 'vhci': device_add
+[    2.160272] PM: Adding info for No Bus:vhci
+[    2.160552] Bluetooth: HCI UART driver ver 2.3
+[    2.166068] Bluetooth: HCI UART protocol H4 registered
+[    2.170324] Bluetooth: HCI UART protocol BCSP registered
+[    2.175534] bus: 'serial': add driver hci-ti
+[    2.175611] Bluetooth: HCI UART protocol LL registered
+[    2.180914] Bluetooth: HCI UART protocol ATH3K registered
+[    2.185925] bus: 'serial': add driver hci_uart_h5
+[    2.185978] Bluetooth: HCI UART protocol Three-wire (H5) registered
+[    2.191355] bus: 'platform': add driver hci_bcm
+[    2.191493] bus: 'serial': add driver hci_uart_bcm
+[    2.191543] Bluetooth: HCI UART protocol Broadcom registered
+[    2.197491] bus: 'serial': add driver hci_uart_qca
+[    2.197548] Bluetooth: HCI UART protocol QCA registered
+[    2.203454] bus: 'usb': add driver btusb
+[    2.203541] usbcore: registered new interface driver btusb
+[    2.208267] bus: 'sdio': add driver btsdio
+[    2.208329] bus: 'usb': add driver ath3k
+[    2.208400] usbcore: registered new interface driver ath3k
+[    2.213907] bus: 'platform': add driver btqcomsmd
+[    2.214149] bus: 'platform': add driver cpufreq-dt
+[    2.214311] /cpus/cpu@0: unsupported enable-method property: qcom,kpss-acc-v1
+[    2.219308] bus: 'platform': add driver qcom-spm-cpuidle
+[    2.219447] Registering platform device 'qcom-spm-cpuidle'. Parent at platform
+[    2.219465] device: 'qcom-spm-cpuidle': device_add
+[    2.219496] bus: 'platform': add device qcom-spm-cpuidle
+[    2.219578] PM: Adding info for platform:qcom-spm-cpuidle
+[    2.219668] platform qcom-spm-cpuidle: Adding to iommu group 5
+[    2.226924] bus: 'platform': __driver_probe_device: matched device qcom-spm-cpuidle with driver qcom-spm-cpuidle
+[    2.226947] bus: 'platform': really_probe: probing driver qcom-spm-cpuidle with device qcom-spm-cpuidle
+[    2.226979] qcom-spm-cpuidle qcom-spm-cpuidle: no default pinctrl state
+[    2.227860] driver: 'qcom-spm-cpuidle': driver_bound: bound to device 'qcom-spm-cpuidle'
+[    2.227901] bus: 'platform': really_probe: bound device qcom-spm-cpuidle to driver qcom-spm-cpuidle
+[    2.227951] bus: 'platform': add driver pwrseq_simple
+[    2.228109] bus: 'platform': __driver_probe_device: matched device pwrseq-sdcc4 with driver pwrseq_simple
+[    2.228133] bus: 'platform': really_probe: probing driver pwrseq_simple with device pwrseq-sdcc4
+[    2.228227] pwrseq_simple pwrseq-sdcc4: no init pinctrl state
+[    2.228279] pwrseq_simple pwrseq-sdcc4: no sleep pinctrl state
+[    2.228293] pwrseq_simple pwrseq-sdcc4: no idle pinctrl state
+[    2.228411] driver: 'pwrseq_simple': driver_bound: bound to device 'pwrseq-sdcc4'
+[    2.228437] pwrseq_simple pwrseq-sdcc4: Dropping the link to 500000.ssbi:pmic:gpio@150
+[    2.228449] device: 'platform:500000.ssbi:pmic:gpio@150--platform:pwrseq-sdcc4': device_unregister
+[    2.228747] bus: 'platform': really_probe: bound device pwrseq-sdcc4 to driver pwrseq_simple
+[    2.228862] bus: 'platform': add driver pwrseq_emmc
+[    2.229138] bus: 'mmc_rpmb': registered
+[    2.229166] bus: 'mmc': add driver mmcblk
+[    2.229223] bus: 'amba': add driver mmci-pl18x
+[    2.229259] amba 12180000.mmc: probing driver mmci-pl18x asynchronously
+[    2.229311] bus: 'amba': __driver_probe_device: matched device 12180000.mmc with driver mmci-pl18x
+[    2.229337] bus: 'amba': really_probe: probing driver mmci-pl18x with device 12180000.mmc
+[    2.229431] mmci-pl18x 12180000.mmc: no init pinctrl state
+[    2.229460] mmci-pl18x 12180000.mmc: no sleep pinctrl state
+[    2.229473] mmci-pl18x 12180000.mmc: no idle pinctrl state
+[    2.229753] device: 'wakeup3': device_add
+[    2.229956] mmci-pl18x 12180000.mmc: Got CD GPIO
+[    2.232493] device: 'regulator:regulator.13--amba:12180000.mmc': device_add
+[    2.232623] devices_kset: Moving 12180000.mmc to end of list
+[    2.232639] PM: Moving amba:12180000.mmc to end of list
+[    2.232657] mmci-pl18x 12180000.mmc: Linked as a consumer to regulator.13
+[    2.233008] amba 121c0000.mmc: probing driver mmci-pl18x asynchronously
+[    2.233200] bus: 'amba': __driver_probe_device: matched device 121c0000.mmc with driver mmci-pl18x
+[    2.233236] bus: 'amba': really_probe: probing driver mmci-pl18x with device 121c0000.mmc
+[    2.233411] amba 12400000.mmc: probing driver mmci-pl18x asynchronously
+[    2.233423] mmci-pl18x 121c0000.mmc: no init pinctrl state
+[    2.233484] mmci-pl18x 121c0000.mmc: no sleep pinctrl state
+[    2.233499] sdhci: Secure Digital Host Controller Interface driver
+[    2.233504] mmci-pl18x 121c0000.mmc: no idle pinctrl state
+[    2.237075] bus: 'amba': __driver_probe_device: matched device 12400000.mmc with driver mmci-pl18x
+[    2.237089] mmci-pl18x 12180000.mmc: mmc0: PL180 manf 51 rev0 at 0x12180000 irq 54,0 (pio)
+[    2.237116] bus: 'amba': really_probe: probing driver mmci-pl18x with device 12400000.mmc
+[    2.237386] device: 'wakeup4': device_add
+[    2.237666] mmci-pl18x 121c0000.mmc: allocated mmc-pwrseq
+[    2.237915] device: 'regulator:regulator.1--amba:121c0000.mmc': device_add
+[    2.238078] devices_kset: Moving 121c0000.mmc to end of list
+[    2.238094] PM: Moving amba:121c0000.mmc to end of list
+[    2.238110] mmci-pl18x 121c0000.mmc: Linked as a consumer to regulator.1
+[    2.238304] device: 'regulator:regulator.34--amba:121c0000.mmc': device_add
+[    2.238466] devices_kset: Moving 121c0000.mmc to end of list
+[    2.238481] PM: Moving amba:121c0000.mmc to end of list
+[    2.238495] mmci-pl18x 121c0000.mmc: Linked as a consumer to regulator.34
+[    2.243129] sdhci: Copyright(c) Pierre Ossman
+[    2.243141] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.251421] mmci-pl18x 12400000.mmc: no init pinctrl state
+[    2.256802] bus: 'platform': add driver sdhci_msm
+[    2.261257] mmci-pl18x 12400000.mmc: no sleep pinctrl state
+[    2.261282] mmci-pl18x 12400000.mmc: no idle pinctrl state
+[    2.261288] mmci-pl18x 12180000.mmc: DMA channels RX dma0chan1, TX dma0chan2
+[    2.261498] bus: 'platform': add driver leds-gpio
+[    2.261747] device: 'wakeup5': device_add
+[    2.262281] device: 'regulator:regulator.12--amba:12400000.mmc': device_add
+[    2.262444] devices_kset: Moving 12400000.mmc to end of list
+[    2.262461] PM: Moving amba:12400000.mmc to end of list
+[    2.262477] mmci-pl18x 12400000.mmc: Linked as a consumer to regulator.12
+[    2.262629] device: 'regulator:regulator.5--amba:12400000.mmc': device_add
+[    2.262795] devices_kset: Moving 12400000.mmc to end of list
+[    2.262811] PM: Moving amba:12400000.mmc to end of list
+[    2.262825] mmci-pl18x 12400000.mmc: Linked as a consumer to regulator.5
+[    2.263596] mmci-pl18x 12400000.mmc: mmc2: PL180 manf 51 rev0 at 0x12400000 irq 56,0 (pio)
+[    2.266960] device: 'mmc0': device_add
+[    2.273966] mmci-pl18x 121c0000.mmc: mmc1: PL180 manf 51 rev0 at 0x121c0000 irq 55,0 (pio)
+[    2.274062] bus: 'platform': __driver_probe_device: matched device leds with driver leds-gpio
+[    2.281893] bus: 'platform': really_probe: probing driver leds-gpio with device leds
+[    2.282019] leds-gpio leds: no init pinctrl state
+[    2.282037] PM: Adding info for No Bus:mmc0
+[    2.282070] leds-gpio leds: no sleep pinctrl state
+[    2.282083] leds-gpio leds: no idle pinctrl state
+[    2.282115] mmci-pl18x 12400000.mmc: DMA channels RX dma2chan1, TX dma2chan2
+[    2.282207] device: 'apq8064:green:user1': device_add
+[    2.290241] device: 'mmc2': device_add
+[    2.290402] PM: Adding info for No Bus:mmc2
+[    2.290413] PM: Adding info for No Bus:apq8064:green:user1
+[    2.290471] driver: 'leds-gpio': driver_bound: bound to device 'leds'
+[    2.290499] leds-gpio leds: Dropping the link to 500000.ssbi:pmic:gpio@150
+[    2.290514] device: 'platform:500000.ssbi:pmic:gpio@150--platform:leds': device_unregister
+[    2.290804] bus: 'platform': really_probe: bound device leds to driver leds-gpio
+[    2.290940] mmci-pl18x 121c0000.mmc: DMA channels RX dma1chan1, TX dma1chan2
+[    2.290953] bus: 'platform': add driver pm8058-leds
+[    2.293145] usb 1-1: new high-speed USB device number 2 using ci_hdrc
+[    2.297473] device: 'mmc1': device_add
+[    2.304628] ledtrig-cpu: registered to indicate activity on CPUs
+[    2.304737] PM: Adding info for No Bus:mmc1
+[    2.310824] bus: 'hid': registered
+[    2.310868] bus: 'hid': add driver hid-generic
+[    2.310955] bus: 'hid': add driver apple
+[    2.311034] bus: 'usb': add driver usbhid
+[    2.311117] usbcore: registered new interface driver usbhid
+[    2.317089] usbhid: USB HID core driver
+[    2.317917] driver: 'mmci-pl18x': driver_bound: bound to device '12400000.mmc'
+[    2.320911] driver: 'mmci-pl18x': driver_bound: bound to device '12180000.mmc'
+[    2.320946] mmci-pl18x 12180000.mmc: Dropping the link to 800000.pinctrl
+[    2.320961] device: 'platform:800000.pinctrl--amba:12180000.mmc': device_unregister
+[    2.321148] mmci-pl18x 12180000.mmc: Dropping the link to 900000.clock-controller
+[    2.321163] device: 'platform:900000.clock-controller--amba:12180000.mmc': device_unregister
+[    2.321327] mmci-pl18x 12180000.mmc: Dropping the link to 108000.rpm:regulators
+[    2.321342] device: 'platform:108000.rpm:regulators--amba:12180000.mmc': device_unregister
+[    2.321572] bus: 'amba': really_probe: bound device 12180000.mmc to driver mmci-pl18x
+[    2.321602] mmci-pl18x 12180000.mmc: driver mmci-pl18x async attach completed: 0
+[    2.322097] mmci-pl18x 12400000.mmc: Dropping the link to 800000.pinctrl
+[    2.322121] device: 'platform:800000.pinctrl--amba:12400000.mmc': device_unregister
+[    2.322156] bus: 'platform': add driver rproc-virtio
+[    2.322302] mmci-pl18x 12400000.mmc: Dropping the link to 900000.clock-controller
+[    2.322324] device: 'platform:900000.clock-controller--amba:12400000.mmc': device_unregister
+[    2.322333] bus: 'rpmsg': add driver qcom_glink_ssr
+[    2.322417] device class 'extcon': registering
+[    2.322485] bus: 'platform': add driver extcon-pm8941-misc
+[    2.322516] mmci-pl18x 12400000.mmc: Dropping the link to 108000.rpm:regulators
+[    2.322536] device: 'platform:108000.rpm:regulators--amba:12400000.mmc': device_unregister
+[    2.322753] bus: 'amba': really_probe: bound device 12400000.mmc to driver mmci-pl18x
+[    2.322784] mmci-pl18x 12400000.mmc: driver mmci-pl18x async attach completed: 0
+[    2.322870] bus: 'spi': add driver kxsd9
+[    2.322938] bus: 'i2c': add driver kxsd9
+[    2.323109] bus: 'i2c': add driver mpu3050-i2c
+[    2.323181] bus: 'i2c': add driver ak8975
+[    2.323293] bus: 'i2c': add driver bmp280
+[    2.323375] SPI driver bmp280 has no spi_device_id for bosch,bmp085
+[    2.325918] bus: 'spi': add driver bmp280
+[    2.326035] bus: 'platform': add driver qcom,qfprom
+[    2.326159] bus: 'platform': __driver_probe_device: matched device 700000.qfprom with driver qcom,qfprom
+[    2.326182] bus: 'platform': really_probe: probing driver qcom,qfprom with device 700000.qfprom
+[    2.326213] qcom,qfprom 700000.qfprom: no pinctrl handle
+[    2.326370] device: 'qfprom0': device_add
+[    2.326435] bus: 'nvmem': add device qfprom0
+[    2.326497] PM: Adding info for nvmem:qfprom0
+[    2.326615] driver: 'qcom,qfprom': driver_bound: bound to device '700000.qfprom'
+[    2.326637] /soc/clock-controller@900000/thermal-sensor Linked as a fwnode consumer to /soc/qfprom@700000
+[    2.326674] /soc/clock-controller@900000/thermal-sensor Dropping the fwnode link to /soc/qfprom@700000/calib@404
+[    2.326710] /soc/clock-controller@900000/thermal-sensor Dropping the fwnode link to /soc/qfprom@700000/backup_calib@414
+[    2.326759] device: 'platform:700000.qfprom--platform:900000.clock-controller:thermal-sensor': device_add
+[    2.326877] platform 900000.clock-controller:thermal-sensor: Linked as a sync state only consumer to 700000.qfprom
+[    2.326892] /soc/clock-controller@900000/thermal-sensor Dropping the fwnode link to /soc/qfprom@700000
+[    2.326963] bus: 'platform': really_probe: bound device 700000.qfprom to driver qcom,qfprom
+[    2.328199] device: 'timer': device_add
+[    2.328293] PM: Adding info for No Bus:timer
+[    2.329839] bus: 'usb': add driver snd-usb-audio
+[    2.329953] usbcore: registered new interface driver snd-usb-audio
+[    2.332187] Registering platform device 'snd-soc-dummy'. Parent at platform
+[    2.332206] device: 'snd-soc-dummy': device_add
+[    2.332235] bus: 'platform': add device snd-soc-dummy
+[    2.332315] PM: Adding info for platform:snd-soc-dummy
+[    2.332414] platform snd-soc-dummy: Adding to iommu group 6
+[    2.338703] bus: 'platform': add driver snd-soc-dummy
+[    2.338829] bus: 'platform': __driver_probe_device: matched device snd-soc-dummy with driver snd-soc-dummy
+[    2.338853] bus: 'platform': really_probe: probing driver snd-soc-dummy with device snd-soc-dummy
+[    2.338902] snd-soc-dummy snd-soc-dummy: no default pinctrl state
+[    2.338970] driver: 'snd-soc-dummy': driver_bound: bound to device 'snd-soc-dummy'
+[    2.339013] bus: 'platform': really_probe: bound device snd-soc-dummy to driver snd-soc-dummy
+[    2.339083] bus: 'platform': add driver soc-audio
+[    2.339591] NET: Registered PF_INET6 protocol family
+[    2.340556] driver: 'mmci-pl18x': driver_bound: bound to device '121c0000.mmc'
+[    2.344028] mmci-pl18x 121c0000.mmc: Dropping the link to 800000.pinctrl
+[    2.344051] device: 'platform:800000.pinctrl--amba:121c0000.mmc': device_unregister
+[    2.344266] mmci-pl18x 121c0000.mmc: Dropping the link to 900000.clock-controller
+[    2.344478] device: 'platform:900000.clock-controller--amba:121c0000.mmc': device_unregister
+[    2.344664] mmci-pl18x 121c0000.mmc: Dropping the link to regulator-ext-3p3v
+[    2.344764] device: 'platform:regulator-ext-3p3v--amba:121c0000.mmc': device_unregister
+[    2.344951] mmci-pl18x 121c0000.mmc: Dropping the link to 108000.rpm:regulators
+[    2.345043] device: 'platform:108000.rpm:regulators--amba:121c0000.mmc': device_unregister
+[    2.345364] bus: 'amba': really_probe: bound device 121c0000.mmc to driver mmci-pl18x
+[    2.345397] mmci-pl18x 121c0000.mmc: driver mmci-pl18x async attach completed: 0
+[    2.348793] Segment Routing with IPv6
+[    2.349114] In-situ OAM (IOAM) with IPv6
+[    2.352728] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    2.356839] device: 'sit0': device_add
+[    2.357210] PM: Adding info for No Bus:sit0
+[    2.357769] NET: Registered PF_PACKET protocol family
+[    2.365648] Bluetooth: RFCOMM TTY layer initialized
+[    2.367483] Bluetooth: RFCOMM socket layer initialized
+[    2.372202] Bluetooth: RFCOMM ver 1.11
+[    2.377488] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    2.381106] Bluetooth: BNEP filters: protocol multicast
+[    2.386693] usb 2-1: new high-speed USB device number 2 using ci_hdrc
+[    2.391611] Bluetooth: BNEP socket layer initialized
+[    2.398486] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    2.403246] Bluetooth: HIDP socket layer initialized
+[    2.409067] Key type dns_resolver registered
+[    2.414380] Registering SWP/SWPB emulation handler
+[    2.427513] mmc1: queuing unknown CIS tuple 0x01 [d9 01 ff] (3 bytes)
+[    2.438144] device: 'cpu_dma_latency': device_add
+[    2.438238] PM: Adding info for No Bus:cpu_dma_latency
+[    2.439713] Loading compiled-in X.509 certificates
+[    2.451861] mmc1: queuing unknown CIS tuple 0x1a [01 01 00 02 07] (5 bytes)
+[    2.452443] mmc2: new high speed MMC card at address 0001
+[    2.457820] device: 'mmc2:0001': device_add
+[    2.458076] bus: 'mmc': add device mmc2:0001
+[    2.458191] PM: Adding info for mmc:mmc2:0001
+[    2.458265] bus: 'mmc': __driver_probe_device: matched device mmc2:0001 with driver mmcblk
+[    2.458299] bus: 'mmc': really_probe: probing driver mmcblk with device mmc2:0001
+[    2.458371] mmcblk mmc2:0001: no default pinctrl state
+[    2.460447] mmcblk2: mmc2:0001 SEM04G 3.69 GiB
+[    2.461004] mmc1: queuing unknown CIS tuple 0x1b [c1 41 30 30 ff ff 32 00] (8 bytes)
+[    2.463713] device: 'mmcblk2': device_add
+[    2.467824] PM: Adding info for No Bus:mmcblk2
+[    2.469238] mmc1: queuing unknown CIS tuple 0x14 [] (0 bytes)
+[    2.469397] device: '179:0': device_add
+[    2.475707] PM: Adding info for No Bus:179:0
+[    2.479593] mmc1: new high speed SDIO card at address 0001
+[    2.481153] device: 'mmc1:0001': device_add
+[    2.481295] bus: 'mmc': add device mmc1:0001
+[    2.481403] PM: Adding info for mmc:mmc1:0001
+[    2.481480] bus: 'mmc': __driver_probe_device: matched device mmc1:0001 with driver mmcblk
+[    2.481513] bus: 'mmc': really_probe: probing driver mmcblk with device mmc1:0001
+[    2.481599] mmcblk mmc1:0001: no default pinctrl state
+[    2.481659] mmcblk: probe of mmc1:0001 rejects match -19
+[    2.481738] device: 'mmc1:0001:1': device_add
+[    2.481747]  mmcblk2: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 p20 p21
+[    2.481789] bus: 'sdio': add device mmc1:0001:1
+[    2.486611] device: 'mmcblk2p1': device_add
+[    2.487041] PM: Adding info for sdio:mmc1:0001:1
+[    2.488271] PM: Adding info for No Bus:mmcblk2p1
+[    2.488568] device: 'mmcblk2p2': device_add
+[    2.488732] PM: Adding info for No Bus:mmcblk2p2
+[    2.488965] device: 'mmcblk2p3': device_add
+[    2.489129] PM: Adding info for No Bus:mmcblk2p3
+[    2.489349] device: 'mmcblk2p4': device_add
+[    2.489499] PM: Adding info for No Bus:mmcblk2p4
+[    2.489710] device: 'mmcblk2p5': device_add
+[    2.489870] PM: Adding info for No Bus:mmcblk2p5
+[    2.490087] device: 'mmcblk2p6': device_add
+[    2.490230] PM: Adding info for No Bus:mmcblk2p6
+[    2.490452] device: 'mmcblk2p7': device_add
+[    2.490607] PM: Adding info for No Bus:mmcblk2p7
+[    2.490849] device: 'mmcblk2p8': device_add
+[    2.490993] PM: Adding info for No Bus:mmcblk2p8
+[    2.491237] device: 'mmcblk2p9': device_add
+[    2.491388] PM: Adding info for No Bus:mmcblk2p9
+[    2.491613] device: 'mmcblk2p10': device_add
+[    2.491799] PM: Adding info for No Bus:mmcblk2p10
+[    2.492014] device: 'mmcblk2p11': device_add
+[    2.492139] bus: 'platform': add driver qcom_stats
+[    2.492161] PM: Adding info for No Bus:mmcblk2p11
+[    2.492389] device: 'mmcblk2p12': device_add
+[    2.492539] PM: Adding info for No Bus:mmcblk2p12
+[    2.492749] device: 'mmcblk2p13': device_add
+[    2.492901] PM: Adding info for No Bus:mmcblk2p13
+[    2.492909] devices_kset: Moving smem to end of list
+[    2.492927] PM: Moving platform:smem to end of list
+[    2.492944] platform smem: Retrying from deferred list
+[    2.493211] device: 'mmcblk2p14': device_add
+[    2.493318] bus: 'platform': __driver_probe_device: matched device smem with driver qcom-smem
+[    2.493343] bus: 'platform': really_probe: probing driver qcom-smem with device smem
+[    2.493364] PM: Adding info for No Bus:mmcblk2p14
+[    2.493379] qcom-smem smem: no pinctrl handle
+[    2.493567] device: 'mmcblk2p15': device_add
+[    2.493602] Registering platform device 'qcom-socinfo'. Parent at smem
+[    2.493621] device: 'qcom-socinfo': device_add
+[    2.493654] bus: 'platform': add device qcom-socinfo
+[    2.493733] PM: Adding info for No Bus:mmcblk2p15
+[    2.493755] PM: Adding info for platform:qcom-socinfo
+[    2.493870] platform qcom-socinfo: Adding to iommu group 7
+[    2.493967] device: 'mmcblk2p16': device_add
+[    2.495534] bus: 'platform': __driver_probe_device: matched device qcom-socinfo with driver qcom-socinfo
+[    2.495557] bus: 'platform': really_probe: probing driver qcom-socinfo with device qcom-socinfo
+[    2.495559] PM: Adding info for No Bus:mmcblk2p16
+[    2.495600] qcom-socinfo qcom-socinfo: no default pinctrl state
+[    2.495676] device: 'soc0': device_add
+[    2.495736] bus: 'soc': add device soc0
+[    2.495775] device: 'mmcblk2p17': device_add
+[    2.495793] PM: Adding info for soc:soc0
+[    2.495922] PM: Adding info for No Bus:mmcblk2p17
+[    2.496127] device: 'mmcblk2p18': device_add
+[    2.496278] PM: Adding info for No Bus:mmcblk2p18
+[    2.496284] driver: 'qcom-socinfo': driver_bound: bound to device 'qcom-socinfo'
+[    2.496344] bus: 'platform': really_probe: bound device qcom-socinfo to driver qcom-socinfo
+[    2.496374] driver: 'qcom-smem': driver_bound: bound to device 'smem'
+[    2.496396] qcom-smem smem: Dropping the link to hwmutex
+[    2.496411] device: 'platform:hwmutex--platform:smem': device_unregister
+[    2.496489] device: 'mmcblk2p19': device_add
+[    2.496642] PM: Adding info for No Bus:mmcblk2p19
+[    2.496739] bus: 'platform': really_probe: bound device smem to driver qcom-smem
+[    2.496767] devices_kset: Moving smsm to end of list
+[    2.496780] PM: Moving platform:smsm to end of list
+[    2.496793] platform smsm: Retrying from deferred list
+[    2.496845] device: 'mmcblk2p20': device_add
+[    2.496990] PM: Adding info for No Bus:mmcblk2p20
+[    2.497158] bus: 'platform': __driver_probe_device: matched device smsm with driver qcom-smsm
+[    2.497179] bus: 'platform': really_probe: probing driver qcom-smsm with device smsm
+[    2.497203] device: 'mmcblk2p21': device_add
+[    2.497208] qcom-smsm smsm: no pinctrl handle
+[    2.497351] PM: Adding info for No Bus:mmcblk2p21
+[    2.498787] mmcblk2boot0: mmc2:0001 SEM04G 2.00 MiB
+[    2.501109] device: 'mmcblk2boot0': device_add
+[    2.501298] driver: 'qcom-smsm': driver_bound: bound to device 'smsm'
+[    2.501337] qcom-smsm smsm: Dropping the link to soc
+[    2.501350] device: 'platform:soc--platform:smsm': device_unregister
+[    2.501417] PM: Adding info for No Bus:mmcblk2boot0
+[    2.501645] bus: 'platform': really_probe: bound device smsm to driver qcom-smsm
+[    2.501679] devices_kset: Moving 900000.clock-controller:thermal-sensor to end of list
+[    2.501695] PM: Moving platform:900000.clock-controller:thermal-sensor to end of list
+[    2.501711] platform 900000.clock-controller:thermal-sensor: Retrying from deferred list
+[    2.502447] bus: 'platform': __driver_probe_device: matched device 900000.clock-controller:thermal-sensor with driver qcom-tsens
+[    2.502474] bus: 'platform': really_probe: probing driver qcom-tsens with device 900000.clock-controller:thermal-sensor
+[    2.502512] qcom-tsens 900000.clock-controller:thermal-sensor: no pinctrl handle
+[    2.502954] device: '179:32': device_add
+[    2.503220] PM: Adding info for No Bus:179:32
+[    2.503288] device: 'thermal_zone0': device_add
+[    2.503485] PM: Adding info for No Bus:thermal_zone0
+[    2.503589] device: 'hwmon0': device_add
+[    2.503681] PM: Adding info for No Bus:hwmon0
+[    2.503788] device: 'thermal_zone1': device_add
+[    2.503907] mmcblk2boot1: mmc2:0001 SEM04G 2.00 MiB
+[    2.503955] PM: Adding info for No Bus:thermal_zone1
+[    2.505569] device: 'hwmon1': device_add
+[    2.505657] PM: Adding info for No Bus:hwmon1
+[    2.505764] device: 'thermal_zone2': device_add
+[    2.505878] device: 'mmcblk2boot1': device_add
+[    2.505938] PM: Adding info for No Bus:thermal_zone2
+[    2.506047] device: 'hwmon2': device_add
+[    2.506249] PM: Adding info for No Bus:hwmon2
+[    2.506359] PM: Adding info for No Bus:mmcblk2boot1
+[    2.506368] device: 'thermal_zone3': device_add
+[    2.506534] PM: Adding info for No Bus:thermal_zone3
+[    2.506627] device: 'hwmon3': device_add
+[    2.506726] PM: Adding info for No Bus:hwmon3
+[    2.507174] driver: 'qcom-tsens': driver_bound: bound to device '900000.clock-controller:thermal-sensor'
+[    2.507209] qcom-tsens 900000.clock-controller:thermal-sensor: Dropping the link to 700000.qfprom
+[    2.507223] device: 'platform:700000.qfprom--platform:900000.clock-controller:thermal-sensor': device_unregister
+[    2.507551] bus: 'platform': really_probe: bound device 900000.clock-controller:thermal-sensor to driver qcom-tsens
+[    2.507715] device class 'ubi': registering
+[    2.507786] device: 'ubi_ctrl': device_add
+[    2.507866] device: '179:64': device_add
+[    2.507876] PM: Adding info for No Bus:ubi_ctrl
+[    2.508188] PM: Adding info for No Bus:179:64
+[    2.508209] bus: 'platform': add driver gpio-keys
+[    2.508333] device: 'mmcblk2rpmb': device_add
+[    2.508387] bus: 'mmc_rpmb': add device mmcblk2rpmb
+[    2.508467] PM: Adding info for mmc_rpmb:mmcblk2rpmb
+[    2.508546] Extended deferred probe timeout by 10 secs
+[    2.508691] mmcblk2rpmb: mmc2:0001 SEM04G 2.00 MiB, chardev (244:0)
+[    2.508996] bus: 'amba': add driver amba-proxy
+[    2.510392] driver: 'mmcblk': driver_bound: bound to device 'mmc2:0001'
+[    2.510430] Extended deferred probe timeout by 10 secs
+[    2.510446] clk: Disabling unused clocks
+[    2.510489] bus: 'mmc': really_probe: bound device mmc2:0001 to driver mmcblk
+[    2.518241] usb 1-1: New USB device found, idVendor=0bda, idProduct=8153, bcdDevice=30.00
+[    2.520774] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=6
+[    2.523178] ALSA device list:
+[    2.528922] usb 1-1: Product: USB 10/100/1000 LAN
+[    2.536064]   No soundcards found.
+[    2.538905] usb 1-1: Manufacturer: Realtek
+[    2.546955] usb 1-1: SerialNumber: 000001
+[    2.546972] device: '1-1': device_add
+[    2.547361] bus: 'usb': add device 1-1
+[    2.547422] PM: Adding info for usb:1-1
+[    2.548621] bus: 'usb': __driver_probe_device: matched device 1-1 with driver r8152-cfgselector
+[    2.550983] bus: 'usb': really_probe: probing driver r8152-cfgselector with device 1-1
+[    2.551027] r8152-cfgselector 1-1: no default pinctrl state
+[    2.551361] device: '1-1:2.0': device_add
+[    2.551437] bus: 'usb': add device 1-1:2.0
+[    2.551476] PM: Adding info for usb:1-1:2.0
+[    2.551663] bus: 'usb': __driver_probe_device: matched device 1-1:2.0 with driver r8152
+[    2.551687] bus: 'usb': really_probe: probing driver r8152 with device 1-1:2.0
+[    2.551718] r8152 1-1:2.0: no default pinctrl state
+[    2.551777] r8152: probe of 1-1:2.0 rejects match -19
+[    2.551912] device: 'ep_83': device_add
+[    2.552016] PM: Adding info for No Bus:ep_83
+[    2.552038] device: '1-1:2.1': device_add
+[    2.552105] bus: 'usb': add device 1-1:2.1
+[    2.552140] PM: Adding info for usb:1-1:2.1
+[    2.552190] bus: 'usb': __driver_probe_device: matched device 1-1:2.1 with driver r8152
+[    2.552211] bus: 'usb': really_probe: probing driver r8152 with device 1-1:2.1
+[    2.552240] r8152 1-1:2.1: no default pinctrl state
+[    2.552289] r8152: probe of 1-1:2.1 rejects match -19
+[    2.552488] device: 'ep_83': device_unregister
+[    2.552597] PM: Removing info for No Bus:ep_83
+[    2.552731] bus: 'usb': remove device 1-1:2.0
+[    2.552747] PM: Removing info for usb:1-1:2.0
+[    2.552882] bus: 'usb': remove device 1-1:2.1
+[    2.552898] PM: Removing info for usb:1-1:2.1
+[    2.553429] device: '1-1:1.0': device_add
+[    2.553498] bus: 'usb': add device 1-1:1.0
+[    2.553533] PM: Adding info for usb:1-1:1.0
+[    2.553583] bus: 'usb': __driver_probe_device: matched device 1-1:1.0 with driver r8152
+[    2.553604] bus: 'usb': really_probe: probing driver r8152 with device 1-1:1.0
+[    2.553633] r8152 1-1:1.0: no default pinctrl state
+[    2.599122] usb 2-1: New USB device found, idVendor=174c, idProduct=55aa, bcdDevice= 1.00
+[    2.599172] usb 2-1: New USB device strings: Mfr=2, Product=3, SerialNumber=1
+[    2.606416] usb 2-1: Product: ASM105x
+[    2.613503] usb 2-1: Manufacturer: ASMT
+[    2.617055] usb 2-1: SerialNumber: 00000000000000000000
+[    2.620711] device: '2-1': device_add
+[    2.620888] bus: 'usb': add device 2-1
+[    2.620945] PM: Adding info for usb:2-1
+[    2.622193] bus: 'usb': __driver_probe_device: matched device 2-1 with driver usb
+[    2.622217] bus: 'usb': really_probe: probing driver usb with device 2-1
+[    2.622251] usb 2-1: no default pinctrl state
+[    2.622585] device: '2-1:1.0': device_add
+[    2.622666] bus: 'usb': add device 2-1:1.0
+[    2.622699] PM: Adding info for usb:2-1:1.0
+[    2.622755] bus: 'usb': __driver_probe_device: matched device 2-1:1.0 with driver uas
+[    2.622774] bus: 'usb': really_probe: probing driver uas with device 2-1:1.0
+[    2.622804] uas 2-1:1.0: no default pinctrl state
+[    2.623255] device: 'ep_81': device_add
+[    2.623344] PM: Adding info for No Bus:ep_81
+[    2.623369] device: 'ep_02': device_add
+[    2.623452] PM: Adding info for No Bus:ep_02
+[    2.623475] device: 'ep_83': device_add
+[    2.623569] PM: Adding info for No Bus:ep_83
+[    2.623594] device: 'ep_04': device_add
+[    2.623677] PM: Adding info for No Bus:ep_04
+[    2.628034] device: 'scsi_tmf_1': device_add
+[    2.628073] bus: 'workqueue': add device scsi_tmf_1
+[    2.628143] PM: Adding info for workqueue:scsi_tmf_1
+[    2.628207] scsi host1: uas
+[    2.628371] device: 'host1': device_add
+[    2.628411] bus: 'scsi': add device host1
+[    2.628474] PM: Adding info for scsi:host1
+[    2.628526] device: 'host1': device_add
+[    2.628692] PM: Adding info for No Bus:host1
+[    2.628754] driver: 'uas': driver_bound: bound to device '2-1:1.0'
+[    2.628824] bus: 'usb': really_probe: bound device 2-1:1.0 to driver uas
+[    2.628859] driver: 'usb': driver_bound: bound to device '2-1'
+[    2.628905] bus: 'usb': really_probe: bound device 2-1 to driver usb
+[    2.628958] device: 'ep_00': device_add
+[    2.629064] PM: Adding info for No Bus:ep_00
+[    2.633296] scsi 1:0:0:0: Direct-Access     ASMT     ASM105x          0    PQ: 0 ANSI: 6
+[    2.639893] device: 'target1:0:0': device_add
+[    2.639938] bus: 'scsi': add device target1:0:0
+[    2.639994] PM: Adding info for scsi:target1:0:0
+[    2.640054] device: '1:0:0:0': device_add
+[    2.640250] bus: 'scsi': add device 1:0:0:0
+[    2.640315] PM: Adding info for scsi:1:0:0:0
+[    2.640354] bus: 'scsi': __driver_probe_device: matched device 1:0:0:0 with driver ch
+[    2.640376] bus: 'scsi': really_probe: probing driver ch with device 1:0:0:0
+[    2.640408] ch 1:0:0:0: no default pinctrl state
+[    2.640448] ch: probe of 1:0:0:0 rejects match -19
+[    2.640493] scsi 1:0:0:0: scheduling asynchronous probe
+[    2.640534] device: '1:0:0:0': device_add
+[    2.640620] PM: Adding info for No Bus:1:0:0:0
+[    2.640673] device: 'sg0': device_add
+[    2.640763] PM: Adding info for No Bus:sg0
+[    2.640828] bus: 'scsi': __driver_probe_device: matched device 1:0:0:0 with driver sd
+[    2.640849] bus: 'scsi': really_probe: probing driver sd with device 1:0:0:0
+[    2.640878] sd 1:0:0:0: no default pinctrl state
+[    2.641079] device: '1:0:0:0': device_add
+[    2.641243] PM: Adding info for No Bus:1:0:0:0
+[    2.642049] sd 1:0:0:0: [sda] 500118192 512-byte logical blocks: (256 GB/238 GiB)
+[    2.642090] sd 1:0:0:0: [sda] 4096-byte physical blocks
+[    2.643259] sd 1:0:0:0: Attached scsi generic sg0 type 0
+[    2.649012] sd 1:0:0:0: [sda] Write Protect is off
+[    2.653687] device: '1:0:0:0': device_add
+[    2.659228] PM: Adding info for No Bus:1:0:0:0
+[    2.659233] sd 1:0:0:0: [sda] Mode Sense: 43 00 00 00
+[    2.660014] sd 1:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    2.664033] sd 1:0:0:0: [sda] Preferred minimum I/O size 4096 bytes
+[    2.672788] sd 1:0:0:0: [sda] Optimal transfer size 33553920 bytes not a multiple of preferred minimum block size (4096 bytes)
+[    2.679115] device: 'sda': device_add
+[    2.679284] PM: Adding info for No Bus:sda
+[    2.681349] device: '8:0': device_add
+[    2.681466] PM: Adding info for No Bus:8:0
+[    2.691791]  sda: sda1
+[    2.691847] device: 'sda1': device_add
+[    2.691975] PM: Adding info for No Bus:sda1
+[    2.693515] sd 1:0:0:0: [sda] Attached SCSI disk
+[    2.693554] driver: 'sd': driver_bound: bound to device '1:0:0:0'
+[    2.693622] bus: 'scsi': really_probe: bound device 1:0:0:0 to driver sd
+[    2.693657] sd 1:0:0:0: async probe completed
+[    2.733251] r8152-cfgselector 1-1: reset high-speed USB device number 2 using ci_hdrc
+[    2.945247] device: 'wakeup6': device_add
+[    2.975988] r8152 1-1:1.0: load rtl8153a-4 v2 02/07/20 successfully
+[    3.016794] device: 'eth1': device_add
+[    3.017163] PM: Adding info for No Bus:eth1
+[    3.017769] device: 'wakeup7': device_add
+[    3.017980] device: 'wakeup7': device_unregister
+[    3.018110] r8152 1-1:1.0 eth1: v1.12.13
+[    3.018151] driver: 'r8152': driver_bound: bound to device '1-1:1.0'
+[    3.018216] bus: 'usb': really_probe: bound device 1-1:1.0 to driver r8152
+[    3.018262] device: 'ep_81': device_add
+[    3.018359] PM: Adding info for No Bus:ep_81
+[    3.018386] device: 'ep_02': device_add
+[    3.018468] PM: Adding info for No Bus:ep_02
+[    3.018492] device: 'ep_83': device_add
+[    3.018574] PM: Adding info for No Bus:ep_83
+[    3.018596] driver: 'r8152-cfgselector': driver_bound: bound to device '1-1'
+[    3.018645] bus: 'usb': really_probe: bound device 1-1 to driver r8152-cfgselector
+[    3.018700] device: 'ep_00': device_add
+[    3.018792] PM: Adding info for No Bus:ep_00
+[    3.064610] EXT4-fs (sda1): mounted filesystem 411b477c-d9bd-4467-8ae8-dcb9bc4672d7 r/w with ordered data mode. Quota mode: disabled.
+[    3.064787] VFS: Mounted root (ext4 filesystem) on device 8:1.
+[    3.081870] devtmpfs: mounted
+[    3.084749] Freeing unused kernel image (initmem) memory: 1024K
+[    3.086031] Run /sbin/init as init process
+[    3.090126]   with arguments:
+[    3.090150]     /sbin/init
+[    3.090166]   with environment:
+[    3.090181]     HOME=/
+[    3.090195]     TERM=linux
+[    3.999843] systemd[1]: systemd 252.38-1~deb12u1 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    4.009323] systemd[1]: Detected architecture arm.
+[    4.337728] systemd[1]: memfd_create() called without MFD_EXEC or MFD_NOEXEC_SEAL set
+[    5.940682] systemd[1]: Queued start job for default target multi-user.target.
+[    6.073670] systemd[1]: Created slice system-getty.slice - Slice /system/getty.
+[    6.119855] systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+[    6.159862] systemd[1]: Created slice system-serial\x2dgetty.slice - Slice /system/serial-getty.
+[    6.208643] systemd[1]: Created slice user.slice - User and Session Slice.
+[    6.244347] systemd[1]: Started systemd-ask-password-console.path - Dispatch Password Requests to Console Directory Watch.
+[    6.284221] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[    6.325173] systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point.
+[    6.363926] systemd[1]: Expecting device dev-ttyMSM0.device - /dev/ttyMSM0...
+[    6.403635] systemd[1]: Reached target cryptsetup.target - Local Encrypted Volumes.
+[    6.444708] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[    6.484849] systemd[1]: Reached target paths.target - Path Units.
+[    6.524941] systemd[1]: Reached target slices.target - Slice Units.
+[    6.564897] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[    6.607104] systemd[1]: Listening on rpcbind.socket - RPCbind Server Activation Socket.
+[    6.644060] systemd[1]: Listening on systemd-initctl.socket - initctl Compatibility Named Pipe.
+[    6.722058] systemd[1]: systemd-journald-audit.socket - Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    6.724054] systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+[    6.775842] systemd[1]: Listening on systemd-journald.socket - Journal Socket.
+[    6.817095] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[    6.854449] systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+[    6.895741] systemd[1]: dev-hugepages.mount - Huge Pages File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/mm/hugepages).
+[    6.995287] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+[    7.045892] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+[    7.094626] systemd[1]: Mounting sys-kernel-tracing.mount - Kernel Trace File System...
+[    7.135443] systemd[1]: auth-rpcgss-module.service - Kernel Module supporting RPCSEC_GSS was skipped because of an unmet condition check (ConditionPathExists=/etc/krb5.keytab).
+[    7.149754] systemd[1]: Starting keyboard-setup.service - Set the console keyboard layout...
+[    7.206990] systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+[    7.230433] device: 'vcs2': device_add
+[    7.230582] PM: Adding info for No Bus:vcs2
+[    7.230947] device: 'vcsu2': device_add
+[    7.231064] PM: Adding info for No Bus:vcsu2
+[    7.233362] device: 'vcsa2': device_add
+[    7.233470] PM: Adding info for No Bus:vcsa2
+[    7.244577] device: 'vcs3': device_add
+[    7.244721] PM: Adding info for No Bus:vcs3
+[    7.245115] device: 'vcsu3': device_add
+[    7.245218] PM: Adding info for No Bus:vcsu3
+[    7.245460] device: 'vcsa3': device_add
+[    7.245580] PM: Adding info for No Bus:vcsa3
+[    7.255043] systemd[1]: Starting modprobe@configfs.service - Load Kernel Module configfs...
+[    7.255073] device: 'vcs4': device_add
+[    7.255241] PM: Adding info for No Bus:vcs4
+[    7.256847] device: 'vcsu4': device_add
+[    7.256989] PM: Adding info for No Bus:vcsu4
+[    7.257342] device: 'vcsa4': device_add
+[    7.257473] PM: Adding info for No Bus:vcsa4
+[    7.267883] device: 'vcs5': device_add
+[    7.268027] PM: Adding info for No Bus:vcs5
+[    7.268418] device: 'vcsu5': device_add
+[    7.268523] PM: Adding info for No Bus:vcsu5
+[    7.268751] device: 'vcsa5': device_add
+[    7.268883] PM: Adding info for No Bus:vcsa5
+[    7.277404] device: 'vcs6': device_add
+[    7.277549] PM: Adding info for No Bus:vcs6
+[    7.277858] device: 'vcsu6': device_add
+[    7.277969] PM: Adding info for No Bus:vcsu6
+[    7.278194] device: 'vcsa6': device_add
+[    7.278304] PM: Adding info for No Bus:vcsa6
+[    7.307494] systemd[1]: Starting modprobe@dm_mod.service - Load Kernel Module dm_mod...
+[    7.355921] systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+[    7.407472] systemd[1]: Starting modprobe@efi_pstore.service - Load Kernel Module efi_pstore...
+[    7.454671] systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+[    7.472594] device: 'device-mapper': device_add
+[    7.472773] PM: Adding info for No Bus:device-mapper
+[    7.473384] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[    7.506391] systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+[    7.547489] systemd[1]: systemd-journald.service: unit configures an IP firewall, but the local system does not support BPF/cgroup firewalling.
+[    7.547580] systemd[1]: (This warning is only shown for the first unit using IP firewalling.)
+[    7.574519] systemd[1]: Starting systemd-journald.service - Journal Service...
+[    7.630525] systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+[    7.680153] systemd[1]: Starting systemd-remount-fs.service - Remount Root and Kernel File Systems...
+[    7.748172] systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+[    7.821207] systemd[1]: Mounted dev-mqueue.mount - POSIX Message Queue File System.
+[    7.866225] systemd[1]: Mounted sys-kernel-debug.mount - Kernel Debug File System.
+[    7.906579] systemd[1]: Mounted sys-kernel-tracing.mount - Kernel Trace File System.
+[    7.949516] systemd[1]: Finished keyboard-setup.service - Set the console keyboard layout.
+[    8.020906] systemd[1]: Finished kmod-static-nodes.service - Create List of Static Device Nodes.
+[    8.045357] systemd[1]: modprobe@configfs.service: Deactivated successfully.
+[    8.048793] systemd[1]: Finished modprobe@configfs.service - Load Kernel Module configfs.
+[    8.092304] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    8.128220] systemd[1]: modprobe@dm_mod.service: Deactivated successfully.
+[    8.131715] systemd[1]: Finished modprobe@dm_mod.service - Load Kernel Module dm_mod.
+[    8.147549] Bridge firewalling registered
+[    8.178715] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[    8.184233] systemd[1]: Finished modprobe@drm.service - Load Kernel Module drm.
+[    8.227183] systemd[1]: modprobe@efi_pstore.service: Deactivated successfully.
+[    8.229882] systemd[1]: Finished modprobe@efi_pstore.service - Load Kernel Module efi_pstore.
+[    8.277158] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[    8.279809] systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+[    8.327769] systemd[1]: modprobe@loop.service: Deactivated successfully.
+[    8.330369] systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+[    8.378287] systemd[1]: Finished systemd-modules-load.service - Load Kernel Modules.
+[    8.428265] systemd[1]: Finished systemd-remount-fs.service - Remount Root and Kernel File Systems.
+[    8.535198] systemd[1]: Activating swap swapfile.img.swap - /swapfile.img...
+[    8.589689] systemd[1]: Mounting sys-fs-fuse-connections.mount - FUSE Control File System...
+[    8.598448] Adding 2097148k swap on /swapfile.img.  Priority:-2 extents:19 across:2736128k SS
+[    8.650009] systemd[1]: Mounting sys-kernel-config.mount - Kernel Configuration File System...
+[    8.694915] systemd[1]: systemd-firstboot.service - First Boot Wizard was skipped because of an unmet condition check (ConditionFirstBoot=yes).
+[    8.695914] systemd[1]: systemd-pstore.service - Platform Persistent Storage Archival was skipped because of an unmet condition check (ConditionDirectoryNotEmpty=/sys/fs/pstore).
+[    8.723891] systemd[1]: Starting systemd-random-seed.service - Load/Save Random Seed...
+[    8.765326] systemd[1]: systemd-repart.service - Repartition Root Disk was skipped because no trigger condition checks were met.
+[    8.784884] systemd[1]: Starting systemd-sysctl.service - Apply Kernel Variables...
+[    8.820535] systemd[1]: Starting systemd-sysusers.service - Create System Users...
+[    8.864801] systemd[1]: Activated swap swapfile.img.swap - /swapfile.img.
+[    8.935672] systemd[1]: Mounted sys-fs-fuse-connections.mount - FUSE Control File System.
+[    8.979651] systemd[1]: Mounted sys-kernel-config.mount - Kernel Configuration File System.
+[    9.028720] systemd[1]: Finished systemd-sysctl.service - Apply Kernel Variables.
+[    9.078872] systemd[1]: Finished systemd-sysusers.service - Create System Users.
+[    9.115879] systemd[1]: Reached target swap.target - Swaps.
+[    9.215635] systemd[1]: Starting systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev...
+[    9.276395] systemd[1]: Started systemd-journald.service - Journal Service.
+[    9.462848] systemd-journald[160]: Received client request to flush runtime journal.
+[   11.063179] random: crng init done
+[   11.525730] atl1c 0000:01:00.0 enp1s0: renamed from eth0
+[   11.525802] net eth0: renaming to enp1s0
+[   11.575970] r8152 1-1:1.0 enx00e04c7284d6: renamed from eth1
+[   11.576035] net eth1: renaming to enx00e04c7284d6
+[   12.751971] bus: 'platform': add driver qcom_rng
+[   12.752118] bus: 'platform': __driver_probe_device: matched device 1a500000.rng with driver qcom_rng
+[   12.752144] bus: 'platform': really_probe: probing driver qcom_rng with device 1a500000.rng
+[   12.752179] qcom_rng 1a500000.rng: no pinctrl handle
+[   12.752315] driver: 'qcom_rng': driver_bound: bound to device '1a500000.rng'
+[   12.752343] qcom_rng 1a500000.rng: Dropping the link to 900000.clock-controller
+[   12.752358] device: 'platform:900000.clock-controller--platform:1a500000.rng': device_unregister
+[   12.752724] bus: 'platform': really_probe: bound device 1a500000.rng to driver qcom_rng
+[   13.151201] device class 'ieee80211': registering
+[   13.152181] Registering platform device 'regulatory.0'. Parent at platform
+[   13.152204] device: 'regulatory.0': device_add
+[   13.152244] bus: 'platform': add device regulatory.0
+[   13.152338] PM: Adding info for platform:regulatory.0
+[   13.152457] platform regulatory.0: Adding to iommu group 8
+[   13.152791] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[   13.290431] Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[   13.291873] Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[   13.625068] bus: 'sdio': add driver ath6kl_sdio
+[   13.625119] bus: 'sdio': __driver_probe_device: matched device mmc1:0001:1 with driver ath6kl_sdio
+[   13.625145] bus: 'sdio': really_probe: probing driver ath6kl_sdio with device mmc1:0001:1
+[   13.625191] ath6kl_sdio mmc1:0001:1: no default pinctrl state
+[   14.722147] ath6kl: ar6004 hw 3.0 sdio fw 3.5.0.349-1 api 5
+[   14.722218] ath6kl: firmware supports: 64bit-rates,map-lp-endpoint,ratetable-mcs15,no-ip-checksum
+[   14.733655] ath6kl: Firmware lacks RSN-CAP-OVERRIDE, so HT (802.11n) is disabled.
+[   14.733710] device: 'phy0': device_add
+[   14.735854] PM: Adding info for No Bus:phy0
+[   14.736793] device: 'rfkill0': device_add
+[   14.736997] PM: Adding info for No Bus:rfkill0
+[   14.738495] device: 'wlan0': device_add
+[   14.893357] PM: Adding info for No Bus:wlan0
+[   14.933210] driver: 'ath6kl_sdio': driver_bound: bound to device 'mmc1:0001:1'
+[   14.953421] bus: 'sdio': really_probe: bound device mmc1:0001:1 to driver ath6kl_sdio
+[   16.480809] device: 'lo': device_add
+[   16.481377] PM: Adding info for No Bus:lo
+[   16.482265] device: 'sit0': device_add
+[   16.482751] PM: Adding info for No Bus:sit0
+[   17.606125] PM: Removing info for No Bus:sit0
+[   17.656870] PM: Removing info for No Bus:lo
+[   18.611545] device: 'lo': device_add
+[   18.612068] PM: Adding info for No Bus:lo
+[   18.612906] device: 'sit0': device_add
+[   18.615927] PM: Adding info for No Bus:sit0
+[   18.908413] NET: Registered PF_QIPCRTR protocol family
+[   20.251713] r8152 1-1:1.0 enx00e04c7284d6: carrier on
+[   31.644483] Initializing XFRM netlink socket
