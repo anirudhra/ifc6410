@@ -6,4 +6,4 @@ This kernel is "dirty" as it uses a custom ifc6410 dtsi file with the following 
 2) New regulators added for "tabla" (but audio still won't work) and HPLL for armv7a boards 
 3) 3.3v fixed voltage property fix
 
-The custom dtsi file will get replaced when yocto git pull and/or resync of kernel source is performed and must be replaced just before the step of compiling kernel.
+The custom dtsi file will get replaced when yocto git pull and/or resync of kernel source is performed and must be replaced just before the step of compiling kernel. An accompanying kernel patch file is provided with the changes for such cases.
