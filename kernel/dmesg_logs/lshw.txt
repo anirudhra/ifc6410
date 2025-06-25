@@ -1,0 +1,363 @@
+ifc6410
+    description: ARMv7 Processor rev 0 (v7l)
+    product: Qualcomm APQ8064/IFC6410
+    width: 32 bits
+    capabilities: smp
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 0
+          bus info: cpu@0
+          capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 1
+          bus info: cpu@1
+          capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 2
+          bus info: cpu@2
+          capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 3
+          bus info: cpu@3
+          capabilities: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32
+     *-cpu:4 DISABLED
+          description: CPU
+          product: idle-states
+          physical id: 4
+          bus info: cpu@4
+     *-cpu:5 DISABLED
+          description: CPU
+          product: l2-cache
+          physical id: 5
+          bus info: cpu@5
+     *-memory
+          description: System memory
+          physical id: 6
+          size: 1951MiB
+     *-generic UNCLAIMED
+          description: Unassigned class
+          product: Qualcomm Technologies, Inc
+          vendor: Qualcomm Technologies, Inc
+          physical id: 7
+          bus info: pci@0000:00:00.0
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+          capabilities: pm msi pciexpress bus_master cap_list
+          configuration: latency=0 mingnt=3
+          resources: ioport:1000(size=4096) memory:8000000-80fffff
+     *-network
+          description: Ethernet interface
+          product: AR8151 v2.0 Gigabit Ethernet
+          vendor: Qualcomm Atheros
+          physical id: 8
+          bus info: pci@0000:01:00.0
+          logical name: enp1s0
+          version: c0
+          serial: 06:17:ca:94:16:e7
+          capacity: 1Gbit/s
+          width: 64 bits
+          clock: 33MHz
+          capabilities: pm msi pciexpress vpd bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+          configuration: autonegotiation=on broadcast=yes driver=atl1c driverversion=6.6.9-20250623-00205-g3565a579b latency=0 link=no multicast=yes port=twisted pair
+          resources: irq:63 memory:8000000-803ffff ioport:1000(size=128)
+  *-usbhost:0
+       product: EHCI Host Controller
+       vendor: Linux 6.6.9-20250623-00205-g3565a579b978-dirty ehci_hcd
+       physical id: 1
+       bus info: usb@1
+       logical name: usb1
+       version: 6.06
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+     *-usb
+          description: Generic USB device
+          product: USB 10/100/1000 LAN
+          vendor: Realtek
+          physical id: 1
+          bus info: usb@1:1
+          version: 30.00
+          serial: 000001
+          capabilities: usb-2.10
+          configuration: driver=r8152 maxpower=200mA speed=480Mbit/s
+  *-usbhost:1
+       product: EHCI Host Controller
+       vendor: Linux 6.6.9-20250623-00205-g3565a579b978-dirty ehci_hcd
+       physical id: 2
+       bus info: usb@2
+       logical name: usb2
+       version: 6.06
+       capabilities: usb-2.00
+       configuration: driver=hub slots=1 speed=480Mbit/s
+     *-usb
+          description: Mass storage device
+          product: ASM105x
+          vendor: ASMT
+          physical id: 1
+          bus info: usb@2:1
+          logical name: scsi1
+          version: 1.00
+          serial: 00000000000000000000
+          capabilities: usb-2.10 scsi
+          configuration: driver=uas speed=480Mbit/s
+        *-disk
+             description: SCSI Disk
+             product: ASM105x
+             vendor: ASMT
+             physical id: 0.0.0
+             bus info: scsi@1:0.0.0
+             logical name: /dev/sda
+             version: 0
+             serial: 00000000000000000000
+             size: 238GiB (256GB)
+             capabilities: gpt-1.00 partitioned partitioned:gpt
+             configuration: ansiversion=6 guid=f657ab47-9714-7541-8e0e-cb23fe091569 logicalsectorsize=512 sectorsize=4096
+           *-volume
+                description: EXT4 volume
+                vendor: Linux
+                physical id: 1
+                bus info: scsi@1:0.0.0,1
+                logical name: /dev/sda1
+                version: 1.0
+                serial: 411b477c-d9bd-4467-8ae8-dcb9bc4672d7
+                size: 238GiB
+                capabilities: journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                configuration: created=2025-06-13 19:37:25 filesystem=ext4 lastmountpoint=/ modified=1969-12-31 16:00:03 mounted=1969-12-31 16:00:03 state=clean
+  *-mmc0
+       description: MMC Host
+       physical id: 3
+       logical name: mmc0
+  *-mmc1
+       description: MMC Host
+       physical id: 4
+       logical name: mmc1
+     *-device
+          description: SDIO Device
+          physical id: 1
+          bus info: mmc@1:0001:1
+          logical name: mmc1:0001:1
+          serial: 0
+          capabilities: sdio
+  *-mmc2
+       description: MMC Host
+       physical id: 5
+       logical name: mmc2
+     *-device
+          description: SD/MMC Device
+          product: SEM04G
+          vendor: Unknown (69)
+          physical id: 1
+          bus info: mmc@2:0001
+          date: 03/2014
+          serial: 22272044
+          capabilities: mmc
+        *-interface:0
+             physical id: 1
+             logical name: /dev/mmcblk2rpmb
+        *-interface:1
+             physical id: 2
+             logical name: /dev/mmcblk2
+             size: 3959422976
+             capabilities: gpt-1.00 partitioned partitioned:gpt
+             configuration: guid=98101b32-bbe2-4bf2-a06e-2bb33d000c20 logicalsectorsize=512 sectorsize=512
+           *-volume:0
+                description: Windows FAT volume
+                vendor: MSDOS5.0
+                physical id: 1
+                logical name: /dev/mmcblk2p1
+                version: FAT16
+                serial: 00bc-614e
+                size: 63MiB
+                capacity: 63MiB
+                capabilities: readonly fat initialized
+                configuration: FATs=2 filesystem=fat name=modem
+           *-volume:1
+                description: EFI partition
+                physical id: 2
+                logical name: /dev/mmcblk2p2
+                serial: 34a312b8-f2ff-1b09-da5b-39029fdb1289
+                capacity: 127KiB
+                configuration: name=sbl1
+           *-volume:2
+                description: EFI partition
+                physical id: 3
+                logical name: /dev/mmcblk2p3
+                serial: 915f2bdb-dc56-a118-7054-8f8ef23089de
+                capacity: 255KiB
+                configuration: name=sbl2
+           *-volume:3
+                description: EFI partition
+                physical id: 4
+                logical name: /dev/mmcblk2p4
+                serial: be44a528-f01c-b636-e829-1b3a80821400
+                capacity: 511KiB
+                configuration: name=sbl3
+           *-volume:4
+                description: EFI partition
+                physical id: 5
+                logical name: /dev/mmcblk2p5
+                serial: 3f0dfc62-6573-76d5-5dfc-910418a996d2
+                capacity: 511KiB
+                configuration: name=aboot
+           *-volume:5
+                description: EFI partition
+                physical id: 6
+                logical name: /dev/mmcblk2p6
+                serial: 77a43af9-e483-2189-93bc-6fc561b6e6ca
+                capacity: 511KiB
+                configuration: name=rpm
+           *-volume:6
+                description: EFI partition
+                physical id: 7
+                logical name: /dev/mmcblk2p7
+                serial: 1488b2fc-6fe5-4e99-bded-0f2bd0db35fe
+                capacity: 63MiB
+                capabilities: readonly
+                configuration: name=boot
+           *-volume:7
+                description: EFI partition
+                physical id: 8
+                logical name: /dev/mmcblk2p8
+                serial: 9e4648d3-c786-4075-44a6-eeca1e6dfef4
+                capacity: 511KiB
+                configuration: name=tz
+           *-volume:8
+                description: EFI partition
+                physical id: 9
+                logical name: /dev/mmcblk2p9
+                serial: c1ca2bcc-520e-a3bb-ebfa-cc6b561ee4cf
+                capacity: 512iB
+                configuration: name=pad
+           *-volume:9
+                description: EFI partition
+                physical id: a
+                logical name: /dev/mmcblk2p10
+                serial: 12bfbda7-8dc3-2390-656a-db0089a3cfe5
+                capacity: 3071KiB
+                configuration: name=modemst1
+           *-volume:10
+                description: EFI partition
+                physical id: b
+                logical name: /dev/mmcblk2p11
+                serial: 45d478dd-2a23-28f6-b00f-c3e005cbc137
+                capacity: 3071KiB
+                configuration: name=modemst2
+           *-volume:11
+                description: EXT4 volume
+                vendor: Linux
+                physical id: c
+                logical name: /dev/mmcblk2p12
+                version: 1.0
+                serial: f2cc784c-9f9a-4492-a323-f64badebe9a7
+                size: 96MiB
+                capacity: 511MiB
+                capabilities: readonly journaled extended_attributes large_files huge_files dir_nlink 64bit extents ext4 ext2 initialized
+                configuration: created=2022-09-27 19:14:29 filesystem=ext4 lastmountpoint=/mnt/rootfs modified=2025-05-27 18:24:26 mounted=2025-05-27 18:24:00 name=system state=clean
+           *-volume:12
+                description: EXT4 volume
+                vendor: Linux
+                physical id: d
+                logical name: /dev/mmcblk2p13
+                version: 1.0
+                serial: 3387e352-3def-407b-9f02-a961f640dcbe
+                size: 2GiB
+                capabilities: readonly journaled extended_attributes large_files huge_files dir_nlink extents ext4 ext2 initialized
+                configuration: created=2016-02-24 07:50:39 filesystem=ext4 label=rootfs lastmountpoint=/ modified=2025-06-20 21:55:07 mounted=2025-06-20 21:54:18 name=userdata state=clean
+           *-volume:13
+                description: EXT4 volume
+                vendor: Linux
+                physical id: e
+                logical name: /dev/mmcblk2p14
+                version: 1.0
+                serial: 57f8f4bc-abf4-655f-bf67-946fc0f9f25b
+                size: 8MiB
+                capabilities: readonly journaled extended_attributes large_files extents ext4 ext2 initialized
+                configuration: filesystem=ext4 lastmountpoint=/mnt/temp modified=2025-05-27 18:23:44 mounted=2025-05-27 18:23:06 name=persist state=clean
+           *-volume:14
+                description: EXT4 volume
+                vendor: Linux
+                physical id: f
+                logical name: /dev/mmcblk2p15
+                version: 1.0
+                serial: 47ce1396-8e26-d759-a2a4-95a908edfc79
+                size: 64MiB
+                capabilities: readonly journaled extended_attributes large_files extents ext4 ext2 initialized
+                configuration: filesystem=ext4 label=qcom-firmware lastmountpoint=/mnt/temp modified=2025-06-20 18:05:15 mounted=2025-06-20 18:04:15 name=cache state=clean
+           *-volume:15
+                description: EFI partition
+                physical id: 10
+                logical name: /dev/mmcblk2p16
+                serial: a8a62958-e156-fde9-005c-c7adbc2164c3
+                capacity: 1023KiB
+                configuration: name=misc
+           *-volume:16
+                description: EFI partition
+                physical id: 11
+                logical name: /dev/mmcblk2p17
+                serial: 6f4ed196-50a6-a093-667a-2d8ddc708879
+                capacity: 10239KiB
+                capabilities: readonly
+                configuration: name=recovery
+           *-volume:17
+                description: EFI partition
+                physical id: 12
+                logical name: /dev/mmcblk2p18
+                serial: 116b189c-12d2-2b0a-476b-0b61175ca9a3
+                capacity: 3071KiB
+                capabilities: readonly
+                configuration: name=fsg
+           *-volume:18
+                description: EFI partition
+                physical id: 13
+                logical name: /dev/mmcblk2p19
+                serial: b446e4ce-2d4b-cb67-0bff-422ac3dfad0d
+                capacity: 7680iB
+                configuration: name=ssd
+           *-volume:19
+                description: EFI partition
+                physical id: 14
+                logical name: /dev/mmcblk2p20
+                serial: 38bd5016-3cc7-e6da-a7a2-de64db68e533
+                capacity: 4608iB
+                configuration: name=grow
+           *-volume:20
+                description: EFI partition
+                physical id: 15
+                logical name: /dev/mmcblk2p21
+                serial: 869c7cf3-7bc4-1c22-9f11-cc869b2525b7
+                capacity: 575MiB
+                capabilities: readonly
+                configuration: name=DDR
+  *-input
+       product: pmic8xxx_pwrkey
+       physical id: 6
+       logical name: input0
+       logical name: /dev/input/event0
+  *-network:0
+       description: Ethernet interface
+       physical id: 7
+       bus info: usb@1:1
+       logical name: enx00e04c7284d6
+       serial: 00:e0:4c:72:84:d6
+       size: 1Gbit/s
+       capacity: 1Gbit/s
+       capabilities: ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=r8152 driverversion=v1.12.13 duplex=full firmware=rtl8153a-4 v2 02/07/20 ip=10.100.100.64 link=yes multicast=yes port=MII speed=1Gbit/s
+  *-network:1
+       description: Wireless interface
+       physical id: 8
+       bus info: mmc@1:0001:1
+       logical name: wlan0
+       serial: 00:03:7f:20:a2:74
+       capabilities: ethernet physical wireless
+       configuration: broadcast=yes driver=ath6kl_sdio driverversion=6.6.9-20250623-00205-g3565a579b firmware=3.5.0.349-1 ip=10.100.100.66 link=yes multicast=yes wireless=IEEE 802.11
