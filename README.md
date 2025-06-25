@@ -128,7 +128,7 @@ The following device drivers need to be compiled as part of kernel (iommu, qcom 
 * IOMMU (Device Drivers > IOMMU Hardware Support): msm-iommu (enable this instead of qualcomm/qcom-iommu preferably)
 * Network FS (File Systems > Network file systems): cifs/smb/samba, nfsv4 for network sharing (client and server versions)
 * USB Attached SCSI (UAS), OTG and Mass Storage (Device drivers > USB Support): for external HDDs, build these into the kernel NOT as modules, else rootfs mount will deadlock
-* QCOM RPM, Krait CPU/thermal management, HFPLL, QCOM-SPM, qcom kpss clock controller etc. (see Device Drivers > SoC specific drivers > QCOM SoC and Device Drivers > Common Clock Framework > QCOM clock controllers)
+* QCOM RPM, Krait CPU/thermal management, HFPLL, QCOM-SPM (dvfs) QCOM-SCM (security), TZ/QFPROM, qcom kpss clock controller etc. (see Device Drivers > SoC specific drivers > QCOM SoC and Device Drivers > Common Clock Framework > QCOM clock controllers)
 * libata.force option (Device Drivers > Serial ATA and PATA): To set "noncq" kernel command line option for PCIe SATA SSDs 
 * all other QCOM drivers for APQ8060/8064/8660/8960
 * msm GPU (Device Drivers > Graphics Support): Adreno GPU "msm" driver MUST be built as a module instead of integrating into kernel in order to be able to blacklist later if it hangs
