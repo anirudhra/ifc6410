@@ -1,0 +1,2 @@
+ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/queue_depth}="1"
+
