@@ -87,8 +87,10 @@ MACHINE ??="qcom-armv7a"  ## change other settings like package_deb, mirror etc.
 
 To the the same local.conf from above, depending on the kernel version, add the following new line to the end of the file. This avoids having to use abootimg later to append custom command line:
 ```
-KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
+KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=1 fw_devlink=permissive"
 ```
+
+Note: ```systemd.unified_cgroup_hierarchy=0``` enables cgroups v1 (deprecated), use ```systemd.unified_cgroup_hierarchy=1``` for the newer cgroups v2. Kernel must be compiled with eBPF support under cgroups and bpf() under General settings.
 
 ### Compile kernel (common to both branches)
 
@@ -182,10 +184,10 @@ abootimg -u <kernelimg> -f bootimg.cfg #bootimg.cfg should have updated kernel c
 
 Make the following change to "cmdline" line in bootimg.cfg. Do not modify any other line:
 ```
-"cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
+"cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=1 fw_devlink=permissive"
 ```
 
-The option: ```systemd.unified_cgroup_hierarchy=0``` enables cgroups v1. Note that this is being deprecated in various distros. It is better to enable cgroup bpf support (CONFIG_CGROUP_BPF) for cgroups v2.
+The option: ```systemd.unified_cgroup_hierarchy=0``` enables cgroups v1 (instead of 1, that enables cgroups v2). Note that this is being deprecated in various distros. It is better to enable cgroup bpf support (CONFIG_CGROUP_BPF) for cgroups v2. This is needed for newer docker.
 
 To disable SATA NCQ, additionally add the following to the above:
 ```
