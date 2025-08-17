@@ -123,7 +123,7 @@ The following device drivers need to be compiled as part of kernel (iommu, qcom 
 * ath6kl-sdio (Device Drivers > Network device support > Wireless LAN): Atheros 6000 onboard wifi (ath6lk-sdio, -core versions, also enable "blueooth coexistence")
 * Bluetooth (Networking support > Bluetooth subsys support > Bluetooth device drivers): ath3k BT loader and protocols, also enable rfcomm/tty BT serial protocols 
 * FileSystems: overlayfs, squashfs, jffs, exfat, fat32, ntfs including write support, btrfs, i/dnotify, Kernel Automounter, fuse 
-* Control Group support (General setup): control/cgroups (for Docker), enable bpf for cgroups v2 (CONFIG_CGROUP_BPF)
+* Control Group support (General setup): control/cgroups (for Docker), enable bpf for cgroups v2 (CONFIG_CGROUP_BPF, If not found, press the / key to open the search prompt and type CONFIG_CGROUP_BPF and press Enter)
 * Networking support > Networking options: Ethernet bridging, Network packet filtering (netfilter), iptables, TCP/IP, IPv6, stp, llc, veth (for Docker)
 * IOMMU (Device Drivers > IOMMU Hardware Support): msm-iommu (enable this instead of qualcomm/qcom-iommu preferably)
 * Network FS (File Systems > Network file systems): cifs/smb/samba, nfsv4 for network sharing (client and server versions)
