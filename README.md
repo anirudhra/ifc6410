@@ -123,7 +123,7 @@ The following device drivers need to be compiled as part of kernel (iommu, qcom 
 * ath6kl-sdio (Device Drivers > Network device support > Wireless LAN): Atheros 6000 onboard wifi (ath6lk-sdio, -core versions, also enable "blueooth coexistence")
 * Bluetooth (Networking support > Bluetooth subsys support > Bluetooth device drivers): ath3k BT loader and protocols, also enable rfcomm/tty BT serial protocols 
 * FileSystems: overlayfs, squashfs, jffs, exfat, fat32, ntfs including write support, btrfs, i/dnotify, Kernel Automounter, fuse 
-* Control Group support (General setup): control/cgroups (for Docker)
+* Control Group support (General setup): control/cgroups (for Docker), enable bpf for cgroups v2 (CONFIG_CGROUP_BPF)
 * Networking support > Networking options: Ethernet bridging, Network packet filtering (netfilter), iptables, TCP/IP, IPv6, stp, llc, veth (for Docker)
 * IOMMU (Device Drivers > IOMMU Hardware Support): msm-iommu (enable this instead of qualcomm/qcom-iommu preferably)
 * Network FS (File Systems > Network file systems): cifs/smb/samba, nfsv4 for network sharing (client and server versions)
@@ -184,6 +184,8 @@ Make the following change to "cmdline" line in bootimg.cfg. Do not modify any ot
 ```
 "cmdline = root=/dev/sda1 rw rootwait console=ttyMSM0,115200n8 systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=0 fw_devlink=permissive"
 ```
+
+The option: ```systemd.unified_cgroup_hierarchy=0``` enables cgroups v1. Note that this is being deprecated in various distros. It is better to enable cgroup bpf support (CONFIG_CGROUP_BPF) for cgroups v2.
 
 To disable SATA NCQ, additionally add the following to the above:
 ```
