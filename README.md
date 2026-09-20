@@ -92,6 +92,60 @@ KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_h
 
 Note: ```systemd.unified_cgroup_hierarchy=0``` enables cgroups v1 (deprecated), use ```systemd.unified_cgroup_hierarchy=1``` for the newer cgroups v2. Kernel must be compiled with eBPF support under cgroups and bpf() under General settings.
 
+### Resolving GPU Crashes & Enabling HDMI Audio (Kernel 6.6)
+
+The default Linaro Qualcomm configuration disables `CONFIG_PM_DEVFREQ`, which causes the Adreno 320 GPU probe to fail with `-16` and panic with a NULL pointer dereference in `__bitmap_clear`.
+
+1. Create `meta-qcom/recipes-kernel/linux/files/devfreq.cfg`:
+```ini
+CONFIG_PM_DEVFREQ=y
+CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND=y
+CONFIG_DEVFREQ_GOV_PERFORMANCE=y
+CONFIG_DEVFREQ_GOV_POWERSAVE=y
+CONFIG_DEVFREQ_GOV_USERSPACE=y
+
+# HDMI Audio Codec Support
+CONFIG_SND_SOC_HDMI_CODEC=y
+CONFIG_SND_SOC_LPASS_HDMI=y
+CONFIG_SND_SOC_LPASS_IPQ806X=y
+CONFIG_SND_SIMPLE_CARD=y
+```
+
+Add a configuration merge task in meta-qcom/recipes-kernel/linux/linux-linaro-qcomlt_%.bbappend:
+```
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+
+SRC_URI:append = " file://devfreq.cfg"
+
+do_configure:append() {
+    if [ -f ${WORKDIR}/devfreq.cfg ]; then
+        ${S}/scripts/kconfig/merge_config.sh -m -O ${B} ${B}/.config ${WORKDIR}/devfreq.cfg
+        oe_runmake -C ${S} O=${B} olddefconfig
+    fi
+}
+```
+Additional Kernel Command Line Parameters
+
+In local.conf, add the following parameters to avoid using abootimg later to append custom command line options:
+
+KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=1 fw_devlink=permissive libata.force=noncq"
+
+Note: `systemd.unified_cgroup_hierarchy=0` enables cgroups v1 (deprecated), use `systemd.unified_cgroup_hierarchy=1` for cgroups v2. Kernel must be compiled with eBPF support under cgroups (`CONFIG_CGROUP_BPF`) and `bpf()` under General setup.
+
+### Compile and Verify Commands
+
+From within the `build/qcom-armv7a` directory (after sourcing `oe-init-build-env`):
+
+* Clean and reconfigure the kernel:
+```
+bitbake -c cleansstate virtual/kernel
+bitbake -c configure virtual/kernel
+```
+Verify merged options in active .config:
+```
+grep -E "CONFIG_PM_DEVFREQ|CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND" tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config
+```
+
 ### Compile kernel (common to both branches)
 
 * Add QCOM changes as described above and configure the following kernel configure/build options from within the /build/qcom-armv7a directory. Make sure to run the source-oe script with qcom-armv7a before running any of below for all subsequent builds.
@@ -109,6 +163,17 @@ bitbake -c compile -f virtual/kernel                  ##rebuild only kernel
 * To save kernel defconfig file:
 ```
 bitbake virtual/kernel -c savedefconfig
+```
+
+* Verify built object files and linked symbols:
+```
+ls -la tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/drivers/devfreq/*.o
+nm tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/vmlinux | grep -E "devfreq_add_device|devfreq_simple_ondemand_handler"
+```
+
+Verify embedded configuration inside compiled zImage:
+```
+tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/git/scripts/extract-ikconfig tmp/deploy/images/qcom-armv7a/zImage | grep -E "CONFIG_PM_DEVFREQ|CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND"
 ```
 
 ## Kernel Modules, Firmware and EMMC Partitions
