@@ -109,6 +109,12 @@ CONFIG_SND_SOC_HDMI_CODEC=y
 CONFIG_SND_SOC_LPASS_HDMI=y
 CONFIG_SND_SOC_LPASS_IPQ806X=y
 CONFIG_SND_SIMPLE_CARD=y
+
+# USB Mass Storage & UAS for USB Root Drive
+CONFIG_USB_STORAGE=y
+CONFIG_USB_UAS=y
+CONFIG_SCSI=y
+CONFIG_BLK_DEV_SD=y
 ```
 
 Add a configuration merge task in meta-qcom/recipes-kernel/linux/linux-linaro-qcomlt_%.bbappend:
