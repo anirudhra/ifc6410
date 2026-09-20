@@ -24,36 +24,6 @@ After any changes to kernel or kernel modules, do not forget to run the followin
 depmod -a
 ```
 
-### kirkstone branch (Kernel 5.15)
-
-This kernel does not have GPU/DPU/audio working. Loading "msm" GPU driver crashes the kernel/bootup. Make sure to blacklist "msm" modules at startup to prevent system bootup hangs.
-
-```
-git clone git://git.yoctoproject.org/poky
-cd poky
-git checkout -t origin/kirkstone -b mypokybranch
-git pull
-git clone git://git.yoctoproject.org/meta-qcom
-cd meta-qcom
-git checkout -t origin/kirkstone -b myqcombranch
-cd ..
-source oe-init-build-env build/qcom-armv7a
-bitbake-layers add-layer ../../meta-qcom  # from within build/qcom-armv7a directory
-```
-
-* Change MACHINE ??="qemux86_64" in ../build/qcom-armv7a/conf/local.conf to:
-
-```
-MACHINE ??="ifc6410"      ## change other settings like package_deb, mirros etc. as necessary
-```
-
-* Change rootfs partition: "/dev/mmcblk0p12" (old emmc userdata partition) in .../poky/meta-qcom/conf/machine/ifc6410.conf to new userdata emmc partition under QCOM_BOOTIMG_ROOTFS:
-```
-/dev/mmcblk0p13           ## for emmc userdata partition
-/dev/mmcblk1p1            ## for sdcard partition 1 or mmcblk1p2/p3 etc. depending on paritition number
-/dev/sda1                 ## for USB port 1 (top) or SATA
-```
-
 ### scarthgap branch (Kernel 6.6)
 
 This kernel detects GPU/DPU and "can" load msm drivers without kernel crash but the HDMI port shows no output. The GPU driver "msm" need not be blacklisted. It has broken audio though.
@@ -130,13 +100,6 @@ do_configure:append() {
     fi
 }
 ```
-Additional Kernel Command Line Parameters
-
-In local.conf, add the following parameters to avoid using abootimg later to append custom command line options:
-
-KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_hierarchy=1 fw_devlink=permissive libata.force=noncq"
-
-Note: `systemd.unified_cgroup_hierarchy=0` enables cgroups v1 (deprecated), use `systemd.unified_cgroup_hierarchy=1` for cgroups v2. Kernel must be compiled with eBPF support under cgroups (`CONFIG_CGROUP_BPF`) and `bpf()` under General setup.
 
 ## Device Tree Configuration for HDMI Video & Audio (Kernel 6.6)
 
@@ -173,19 +136,12 @@ Verify that the HDMI node has `status = "okay"`, links to the MDP4 output port, 
 ```
 ### Compile and Verify Commands
 
-From within the `build/qcom-armv7a` directory (after sourcing `oe-init-build-env`):
-
-* Clean and reconfigure the kernel:
-```
-bitbake -c cleansstate virtual/kernel
-bitbake -c configure virtual/kernel
-```
-Verify merged options in active .config:
+After kernel compile (described in next step), verify merged options in active .config:
 ```
 grep -E "CONFIG_PM_DEVFREQ|CONFIG_DEVFREQ_GOV_SIMPLE_ONDEMAND" tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config
 ```
 
-### Compile kernel (common to both branches)
+### Compile kernel
 
 * Add QCOM changes as described above and configure the following kernel configure/build options from within the /build/qcom-armv7a directory. Make sure to run the source-oe script with qcom-armv7a before running any of below for all subsequent builds.
 ```
