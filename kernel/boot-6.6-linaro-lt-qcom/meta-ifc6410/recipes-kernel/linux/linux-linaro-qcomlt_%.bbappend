@@ -2,8 +2,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " \
 file://devfreq.cfg \
-file://0001-apq8064-ifc6410-add-hdmi-audio.patch \
 file://0001-ARM-dts-qcom-apq8064-Add-qfprom_physical-memory-reso.patch \
+file://0001-ARM-dts-ifc6410-add-audio-and-bluetooth.patch \
 file://firmware/ \
 "
 
