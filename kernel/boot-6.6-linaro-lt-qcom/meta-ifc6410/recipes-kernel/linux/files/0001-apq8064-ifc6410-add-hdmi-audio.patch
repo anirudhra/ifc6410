@@ -1,0 +1,29 @@
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 96307550523a..9a1321ab005a 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -357,3 +357,24 @@ &usb4 {
+ 	dr_mode = "host";
+ 	status = "okay";
+ };
++
++&pm8921_ncp {
++	regulator-min-microvolt = <1800000>;
++	regulator-max-microvolt = <1800000>;
++	qcom,switch-mode-frequency = <1600000>;
++	status = "okay";
++};
++
++&pm8921_s2 {
++	regulator-min-microvolt = <1300000>;
++	regulator-max-microvolt = <1300000>;
++	qcom,switch-mode-frequency = <1600000>;
++	bias-pull-down;
++};
++
++&pm8921_s8 {
++	regulator-min-microvolt = <2050000>;
++	regulator-max-microvolt = <2050000>;
++	qcom,switch-mode-frequency = <1600000>;
++	bias-pull-down;
++};
