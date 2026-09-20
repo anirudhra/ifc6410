@@ -138,6 +138,39 @@ KERNEL_CMDLINE_EXTRA ?= "systemd.unit=multi-user.target systemd.unified_cgroup_h
 
 Note: `systemd.unified_cgroup_hierarchy=0` enables cgroups v1 (deprecated), use `systemd.unified_cgroup_hierarchy=1` for cgroups v2. Kernel must be compiled with eBPF support under cgroups (`CONFIG_CGROUP_BPF`) and `bpf()` under General setup.
 
+## Device Tree Configuration for HDMI Video & Audio (Kernel 6.6)
+
+In mainline Linux 6.6, the legacy board-file sound drivers (`snd-apq8064-tabla`) are deprecated. HDMI video and audio are instantiated using Open Firmware (OF) graphs between the MDP4 display controller, the built-in HDMI transmitter, and the LPASS audio core.
+
+### 1. HDMI Transmitter & Panel Graph (`arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts`)
+
+Verify that the HDMI node has `status = "okay"`, links to the MDP4 output port, and defines the board-specific Hot-Plug Detection (HPD) pin on MPPO 6:
+
+```
+&hdmi {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&hdmi_hpd_active &hdmi_ddc_active>;
+
+	hpd-gpios = <&pm8921_mpps 6 GPIO_ACTIVE_HIGH>;
+	core-vdda-supply = <&pm8921_hdmi_mvs>;
+	core-i2c-supply = <&pm8921_l23>;
+
+	ports {
+		port@0 {
+			endpoint {
+				remote-endpoint = <&mdp4_dtv_out>;
+			};
+		};
+
+		port@1 {
+			endpoint {
+				remote-endpoint = <&hdmi_connector_in>;
+			};
+		};
+	};
+};
+```
 ### Compile and Verify Commands
 
 From within the `build/qcom-armv7a` directory (after sourcing `oe-init-build-env`):
