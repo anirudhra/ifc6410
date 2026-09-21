@@ -1,5 +1,5 @@
 diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
-index 96307550523a..6dca0d2633af 100644
+index 96307550523a..6f461c74d529 100644
 --- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
 +++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
 @@ -3,6 +3,8 @@
@@ -11,24 +11,29 @@ index 96307550523a..6dca0d2633af 100644
  
  / {
  	model = "Qualcomm APQ8064/IFC6410";
-@@ -51,6 +53,8 @@ sdcc4_pwrseq: pwrseq-sdcc4 {
+@@ -46,11 +48,13 @@ hdmi_con: endpoint {
+ 		};
+ 	};
+ 
+-	sdcc4_pwrseq: pwrseq-sdcc4 {
++        sdcc4_pwrseq: pwrseq-sdcc4 {
+ 		pinctrl-names = "default";
  		pinctrl-0 = <&wlan_default_gpios>;
  		compatible = "mmc-pwrseq-simple";
  		reset-gpios = <&pm8921_gpio 43 GPIO_ACTIVE_LOW>;
-+                clocks = <&rpmcc RPM_XO_A2>;
++		clocks = <&rpmcc RPM_XO_A2>;
 +		clock-names = "ext_clock";
  	};
  
  	ext_3p3v: regulator-ext-3p3v {
-@@ -357,3 +361,43 @@ &usb4 {
+@@ -357,3 +361,42 @@ &usb4 {
  	dr_mode = "host";
  	status = "okay";
  };
 +
 +&pm8921_ncp {
-+	regulator-min-microvolt = <1800000>;
++	regulator-min-microvolt = <1500000>;
 +	regulator-max-microvolt = <1800000>;
-+	qcom,switch-mode-frequency = <1600000>;
 +	regulator-always-on;
 +	regulator-boot-on;
 +	status = "okay";
