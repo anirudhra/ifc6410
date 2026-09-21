@@ -14,6 +14,10 @@ Set the following options:
 
 ## Kernel Compile
 
+A complete patched set is availble within the kernel/ directory, see readme.md there.
+
+*** The details below are informational only, in case you want to manually apply all changes ***
+
 Yocto kernel MUST be compiled as nonroot user, else the bitbake build will fail. Note that only kernel 4.4.0 has all devices working. Beyond that kernel, audio is not detected and GPU hangs for all newer kernels (needs to be blacklisted explicitly, so ensure "msm" GPU driver is built as module and not integrated in to the kernel). All other devices work, so the SBC can be used as a headless computer.
 
 For future updates, skip the "checkout" commands below and just "git pull".
