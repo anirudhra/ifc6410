@@ -1,0 +1,17 @@
+diff --git a/drivers/net/wireless/ath/ath6kl/init.c b/drivers/net/wireless/ath/ath6kl/init.c
+index 201e45554070..ab43f7006deb 100644
+--- a/drivers/net/wireless/ath/ath6kl/init.c
++++ b/drivers/net/wireless/ath/ath6kl/init.c
+@@ -1605,6 +1605,12 @@ int ath6kl_init_hw_params(struct ath6kl *ar)
+ 		   "refclk_hz %d uarttx_pin %d",
+ 		   ar->hw.refclk_hz, ar->hw.uarttx_pin);
+ 
++    /* Force RSN capability override to enable 802.11n HT rates */
++    if (!test_bit(ATH6KL_FW_CAPABILITY_RSN_CAP_OVERRIDE,
++         ar->fw_capabilities)) {
++         set_bit(ATH6KL_FW_CAPABILITY_RSN_CAP_OVERRIDE, ar->fw_capabilities);
++    }
++
+ 	return 0;
+ }
+ 

@@ -1,0 +1,62 @@
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 96307550523a..77827a46c375 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -3,6 +3,8 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
++#include <dt-bindings/pinctrl/qcom,pmic-mpp.h>
++#include <dt-bindings/clock/qcom,rpmcc.h>
+ 
+ / {
+ 	model = "Qualcomm APQ8064/IFC6410";
+@@ -51,6 +53,8 @@ sdcc4_pwrseq: pwrseq-sdcc4 {
+ 		pinctrl-0 = <&wlan_default_gpios>;
+ 		compatible = "mmc-pwrseq-simple";
+ 		reset-gpios = <&pm8921_gpio 43 GPIO_ACTIVE_LOW>;
++                clocks = <&rpmcc RPM_XO_A2>;
++                clock-names = "ext_clock";
+ 	};
+ 
+ 	ext_3p3v: regulator-ext-3p3v {
+@@ -357,3 +361,38 @@ &usb4 {
+ 	dr_mode = "host";
+ 	status = "okay";
+ };
++
++&pm8921_ncp {
++        qcom,switch-mode-frequency = <1600000>;
++        status = "okay";
++};
++
++&pm8921_s2 {
++        regulator-min-microvolt = <1300000>;
++        regulator-max-microvolt = <1300000>;
++        qcom,switch-mode-frequency = <1600000>;
++        regulator-always-on;
++        regulator-boot-on;
++        bias-pull-down;
++};
++
++&pm8921_s8 {
++        regulator-min-microvolt = <2050000>;
++        regulator-max-microvolt = <2050000>;
++        qcom,switch-mode-frequency = <1600000>;
++        regulator-always-on;
++        regulator-boot-on;
++        bias-pull-down;
++};
++
++&pm8921_mpps {
++        pinctrl-names = "default";
++        pinctrl-0 = <&bt_en_pin>;
++
++	bt_en_pin: bt-en-pin {
++                pins = "mpp1";
++                function = "digital";
++                output-high;
++                power-source = <PM8921_MPP_S4>;
++        };
++};
+
