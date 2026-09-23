@@ -12,7 +12,6 @@ Upstream `meta-qcom` provides generic `qcom-armv7a` baseline support for 32-bit 
 
 1. **CPUFreq Bootloader Pinning & CPUIdle Support:**
    * Upstream mainline Linux 6.6 lacks the necessary Device Tree OPP tables and speed-bin efuse wiring (`nvmem-cells`) for APQ8064 Krait cores, causing `qcom-cpufreq-nvmem` to fail during probe with `-ENOENT` (`-2`).
-   * `meta-ifc6410` disables `CONFIG_ARM_QCOM_CPUFREQ_NVMEM`, preventing driver probe errors and allowing the four Krait cores to run stably at the bootloader-initialized performance ceiling.
    * Low idle temperatures are maintained through the Sawtooth Power Manager (SPM) driver and Standalone Power Collapse (`spc`), which dynamically gates clocks and cuts power rails to idle cores.
 2. **Hardware Cryptography & RNG Enablement:**
    * Enables `CONFIG_CRYPTO_DEV_QCOM_RNG=m` (`qcom-rng`), hooking the APQ8064 on-chip PRNG hardware (`qcom,prng` at `0x1a500000`) into the kernel Crypto API as the primary system `stdrng`.
