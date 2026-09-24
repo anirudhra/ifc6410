@@ -1,0 +1,15 @@
+Board: Qualcomm APQ8064 / IFC6410
+Kernel provider: linux-linaro-qcomlt
+Kernel recipe version: 6.6
+Layer: meta-ifc6410
+Layer commit: b047f0ea8f89d089e675778a78ef784e73a1e115
+Validation date: 2026-09-24
+
+This file is the effective compiled kernel configuration copied from:
+tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config
+
+Validation:
+- Forced do_patch completed successfully from the committed layer.
+- Fresh boot image booted on IFC6410.
+- MSM DRM initialized and Adreno A3xx bound.
+- Mesa EGL surfaceless and GBM both selected Freedreno FD320.

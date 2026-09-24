@@ -11,6 +11,10 @@ SRC_URI += "file://ifc6410.cfg \
             file://0005-ARM-dts-qcom-ifc6410-add-initial-CPU-OPP-table.patch \
             file://0006-ARM-dts-qcom-ifc6410-select-default-CPU-speed-bin.patch \
             file://0007-ARM-dts-qcom-ifc6410-add-CPU-thermal-cooling-maps.patch \
+            file://0001-ARM-dma-mapping-reset-DMA-ops-before-IOMMU-detach.patch \
+            file://0002-iommu-msm-track-a-context-master-per-device-and-IOMM.patch \
+            file://0003-iommu-msm-use-the-IOMMU-device-for-page-table-allocation.patch \
+            file://0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch \
             file://firmware/ \
             "
 

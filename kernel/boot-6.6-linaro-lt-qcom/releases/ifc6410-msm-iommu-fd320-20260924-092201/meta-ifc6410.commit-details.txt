@@ -1,0 +1,23 @@
+commit b047f0ea8f89d089e675778a78ef784e73a1e115
+Author:     Anirudh Acharya <anirudhra@hotmail.com>
+AuthorDate: Thu Sep 24 09:17:45 2026 -0700
+Commit:     Anirudh Acharya <anirudhra@hotmail.com>
+CommitDate: Thu Sep 24 09:17:45 2026 -0700
+
+    arm: ifc6410: fix MSM IOMMU page table allocation
+    
+    Backport ARM DMA mapping and MSM IOMMU fixes needed for APQ8064 display and Adreno initialization.
+    
+    Use the MSM IOMMU device rather than the GPU/display client device for ARMv7 page-table allocation after releasing the legacy client mapping.
+    
+    Validated on IFC6410:
+    - Debian boots to multi-user target
+    - MSM DRM binds Adreno A3xx and loads A300 PM4/PFP firmware
+    - EGL surfaceless and GBM both report Mesa Freedreno FD320
+
+ ...mapping-reset-DMA-ops-before-IOMMU-detach.patch | 26 +++++++++
+ ...rack-a-context-master-per-device-and-IOMM.patch | 50 ++++++++++++++++++
+ ...he-IOMMU-device-for-page-table-allocation.patch | 61 ++++++++++++++++++++++
+ ...ease-ARM-DMA-mapping-before-attaching-own.patch | 49 +++++++++++++++++
+ .../linux/linux-linaro-qcomlt_%.bbappend           |  4 ++
+ 5 files changed, 190 insertions(+)

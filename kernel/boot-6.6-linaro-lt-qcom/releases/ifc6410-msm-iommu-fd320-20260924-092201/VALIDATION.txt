@@ -1,0 +1,29 @@
+Target: Qualcomm APQ8064 / IFC6410
+Date: 2026-09-24
+meta-ifc6410 commit: b047f0ea8f89d089e675778a78ef784e73a1e115
+
+Build validation:
+- bitbake -f -c patch virtual/kernel succeeded.
+- Patched source contains:
+  drivers/iommu/msm_iommu.c:
+    .iommu_dev = iommu->dev
+  drivers/gpu/drm/msm/msm_iommu.c:
+    arm_iommu_detach_device(dev)
+    arm_iommu_release_mapping(mapping)
+
+Runtime validation:
+- Debian 13 boot reached multi-user target.
+- MSM DRM initialized on MDP4 display controller.
+- Adreno A3xx bound successfully.
+- Firmware loaded:
+  qcom/a300_pm4.fw
+  qcom/a300_pfp.fw
+- EGL surfaceless: Mesa freedreno / FD320.
+- EGL GBM: Mesa freedreno / FD320.
+- No MSM/Adreno/IOMMU fault, GPU stall, oops, or panic observed.
+
+Known nonfatal messages:
+- GPU vdd and vddcx use dummy regulators.
+- GPU cooling device registration failed.
+- HDMI HDCP disabled.
+- No monitor connected; no CRTC mode was found.
