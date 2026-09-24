@@ -3,13 +3,15 @@ INITRAMFS_IMAGE_BUNDLE = "0"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI += " \
-    file://ifc6410.cfg \
-    file://0001-ARM-dts-qcom-apq8064-Add-qfprom_physical-memory-reso.patch \
-    file://0001-ARM-dts-ifc6410-add-audio-clock-and-regulator-nodes.patch \
-    file://0003-ath6kl-force-enable-ht-cap-override.patch \
-    file://firmware/ \
-"
+SRC_URI += "file://ifc6410.cfg \
+            file://0001-ARM-dts-qcom-apq8064-Add-qfprom_physical-memory-reso.patch \
+            file://0001-ARM-dts-ifc6410-add-audio-clock-and-regulator-nodes.patch \
+            file://0003-ath6kl-force-enable-ht-cap-override.patch \
+            file://0004-ARM-dts-qcom-ifc6410-add-Krait-CPU-clock-topology.patch \
+            file://0005-ARM-dts-qcom-ifc6410-add-initial-CPU-OPP-table.patch \
+            file://0006-ARM-dts-qcom-ifc6410-select-default-CPU-speed-bin.patch \
+            file://firmware/ \
+            "
 
 do_configure:prepend() {
     # 1. Populate firmware in both source and out-of-tree build dirs

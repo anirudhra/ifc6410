@@ -1,0 +1,29 @@
+From 78235a3c0efb0d4bcc9c4cf5efb941d2c4611192 Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Wed, 23 Sep 2026 16:17:58 -0700
+Subject: [PATCH] ARM: dts: qcom: ifc6410: select default CPU speed bin
+
+---
+ arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 33189e9ca32e..31d1d8d29391 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -104,13 +104,13 @@ cpu_opp_table: opp-table {
+ 
+         opp-391500000 {
+                 opp-hz = /bits/ 64 <391500000>;
+-                opp-supported-hw = <0x2>;
++                opp-supported-hw = <0x1>;
+                 clock-latency-ns = <100000>;
+         };
+ 
+         opp-918000000 {
+                 opp-hz = /bits/ 64 <918000000>;
+-                opp-supported-hw = <0x2>;
++                opp-supported-hw = <0x1>;
+                 clock-latency-ns = <100000>;
+         };
+     };

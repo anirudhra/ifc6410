@@ -1,5 +1,14 @@
+From 14273b5e95c6626dcea4a25a900052a5cc957c54 Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Mon, 21 Sep 2026 09:47:27 -0700
+Subject: [PATCH] kernel: rename dts patch and configure pm8921_ncp with
+
+---
+ .../boot/dts/qcom/qcom-apq8064-ifc6410.dts    | 39 +++++++++++++++++++
+ 1 file changed, 39 insertions(+)
+
 diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
-index 96307550523a..77827a46c375 100644
+index 96307550523a..0361c80d1b96 100644
 --- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
 +++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
 @@ -3,6 +3,8 @@
@@ -59,4 +68,3 @@ index 96307550523a..77827a46c375 100644
 +                power-source = <PM8921_MPP_S4>;
 +        };
 +};
-

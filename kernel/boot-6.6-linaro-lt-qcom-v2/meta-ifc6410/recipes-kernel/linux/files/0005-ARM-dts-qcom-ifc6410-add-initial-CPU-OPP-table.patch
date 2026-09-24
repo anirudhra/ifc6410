@@ -1,0 +1,68 @@
+From caf577dd90ca340308a04971bee75c607f68e097 Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Wed, 23 Sep 2026 15:53:22 -0700
+Subject: [PATCH] ARM: dts: qcom: ifc6410: add initial CPU OPP table
+
+---
+ .../boot/dts/qcom/qcom-apq8064-ifc6410.dts    | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 1e8de8e183f0..33189e9ca32e 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -96,6 +96,30 @@ ext_3p3v: regulator-ext-3p3v {
+ 		enable-active-high;
+ 		regulator-boot-on;
+ 	};
++
++    cpu_opp_table: opp-table {
++        compatible = "operating-points-v2-kryo-cpu";
++        nvmem-cells = <&speedbin_efuse>;
++        opp-shared;
++
++        opp-391500000 {
++                opp-hz = /bits/ 64 <391500000>;
++                opp-supported-hw = <0x2>;
++                clock-latency-ns = <100000>;
++        };
++
++        opp-918000000 {
++                opp-hz = /bits/ 64 <918000000>;
++                opp-supported-hw = <0x2>;
++                clock-latency-ns = <100000>;
++        };
++    };
++};
++
++&qfprom {
++    speedbin_efuse: speedbin@c0 {
++        reg = <0xc0 0x8>;
++    };
+ };
+ 
+ &gsbi1 {
+@@ -428,19 +452,23 @@ bt_en_pin: bt-en-pin {
+ &CPU0 {
+         clocks = <&kraitcc 0>;
+         clock-names = "cpu";
++        operating-points-v2 = <&cpu_opp_table>;
+ };
+ 
+ &CPU1 {
+         clocks = <&kraitcc 1>;
+         clock-names = "cpu";
++        operating-points-v2 = <&cpu_opp_table>;
+ };
+ 
+ &CPU2 {
+         clocks = <&kraitcc 2>;
+         clock-names = "cpu";
++        operating-points-v2 = <&cpu_opp_table>;
+ };
+ 
+ &CPU3 {
+         clocks = <&kraitcc 3>;
+         clock-names = "cpu";
++        operating-points-v2 = <&cpu_opp_table>;
+ };

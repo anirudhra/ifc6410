@@ -1,4 +1,4 @@
-From 07e42a71db4003b664064adf67d11be582d519af Mon Sep 17 00:00:00 2001
+From 8c186c487fae610c4c17c7f91b13276fdcf43a73 Mon Sep 17 00:00:00 2001
 From: Anirudh Acharya <anirudhra@hotmail.com>
 Date: Sat, 19 Sep 2026 10:54:47 -0700
 Subject: [PATCH] ARM: dts: qcom: apq8064: Add qfprom_physical memory resource

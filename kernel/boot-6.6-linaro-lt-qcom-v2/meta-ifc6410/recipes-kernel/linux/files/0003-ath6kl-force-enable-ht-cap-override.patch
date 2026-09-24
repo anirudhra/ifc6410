@@ -1,3 +1,12 @@
+From 07e54c79fe64028e5efcb8b6f851467a3ef8fb4f Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Mon, 21 Sep 2026 13:38:20 -0700
+Subject: [PATCH] ath6kl: align ht-cap-override patch to v6.6 line 1605
+
+---
+ drivers/net/wireless/ath/ath6kl/init.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
 diff --git a/drivers/net/wireless/ath/ath6kl/init.c b/drivers/net/wireless/ath/ath6kl/init.c
 index 201e45554070..ab43f7006deb 100644
 --- a/drivers/net/wireless/ath/ath6kl/init.c
