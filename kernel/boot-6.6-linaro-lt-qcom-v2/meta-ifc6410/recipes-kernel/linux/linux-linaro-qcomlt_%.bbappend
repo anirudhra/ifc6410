@@ -10,6 +10,7 @@ SRC_URI += "file://ifc6410.cfg \
             file://0004-ARM-dts-qcom-ifc6410-add-Krait-CPU-clock-topology.patch \
             file://0005-ARM-dts-qcom-ifc6410-add-initial-CPU-OPP-table.patch \
             file://0006-ARM-dts-qcom-ifc6410-select-default-CPU-speed-bin.patch \
+            file://0007-ARM-dts-qcom-ifc6410-add-CPU-thermal-cooling-maps.patch \
             file://firmware/ \
             "
 

@@ -1,0 +1,69 @@
+From d760e020126df4a6d7325f3c8fb68541048a43a2 Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Wed, 23 Sep 2026 19:15:09 -0700
+Subject: [PATCH] ARM: dts: qcom: ifc6410: add CPU thermal cooling maps
+
+---
+ .../boot/dts/qcom/qcom-apq8064-ifc6410.dts    | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 31d1d8d29391..30daca665418 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -5,6 +5,7 @@
+ #include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+ #include <dt-bindings/pinctrl/qcom,pmic-mpp.h>
+ #include <dt-bindings/clock/qcom,rpmcc.h>
++#include <dt-bindings/thermal/thermal.h>
+
+ / {
+     kraitcc: clock-controller {
+@@ -453,6 +454,7 @@ &CPU0 {
+         clocks = <&kraitcc 0>;
+         clock-names = "cpu";
+         operating-points-v2 = <&cpu_opp_table>;
++        #cooling-cells = <2>;
+ };
+
+ &CPU1 {
+@@ -472,3 +474,39 @@ &CPU3 {
+         clock-names = "cpu";
+         operating-points-v2 = <&cpu_opp_table>;
+ };
++
++&{/thermal-zones/cpu0-thermal} {
++        cooling-maps {
++                cpu0_alert {
++                        trip = <&cpu_alert0>;
++                        cooling-device = <&CPU0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++                };
++        };
++};
++
++&{/thermal-zones/cpu1-thermal} {
++        cooling-maps {
++                cpu1_alert {
++                        trip = <&cpu_alert1>;
++                        cooling-device = <&CPU0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++                };
++        };
++};
++
++&{/thermal-zones/cpu2-thermal} {
++        cooling-maps {
++                cpu2_alert {
++                        trip = <&cpu_alert2>;
++                        cooling-device = <&CPU0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++                };
++        };
++};
++
++&{/thermal-zones/cpu3-thermal} {
++        cooling-maps {
++                cpu3_alert {
++                        trip = <&cpu_alert3>;
++                        cooling-device = <&CPU0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++                };
++        };
++};
