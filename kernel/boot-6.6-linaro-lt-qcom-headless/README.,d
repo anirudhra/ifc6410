@@ -1,0 +1,1 @@
+This is an older 6.6.9 Yocto build that still has broken HDMI and GPU and no CPU freqency scaling and some missing regulators. This still works fine as headless kernel though. Preserving for archival reasons.
