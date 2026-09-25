@@ -29,7 +29,7 @@ Validated runtime state:
 The two GPU operating points currently provided by the inherited APQ8064 DTSI are:
 
 | OPP | GPU core frequency | Use |
-|---|---:|---|
+| --- | ---: | --- |
 | Low | 27 MHz | Idle and thermally capped state |
 | High | 450 MHz | Performance state under GPU load |
 
@@ -42,9 +42,9 @@ The GPU's devfreq governor is `simple_ondemand`. At idle, `cur_freq` normally re
 ## Repository Contents
 
 ```text
-.
-├── boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img
-├── modules--6.6-r0-qcom-armv7a-20260924162336.tgz
+Kernel 6.6:
+├── boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<date>.img
+├── modules--6.6-r0-qcom-armv7a-<date>.tgz
 ├── qcom-apq8064-ifc6410.dtb
 ├── meta-ifc6410/
 │   ├── conf/
@@ -92,10 +92,10 @@ The timestamped boot image, DTB, and module archive belong to the same validated
 ## Release Artifacts
 
 | Artifact | Purpose |
-|---|---|
-| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img` | Fastboot-compatible IFC6410 boot image from the recorded baseline build |
+| --- | --- |
+| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<date>.img` | Fastboot-compatible IFC6410 boot image from the recorded baseline build |
 | `qcom-apq8064-ifc6410.dtb` | Device tree blob matching the recorded boot image |
-| `modules--6.6-r0-qcom-armv7a-20260924162336.tgz` | Kernel modules matching the recorded kernel build |
+| `modules--6.6-r0-qcom-armv7a-<date>.tgz` | Kernel modules matching the recorded kernel build |
 | `meta-ifc6410/` | Yocto BSP layer, configuration fragment, device-tree patches, and kernel backports |
 | `releases/ifc6410-kernel-config-20260924-100651/` | Effective compiled `.config`, SHA-256 checksum, and build provenance for the baseline release |
 | `releases/ifc6410-msm-iommu-fd320-20260924-092201/` | Patch, commit, and runtime-validation record for the working MSM IOMMU/Adreno path |
@@ -196,7 +196,7 @@ cd ~/yocto-ifc6410
 
 git clone -b scarthgap https://git.yoctoproject.org/poky
 git clone -b scarthgap https://git.yoctoproject.org/meta-qcom poky/meta-qcom
-git clone <your-meta-ifc6410-repository-url> poky/meta-ifc6410
+git clone <your-meta-ifc6410-repository-url >poky/meta-ifc6410
 ```
 
 ### Initialize and configure the build
@@ -208,7 +208,7 @@ source oe-init-build-env build/qcom-armv7a
 bitbake-layers add-layer ../meta-qcom
 bitbake-layers add-layer ../meta-ifc6410
 
-echo 'MACHINE = "qcom-armv7a"' >> conf/local.conf
+echo 'MACHINE = "qcom-armv7a"' >>conf/local.conf
 
 bitbake-layers show-appends | grep -A 6 "linux-linaro-qcomlt"
 ```
@@ -245,7 +245,7 @@ bitbake core-image-base
 
 ```bash
 cp tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config \
-   ifc6410-linux-6.6-effective.config
+  ifc6410-linux-6.6-effective.config
 ```
 
 For a release including GPU devfreq thermal support, verify the resolved configuration contains:
@@ -346,9 +346,9 @@ cat "$GPU/polling_interval"
 cat "$GPU/trans_stat"
 
 for d in /sys/class/thermal/cooling_device*; do
-    [ -r "$d/type" ] || continue
-    printf '%s: ' "$d"
-    cat "$d/type"
+  [ -r "$d/type" ] || continue
+  printf '%s: ' "$d"
+  cat "$d/type"
 done
 ```
 
@@ -369,11 +369,11 @@ To monitor actual clock changes under a sustained GPU workload:
 GPU=/sys/class/devfreq/4300000.adreno-3xx
 
 while :; do
-    printf '%s  freq=%s  governor=%s\n' \
-      "$(date +%T.%3N)" \
-      "$(cat "$GPU/cur_freq")" \
-      "$(cat "$GPU/governor")"
-    sleep 0.2
+  printf '%s  freq=%s  governor=%s\n' \
+    "$(date +%T.%3N)" \
+    "$(cat "$GPU/cur_freq")" \
+    "$(cat "$GPU/governor")"
+  sleep 0.2
 done
 ```
 
@@ -390,15 +390,15 @@ For a short, manual cooling-cap diagnostic, first identify the GPU cooling-devic
 
 ```bash
 for d in /sys/class/thermal/cooling_device*; do
-    [ "$(cat "$d/type" 2>/dev/null)" = "devfreq-4300000.adreno-3xx" ] && GPU_COOL="$d"
+  [ "$(cat "$d/type" 2>/dev/null)" = "devfreq-4300000.adreno-3xx" ] && GPU_COOL="$d"
 done
 
 printf 'GPU cooling device: %s\n' "$GPU_COOL"
-echo 1 > "$GPU_COOL/cur_state"
+echo 1 >"$GPU_COOL/cur_state"
 cat "$GPU_COOL/cur_state"
 
 # Restore normal maximum-performance allowance after the test.
-echo 0 > "$GPU_COOL/cur_state"
+echo 0 >"$GPU_COOL/cur_state"
 ```
 
 With the current two-OPP table, cooling state `1` should cap the GPU to 27 MHz and state `0` should again permit 450 MHz. Treat this as a diagnostic only; normal thermal policy should be driven by an appropriate thermal zone and trip policy.
