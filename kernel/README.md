@@ -35,7 +35,7 @@ The two GPU operating points currently provided by the inherited APQ8064 DTSI ar
 
 The GPU's devfreq governor is `simple_ondemand`. At idle, `cur_freq` normally reports 27 MHz. Under a sustained EGL/GLES workload, the governor should select 450 MHz. The GPU devfreq cooling device has `max_state=1`; state `0` permits the high OPP and state `1` caps the GPU to the low OPP.
 
-> **Power-management limitation:** The active device tree does not provide named GPU `vdd` or `vddcx` regulator supplies, so MSM DRM reports dummy-regulator fallbacks. The inherited GPU OPPs define frequencies but no `opp-microvolt` values. GPU frequency scaling and devfreq thermal capping are functional, but this is not yet validated regulator-backed voltage-and-frequency DVFS. Do not add GPU regulator references or OPP voltage values without confirming the IFC6410 physical rail mapping and valid voltage corners from schematics, vendor sources, or a verified matching board DTS.
+> **Power-management limitation** - **GPU regulator-backed DVFS:** GPU devfreq and devfreq cooling are working with frequency-only OPPs at 27 MHz and 450 MHz. The Adreno `vddcx` supply is wired to PM8921 S3 and validates at boot. The GPU core `vdd` supply remains unspecified, and the OPP table has no `opp-microvolt` values. Complete regulator-backed voltage-and-frequency DVFS is not yet validated. Do not add GPU `vdd` regulator references or OPP voltage values without confirming the IFC6410 physical rail mapping and valid voltage corners from schematics, vendor sources, or a verified matching board DTS.
 
 ---
 
@@ -43,8 +43,8 @@ The GPU's devfreq governor is `simple_ondemand`. At idle, `cur_freq` normally re
 
 ```text
 Kernel 6.6:
-├── boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<date>.img
-├── modules--6.6-r0-qcom-armv7a-<date>.tgz
+├── boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<compile-date>.img
+├── modules--6.6-r0-qcom-armv7a-<compile-date>.tgz
 ├── qcom-apq8064-ifc6410.dtb
 ├── meta-ifc6410/
 │   ├── conf/
@@ -93,9 +93,9 @@ The timestamped boot image, DTB, and module archive belong to the same validated
 
 | Artifact | Purpose |
 | --- | --- |
-| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<date>.img` | Fastboot-compatible IFC6410 boot image from the recorded baseline build |
+| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<compile-date>.img` | Fastboot-compatible IFC6410 boot image from the recorded baseline build |
+| `modules--6.6-r0-qcom-armv7a-<compile-date>.tgz` | Kernel modules matching the recorded kernel build |
 | `qcom-apq8064-ifc6410.dtb` | Device tree blob matching the recorded boot image |
-| `modules--6.6-r0-qcom-armv7a-<date>.tgz` | Kernel modules matching the recorded kernel build |
 | `meta-ifc6410/` | Yocto BSP layer, configuration fragment, device-tree patches, and kernel backports |
 | `releases/ifc6410-kernel-config-20260924-100651/` | Effective compiled `.config`, SHA-256 checksum, and build provenance for the baseline release |
 | `releases/ifc6410-msm-iommu-fd320-20260924-092201/` | Patch, commit, and runtime-validation record for the working MSM IOMMU/Adreno path |

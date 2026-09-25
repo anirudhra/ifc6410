@@ -1,0 +1,33 @@
+From 14be813407db5952112bbe2bb7823b37369f6619 Mon Sep 17 00:00:00 2001
+From: Anirudh Acharya <anirudhra@hotmail.com>
+Date: Fri, 25 Sep 2026 15:28:38 -0700
+Subject: [PATCH] ARM: dts: qcom: ifc6410: add GPU vddcx regulator supply
+
+Add IFC6410 board-level vddcx supply reference for the Adreno 320 GPU.
+Use PM8921 S3 as the GPU vddcx supply, matching the historical APQ8064
+DTS usage for the Adreno CX rail. Do not add a GPU vdd supply or OPP
+voltage corners here because the IFC6410 GPU core rail and voltage
+corners have not been validated.
+
+Signed-off-by: Anirudh Acharya <anirudhra@hotmail.com>
+---
+ arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+index 30daca665418..4dd2d1dd2541 100644
+--- a/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
++++ b/arch/arm/boot/dts/qcom/qcom-apq8064-ifc6410.dts
+@@ -329,6 +329,10 @@ lvs6 {
+ 	};
+ };
+ 
++&gpu {
++	vddcx-supply = <&pm8921_s3>;
++};
++
+ &sata_phy0 {
+ 	status = "okay";
+ };
+-- 
+2.48.1

@@ -15,6 +15,7 @@ SRC_URI += "file://ifc6410.cfg \
             file://0002-iommu-msm-track-a-context-master-per-device-and-IOMM.patch \
             file://0003-iommu-msm-use-the-IOMMU-device-for-page-table-allocation.patch \
             file://0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch \
+            file://0008-ARM-dts-qcom-ifc6410-add-GPU-vddcx-regulator-supply.patch \
             file://firmware/ \
             "
 
