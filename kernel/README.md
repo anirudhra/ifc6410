@@ -2,13 +2,40 @@
 
 This repository contains the reproducible Yocto BSP-layer source, configuration provenance, and release metadata for a validated **Linux 6.6** kernel build for the **Inforce IFC6410** single-board computer, based on Qualcomm's Snapdragon S4 Pro / **APQ8064** platform with Krait 300 CPUs and an Adreno 320 GPU.
 
-The kernel is built by Yocto from `linux-linaro-qcomlt` on the Project `scarthgap` release. The included `meta-ifc6410` layer carries IFC6410-specific kernel configuration, device-tree fixes, firmware staging layout, and MSM IOMMU/DRM backports. The validated layer revision is:
+The kernel is built by Yocto from `linux-linaro-qcomlt` on the Project `scarthgap` release. The included `meta-ifc6410` layer carries IFC6410-specific kernel configuration, device-tree fixes, firmware staging layout, and MSM IOMMU/DRM backports.
+
+> **Current validated status:** The board boots to Debian multi-user mode; MSM DRM initializes; Adreno A3xx binds to MDP4; the `a300_pm4.fw` and `a300_pfp.fw` microcode files load; and Mesa 25.0.7 identifies the hardware renderer as **Freedreno FD320** through both surfaceless EGL and GBM. GPU devfreq is enabled with a 27 MHz idle OPP and 450 MHz performance OPP, and the kernel registers an Adreno devfreq thermal cooling device. HDMI scanout remains a separate work item because no attached display/active connector mode has been validated.
+
+---
+
+## Current GPU Status
+
+The APQ8064 base device tree defines the Adreno 320 GPU as `gpu: adreno-3xx@4300000`, with the `GFX3D_CLK` core clock and a two-entry OPP table. The IFC6410 layer enables the devfreq thermal framework needed by the MSM DRM driver.
+
+Validated runtime state:
 
 ```text
-meta-ifc6410: b047f0ea8f89d089e675778a78ef784e73a1e115
+/sys/class/devfreq/4300000.adreno-3xx
+  governor: simple_ondemand
+  available_frequencies: 27000000 450000000
+  min_freq: 27000000
+  max_freq: 450000000
+  polling_interval: 50
+
+/sys/class/thermal/cooling_device0/type
+  devfreq-4300000.adreno-3xx
 ```
 
-> **Validated status:** The board boots to Debian multi-user mode; MSM DRM initializes; Adreno A3xx binds to MDP4; the `a300_pm4.fw` and `a300_pfp.fw` microcode files load; and Mesa 25.0.7 identifies the hardware renderer as **Freedreno FD320** through both surfaceless EGL and GBM. HDMI scanout remains a separate work item because no attached display/active connector mode has been validated.
+The two GPU operating points currently provided by the inherited APQ8064 DTSI are:
+
+| OPP | GPU core frequency | Use |
+|---|---:|---|
+| Low | 27 MHz | Idle and thermally capped state |
+| High | 450 MHz | Performance state under GPU load |
+
+The GPU's devfreq governor is `simple_ondemand`. At idle, `cur_freq` normally reports 27 MHz. Under a sustained EGL/GLES workload, the governor should select 450 MHz. The GPU devfreq cooling device has `max_state=1`; state `0` permits the high OPP and state `1` caps the GPU to the low OPP.
+
+> **Power-management limitation:** The active device tree does not provide named GPU `vdd` or `vddcx` regulator supplies, so MSM DRM reports dummy-regulator fallbacks. The inherited GPU OPPs define frequencies but no `opp-microvolt` values. GPU frequency scaling and devfreq thermal capping are functional, but this is not yet validated regulator-backed voltage-and-frequency DVFS. Do not add GPU regulator references or OPP voltage values without confirming the IFC6410 physical rail mapping and valid voltage corners from schematics, vendor sources, or a verified matching board DTS.
 
 ---
 
@@ -58,7 +85,7 @@ meta-ifc6410: b047f0ea8f89d089e675778a78ef784e73a1e115
     └── meta-ifc6410-b047f0e-20260924-091913.bundle.sha256
 ```
 
-The timestamped boot image, DTB, and module archive belong to the same validated build and should be used together. The dated `releases/ifc6410-kernel-config-20260924-100651/` directory is the authoritative source for the final effective kernel configuration and its provenance.
+The timestamped boot image, DTB, and module archive belong to the same validated build and should be used together. The dated `releases/ifc6410-kernel-config-20260924-100651/` directory is the authoritative source for the prior resolved kernel configuration and its provenance. After enabling GPU devfreq thermal cooling, preserve a new effective `.config`, matching boot artifact set, and validation record for that build.
 
 ---
 
@@ -66,15 +93,15 @@ The timestamped boot image, DTB, and module archive belong to the same validated
 
 | Artifact | Purpose |
 |---|---|
-| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img` | Fastboot-compatible IFC6410 boot image from the validated build |
-| `qcom-apq8064-ifc6410.dtb` | Device tree blob matching the boot image |
-| `modules--6.6-r0-qcom-armv7a-20260924162336.tgz` | Kernel modules matching the kernel build |
+| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img` | Fastboot-compatible IFC6410 boot image from the recorded baseline build |
+| `qcom-apq8064-ifc6410.dtb` | Device tree blob matching the recorded boot image |
+| `modules--6.6-r0-qcom-armv7a-20260924162336.tgz` | Kernel modules matching the recorded kernel build |
 | `meta-ifc6410/` | Yocto BSP layer, configuration fragment, device-tree patches, and kernel backports |
-| `releases/ifc6410-kernel-config-20260924-100651/` | Effective compiled `.config`, SHA-256 checksum, and build provenance |
+| `releases/ifc6410-kernel-config-20260924-100651/` | Effective compiled `.config`, SHA-256 checksum, and build provenance for the baseline release |
 | `releases/ifc6410-msm-iommu-fd320-20260924-092201/` | Patch, commit, and runtime-validation record for the working MSM IOMMU/Adreno path |
-| `releases/meta-ifc6410-b047f0e-20260924-091913.bundle` | Portable Git bundle containing the validated `meta-ifc6410` commit |
+| `releases/meta-ifc6410-b047f0e-20260924-091913.bundle` | Portable Git bundle containing the recorded `meta-ifc6410` commit |
 
-Before flashing or sharing an artifact, verify its corresponding SHA-256 checksum from the release metadata.
+Before flashing or sharing an artifact, verify its corresponding SHA-256 checksum from the release metadata. Do not mix boot images, DTBs, or modules from distinct builds.
 
 ---
 
@@ -87,13 +114,15 @@ Upstream `meta-qcom` provides the generic `qcom-armv7a` baseline, but the IFC641
 - Adds APQ8064 Krait CPU clock topology, initial OPP data, and default speed-bin selection in the device tree.
 - Provides regulator overrides for the PM8921/RPM setup, including explicit settings for `pm8921_s2`, `pm8921_s8`, and the `pm8921_ncp` negative charge pump.
 - Enables CPUIdle/Standalone Power Collapse (`spc`) support used to power down idle Krait cores.
-- The current Linux 6.6 baseline does not yet have the required APQ8064 nvmem speed-bin integration for working `qcom-cpufreq-nvmem`; the CPU therefore runs at a bootloader-selected frequency.
+- Enables `CONFIG_DEVFREQ_THERMAL=y`, allowing MSM DRM to register the Adreno 320 devfreq cooling device.
+- The current Linux 6.6 baseline does not yet have the required APQ8064 nvmem speed-bin integration for working `qcom-cpufreq-nvmem`; CPU operating-point behavior remains limited by the platform's speed-bin/PVS support and bootloader-selected initial rates.
 
 ### Device tree and platform fixes
 
 - Adds the missing `qfprom_physical` MMIO resource under the APQ8064 HDMI transmitter node.
 - Adds board audio clock/regulator device-tree nodes.
 - Configures the Yocto boot command line for a SATA/USB root filesystem at `/dev/sda1`, serial console on `ttyMSM0` at 115200 baud, cgroups v2, and conservative SATA operation with `libata.force=1.5Gbps,noncq`.
+- Inherits the APQ8064 base GPU node `gpu: adreno-3xx@4300000`, including its Adreno 320.2 compatible string, `GFX3D_CLK` core clock, IOMMU context-bank references, and two frequency-only OPPs at 27 MHz and 450 MHz.
 
 ### Networking, crypto, and firmware layout
 
@@ -112,6 +141,13 @@ The layer includes four related ARM32 IOMMU/DRM backports:
 4. `0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch`
 
 Together they handle the interaction between the legacy ARM DMA-IOMMU mapping and the DRM/MSM driver's own IOMMU domain. In particular, page tables are allocated through the MSM IOMMU device instead of through the transitioning GPU/display client device. This resolves the earlier Adreno address-space initialization stall on the IFC6410.
+
+With `CONFIG_DEVFREQ_THERMAL=y`, the same working MSM DRM path creates:
+
+```text
+/sys/class/devfreq/4300000.adreno-3xx
+/sys/class/thermal/cooling_device*/type = devfreq-4300000.adreno-3xx
+```
 
 ---
 
@@ -212,11 +248,22 @@ cp tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config
    ifc6410-linux-6.6-effective.config
 ```
 
-For the validated release in this repository, the effective configuration is retained at:
+For a release including GPU devfreq thermal support, verify the resolved configuration contains:
+
+```bash
+grep -E '^(CONFIG_PM_DEVFREQ|CONFIG_DEVFREQ_THERMAL|CONFIG_PM_OPP)=' \
+  tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config
+```
+
+Expected:
 
 ```text
-releases/ifc6410-kernel-config-20260924-100651/ifc6410-linux-6.6-effective.config
+CONFIG_DEVFREQ_THERMAL=y
+CONFIG_PM_DEVFREQ=y
+CONFIG_PM_OPP=y
 ```
+
+Keep the resulting effective `.config`, deployment artifacts, and runtime validation output together in a dated release directory.
 
 ---
 
@@ -282,6 +329,80 @@ OpenGL ES profile version: OpenGL ES 3.0 Mesa ...
 
 `FD320` indicates Mesa selected the APQ8064 Adreno 320 GPU through Freedreno rather than using a software renderer such as llvmpipe.
 
+### GPU devfreq and cooling
+
+Confirm the devfreq instance and cooling device:
+
+```bash
+GPU=/sys/class/devfreq/4300000.adreno-3xx
+
+cat "$GPU/name"
+cat "$GPU/governor"
+cat "$GPU/cur_freq"
+cat "$GPU/available_frequencies"
+cat "$GPU/min_freq"
+cat "$GPU/max_freq"
+cat "$GPU/polling_interval"
+cat "$GPU/trans_stat"
+
+for d in /sys/class/thermal/cooling_device*; do
+    [ -r "$d/type" ] || continue
+    printf '%s: ' "$d"
+    cat "$d/type"
+done
+```
+
+Expected baseline state:
+
+```text
+4300000.adreno-3xx
+simple_ondemand
+27000000
+27000000 450000000
+```
+
+The GPU cooling device should report type `devfreq-4300000.adreno-3xx`, with `max_state=1`.
+
+To monitor actual clock changes under a sustained GPU workload:
+
+```bash
+GPU=/sys/class/devfreq/4300000.adreno-3xx
+
+while :; do
+    printf '%s  freq=%s  governor=%s\n' \
+      "$(date +%T.%3N)" \
+      "$(cat "$GPU/cur_freq")" \
+      "$(cat "$GPU/governor")"
+    sleep 0.2
+done
+```
+
+Run a sustained EGL/GLES benchmark in another terminal. `eglinfo` validates the hardware renderer but is not a sustained GPU-load test. After testing, inspect:
+
+```bash
+cat "$GPU/trans_stat"
+dmesg | grep -Ei 'adreno|gpu|fault|hang|reset|iommu|devfreq'
+```
+
+A successful transition test shows one or more rate transitions and no GPU, DRM, or IOMMU fault/hang/reset.
+
+For a short, manual cooling-cap diagnostic, first identify the GPU cooling-device directory by type, then set its state to `1` during an active GPU workload:
+
+```bash
+for d in /sys/class/thermal/cooling_device*; do
+    [ "$(cat "$d/type" 2>/dev/null)" = "devfreq-4300000.adreno-3xx" ] && GPU_COOL="$d"
+done
+
+printf 'GPU cooling device: %s\n' "$GPU_COOL"
+echo 1 > "$GPU_COOL/cur_state"
+cat "$GPU_COOL/cur_state"
+
+# Restore normal maximum-performance allowance after the test.
+echo 0 > "$GPU_COOL/cur_state"
+```
+
+With the current two-OPP table, cooling state `1` should cap the GPU to 27 MHz and state `0` should again permit 450 MHz. Treat this as a diagnostic only; normal thermal policy should be driven by an appropriate thermal zone and trip policy.
+
 ### Other quick checks
 
 ```bash
@@ -313,10 +434,12 @@ Expected platform behavior:
 
 ## Known Limitations
 
-- **CPU frequency scaling:** APQ8064 speed-bin/nvmem support required by `qcom-cpufreq-nvmem` is incomplete in this Linux 6.6 baseline. The CPUs operate at the bootloader-selected rate.
+- **GPU regulator-backed DVFS:** GPU devfreq and devfreq cooling are working with two frequency-only OPPs, 27 MHz and 450 MHz. The active GPU node has no named `vdd` or `vddcx` supply properties and the OPP table has no `opp-microvolt` values. MSM DRM therefore uses dummy regulators. Confirm the IFC6410 Adreno core and CX rail topology before adding supply references or voltage OPP data.
+- **GPU thermal policy:** The GPU devfreq cooling device registers and can cap the GPU to the low OPP, but a board-specific GPU/MMSS thermal-zone and trip/cooling-map policy has not yet been validated. Do not automatically attach GPU cooling to CPU thermal zones without choosing representative sensors and thermal limits.
+- **GPU OPP granularity:** The inherited APQ8064 GPU table contains only 27 MHz and 450 MHz. Intermediate, board-validated GPU OPPs have not been added.
+- **CPU frequency scaling:** APQ8064 speed-bin/nvmem support required by `qcom-cpufreq-nvmem` is incomplete in this Linux 6.6 baseline. The CPUs operate at a bootloader-selected rate initially; Krait clock/OPP behavior should be validated separately.
 - **QCE crypto acceleration:** APQ8064 has CE4 hardware, while the mainline `qcrypto` driver expects later CE revisions. ARM optimized software crypto and the Qualcomm hardware RNG remain available.
 - **Analog audio:** The onboard WCD9310/Taiko and APQ8064 SLIMbus/QDSP audio path are not fully supported by upstream mainline Linux. USB Audio Class adapters are the practical audio workaround.
 - **HDMI audio:** An upstream LPASS CPU DAI path for APQ8064 HDMI audio is not available.
 - **HDMI scanout:** MSM DRM and headless GPU rendering work, but physical HDMI output, connector detection, DDC, and HPD timing still require validation/further work.
-- **GPU regulators and cooling:** The current device tree has no named GPU `vdd`/`vddcx` supplies, resulting in dummy-regulator messages. GPU devfreq cooling registration also remains unavailable. These are nonfatal for the tested headless GPU path.
 - **Bluetooth:** The Atheros AR3002 controller on GSBI6 UART (`/dev/ttyMSM1`) remains under investigation.

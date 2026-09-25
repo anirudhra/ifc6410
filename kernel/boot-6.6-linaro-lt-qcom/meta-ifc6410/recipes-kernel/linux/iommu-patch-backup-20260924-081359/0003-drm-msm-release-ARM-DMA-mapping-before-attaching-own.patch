@@ -1,0 +1,52 @@
+From 692887281bd44e5c0ef96a48cf4accbd46f1f31e Mon Sep 17 00:00:00 2001
+From: IFC6410 backport scratch <ifc6410-backport@localhost>
+Date: Wed, 23 Sep 2026 22:34:25 -0700
+Subject: [PATCH 3/3] drm/msm: release ARM DMA mapping before attaching own
+ domain
+
+On ARM32, the architecture DMA setup may have already attached a mapping domain to the device IOMMU group. Detach and release that mapping before attaching the MSM-managed domain, avoiding an attach failure with -EBUSY.
+
+diff --git a/drivers/gpu/drm/msm/msm_iommu.c b/drivers/gpu/drm/msm/msm_iommu.c
+index 5cc8d358c..12238b103 100644
+--- a/drivers/gpu/drm/msm/msm_iommu.c
++++ b/drivers/gpu/drm/msm/msm_iommu.c
+@@ -6,6 +6,11 @@
+ 
+ #include <linux/adreno-smmu-priv.h>
+ #include <linux/io-pgtable.h>
++
++#if IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)
++#include <asm/dma-iommu.h>
++#endif
++
+ #include "msm_drv.h"
+ #include "msm_mmu.h"
+ 
+@@ -379,6 +384,9 @@ struct msm_mmu *msm_iommu_new(struct device *dev, unsigned long quirks)
+ {
+ 	struct iommu_domain *domain;
+ 	struct msm_iommu *iommu;
++#if IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)
++	struct dma_iommu_mapping *mapping;
++#endif
+ 	int ret;
+ 
+ 	domain = iommu_domain_alloc(dev->bus);
+@@ -398,6 +406,14 @@ struct msm_mmu *msm_iommu_new(struct device *dev, unsigned long quirks)
+ 
+ 	atomic_set(&iommu->pagetables, 0);
+ 
++#if IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)
++	mapping = to_dma_iommu_mapping(dev);
++	if (mapping) {
++		arm_iommu_detach_device(dev);
++		arm_iommu_release_mapping(mapping);
++	}
++#endif
++
+ 	ret = iommu_attach_device(iommu->domain, dev);
+ 	if (ret) {
+ 		iommu_domain_free(domain);
+-- 
+2.48.1
+
