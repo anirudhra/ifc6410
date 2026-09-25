@@ -1,326 +1,322 @@
-# meta-ifc6410: Yocto BSP Layer for Inforce IFC6410 (APQ8064)
+# IFC6410 Linux 6.6 / Yocto Kernel Release
 
-This Yocto BSP layer provides hardware enablement, kernel configuration fragments, device-tree fixes, Linux kernel backports, and essential firmware for the **Inforce IFC6410** single-board computer (Qualcomm Snapdragon S4 Pro / APQ8064 Krait 300) running **Linux 6.6.y (`linux-linaro-qcomlt`)** on the Yocto Project **`scarthgap`** release.
+This repository contains the reproducible Yocto BSP-layer source, configuration provenance, and release metadata for a validated **Linux 6.6** kernel build for the **Inforce IFC6410** single-board computer, based on Qualcomm's Snapdragon S4 Pro / **APQ8064** platform with Krait 300 CPUs and an Adreno 320 GPU.
 
-Placing these board-specific customizations inside `meta-ifc6410` allows upstream `poky` and `meta-qcom` to track their respective Git branches cleanly without merge conflicts or local tree modifications.
+The kernel is built by Yocto from `linux-linaro-qcomlt` on the Project `scarthgap` release. The included `meta-ifc6410` layer carries IFC6410-specific kernel configuration, device-tree fixes, firmware staging layout, and MSM IOMMU/DRM backports. The validated layer revision is:
 
-> **Current status:** the Linux 6.6 MSM DRM / Adreno path is working on the IFC6410. The system boots through DRM initialization, Mesa identifies the hardware renderer as **Freedreno FD320** through both surfaceless EGL and GBM, and the A300 PM4/PFP firmware loads successfully. HDMI scanout remains separately under investigation because no active connector/mode has yet been validated.
+```text
+meta-ifc6410: b047f0ea8f89d089e675778a78ef784e73a1e115
+```
 
----
-
-## 1. What This Layer Adds Over Vanilla `meta-qcom`
-
-Upstream `meta-qcom` provides a generic `qcom-armv7a` baseline for 32-bit Qualcomm targets, but the IFC6410 requires specific platform plumbing:
-
-1. **CPUFreq Bootloader Pinning & CPUIdle Support:**
-   * Upstream mainline Linux 6.6 lacks the necessary Device Tree OPP tables and speed-bin efuse wiring (`nvmem-cells`) for APQ8064 Krait cores, causing `qcom-cpufreq-nvmem` to fail during probe with `-ENOENT` (`-2`).
-   * Low idle temperatures are maintained through the Sawtooth Power Manager (SPM) driver and Standalone Power Collapse (`spc`), which dynamically gates clocks and cuts power rails to idle cores.
-
-2. **Hardware Cryptography & RNG Enablement:**
-   * Enables `CONFIG_CRYPTO_DEV_QCOM_RNG=m` (`qcom-rng`), hooking the APQ8064 on-chip PRNG hardware (`qcom,prng` at `0x1a500000`) into the kernel Crypto API as the primary system `stdrng`.
-   * Enables ARM NEON/assembly-optimized symmetric crypto (`aes-arm-bs`, `sha256-arm`) in the kernel.
-
-3. **Silencing Bogus Sensor Warnings:**
-   * The IFC6410 PCB does not populate a Bosch BMP085/BMP280 barometer.
-   * `meta-ifc6410` disables `CONFIG_BMP280` (`_SPI` and `_I2C`), preventing driver-registration warnings (`SPI driver bmp280 has no spi_device_id for bosch,bmp085`) and saving boot cycles.
-
-4. **Power Management & PM8921 Regulator Overrides:**
-   * Upstream 6.6 DT triggers probe errors parsing RPM regulators. A DTS patch sets explicit voltages for `pm8921_s2` (1.3V), `pm8921_s8` (2.05V), and forces the `pm8921_ncp` negative charge pump (1.8V) to resolve regulator registration failures.
-
-5. **QFPROM MMIO Resource Mapping:**
-   * Fixes the missing `qfprom_physical` address region (`<0x00700000 0x6100>`) under the HDMI TX node in `qcom-apq8064.dtsi`.
-
-6. **Direct Bootloader Command-Line Configuration:**
-   * Overrides `APPEND` in `conf/machine/qcom-armv7a.conf` to target the default root disk on SATA/USB (`/dev/sda1`), enforce SATA non-queued commands (`libata.force=1.5Gbps,noncq`), set unified cgroups v2 (`systemd.unified_cgroup_hierarchy=1`), and route the serial console to `ttyMSM0` at 115200 baud without manual `abootimg` repacking.
-
-7. **802.11n Enablement:**
-   * Overrides the no-HT bit in the `ath6kl` driver, enabling 802.11n high-throughput support on the AR6004 chipset that upstream firmware otherwise leaves unadvertised.
-
-8. **Integrated Onboard Firmware Blobs:**
-   * Ships and stages essential non-redistributable firmware:
-     * Atheros AR6004 Wi-Fi: FW API 5 (`fw-5.bin`) and calibrated board data (`bdata.bin`).
-     * Adreno 320 GPU microcode: `a300_pfp.fw` and `a300_pm4.fw`.
-     * Realtek USB Gigabit Ethernet: RTL8152/RTL8153 firmware.
-     * Wireless Regulatory Database (`regulatory.db` and signature).
-
-9. **MSM IOMMU / Adreno 320 Bring-Up:**
-   * Backports the ARM32 MSM IOMMU fixes required when the platform’s legacy ARM DMA-IOMMU mapping conflicts with the MSM DRM driver’s own IOMMU domain.
-   * Resets ARM DMA operations before detach, tracks MSM IOMMU context masters per device and IOMMU instance, releases the legacy mapping before DRM attaches its own domain, and allocates ARMv7 IOMMU page tables through the MSM IOMMU device rather than the client GPU/display device.
-   * This resolves the prior Adreno initialization stall on the IFC6410. The validated result is a complete Debian boot, MSM DRM initialization, A300 firmware loading, and Mesa hardware rendering through Freedreno `FD320`.
+> **Validated status:** The board boots to Debian multi-user mode; MSM DRM initializes; Adreno A3xx binds to MDP4; the `a300_pm4.fw` and `a300_pfp.fw` microcode files load; and Mesa 25.0.7 identifies the hardware renderer as **Freedreno FD320** through both surfaceless EGL and GBM. HDMI scanout remains a separate work item because no attached display/active connector mode has been validated.
 
 ---
 
-## 2. MSM IOMMU Attribution
+## Repository Contents
 
-The MSM IOMMU and DRM-side fix direction in this layer is derived from Dmitry Baryshkov’s Linux kernel ARM32 MSM-IOMMU patch series, with review and technical discussion from the Linux ARM, DRM, IOMMU, and Freedreno communities. The local patches are adapted to the `linux-linaro-qcomlt` Linux 6.6 baseline and the IFC6410 Yocto layer; they are not claimed to be an unchanged upstream series.
+```text
+.
+├── boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img
+├── modules--6.6-r0-qcom-armv7a-20260924162336.tgz
+├── qcom-apq8064-ifc6410.dtb
+├── meta-ifc6410/
+│   ├── conf/
+│   │   ├── layer.conf
+│   │   └── machine/qcom-armv7a.conf
+│   └── recipes-kernel/linux/
+│       ├── files/
+│       │   ├── 0001-ARM-dma-mapping-reset-DMA-ops-before-IOMMU-detach.patch
+│       │   ├── 0001-ARM-dts-ifc6410-add-audio-clock-and-regulator-nodes.patch
+│       │   ├── 0001-ARM-dts-qcom-apq8064-Add-qfprom_physical-memory-reso.patch
+│       │   ├── 0002-iommu-msm-track-a-context-master-per-device-and-IOMM.patch
+│       │   ├── 0003-ath6kl-force-enable-ht-cap-override.patch
+│       │   ├── 0003-iommu-msm-use-the-IOMMU-device-for-page-table-allocation.patch
+│       │   ├── 0004-ARM-dts-qcom-ifc6410-add-Krait-CPU-clock-topology.patch
+│       │   ├── 0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch
+│       │   ├── 0005-ARM-dts-qcom-ifc6410-add-initial-CPU-OPP-table.patch
+│       │   ├── 0006-ARM-dts-qcom-ifc6410-select-default-CPU-speed-bin.patch
+│       │   ├── 0007-ARM-dts-qcom-ifc6410-add-CPU-thermal-cooling-maps.patch
+│       │   ├── firmware/                         # local-only; ignored by Git
+│       │   └── ifc6410.cfg
+│       └── linux-linaro-qcomlt_%.bbappend
+└── releases/
+    ├── ifc6410-kernel-config-20260924-100651/
+    │   ├── ifc6410-linux-6.6-effective.config
+    │   ├── PROVENANCE.txt
+    │   └── SHA256SUMS
+    ├── ifc6410-kernel-config-20260924-100651.tar.gz.sha256
+    ├── ifc6410-msm-iommu-fd320-20260924-092201/
+    │   ├── kernel-patches/
+    │   ├── linux-linaro-qcomlt_%.bbappend
+    │   ├── meta-ifc6410.commit
+    │   ├── meta-ifc6410.commit-details.txt
+    │   ├── meta-ifc6410.patch
+    │   ├── meta-ifc6410.status
+    │   └── VALIDATION.txt
+    ├── ifc6410-msm-iommu-fd320-20260924-092201.tar.gz.sha256
+    ├── meta-ifc6410-b047f0e-20260924-091913.bundle
+    └── meta-ifc6410-b047f0e-20260924-091913.bundle.sha256
+```
 
-Primary upstream discussion and patches:
+The timestamped boot image, DTB, and module archive belong to the same validated build and should be used together. The dated `releases/ifc6410-kernel-config-20260924-100651/` directory is the authoritative source for the final effective kernel configuration and its provenance.
+
+---
+
+## Release Artifacts
+
+| Artifact | Purpose |
+|---|---|
+| `boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img` | Fastboot-compatible IFC6410 boot image from the validated build |
+| `qcom-apq8064-ifc6410.dtb` | Device tree blob matching the boot image |
+| `modules--6.6-r0-qcom-armv7a-20260924162336.tgz` | Kernel modules matching the kernel build |
+| `meta-ifc6410/` | Yocto BSP layer, configuration fragment, device-tree patches, and kernel backports |
+| `releases/ifc6410-kernel-config-20260924-100651/` | Effective compiled `.config`, SHA-256 checksum, and build provenance |
+| `releases/ifc6410-msm-iommu-fd320-20260924-092201/` | Patch, commit, and runtime-validation record for the working MSM IOMMU/Adreno path |
+| `releases/meta-ifc6410-b047f0e-20260924-091913.bundle` | Portable Git bundle containing the validated `meta-ifc6410` commit |
+
+Before flashing or sharing an artifact, verify its corresponding SHA-256 checksum from the release metadata.
+
+---
+
+## `meta-ifc6410` Changes
+
+Upstream `meta-qcom` provides the generic `qcom-armv7a` baseline, but the IFC6410 needs additional board-specific work.
+
+### CPU, regulators, and power management
+
+- Adds APQ8064 Krait CPU clock topology, initial OPP data, and default speed-bin selection in the device tree.
+- Provides regulator overrides for the PM8921/RPM setup, including explicit settings for `pm8921_s2`, `pm8921_s8`, and the `pm8921_ncp` negative charge pump.
+- Enables CPUIdle/Standalone Power Collapse (`spc`) support used to power down idle Krait cores.
+- The current Linux 6.6 baseline does not yet have the required APQ8064 nvmem speed-bin integration for working `qcom-cpufreq-nvmem`; the CPU therefore runs at a bootloader-selected frequency.
+
+### Device tree and platform fixes
+
+- Adds the missing `qfprom_physical` MMIO resource under the APQ8064 HDMI transmitter node.
+- Adds board audio clock/regulator device-tree nodes.
+- Configures the Yocto boot command line for a SATA/USB root filesystem at `/dev/sda1`, serial console on `ttyMSM0` at 115200 baud, cgroups v2, and conservative SATA operation with `libata.force=1.5Gbps,noncq`.
+
+### Networking, crypto, and firmware layout
+
+- Enables the Qualcomm hardware random-number generator (`qcom-rng`) and ARM NEON/assembly-optimized cryptography.
+- Disables BMP280 sensor support because the IFC6410 PCB does not populate that sensor, avoiding irrelevant probe warnings.
+- Applies the `ath6kl` high-throughput capability override for the onboard AR6004 Wi-Fi device.
+- Defines the local firmware staging layout used by the kernel recipe.
+
+### MSM IOMMU and Adreno 320
+
+The layer includes four related ARM32 IOMMU/DRM backports:
+
+1. `0001-ARM-dma-mapping-reset-DMA-ops-before-IOMMU-detach.patch`
+2. `0002-iommu-msm-track-a-context-master-per-device-and-IOMM.patch`
+3. `0003-iommu-msm-use-the-IOMMU-device-for-page-table-allocation.patch`
+4. `0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch`
+
+Together they handle the interaction between the legacy ARM DMA-IOMMU mapping and the DRM/MSM driver's own IOMMU domain. In particular, page tables are allocated through the MSM IOMMU device instead of through the transitioning GPU/display client device. This resolves the earlier Adreno address-space initialization stall on the IFC6410.
+
+---
+
+## Upstream Attribution
+
+The MSM IOMMU and DRM-side fix direction in this layer derives from the ARM32 MSM-IOMMU patch series posted by **Dmitry Baryshkov**, with review and discussion from Linux ARM, DRM, IOMMU, and Freedreno maintainers and contributors. The local patches are adapted for the Linux 6.6 `linux-linaro-qcomlt` baseline and the IFC6410 Yocto BSP; they are not represented as an unchanged upstream patch series.
+
+Primary upstream discussion and patch references:
 
 - [PATCH v2 0/3: Fix GPU and display on ARM32 platforms using the MSM IOMMU](https://lkml.iu.edu/2607.3/13676.html)
 - [PATCH v2 1/3: iommu/msm: track a context master per device and IOMMU](http://lists.infradead.org/pipermail/linux-arm-kernel/2026-July/1156397.html)
 - [PATCH v2 2/3: iommu/msm: use the IOMMU device for page table allocation](https://lkml.org/lkml/2026/7/30/1922)
 - [PATCH v2 3/3: drm/msm: detach the ARM DMA mapping before attaching our own domain](https://lists.freedesktop.org/archives/dri-devel/2026-July/585692.html)
 
-The local 6.6 backport is validated on an APQ8064/IFC6410 with Mesa 25.0.7: both `eglinfo -B -p surfaceless` and `eglinfo -B -p gbm` report `freedreno` / `FD320`.
-
 ---
 
-## 3. Platform Constraints & Realities (Kernel 6.6)
+## Firmware Notice
 
-* **Hardware Crypto Engine (`qce` / `qcrypto`):**
-  * The mainline kernel driver `qcrypto` (`drivers/crypto/qce`) is hardcoded to require Qualcomm Crypto Engine (CE) v5.1+ (`major == 5 && minor > 0`).
-  * APQ8064 utilizes **CE version 4** (CE4), so the mainline `qce` driver rejects it at runtime with `-ENODEV`. Asymmetric and symmetric operations rely on ARM NEON/assembly implementations, while the hardware PRNG (`qcom-rng`) provides genuine on-chip entropy.
-
-* **CPU DVFS vs. CPUIdle:**
-  * Mainline kernel lacks the nvmem speed-bin bindings required by `qcom-cpufreq-nvmem`. The CPU operates at the bootloader-selected static frequency.
-  * Idle temperature drops are achieved via CPUIdle state 1 (`spc` / Standalone Power Collapse), which completely powers down idle cores.
-
-* **Audio:**
-  * **Analog (Headphone/Mic):** The IFC6410 onboard codec is the Qualcomm **WCD9310 (Taiko)** connected over SLIMbus. Upstream mainline Linux does not have a driver for WCD9310 or the APQ8064 QDSP4/LPASS SLIMbus audio engine. Native 3.5 mm analog audio is therefore unavailable under mainline 6.6.
-  * **HDMI Audio:** While the HDMI transmitter codec driver (`CONFIG_SND_SOC_HDMI_CODEC`) is enabled, APQ8064 lacks an upstream LPASS CPU DAI driver to feed PCM samples into the HDMI FIFO.
-  * **Workaround:** For audio output or input, use any standard USB Audio Class (UAC1/UAC2) adapter; `CONFIG_SND_USB_AUDIO=y` works out of the box.
-
-* **MMC Device Indexing (6.6 vs. 4.x):**
-  * On modern kernels, the SD card registers as `/dev/mmcblk0`, and onboard eMMC registers as `/dev/mmcblk2` (the userdata partition is `/dev/mmcblk2p13`).
-
-* **GPU / DRM / HDMI:**
-  * The MSM DRM driver initializes successfully, Adreno 320 binds to MDP4, and `qcom/a300_pm4.fw` plus `qcom/a300_pfp.fw` load successfully.
-  * Headless hardware acceleration is validated through Mesa Freedreno: surfaceless EGL and GBM both report renderer `FD320`, with OpenGL ES 3.0 and OpenGL 3.1 exposed by Mesa 25.0.7.
-  * HDMI/DRM scanout is not yet validated. Without a display attached, DRM reports no active CRTC/mode; HDMI output, connector detection, DDC, and HPD timing remain separate work items.
-  * The current device tree does not provide named GPU `vdd` and `vddcx` regulator supplies, so the DRM driver uses dummy regulators. GPU devfreq cooling registration also still fails. These messages are nonfatal for the validated headless GPU path.
-
-* **Bluetooth (Not Working / Under Debug):**
-  * The Atheros AR3002 Bluetooth controller connected via GSBI6 UART (`/dev/ttyMSM1`) does not currently initialize or complete firmware handshakes cleanly via `hciattach`. Bluetooth support is non-functional and under active investigation.
-
----
-
-## 4. Repository Layout
+Firmware is intentionally excluded from this Git repository for licensing and redistribution reasons. The directory below is ignored by Git but must be populated locally before building an image that uses the affected hardware:
 
 ```text
-meta-ifc6410/
-├── conf/
-│   ├── layer.conf
-│   └── machine/
-│       └── qcom-armv7a.conf
-└── recipes-kernel/
-    └── linux/
-        ├── files/
-        │   ├── 0001-ARM-dts-qcom-apq8064-Add-qfprom_physical-memory-reso.patch
-        │   ├── 0001-ARM-dma-mapping-reset-DMA-ops-before-IOMMU-detach.patch
-        │   ├── 0002-iommu-msm-track-a-context-master-per-device-and-IOMM.patch
-        │   ├── 0003-iommu-msm-use-the-IOMMU-device-for-page-table-allocation.patch
-        │   ├── 0004-drm-msm-release-ARM-DMA-mapping-before-attaching-own.patch
-        │   ├── ifc6410.cfg
-        │   └── firmware/
-        │       ├── ath6k/
-        │       │   └── AR6004/
-        │       │       └── hw3.0/
-        │       │           ├── bdata.bin
-        │       │           └── fw-5.bin
-        │       ├── qcom/
-        │       │   ├── a300_pfp.fw
-        │       │   └── a300_pm4.fw
-        │       ├── regulatory.db
-        │       ├── regulatory.db.p7s
-        │       └── rtl_nic/
-        │           ├── rtl8152a-4.fw
-        │           └── rtl8153a-4.fw
-        └── linux-linaro-qcomlt_%.bbappend
+meta-ifc6410/recipes-kernel/linux/files/firmware/
 ```
+
+The local build has used firmware for the following devices:
+
+- Atheros AR6004 Wi-Fi (`ath6k/AR6004/hw3.0/`), including `fw-5.bin` and calibrated board data.
+- Atheros AR3K Bluetooth (`ar3k/`).
+- Qualcomm Adreno 320 microcode (`qcom/a300_pfp.fw` and `qcom/a300_pm4.fw`).
+- Realtek RTL815x Ethernet firmware (`rtl_nic/`).
+- Wireless regulatory database (`regulatory.db` and `regulatory.db.p7s`).
+
+Obtain and redistribute firmware only under its original vendor or distribution licensing terms. The source layer remains usable without committing these binary firmware files, but affected hardware requires them at runtime.
 
 ---
 
-## 5. Setup and Build Instructions
+## Building
 
-Always run BitBake builds as a standard, non-root user.
+Run BitBake as a standard non-root user.
 
-### Step 5.1: Clone Upstream Repositories
-
-Create your root workspace and clone `poky` and `meta-qcom` tracking the `scarthgap` branch:
+### Clone the Yocto sources
 
 ```bash
-mkdir -p ~/yocto-ifc6410 && cd ~/yocto-ifc6410
+mkdir -p ~/yocto-ifc6410
+cd ~/yocto-ifc6410
+
 git clone -b scarthgap https://git.yoctoproject.org/poky
 git clone -b scarthgap https://git.yoctoproject.org/meta-qcom poky/meta-qcom
+git clone <your-meta-ifc6410-repository-url> poky/meta-ifc6410
 ```
 
-### Step 5.2: Add `meta-ifc6410` Layer
-
-Clone or copy this `meta-ifc6410` repository directly into `poky/` alongside `meta-qcom`:
-
-```bash
-# If using git:
-git clone <your-meta-ifc6410-repo-url> poky/meta-ifc6410
-
-# Or if copying from an existing local path:
-cp -a /path/to/meta-ifc6410 poky/
-```
-
-### Step 5.3: Initialize Build Environment
-
-Initialize the build directory for the `qcom-armv7a` machine target:
+### Initialize and configure the build
 
 ```bash
 cd ~/yocto-ifc6410/poky
 source oe-init-build-env build/qcom-armv7a
-```
 
-### Step 5.4: Register Layers in `bblayers.conf`
-
-Add both `meta-qcom` and `meta-ifc6410` to the active build configuration:
-
-```bash
 bitbake-layers add-layer ../meta-qcom
 bitbake-layers add-layer ../meta-ifc6410
 
-# Verify active layers:
-bitbake-layers show-layers
-```
-
-### Step 5.5: Configure `local.conf`
-
-Set the target machine architecture in `conf/local.conf`:
-
-```bash
 echo 'MACHINE = "qcom-armv7a"' >> conf/local.conf
-```
 
-Verify that BitBake binds the append file to the kernel recipe:
-
-```bash
 bitbake-layers show-appends | grep -A 6 "linux-linaro-qcomlt"
 ```
 
-### Step 5.6: Compile the Kernel
+Populate the local firmware directory described above before building if Wi-Fi, Bluetooth, GPU, Realtek Ethernet firmware, or the regulatory database are required.
 
-Build the active kernel provider:
+### Build the kernel
 
 ```bash
 bitbake virtual/kernel
 ```
 
-A timestamped IFC6410 fastboot boot image, kernel binaries, DTBs, and a modules archive are emitted below:
+Kernel images, DTBs, boot images, and modules are generated under:
 
 ```text
 tmp/deploy/images/qcom-armv7a/
 ```
 
-For example, recent builds produce a file with this naming pattern:
+The IFC6410 boot image normally follows this pattern:
 
 ```text
 boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<timestamp>.img
 ```
 
-To build a full userspace root filesystem:
+Build a full userspace image, if needed, with:
 
 ```bash
 bitbake core-image-base
 ```
 
-### Step 5.7: Back Up the Effective Kernel Configuration
+### Preserve the effective kernel config
 
-The source fragment `recipes-kernel/linux/files/ifc6410.cfg` is an input, but the authoritative resolved configuration is the compiled `.config` under the kernel recipe build directory:
+`meta-ifc6410/recipes-kernel/linux/files/ifc6410.cfg` is an input fragment. The authoritative resolved configuration is the `.config` generated in the kernel recipe build directory:
 
 ```bash
 cp tmp/work/qcom_armv7a-poky-linux-gnueabi/linux-linaro-qcomlt/6.6/build/.config \
    ifc6410-linux-6.6-effective.config
 ```
 
-Back up that effective configuration together with the `meta-ifc6410` Git revision and the deployed boot image checksum when creating a reproducible release artifact.
+For the validated release in this repository, the effective configuration is retained at:
+
+```text
+releases/ifc6410-kernel-config-20260924-100651/ifc6410-linux-6.6-effective.config
+```
 
 ---
 
-## 6. Booting and Hardware Verification
+## Flashing the IFC6410
 
-### Fastboot Booting
+Put the IFC6410 into fastboot mode, connect the board through micro-USB OTG, and use the **same timestamped boot image, DTB, and modules release set**.
 
-Put the IFC6410 into fastboot mode (reboot to bootloader via serial console or power on with the recovery jumper/button held), connect micro-USB OTG to the host PC, and test-boot into RAM:
-
-```bash
-fastboot boot tmp/deploy/images/qcom-armv7a/boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<timestamp>.img
-```
-
-To flash permanently to the onboard eMMC `boot` partition:
+Test boot into RAM:
 
 ```bash
-fastboot flash boot tmp/deploy/images/qcom-armv7a/boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-<timestamp>.img
+fastboot boot boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img
 ```
 
-### Verification Checklist
+Flash the eMMC boot partition:
 
-1. **Hardware Random Number Generator (PRNG):**
+```bash
+fastboot flash boot boot-qcom-apq8064-ifc6410--6.6-r0-qcom-armv7a-20260924162336.img
+```
 
-   ```bash
-   modprobe qcom-rng
-   grep -B 1 -A 8 "qcom-rng" /proc/crypto
-   ```
+Use the board's normal recovery method and keep a known-good image available before permanently flashing experimental builds.
 
-   *Expected result:* `qcom-rng` is registered as `stdrng` with `priority: 300` and `selftest: passed`, feeding hardware entropy to `/dev/urandom`.
+---
 
-2. **CPU Clocks & Regulators:**
+## Hardware Verification
 
-   ```bash
-   dmesg | grep -iE 'ncp|pm8921'
-   cat /proc/cpuinfo | grep processor
-   ```
+### MSM DRM and Adreno 320
 
-   *Expected result:* Regulators initialize without DT parsing errors for `pm8921_ncp`. All four Krait cores are online.
+After booting, confirm kernel bring-up:
 
-   Verify CPUIdle Standalone Power Collapse (`spc`) is active:
+```bash
+dmesg -T | grep -Ei 'msm|adreno|iommu|smmu|fault|hang|reset|oops|panic'
+ls -l /dev/dri
+cat /sys/kernel/debug/dri/0/name 2>/dev/null || true
+```
 
-   ```bash
-   cat /sys/devices/system/cpu/cpu0/cpuidle/state1/name
-   ```
+Expected kernel milestones include:
 
-3. **Sensors / Clean Boot Log:**
+```text
+mdp4 ...: bound 4300000.adreno-3xx (ops a3xx_ops)
+[drm] Initialized msm ...
+... loaded qcom/a300_pm4.fw ...
+... loaded qcom/a300_pfp.fw ...
+```
 
-   ```bash
-   dmesg | grep -i bmp
-   ```
+There must be no post-initialization MSM/Adreno/IOMMU fault, GPU hang, oops, or panic.
 
-   *Expected result:* No warning regarding `SPI driver bmp280 has no spi_device_id`.
+### Headless GPU verification
 
-4. **Onboard Wi-Fi (Atheros AR6004 SDIO):**
+A monitor is not required. Verify both Mesa EGL paths over serial:
 
-   ```bash
-   dmesg | grep -i ath6kl
-   ```
+```bash
+eglinfo -B -p surfaceless
+eglinfo -B -p gbm
+```
 
-   *Expected result:* The driver reports `ath6kl: ar6004 hw 3.0 sdio fw 3.5.0.349-1 api 5`, and interface `wlan0` appears in `ip link`.
+Expected hardware result:
 
-5. **Storage & Disk Devices:**
+```text
+OpenGL ES profile vendor: freedreno
+OpenGL ES profile renderer: FD320
+OpenGL ES profile version: OpenGL ES 3.0 Mesa ...
+```
 
-   ```bash
-   lsblk
-   ```
+`FD320` indicates Mesa selected the APQ8064 Adreno 320 GPU through Freedreno rather than using a software renderer such as llvmpipe.
 
-   *Expected result:* SATA SSD registers under `/dev/sda`, external USB drives mount via UAS/Mass Storage, and eMMC partitions show under `/dev/mmcblk2`.
+### Other quick checks
 
-6. **MSM DRM and Adreno 320:**
+```bash
+# Hardware random-number generator
+modprobe qcom-rng
+grep -B 1 -A 8 "qcom-rng" /proc/crypto
 
-   ```bash
-   dmesg -T | grep -Ei 'msm|adreno|iommu|smmu|fault|hang|reset|oops|panic'
-   ls -l /dev/dri
-   cat /sys/kernel/debug/dri/0/name 2>/dev/null || true
-   ```
+# CPU and regulator-related messages
+dmesg | grep -iE 'ncp|pm8921'
+cat /proc/cpuinfo | grep processor
+cat /sys/devices/system/cpu/cpu0/cpuidle/state1/name
 
-   *Expected result:* MSM DRM initializes, Adreno binds to MDP4, and the log includes loading of `qcom/a300_pm4.fw` and `qcom/a300_pfp.fw`. There must be no post-initialization MSM/Adreno/IOMMU fault, GPU hang, oops, or panic.
+# Wi-Fi firmware/driver
+dmesg | grep -i ath6kl
+ip link
 
-7. **Headless Hardware GPU Rendering:**
+# Storage layout
+lsblk
+```
 
-   No monitor is required. Use both EGL platforms:
+Expected platform behavior:
 
-   ```bash
-   eglinfo -B -p surfaceless
-   eglinfo -B -p gbm
-   ```
+- `qcom-rng` is available as a hardware entropy source.
+- All four Krait cores are online; CPUIdle `spc` support is present when enabled by the active configuration.
+- AR6004 Wi-Fi reports its firmware/API version and creates a `wlan0` interface when firmware is supplied.
+- SATA storage appears as `/dev/sda`; eMMC appears as `/dev/mmcblk2` on the modern kernel.
 
-   *Expected result:* Both commands identify the hardware renderer:
+---
 
-   ```text
-   OpenGL ES profile vendor: freedreno
-   OpenGL ES profile renderer: FD320
-   OpenGL ES profile version: OpenGL ES 3.0 Mesa ...
-   ```
+## Known Limitations
 
-   `FD320` confirms that Mesa selected the APQ8064’s Adreno 320 GPU through Freedreno rather than using a software renderer such as llvmpipe.
+- **CPU frequency scaling:** APQ8064 speed-bin/nvmem support required by `qcom-cpufreq-nvmem` is incomplete in this Linux 6.6 baseline. The CPUs operate at the bootloader-selected rate.
+- **QCE crypto acceleration:** APQ8064 has CE4 hardware, while the mainline `qcrypto` driver expects later CE revisions. ARM optimized software crypto and the Qualcomm hardware RNG remain available.
+- **Analog audio:** The onboard WCD9310/Taiko and APQ8064 SLIMbus/QDSP audio path are not fully supported by upstream mainline Linux. USB Audio Class adapters are the practical audio workaround.
+- **HDMI audio:** An upstream LPASS CPU DAI path for APQ8064 HDMI audio is not available.
+- **HDMI scanout:** MSM DRM and headless GPU rendering work, but physical HDMI output, connector detection, DDC, and HPD timing still require validation/further work.
+- **GPU regulators and cooling:** The current device tree has no named GPU `vdd`/`vddcx` supplies, resulting in dummy-regulator messages. GPU devfreq cooling registration also remains unavailable. These are nonfatal for the tested headless GPU path.
+- **Bluetooth:** The Atheros AR3002 controller on GSBI6 UART (`/dev/ttyMSM1`) remains under investigation.
