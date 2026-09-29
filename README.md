@@ -21,6 +21,44 @@ Look within the kernel directory for README.md for more details.
 
 To bootstrap a new rootfs mounted at /mnt/rootfs from the currently booted system, use the bootstrap_rootfs.sh script under .../linux/common directory in the current repo.
 
+## Wi-Fi: Atheros AR6004 (`ath6kl`) MAC Randomization & Scan Fix
+
+### Issue
+
+The AR6004 SDIO hardware rejects runtime MAC address modifications. NetworkManager's default scan MAC randomization triggers netlink `failure 95 (Operation not supported)`, aborting channel scans mid-cycle (`scan aborted!`) and deadlocking target firmware workqueues over SDIO (`Device or resource busy (-16)`).
+
+### Fix
+
+Deploy a NetworkManager configuration drop-in to permanently disable scan MAC randomization and 802.11 power saving:
+
+```bash
+sudo printf '[device]\nwifi.scan-rand-mac-address=no\n\n[connection]\nwifi.powersave=2\nwifi.cloned-mac-address=preserve\nethernet.cloned-mac-address=preserve\n' | sudo tee /etc/NetworkManager/conf.d/00-disable-mac-randomization.conf >/dev/null
+sudo systemctl restart NetworkManager
+```
+
+### Verification Checklist
+
+* [ ] **Scan completes without aborting:**
+
+  ```bash
+  sudo iw dev wlan0 scan | grep "SSID:"
+  ```
+
+* [ ] **Power management is disabled (`off`):**
+
+  ```bash
+  iwconfig wlan0 | grep "Power Management"
+  ```
+
+  *Expected:* `Power Management:off`
+* [ ] **Zero netlink MAC rejection errors in system logs:**
+
+  ```bash
+  journalctl -u NetworkManager --since "1 minute ago" --no-pager | grep -i "failure 95"
+  ```
+
+  *Expected:* No output (exit code 1).
+
 ## Prioritizing LAN over WLAN/WiFi
 
 The WiFi firmware in the repo (latest available) lacks RSN override capability. As a result 802.11n (HT mode) cannot be enabled. WiFi is limited to 54Mbps (802.11g). Prioritizing LAN over WiFi still allows the WiFi to be connected all the time for a fallback (but slower) network.
@@ -85,6 +123,7 @@ back
 save persistent
 quit
 ```
+
 ## SATA: Hard drive
 
 Onboard SATA controller is known to be buggy. It's best to disable it and use USB HDD. If you do manage to make any SSD/HDD work, disable ncq and force 1.5Gbps negotiation in kernel cmdline "libata.force=1.5Gbps,noncq".
@@ -197,6 +236,7 @@ WantedBy=basic.target
 ```
 
 Enable/activate the service:
+
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable --now disable-onboard-eth-sata.service
